@@ -7,13 +7,10 @@
 		<format>tar</format>
 	</formats>
 	<includeBaseDirectory>false</includeBaseDirectory>
-
-  	
-	
 	<fileSets>
 		<!-- Fichiers de l'application -->
 		<fileSet>
-			<directory>src/main/app</directory>
+			<directory>src</directory>
 			<outputDirectory>/</outputDirectory>
 			<filtered>true</filtered>
 		</fileSet>
