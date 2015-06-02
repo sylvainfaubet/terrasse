@@ -8,6 +8,7 @@ define([ "backbone", "handlebars",
 	var DessinView = Backbone.View.extend({
 
 		template : hbTemplate,
+		className:"well col-md-6 col-offset-1",
 
 		scale : 50,
 

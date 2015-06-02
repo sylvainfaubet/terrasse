@@ -145,6 +145,7 @@ define(
 
 						hidePoint : function() {
 							this.removeView(this.views.pointView);
+							
 						},
 
 						renderPoint : function(point) {

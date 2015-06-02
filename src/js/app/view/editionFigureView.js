@@ -34,7 +34,6 @@ define([ "backbone", "handlebars",  "text!app/template/editionFigureView.html" ,
 			});
 
 			this.$el.append(this.views.pointListView.$el);
-			
 			this.views.pointListView.render();
 		},
 		
@@ -55,10 +54,13 @@ define([ "backbone", "handlebars",  "text!app/template/editionFigureView.html" ,
 				collection : this.model.get("points") 
 			});
 
+			
 			this.$el.append(this.views.infoFigureView.$el);
 			
 			this.views.infoFigureView.render();
 		},
+		
+		
 	
 			
 	});

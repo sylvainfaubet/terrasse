@@ -39,16 +39,16 @@ define([], function() {
 		create : function(model) {
 			if (!model.id)
 				model.set(model.idAttribute, guid());
-			this.data[model.id] = model;
+			this.data[model.id] = model.toJSON ? model.toJSON() : model;
 			this.save();
-			return model;
+			return model.toJSON ? model.toJSON() : model;
 		},
 
 		// Update a model by replacing its copy in `this.data`.
 		update : function(model) {
-			this.data[model.id] = model;
+			this.data[model.id] = model.toJSON ? model.toJSON() : model;
 			this.save();
-			return model;
+			return model.toJSON ? model.toJSON() : model;
 		},
 
 		// Retrieve a model from `this.data` by id.

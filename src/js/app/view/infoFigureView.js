@@ -7,6 +7,7 @@ define([ "backbone", "handlebars",
 			var InfoFigureView = Backbone.View.extend({
 
 				template : hbTemplate,
+				className :"col-md-3",
 
 				events : {
 

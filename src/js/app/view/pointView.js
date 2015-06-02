@@ -33,7 +33,6 @@ define([ "backbone", "handlebars",
 			});
 
 			console.log(this.model.toJSON());
-
 			this.trigger("modelOk", this.model);
 		}
 

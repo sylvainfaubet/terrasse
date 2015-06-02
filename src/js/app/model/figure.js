@@ -22,6 +22,17 @@ define([ "backbone","app/model/collection/points"
 			
 			return json;
 		},
+		
+		toJSON:function(){
+			var json = {};
+			json.name = this.get("name");
+			if(this.get("update") && this.get("update").length > this.get("points").length){
+				json.points = this.get("update") ? this.get("update").toJSON() : this.get("update");
+			}else{
+				json.points = this.get("points") ? this.get("points").toJSON() : this.get("points");
+			}
+			return json;
+		}
 
 	});
 
