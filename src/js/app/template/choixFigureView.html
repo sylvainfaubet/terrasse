@@ -1,8 +1,16 @@
-<h1>choisir une figure</h1>
 <div class="row well">
-<select id="figureList" class="bootstrap-select btn-group col-xs-12">
-</select></div>
+{{#if collectionPresente}}
 
+  <p>choisir une figure</p>
+<select id="figureList" class="bootstrap-select btn-group col-xs-12">
+</select>
+{{else}}
+  <p> cliquer sur ajouter pour creer une figure</p>
+{{/if}}
+</div>
 <div class="row ">
 <button id="newFigure" class="btn btn-primary col-xs-6">ajouter</button>
-  <button id="editFigure" class="btn btn-default col-xs-6">editer</button></div>
+{{#if collectionPresente}} 
+<button id="editFigure" class="btn btn-default col-xs-6">editer</button>
+ {{/if}}  
+</div>

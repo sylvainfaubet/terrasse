@@ -7,6 +7,7 @@ define([ "backbone", "handlebars",
 	var PointView = Backbone.View.extend({
 
 		template : hbTemplate,
+		className: "",
 
 		events : {
 			"click #save" : "setModel",

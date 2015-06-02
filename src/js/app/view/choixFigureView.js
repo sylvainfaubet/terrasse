@@ -21,9 +21,12 @@ define([ "backbone", "handlebars", "text!app/template/choixFigureView.html", "ap
 			info("ChoixFigureView : [ENTER] : render");
 			
 			var data = {};
+			data.collectionPresente=this.collection.length>0;
 			this.$el.html(this.template(data));
+			if(this.collection.length>0){
+				this.renderList(this.collection);
+			}
 			
-			this.renderList(this.collection);
 		},
 		
 		renderList:function(collection){
