@@ -1,16 +1,18 @@
+<div class="container">
 <div class="row well">
 {{#if collectionPresente}}
 
   <p>choisir une figure</p>
-<select id="figureList" class="bootstrap-select">
+<select id="figureList" class="form-control col-xs-12">
 </select>
 {{else}}
   <p> cliquer sur ajouter pour creer une figure</p>
 {{/if}}
 </div>
-<div class="row ">
+<div class="row pull-right">
 <button id="newFigure" class="btn btn-primary">ajouter</button>
 {{#if collectionPresente}} 
 <button id="editFigure" class="btn btn-default">editer</button>
  {{/if}}  
+</div>
 </div>

@@ -33,7 +33,7 @@ define([ "backbone", "handlebars",  "text!app/template/editionFigureView.html" ,
 				collection : this.model.get("points") 
 			});
 
-			this.$el.append(this.views.pointListView.$el);
+			this.$("#vue-liste").html(this.views.pointListView.$el);
 			this.views.pointListView.render();
 		},
 		
@@ -43,7 +43,7 @@ define([ "backbone", "handlebars",  "text!app/template/editionFigureView.html" ,
 				collection : this.model.get("points") 
 			});
 
-			this.$el.append(this.views.dessinView.$el);
+			this.$("#vue-canvas").html(this.views.dessinView.$el);
 			
 			this.views.dessinView.render();
 		},
@@ -55,7 +55,7 @@ define([ "backbone", "handlebars",  "text!app/template/editionFigureView.html" ,
 			});
 
 			
-			this.$el.append(this.views.infoFigureView.$el);
+			this.$("#info-figure").html(this.views.infoFigureView.$el);
 			
 			this.views.infoFigureView.render();
 		},
