@@ -7,7 +7,7 @@ define([ "backbone", "handlebars",
 	var PointView = Backbone.View.extend({
 
 		template : hbTemplate,
-		className: "",
+		
 
 		events : {
 			"click #save" : "setModel",
@@ -29,8 +29,8 @@ define([ "backbone", "handlebars",
 			info("PointView : [ENTER] : setModel");
 
 			this.model.set({
-				x : parseFloat(this.$("#input_x").val()),
-				y : parseFloat(this.$("#input_y").val())
+				x : parseFloat(this.$("#input_x").val().replace(",",".")),
+				y : parseFloat(this.$("#input_y").val().replace(",","."))
 			});
 
 			console.log(this.model.toJSON());
