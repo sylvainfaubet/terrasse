@@ -56,7 +56,7 @@ define(
 								listElem.append(itemView.$el);
 
 								if (i == 0) {
-									this.selectedItem = itemView;
+									this.selectedItem = itemView.model;
 								}
 							}
 
@@ -79,7 +79,7 @@ define(
 
 						itemSelected : function(view) {
 							info("PointListView : [ENTER] : itemSelected");
-							this.selectedItem = view;
+							this.selectedItem = view.model;
 							this.deselectAll();
 							view.states.set("selected", true);
 						},
@@ -117,7 +117,7 @@ define(
 						modifierElem : function() {
 							info("PointListView : [ENTER] : modifierElem");
 							if (this.selectedItem) {
-								this.renderPoint(this.selectedItem.model);
+								this.renderPoint(this.selectedItem);
 							}
 						},
 
@@ -140,7 +140,7 @@ define(
 
 						addPointToCollection : function(point) {
 							this.collection.push(point);
-							
+							this.selectedItem = point;
 						},
 
 						hidePoint : function() {

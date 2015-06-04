@@ -39,11 +39,10 @@ define(
 							this.removeAllView();
 
 							this.views.choixFigures = new ChoixFigureView({
-								el:this.$(".container"),
 								collection : this.collections.figures
 							});
 
-//							this.$(".container").append(this.views.choixFigures.$el);
+							this.$(".container").html(this.views.choixFigures.$el);
 
 							this.listenTo(this.views.choixFigures, "ajout",
 									this.ajouterFigure);
@@ -76,11 +75,10 @@ define(
 							this.removeAllView();
 
 							this.views.editionFigures = new EditionFigureView({
-								el:this.$(".container"),
 								model : figure
 							});
 
-//							this.$(".container").append(this.views.editionFigures.$el);
+							this.$(".container").html(this.views.editionFigures.$el);
 
 							this.views.editionFigures.render();
 						},
