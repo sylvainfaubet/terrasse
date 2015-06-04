@@ -21,6 +21,9 @@ define(
 
 						initialize : function(args) {
 							info("PointListView : [ENTER] : initialize");
+							
+							this.states = new Backbone.Model();
+							
 							this.itemViewArray = new Array();
 
 							this.views = {};
@@ -33,6 +36,7 @@ define(
 							info("PointListView : [ENTER] : render");
 
 							var data = {};
+							
 							this.$el.html(this.template(data));
 							this.$elList = this.$("#liste");
 							this.renderList(this.collection);
@@ -44,6 +48,9 @@ define(
 							this.removeOldItemView();
 
 							for ( var i = 0; i < collection.length; i++) {
+								
+								
+								
 								var itemView = this.renderItem(
 										collection.models[i], i);
 
@@ -55,10 +62,10 @@ define(
 
 								listElem.append(itemView.$el);
 
-								if (i == 0) {
-									this.selectedItem = itemView.model;
-								}
+								
 							}
+
+							this.states.set("selectedItem", collection.models[0]);
 
 						},
 
@@ -79,17 +86,16 @@ define(
 
 						itemSelected : function(view) {
 							info("PointListView : [ENTER] : itemSelected");
-							this.selectedItem = view.model;
-							this.deselectAll();
-							view.states.set("selected", true);
-						},
+							this.states.set("selectedItem" , view.model);
+							this.selectItem();
+						l},
 
-						deselectAll : function() {
-							info("PointListView : [ENTER] : deselectAll");
+						selectItem : function() {
+							info("PointListView : [ENTER] : selectItem");
+							var itemSelected = this.get("selectedItem");
 							for ( var i = 0; i < this.itemViewArray.length; i++) {
-
-								this.itemViewArray[i].states.set("selected",
-										false);
+								var itemView = this.itemViewArray[i];
+								itemView.states.set("selected",	itemSelected == itemView.model);
 							}
 						},
 
@@ -116,16 +122,16 @@ define(
 
 						modifierElem : function() {
 							info("PointListView : [ENTER] : modifierElem");
-							if (this.selectedItem) {
-								this.renderPoint(this.selectedItem);
+							if (this.states.get("selectedItem")) {
+								this.renderPoint(this.states.get("selectedItem"));
 							}
 						},
 
 						supprimerElem : function() {
 							info("PointListView : [ENTER] : supprimerElem");
-							if (this.selectedItem) {
-								this.collection.remove(this.selectedItem);
-								this.selectedItem = this.collection.at(0);
+							if (this.states.get("selectedItem")) {
+								this.collection.remove(this.states.get("selectedItem"));
+								this.states.set("selectedItem", this.collection.at(0));
 							}
 						},
 
@@ -140,11 +146,13 @@ define(
 
 						addPointToCollection : function(point) {
 							this.collection.push(point);
-							this.selectedItem = point;
+							
 						},
 
 						hidePoint : function() {
+							this.states.set("selectedItem",this.views.pointView.model);
 							this.removeView(this.views.pointView);
+							this.$("#vue-point").addClass("hidden")
 							
 						},
 
@@ -161,6 +169,8 @@ define(
 							this.listenTo(this.views.pointView, "modelOk",
 									this.hidePoint);
 
+							this.$("#vue-point").removeClass("hidden");
+							
 						},
 						removeView : function(view) {
 							if (view) {
