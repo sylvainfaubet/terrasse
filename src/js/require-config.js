@@ -17,7 +17,10 @@ requirejs.config({
         'localstorage': {
             deps: ['backbone']
             
-        }
+        },
+		'bootstrap':{
+			deps:['jquery']
+		}
     },
 	
 	// Location of libraries
@@ -27,6 +30,7 @@ requirejs.config({
 		
 		handlebars : "handlebars-v3.0.3",
 		backbone : "backbone",
+		bootstrap : "bootstrap",
 		localstorage : "backbone-localstorage",
 		underscore : "underscore-min",
 		jquery : "jquery-1.11.3.min",
@@ -35,4 +39,4 @@ requirejs.config({
 
 });
 
-requirejs(["app/main"]);
+requirejs(["bootstrap","app/main"]);
