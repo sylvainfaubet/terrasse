@@ -29,7 +29,8 @@ define(
 							this.views = {};
 
 							this.listenTo(this.collection, "all", this.render);
-
+							this.listenTo(this.states,"change:selectedItem", this.selectItem);
+							
 						},
 
 						render : function() {
@@ -64,9 +65,10 @@ define(
 
 								
 							}
-
-							this.states.set("selectedItem", collection.models[0]);
-
+							if(!this.states.get("selectedItem")){
+								this.states.set("selectedItem", collection.models[0]);
+							}
+							this.selectItem();
 						},
 
 						renderItem : function(model, numero) {
@@ -87,12 +89,12 @@ define(
 						itemSelected : function(view) {
 							info("PointListView : [ENTER] : itemSelected");
 							this.states.set("selectedItem" , view.model);
-							this.selectItem();
-						l},
+							
+						},
 
 						selectItem : function() {
 							info("PointListView : [ENTER] : selectItem");
-							var itemSelected = this.get("selectedItem");
+							var itemSelected = this.states.get("selectedItem");
 							for ( var i = 0; i < this.itemViewArray.length; i++) {
 								var itemView = this.itemViewArray[i];
 								itemView.states.set("selected",	itemSelected == itemView.model);
@@ -152,7 +154,7 @@ define(
 						hidePoint : function() {
 							this.states.set("selectedItem",this.views.pointView.model);
 							this.removeView(this.views.pointView);
-							this.$("#vue-point").addClass("hidden")
+							$("#vue-point").addClass("hidden")
 							
 						},
 
@@ -163,13 +165,13 @@ define(
 								model : point
 							});
 
-							this.$("#vue-point").html(this.views.pointView.$el);
+							$("#vue-point").html(this.views.pointView.$el);
 							this.views.pointView.render();
 
 							this.listenTo(this.views.pointView, "modelOk",
 									this.hidePoint);
 
-							this.$("#vue-point").removeClass("hidden");
+							$("#vue-point").removeClass("hidden");
 							
 						},
 						removeView : function(view) {

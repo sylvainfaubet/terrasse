@@ -69,6 +69,8 @@ define([ "backbone", "handlebars",
 			// récup des min et max
 			this.minMax = Geometrie.minMax(this.collection.toJSON());
 
+			this.scale = this.$el.width()/(this.minMax.xmax - this.minMax.xmin);
+			
 			// déplacement de l'origine sur le dessin pour caler le coin en haut
 			// à gauche
 			// sur le sommet du rectangle englobant la figure
@@ -116,7 +118,10 @@ define([ "backbone", "handlebars",
 			context.fill();
 			// fermeture de la figure.
 			context.closePath();
-
+			
+			// couleur des lignes
+			context.fillStyle = "#000000";
+			
 			context.beginPath();
 
 			var axeOrdonneePointMin = new Point();

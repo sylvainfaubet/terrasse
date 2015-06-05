@@ -32,7 +32,7 @@ define([ "backbone", "handlebars",
 
 			this.$el.html(this.template(data));
 			if (this.states.get("selected")) {
-				return;
+				this.$el.attr("selected","");
 			}
 		},
 

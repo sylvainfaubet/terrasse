@@ -1,20 +1,46 @@
-<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+<assembly
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
 
 	<id>www</id>
 	<formats>
-		<format>tar</format>
+		<format>zip</format>
+		<format>dir</format>
 	</formats>
 	<includeBaseDirectory>false</includeBaseDirectory>
 	<fileSets>
 		<!-- Fichiers de l'application -->
 		<fileSet>
+			<directory>target/generated-sources</directory>
+			<outputDirectory>/js</outputDirectory>
+			<filtered>true</filtered>
+			<includes>
+				<include>app/main.js*</include>
+				<include>require-config.js</include>
+				<include>require-config.js.map</include>
+			</includes>
+		</fileSet>
+		<fileSet>
 			<directory>src</directory>
 			<outputDirectory>/</outputDirectory>
 			<filtered>true</filtered>
+			<includes>
+				<include>index.html</include>
+				<include>css/**</include>
+				<include>js/lib/**</include>
+				<include>.htaccess</include>
+			</includes>
 		</fileSet>
-	
+
+
 	</fileSets>
-    
+	<files>
+		<file>
+			<source>src/cache_manifest_server</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>cache_manifest</destName>
+			<filtered>true</filtered>
+		</file>
+	</files>
 </assembly>

@@ -22,6 +22,10 @@ define([ "backbone", "handlebars",  "text!app/template/editionFigureView.html" ,
 			var data = this.model.toJSON();
 			this.$el.html(this.template(data));
 			
+			
+		},
+		
+		postRender:function(){
 			this.renderPointListView();
 			this.renderDessinView();
 			this.renderInfoFigureView();

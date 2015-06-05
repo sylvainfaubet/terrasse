@@ -3,10 +3,10 @@ define(
 				"app/model/collection/points", "app/model/figure",
 				 "app/view/mainView",
 				"app/view/dessinView", "app/view/editionFigureView",
-				"app/view/infoFigureView", "app/view/choixFigureView", ],
+				"app/view/infoFigureView", "app/view/choixFigureView","app/view/navbarView" ],
 		function(Backbone, Figures, Points, Figure,
 				 MainView, DessinView, EditionFigureView,
-				InfoFigureView, ChoixFigureView) {
+				InfoFigureView, ChoixFigureView, NavbarView) {
 
 			var MainController = Backbone.View
 					.extend({
@@ -23,6 +23,7 @@ define(
 						start : function() {
 							info("MainController : [ENTER] : start");
 							this.renderSocle();
+							this.renderNavbar();
 							this.renderChoixFigures();
 						},
 
@@ -42,7 +43,7 @@ define(
 								collection : this.collections.figures
 							});
 
-							this.$(".container").html(this.views.choixFigures.$el);
+							this.$("#main").html(this.views.choixFigures.$el);
 
 							this.listenTo(this.views.choixFigures, "ajout",
 									this.ajouterFigure);
@@ -78,11 +79,26 @@ define(
 								model : figure
 							});
 
-							this.$(".container").html(this.views.editionFigures.$el);
-
+							this.$("#main").html(this.views.editionFigures.$el);
+							
 							this.views.editionFigures.render();
+							this.views.editionFigures.postRender();
 						},
 
+						renderNavbar : function() {
+							info("MainController : [ENTER] : renderNavbar");
+
+							this.removeAllView();
+
+							this.views.navbar = new NavbarView({
+							});
+
+							this.$(".navbar").html(this.views.navbar.$el);
+							
+							this.views.navbar.render();
+							
+						},
+						
 						removeAllView : function() {
 							this.remove(this.views.editionFigures);
 							this.remove(this.views.choixFigures);

@@ -1,7 +1,7 @@
 /*global require */
 requirejs.config({
 
-	baseUrl : "/js/lib",
+	baseUrl : "js/lib",
 
 	shim: {
         'jquery': {
