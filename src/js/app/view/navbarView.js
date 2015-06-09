@@ -14,20 +14,29 @@ define([ "backbone", "handlebars",
 
 		initialize : function(args) {
 			info("NavbarView : [ENTER] : initialize");
+			this.menuFigure=false;
 		},
 
 		render : function() {
 			info("NavbarView : [ENTER] : render");
 			var data = {};
+			data.menuFigure = this.menuFigure;
 			this.$el.html(this.template(data));
 		},
 		
 		
 		triggerClick : function(event){
 			this.trigger(event.currentTarget.id);
-		}
+		},
 		
-
+       showMenuFigure: function(){
+		   this.menuFigure = true;
+		   this.render();
+	   },
+	   
+	   hideMenuFigure: function(){
+		   this.menuFigure=false;this.render();
+	   }
 	});
 
 	return NavbarView;

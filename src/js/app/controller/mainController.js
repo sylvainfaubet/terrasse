@@ -37,7 +37,7 @@ define(
 
 						renderChoixFigures : function() {
 							info("MainController : [ENTER] : renderChoixFigures");
-
+							this.views.navbar.hideMenuFigure();
 							this.removeAllView();
 
 							this.views.choixFigures = new ChoixFigureView({
@@ -84,7 +84,7 @@ define(
 							info("MainController : [ENTER] : renderChoixFigures");
 
 							this.removeAllView();
-
+							this.views.navbar.showMenuFigure();
 							this.views.editionFigures = new EditionFigureView({
 								model : figure
 							});
