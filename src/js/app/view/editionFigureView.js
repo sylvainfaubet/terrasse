@@ -28,7 +28,7 @@ define([ "backbone", "handlebars",  "text!app/template/editionFigureView.html" ,
 		postRender:function(){
 			this.renderPointListView();
 			this.renderDessinView();
-			this.renderInfoFigureView();
+			
 		},
 		
 		renderPointListView : function(){
@@ -52,17 +52,8 @@ define([ "backbone", "handlebars",  "text!app/template/editionFigureView.html" ,
 			this.views.dessinView.render();
 		},
 		
-		renderInfoFigureView : function(){
-			info("EditionFigureView : [ENTER] : renderInfoFigureView");
-			this.views.infoFigureView = new InfoFigureView({
-				collection : this.model.get("points") 
-			});
-
-			
-			this.$("#info-figure").html(this.views.infoFigureView.$el);
-			
-			this.views.infoFigureView.render();
-		},
+		
+		
 		
 		
 	

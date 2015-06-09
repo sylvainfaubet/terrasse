@@ -1,12 +1,13 @@
 define(
 		[ "backbone", "app/model/collection/figures",
 				"app/model/collection/points", "app/model/figure",
-				 "app/view/mainView",
-				"app/view/dessinView", "app/view/editionFigureView",
-				"app/view/infoFigureView", "app/view/choixFigureView","app/view/navbarView" ],
-		function(Backbone, Figures, Points, Figure,
-				 MainView, DessinView, EditionFigureView,
-				InfoFigureView, ChoixFigureView, NavbarView) {
+				"app/view/mainView", "app/view/dessinView",
+				"app/view/editionFigureView", "app/view/infoFigureView",
+				"app/view/choixFigureView", "app/view/navbarView",
+				"app/view/figureControlView","app/outils/geometrie" ],
+		function(Backbone, Figures, Points, Figure, MainView, DessinView,
+				EditionFigureView, InfoFigureView, ChoixFigureView, NavbarView,
+				FigureControlView, Geometrie) {
 
 			var MainController = Backbone.View
 					.extend({
@@ -55,21 +56,30 @@ define(
 
 						ajouterFigure : function() {
 							var nom = prompt("entrez le nom de la figure");
-							if(nom){
-								
-							
-							var figure = new Figure();
-							this.collections.figures.add(figure);
-							
-							figure.set("name", nom);
-							this.renderFigure(figure);
-						}},
+							if (nom) {
+
+								var figure = new Figure();
+								this.collections.figures.add(figure);
+
+								figure.set("name", nom);
+
+								this.renderFigure(figure);
+							}
+						},
 
 						editerFigure : function(itemView) {
 							var figure = itemView.model;
+
 							this.renderFigure(figure);
 						},
 
+						rotationFigure: function(params){
+							var newPoints = Geometrie.rotationFigure(this.selectedFigure.get("points").toJSON(),params.centre,params.angle)
+							this.selectedFigure.get("points").set(newPoints);
+							this.selectedFigure.preSave();
+//							this.renderFigure(this.selectedFigure);
+						},
+						
 						renderFigure : function(figure) {
 							info("MainController : [ENTER] : renderChoixFigures");
 
@@ -80,7 +90,9 @@ define(
 							});
 
 							this.$("#main").html(this.views.editionFigures.$el);
-							
+
+							this.selectedFigure = figure;
+
 							this.views.editionFigures.render();
 							this.views.editionFigures.postRender();
 						},
@@ -90,15 +102,44 @@ define(
 
 							this.removeAllView();
 
-							this.views.navbar = new NavbarView({
-							});
+							this.views.navbar = new NavbarView({});
 
 							this.$(".navbar").html(this.views.navbar.$el);
-							
+
+							this.listenTo(this.views.navbar, "figure",
+									this.renderChoixFigures)
+							this.listenTo(this.views.navbar, "rotation",
+									this.renderFigureControl)
+							this.listenTo(this.views.navbar, "info",
+									this.renderInfoFigureView)
+
 							this.views.navbar.render();
-							
+
 						},
-						
+
+						renderFigureControl : function() {
+							if (this.selectedFigure) {
+
+								this.remove(this.views.figureControl);
+								info("EditionFigureView : [ENTER] : renderFigureControl");
+								this.views.figureControl = new FigureControlView(
+										{
+											model : this.selectedFigure
+										});
+								this.listenTo(this.views.figureControl,"rotationFigure",this.rotationFigure)
+							}
+
+						},
+
+						renderInfoFigureView : function() {
+							if (this.selectedFigure) {
+								info("EditionFigureView : [ENTER] : renderInfoFigureView");
+								this.views.infoFigureView = new InfoFigureView({
+									model : this.selectedFigure
+								});
+							}
+						},
+
 						removeAllView : function() {
 							this.remove(this.views.editionFigures);
 							this.remove(this.views.choixFigures);

@@ -7,7 +7,7 @@ define([ "backbone", "handlebars",
 			var InfoFigureView = Backbone.View.extend({
 
 				template : hbTemplate,
-				
+				className:"modal",
 
 				events : {
 
@@ -16,17 +16,20 @@ define([ "backbone", "handlebars",
 				initialize : function(args) {
 					info("InfoFigureView : [ENTER] : initialize");
 
-					this.listenTo(this.collection, "all", this.render);
+					this.render();
+					
+					this.$el.modal();
 				},
 
 				render : function() {
 					info("InfoFigureView : [ENTER] : render");
 
 					var data = {};
-					var collection = (this.collection.toJSON());
+					var collection = (this.model.get("points").toJSON());
 
 					data.perimetre = Geometrie.perimetrePolygone(collection);
 					data.airePolygone = Geometrie.airePolygone(collection);
+					data.aireRectangle = Geometrie.aireRectangleEnglobant(collection);
 
 					this.$el.html(this.template(data));
 				}

@@ -9,7 +9,7 @@ define([ "backbone", "handlebars",
 		template : hbTemplate,
 
 		events : {
-
+			"click li ul li":"triggerClick",
 		},
 
 		initialize : function(args) {
@@ -20,7 +20,13 @@ define([ "backbone", "handlebars",
 			info("NavbarView : [ENTER] : render");
 			var data = {};
 			this.$el.html(this.template(data));
+		},
+		
+		
+		triggerClick : function(event){
+			this.trigger(event.currentTarget.id);
 		}
+		
 
 	});
 

@@ -74,7 +74,7 @@ define([], function() {
 		},
 		//point = {x : <val_x>, y :<val_y>}
 		//centre = {x : <val_x>, y :<val_y>}
-		//angle = valeur en degré sens trigo
+		//angle = valeur en degrï¿½ sens trigo
 		
 		rotationPoint : function(point, centre, angle){
 			var x = ( point.x - centre.x ) * Math.cos( angle * Math.PI / 180 ) - ( point.y - centre.y ) * Math.sin( angle * Math.PI / 180 );
@@ -85,6 +85,32 @@ define([], function() {
 				y:centre.y+y
 			};
 			
+		},
+		
+		rotationFigure : function(points, centre, angle){
+			var array = [];
+			if(Array.isArray(points)){
+				for(var elem in points){
+					array.push(this.rotationPoint(points[elem], centre, angle));
+				}
+			}
+			return array;
+		},
+		
+		angleRotationOptimal : function(collection){
+			var angleRotation = 0;
+			var centre = {x:0,y:0};
+			var surfaceRectangle = this.aireRectangleEnglobant(collection);
+
+			for ( var i = 0; i < 360; i++) {
+				aireRectangleTournee = this.aireRectangleEnglobant(this.rotationFigure(collection,centre,i));
+				if (surfaceRectangle > aireRectangleTournee) {
+					surfaceRectangle = aireRectangleTournee;
+					angleRotation = i;
+				}
+			}
+
+			return angleRotation;
 		}
 	};
 

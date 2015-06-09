@@ -16,7 +16,7 @@ define(
 							"click #ajouter" : "newPoint",
 							"click #supprimer" : "supprimerElem",
 							"click #modifier" : "modifierElem",
-
+							
 						},
 
 						initialize : function(args) {
@@ -145,6 +145,14 @@ define(
 							this.listenTo(this.views.pointView, "modelOk",
 									this.addPointToCollection);
 						},
+						renderPoint : function(point) {
+							this.views.pointView = new PointView({
+								model : point
+							});
+							this.listenTo(this.views.pointView, "modelOk",
+									this.hidePoint);
+							
+						},
 
 						addPointToCollection : function(point) {
 							this.collection.push(point);
@@ -153,27 +161,9 @@ define(
 
 						hidePoint : function() {
 							this.states.set("selectedItem",this.views.pointView.model);
-							this.removeView(this.views.pointView);
-							$("#vue-point").addClass("hidden")
 							
 						},
 
-						renderPoint : function(point) {
-							this.removeView(this.views.pointView);
-
-							this.views.pointView = new PointView({
-								model : point
-							});
-
-							$("#vue-point").html(this.views.pointView.$el);
-							this.views.pointView.render();
-
-							this.listenTo(this.views.pointView, "modelOk",
-									this.hidePoint);
-
-							$("#vue-point").removeClass("hidden");
-							
-						},
 						removeView : function(view) {
 							if (view) {
 								this.stopListening(view);

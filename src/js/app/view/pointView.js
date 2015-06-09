@@ -7,7 +7,7 @@ define([ "backbone", "handlebars",
 	var PointView = Backbone.View.extend({
 
 		template : hbTemplate,
-		
+		className:"modal",
 
 		events : {
 			"click #save" : "setModel",
@@ -16,6 +16,10 @@ define([ "backbone", "handlebars",
 
 		initialize : function(args) {
 			info("PointView : [ENTER] : initialize");
+			
+			this.render();
+			
+			this.$el.modal();
 		},
 
 		render : function() {
@@ -35,6 +39,7 @@ define([ "backbone", "handlebars",
 
 			console.log(this.model.toJSON());
 			this.trigger("modelOk", this.model);
+			
 		}
 
 	});

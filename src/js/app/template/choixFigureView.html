@@ -1,17 +1,21 @@
+<div class="well container col-xs-12">
 
-<div class="row well">
 {{#if collectionPresente}}
 
-  <p>choisir une figure</p>
-<select id="figureList" class="form-control col-xs-12">
-</select>
-{{else}}
-  <p> cliquer sur ajouter pour creer une figure</p>
-{{/if}}
+<span class="col-md-2">choisir une figure :</span> 
+<div class="col-md-7 col-xs-12">
+<select id="figureList" class="form-control"></select>
 </div>
-<div class="row pull-right">
-<button id="newFigure" class="btn btn-default">ajouter</button>
+
+{{else}}
+  <span class="col-md-9 col-xs-9"> cliquer sur ajouter pour creer une figure</span>
+{{/if}}
+
+<div class="col-md-3 col-xs-3">
+<button id="newFigure" class="btn  btn-default">ajouter</button>
 {{#if collectionPresente}} 
 <button id="editFigure" class="btn btn-primary">editer</button>
  {{/if}}  
+</div>
+
 </div>

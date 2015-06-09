@@ -56,7 +56,8 @@
 		// Emplacement du module
 		name : "app/main",
 		// Liste des éléments à exclure du module
-		exclude : [ "text", "jquery", "backbone", "underscore","handlebars"]
+		exclude :[] 
+			//[ "text", "jquery", "backbone", "underscore","handlebars"]
 	} ],
 
 	// Regex sur les fichiers à exclure
