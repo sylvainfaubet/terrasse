@@ -103,8 +103,10 @@ define([], function() {
 			var surfaceRectangle = this.aireRectangleEnglobant(collection);
 
 			for ( var i = 0; i < 360; i++) {
-				aireRectangleTournee = this.aireRectangleEnglobant(this.rotationFigure(collection,centre,i));
-				if (surfaceRectangle > aireRectangleTournee) {
+				var collectionTournee = this.rotationFigure(collection,centre,i);
+				aireRectangleTournee = this.aireRectangleEnglobant(collectionTournee);
+				var minMax = this.minMax(collectionTournee);
+				if (surfaceRectangle > aireRectangleTournee && longueurSegment(minMax.xmin, minMax.xmax)> longueurSegment(minMax.ymin, minMax.ymax)) {
 					surfaceRectangle = aireRectangleTournee;
 					angleRotation = i;
 				}

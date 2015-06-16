@@ -13,7 +13,7 @@ define([ "backbone","app/model/collection/points"
 		},
 	
 		initialize : function(){
-			this.listenTo(this.get("points"),"all",this.preSave);
+			this.listenTo(this.get("points"),"all",this.save);
 		},
 		
 		parse: function(json){
@@ -23,9 +23,7 @@ define([ "backbone","app/model/collection/points"
 			return json;
 		},
 		
-		preSave : function(event){
-			this.save();
-		},
+		
 		
 		toJSON:function(){
 			var json = {};

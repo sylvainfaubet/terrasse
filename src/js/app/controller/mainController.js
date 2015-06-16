@@ -48,9 +48,10 @@ define(
 
 							this.listenTo(this.views.choixFigures, "ajout",
 									this.ajouterFigure);
+							
 							this.listenTo(this.views.choixFigures, "edition",
 									this.editerFigure);
-
+					
 							this.views.choixFigures.render();
 						},
 
@@ -67,9 +68,8 @@ define(
 							}
 						},
 
-						editerFigure : function(itemView) {
-							var figure = itemView.model;
-
+						editerFigure : function(figure) {
+						
 							this.renderFigure(figure);
 						},
 

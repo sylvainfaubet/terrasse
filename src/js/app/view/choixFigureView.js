@@ -9,7 +9,8 @@ define([ "backbone", "handlebars", "text!app/template/choixFigureView.html", "ap
 		
 		events : {
 			"click #newFigure" : "ajouterFigure",
-			"click #editFigure" : "editerFigure"
+			"click #editFigure" : "editerFigure",
+			"click #delFigure" : "supprimerFigure"
 		},
 		
 		initialize : function(args){
@@ -49,13 +50,13 @@ define([ "backbone", "handlebars", "text!app/template/choixFigureView.html", "ap
 				listElem.append( itemView.$el );
 				
 				if(i==0){
-					this.selectedItem = itemView;
+					this.selectedItem = itemView.model;
 				}
 			}
 		},
 		itemSelected : function(view){
 			info("ChoixFigureView : [ENTER] : itemSelected");
-			this.selectedItem = view;
+			this.selectedItem = view.model;
 		},
 		
 		removeOldItemView : function(){
@@ -86,6 +87,13 @@ define([ "backbone", "handlebars", "text!app/template/choixFigureView.html", "ap
 		editerFigure : function(){
 			info("ChoixFigureView : [ENTER] : editerFigure");
 			this.trigger("edition", this.selectedItem);
+		},
+		
+		supprimerFigure : function(){
+			info("ChoixFigureView : [ENTER] : editerFigure");
+			this.selectedItem.destroy();
+			this.selectedItem=this.collection.at(0);
+			window.location.reload();
 		}
 		
 		
