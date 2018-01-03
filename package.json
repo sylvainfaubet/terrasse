@@ -1,0 +1,19 @@
+{
+  "name": "terrasse",
+  "version": "2.0.0",
+  "description": "node version of terrace project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sylvainfaubet/terrasse.git"
+  },
+  "author": "faubet.sylvain@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sylvainfaubet/terrasse/issues"
+  },
+  "homepage": "https://github.com/sylvainfaubet/terrasse#readme"
+}
