@@ -1,22 +1,28 @@
 const webpack = require('webpack');
 const path = require('path');
 const DashboardPlugin = require("webpack-dashboard/plugin");
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
+
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssets = require("optimize-css-assets-webpack-plugin");
 
 const config = {
-	entry: "./src/index.js",
+	context: path.join(__dirname, "app"),
+	entry: "./app.module.js",
 	output: {
-		path: path.resolve(__dirname, "./public"),
+		path: path.join(__dirname, "dist"),
 		filename: "./bundle.js"
 	},
 	module: {
 		rules: [{
-			test: /\.js$/,
+			test: /\.(html)$/,
+			loader: 'html-loader',
 			exclude: /node_modules/,
-			loader: "babel-loader"
+		}, {
+			test: /\.js$/,
+			loader: "babel-loader",
+			exclude: /node_modules/
 		}, {
 			test: /\.scss$/,
 			use: ExtractTextWebpackPlugin.extract({
@@ -26,11 +32,17 @@ const config = {
 		}]
 	},
 	plugins: [
-		new ExtractTextWebpackPlugin("styles.css"),
+		new HtmlWebpackPlugin({
+			filename: 'index.html',
+			template: './app.template.html'
+		}),
+		//new ExtractTextWebpackPlugin("styles.css"),
+		new webpack.NamedModulesPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
 		new DashboardPlugin()
 	],
 	devServer: {
-		contentBase: path.resolve(__dirname, "./public"),
+		contentBase: path.join(__dirname, "dist"),
 		historyApiFallback: true,
 		inline: true,
 		open: true,
@@ -39,11 +51,11 @@ const config = {
 	devtool: "eval-source-map"
 }
 
-module.exports = config;
-
 if (process.env.NODE_ENV === 'production') {
 	module.exports.plugins.push(
 		new webpack.optimize.UglifyJsPlugin(),
 		new OptimizeCSSAssets()
 	);
 }
+
+module.exports = config;

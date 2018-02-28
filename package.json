@@ -2,7 +2,7 @@
 	"name": "terrasse",
 	"version": "2.0.0",
 	"description": "node version of terrace project",
-	"main": "index.js",
+	"main": "app/index.js",
 	"scripts": {
 		"start": "webpack-dashboard webpack-dev-server -d --hot --config webpack.config.js --watch",
 		"dev": "webpack",
@@ -25,6 +25,8 @@
 		"babel-preset-env": "^1.6.1",
 		"css-loader": "^0.28.9",
 		"extract-text-webpack-plugin": "^3.0.2",
+		"html-loader": "^0.5.5",
+		"html-webpack-plugin": "^2.30.1",
 		"node-sass": "^4.7.2",
 		"optimize-css-assets-webpack-plugin": "^3.2.0",
 		"postcss-loader": "^2.1.0",
@@ -34,5 +36,12 @@
 		"webpack": "^3.11.0",
 		"webpack-dashboard": "^1.1.1",
 		"webpack-dev-server": "^2.11.1"
+	},
+	"dependencies": {
+		"@uirouter/angularjs": "^1.0.15",
+		"angular": "^1.6.9",
+		"angular-animate": "^1.6.9",
+		"angular-aria": "^1.6.9",
+		"angular-material": "^1.1.7"
 	}
 }
