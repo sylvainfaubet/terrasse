@@ -1,11 +1,9 @@
 import HomeController from './HomeController';
 import homeTemplate from './home.template.html';
 
-export const homeComponent = {
-	template: "toto",
-	bindings: {
-
-	},
+const homeComponent = {
+	template: homeTemplate,
 	controller: HomeController,
 	controllerAs: 'homeCtrl'
-}
+};
+export default homeComponent;

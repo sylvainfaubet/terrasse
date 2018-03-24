@@ -1,4 +1,4 @@
-import angular from 'angular';
+require('angular');
 import uirouter from '@uirouter/angularjs';
 
 import routing from './app.config';
@@ -17,8 +17,6 @@ angular
 		let app = angular.module(appName, [uirouter, home])
 			.config(routing);
 
-		// angular.bootstrap(body, [app.name], {
-		// 	strictDi: false
-		// })
+		angular.bootstrap(body, [appName])
 
 	});

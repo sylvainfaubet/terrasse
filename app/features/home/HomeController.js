@@ -1,5 +1,7 @@
-export default class HomeController {
+class HomeController {
 	constructor() {
-		console.log('init HomeController');
+		this.test = "toto";
+		console.log('init HomeController', this);
 	}
 }
+export default HomeController;
