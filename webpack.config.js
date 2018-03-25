@@ -29,6 +29,9 @@ const config = {
 				fallback: 'style-loader',
 				use: ['css-loader', 'sass-loader', 'postcss-loader'],
 			})
+		}, {
+			test: /\.css$/,
+			use: ['style-loader', 'css-loader']
 		}]
 	},
 	plugins: [

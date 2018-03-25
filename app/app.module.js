@@ -1,4 +1,8 @@
-require('angular');
+require('angular-material/angular-material.css');
+
+import angular from 'angular';
+import material from 'angular-material';
+
 import uirouter from '@uirouter/angularjs';
 
 import routing from './app.config';

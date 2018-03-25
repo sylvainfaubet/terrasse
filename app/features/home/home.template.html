@@ -1,5 +1,14 @@
-<h1>Bienvenue sur la HOME</h1>
-<span ng-bind="homeCtrl.test"></span>
-<span>
-	{{homeCtrl.test}}
-</span>
+<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+	<md-card-title>
+		<md-card-title-text>
+			<span class="md-headline">Bienvenue sur la HOME</span>
+			<span class="md-subhead"></span>
+		</md-card-title-text>
+		<md-card-title-media>
+			<div class="md-media-lg card-media"></div>
+		</md-card-title-media>
+	</md-card-title>
+	<md-card-content>
+		<span ng-bind="homeCtrl.test"></span>
+	</md-card-content>
+</md-card>

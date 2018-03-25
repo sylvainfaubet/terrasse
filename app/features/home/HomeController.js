@@ -1,6 +1,6 @@
 class HomeController {
 	constructor() {
-		this.test = "toto";
+		this.test = "ceci est un test";
 		console.log('init HomeController', this);
 	}
 }
