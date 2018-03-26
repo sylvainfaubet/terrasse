@@ -55,7 +55,7 @@ const config = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-	module.exports.plugins.push(
+	config.plugins.push(
 		new webpack.optimize.UglifyJsPlugin(),
 		new OptimizeCSSAssets()
 	);
