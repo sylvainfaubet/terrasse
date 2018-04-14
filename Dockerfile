@@ -1,8 +1,8 @@
 FROM kirillkonshin/nginx-nodejs
-RUN mkdir -p /usr/share/nginx/html
-ADD ./package.json /usr/share/nginx/html
-WORKDIR /usr/share/nginx/html
-RUN npm install
-ADD . /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/nginx.conf
-CMD npm run prod && nginx -g 'daemon off;'
+ADD . /terrasse
+WORKDIR /terrasse
+RUN npm install -P
+RUN npm run prod
+RUN cp -r ./dist /usr/share/nginx/html/
+CMD nginx -g 'daemon off;'
