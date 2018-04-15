@@ -9,11 +9,11 @@
 		"dev": "NODE_ENV=dev webpack",
 		"prod": "NODE_ENV=production webpack",
 
-		"serve": "npm run docker:build; npm run docker:run",
+		"serve": "npm run docker:build; npm run docker:start",
 		"stop": "npm run docker:stop",
 
 		"docker:build": "docker build -t terrasse-nginx .",
-		"docker:run": "docker run --name terrasse -d -p 8080:80 terrasse-nginx",
+		"docker:start": "docker run --name terrasse -d -p 80:80 terrasse-nginx",
 		"docker:stop": "docker stop terrasse; docker rm terrasse"
 	},
 	"repository": {
