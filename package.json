@@ -5,9 +5,13 @@
 	"main": "app/index.js",
 	"scripts": {
 		"start": "webpack-dashboard webpack-dev-server -d --hot --config webpack.config.js --watch",
+
 		"dev": "NODE_ENV=dev webpack",
 		"prod": "NODE_ENV=production webpack",
+
 		"serve": "npm run docker:build; npm run docker:run",
+		"stop": "npm run docker:stop",
+
 		"docker:build": "docker build -t terrasse-nginx .",
 		"docker:run": "docker run --name terrasse -d -p 8080:80 terrasse-nginx",
 		"docker:stop": "docker stop terrasse; docker rm terrasse"
