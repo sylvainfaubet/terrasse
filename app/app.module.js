@@ -4,7 +4,6 @@ import angular from 'angular';
 import material from 'angular-material';
 
 import uirouter from '@uirouter/angularjs';
-
 import routing from './app.config';
 
 import home from './features/home/home.module';
