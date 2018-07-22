@@ -10,3 +10,5 @@ RUN apt-get update && apt-get install nginx
 COPY terrasse.nginx.conf /etc/nginx/sites-available/default
 
 CMD ["nginx", "-g", "daemon off;"]
+
+EXPOSE 80
