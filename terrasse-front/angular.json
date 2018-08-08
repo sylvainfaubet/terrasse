@@ -54,7 +54,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-						"browserTarget": "terrasse-front:build"
+			"browserTarget": "terrasse-front:build",
+			"proxyConfig": "conf/proxy.conf.json"
           },
           "configurations": {
             "production": {
