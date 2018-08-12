@@ -1,3 +1,10 @@
 terrasse-footer {
-	position: relative;
+	position: fixed;
+	width : 100%;
+	bottom: 0px;
+
+	.mat-toolbar  {
+		height : 40px;
+		font-size: 0.8em;
+	}
 }

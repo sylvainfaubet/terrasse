@@ -6,4 +6,8 @@ body{
 	margin: 0;
 }
 
+@import 'app/app.component';
 @import 'app/footer/footer.component';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
