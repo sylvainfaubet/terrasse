@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
+import { SandboxComponent } from './sandbox/sandbox.component';
 
 @NgModule({
-	declarations: [AppComponent, DashboardComponent, FooterComponent],
+	declarations: [AppComponent, DashboardComponent, FooterComponent, DrawingAreaComponent, SandboxComponent],
 	imports: [BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule],
 	exports: [MaterialModule],
 	providers: [],
