@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
+import { SandboxComponent } from './sandbox/sandbox.component';
 
 @NgModule({
-	declarations: [AppComponent, DashboardComponent, FooterComponent],
-	imports: [BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule, FlexLayoutModule],
-	exports: [MaterialModule],
-	providers: [],
 	bootstrap: [AppComponent],
+	declarations: [AppComponent, DashboardComponent, FooterComponent, DrawingAreaComponent, SandboxComponent],
+	exports: [MaterialModule],
+	imports: [BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule, FlexLayoutModule],
+	providers: [],
 })
 export class AppModule {}
