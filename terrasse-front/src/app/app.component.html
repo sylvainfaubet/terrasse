@@ -1,21 +1,21 @@
 <mat-sidenav-container fxFill>
-	<mat-sidenav #sidenav>
-		<mat-list>
-			<mat-list-item> Pepper </mat-list-item>
-			<mat-list-item> Salt </mat-list-item>
-			<mat-list-item> Paprika </mat-list-item>
-		</mat-list>
-	</mat-sidenav>
-	<mat-sidenav-content fxLayout="column">
-		<mat-toolbar color="primary">
-			<mat-icon (click)="sidenav.toggle()">menu</mat-icon>
-			<div id="title">{{ title }}</div>
-		</mat-toolbar>
-		<div fxFlex fxLayoutAlign="start start">
-			<router-outlet></router-outlet>
-		</div>
-		<terrasse-footer></terrasse-footer>
-	</mat-sidenav-content>
+    <mat-sidenav #sidenav>
+        <mat-list>
+            <mat-list-item> Pepper </mat-list-item>
+            <mat-list-item> Salt </mat-list-item>
+            <mat-list-item> Paprika </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxLayout="column">
+        <mat-toolbar color="primary">
+            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+            <div id="title">{{ title }}</div>
+        </mat-toolbar>
+        <div fxFlex fxLayoutAlign="start start">
+            <router-outlet></router-outlet>
+        </div>
+        <terrasse-footer></terrasse-footer>
+    </mat-sidenav-content>
 
 </mat-sidenav-container>
 
