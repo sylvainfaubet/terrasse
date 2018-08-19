@@ -9,12 +9,7 @@ import { Point } from '../shared/models/Points';
 export class DrawingAreaComponent implements OnInit {
     maxPoint: Point;
 
-    constructor(private el: ElementRef) {
-        this.maxPoint = {
-            x: el.nativeElement.parentElement.offsetWidth,
-            y: el.nativeElement.parentElement.offsetHeight,
-        };
-    }
+    constructor(private el: ElementRef) {}
 
     ngOnInit() {
         console.log(this.el.nativeElement);
