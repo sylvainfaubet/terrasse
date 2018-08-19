@@ -1,0 +1,16 @@
+CACHE MANIFEST
+#version : ${project.version} - ${project.build.date}
+
+index.html
+
+css/bootstrap.css
+js/lib/require.js
+
+js/require-config.js
+js/require-config.js.map
+
+js/app/main.js
+js/app/main.js.map
+
+NETWORK:
+cache.manifest

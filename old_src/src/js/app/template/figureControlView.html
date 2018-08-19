@@ -1,0 +1,25 @@
+<div class="modal-dialog">
+
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">rotation de la figure</h4>
+		</div>
+		<div class="modal-body">
+			<p>
+				valeur du centre : <span id="centre-value"></span>
+			</p>
+			<button id="modifier-centre" class="btn btn-default">modifier</button>
+
+			<div class="form-group">
+				valeur de l'angle : <input type="text" id="input-angle"
+					class="form-control" value="{{angle}}" />
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button id="calcul-angle" class="btn btn-default">calcul de
+				l'angle optimal</button>
+			<button id="rotate" class="btn btn-primary pull-right">rotation</button>
+		</div>
+	</div>
+</div>

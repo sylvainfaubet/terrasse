@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="navbar-header">
+		<button aria-controls="navbar" aria-expanded="true"
+			data-target="#navbar" data-toggle="collapse" class="navbar-toggle"
+			type="button">
+			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+			<span class="icon-bar"></span> <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand">{{translate.navbar.title}}</a>
+	</div>
+	<div id="navbar" class="navbar-collapse collapse">
+		 {{!-- {{#if menuFigure}} --}}
+		<ul class="nav navbar-nav">
+			{{#each constantes.navbar}}
+			
+			{{#if_contains visibiliteEtape ../etape}}
+			<li class="dropdown"><a class="dropdown-toggle"
+				aria-expanded="false" role="button" data-toggle="dropdown">{{get ../../translate.navbar.menubar.titles @key ""}}
+					<span class="caret"></span> </a>
+				<ul role="menu" class="dropdown-menu">
+					
+					{{#each (get (get ../../constantes.navbar @key "") "items" "")}}
+					
+					<li id="{{this}}"><a>{{get (get ../../../translate.navbar.menubar.menus @../key "") this ""}}</a>
+					{{/each}}
+					
+				</ul>
+			</li>
+			{{/if_contains}}
+			{{/each}}
+			
+			<!-- 			<li><a>Contact</a></li> -->
+		</ul>
+		{{!-- {{/if}} --}}
+	</div>
+	<!--/.nav-collapse -->
+
+
+</div>
