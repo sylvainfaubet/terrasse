@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "all:test" : "npm run lint && npm run test -- --watch=false && npm run e2e",
+    "all:test": "npm run lint && npm run test -- --watch=false && npm run e2e",
     "update": "ng update"
   },
   "private": true,
