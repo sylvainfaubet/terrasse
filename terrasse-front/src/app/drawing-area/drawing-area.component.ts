@@ -24,8 +24,7 @@ export class DrawingAreaComponent implements OnInit {
     }
 
     formatPoints(polygon) {
-        let result = polygon.map(point => point.x + ',' + point.y).join(' ');
-        return result;
+        return polygon.map(point => point.x + ',' + point.y).join(' ');
     }
 
     onClick(event) {
