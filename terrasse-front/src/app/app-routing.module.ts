@@ -4,7 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SandboxComponent } from './sandbox/sandbox.component';
 import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
 
-const routes: Routes = [
+export const routes: Routes = [
     { path: 'home', component: DashboardComponent },
     {
         path: 'sandbox',
@@ -16,7 +16,7 @@ const routes: Routes = [
             },
         ],
     },
-    { path: '**', redirectTo: 'home' },
+    { path: '', pathMatch: 'full', redirectTo: 'home' },
 ];
 
 @NgModule({
