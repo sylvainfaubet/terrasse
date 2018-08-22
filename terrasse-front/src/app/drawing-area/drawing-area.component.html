@@ -1,4 +1,11 @@
-<svg width="100%" height="100%">
-    <polygon points="125,30 125,30 125,30 31.9,63.2 46.1,186.3 125,230 125,230 125,230 203.9,186.3 218.1,63.2" />
-    <circle cx="10" cy="10" r="5" stroke="white" stroke-width="2" fill="black" />
-</svg>
+<div fxFill fxLayout="column">
+    <div class="drawing-zone" fxFlex fxLayoutAlign="start start">
+        <svg width="100%" height="100%" (click)="onClick($event)" >
+            <polygon [attr.fill]="fill" [attr.stroke]="stroke" [attr.points]="formatPoints(polygon)"></polygon>
+        </svg>
+    </div>
+    <div>
+        <button (click)="newPolygon()">recommencer</button>
+    </div>
+</div>
+
