@@ -6,6 +6,7 @@ import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
 
 export const routes: Routes = [
     { path: 'home', component: DashboardComponent },
+    { path: 'draw', component: DrawingAreaComponent },
     {
         path: 'sandbox',
         component: SandboxComponent,

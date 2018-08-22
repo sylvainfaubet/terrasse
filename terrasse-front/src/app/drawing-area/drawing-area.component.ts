@@ -1,5 +1,5 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { Point } from '../shared/models/Points';
+import { Component, OnInit } from '@angular/core';
+import { Point, findPointInPolygon } from '../shared/geometrie';
 
 @Component({
     selector: 'terrasse-drawing-area',
@@ -10,8 +10,11 @@ export class DrawingAreaComponent implements OnInit {
     polygon: Array<Point>;
     fill = 'red';
     stroke = 'black';
+    mode = 'add';
 
-    constructor(private el: ElementRef) {
+    constructor() {}
+
+    ngOnInit() {
         this.newPolygon();
     }
 
@@ -19,16 +22,30 @@ export class DrawingAreaComponent implements OnInit {
         this.polygon = new Array<Point>();
     }
 
-    ngOnInit() {
-        console.log(this.el.nativeElement);
-    }
-
     formatPoints(polygon) {
         return polygon.map(point => point.x + ',' + point.y).join(' ');
     }
 
+    onModeChange(value) {
+        this.mode = value;
+    }
+
     onClick(event) {
         console.log(event);
-        this.polygon.push(new Point(event.offsetX, event.offsetY));
+        const clickedPoint = new Point(event.offsetX, event.offsetY);
+        const foundPoint = findPointInPolygon(this.polygon, clickedPoint);
+        switch (this.mode) {
+            case 'add':
+                this.polygon.push(clickedPoint);
+                break;
+            case 'modify':
+                break;
+            case 'delete':
+                if (foundPoint) {
+                    this.polygon.splice(this.polygon.indexOf(foundPoint), 1);
+                }
+                break;
+            default:
+        }
     }
 }
