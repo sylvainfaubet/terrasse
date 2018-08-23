@@ -1,16 +1,21 @@
 <div fxFill fxLayout="column">
-    <mat-card fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px">
+    <mat-card fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayout.xs="column" fxLayoutGap="10px">
         <button mat-flat-button (click)="newPolygon()">recommencer</button>
-        <span>gestion des points :</span>
         <mat-button-toggle-group #group="matButtonToggleGroup" [value]="mode" (change)="onModeChange($event.value)">
             <mat-button-toggle value="add">ajouter</mat-button-toggle>
-            <mat-button-toggle value="modify">modifier</mat-button-toggle>
+            <!-- <mat-button-toggle value="modify">modifier</mat-button-toggle> -->
             <mat-button-toggle value="delete">supprimer</mat-button-toggle>
         </mat-button-toggle-group>
     </mat-card>
     <div class="drawing-zone" fxFlex fxLayoutAlign="start start">
-        <svg width="100%" height="100%" (click)="onClick($event)">
-            <polygon [attr.fill]="fill" [attr.stroke]="stroke" [attr.points]="formatPoints(polygon)"></polygon>
+        <svg (click)="onClick($event)" [attr.viewBox]="viewboxText" preserveAspectRatio="xMidYMid">
+            <polygon [attr.fill]="fill" [attr.stroke]="stroke" stroke-width="0.1" [attr.points]="formatPoints(polygon)"></polygon>
+            <defs>
+                <pattern id="grid" width="1" height="1" patternUnits="userSpaceOnUse">
+                    <path d="M 1 0 L 0 0 0 1" fill="none" stroke="gray" stroke-width="0.1"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
     </div>
 

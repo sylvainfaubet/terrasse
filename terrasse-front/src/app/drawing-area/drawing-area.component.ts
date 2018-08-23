@@ -11,6 +11,7 @@ export class DrawingAreaComponent implements OnInit {
     fill = 'red';
     stroke = 'black';
     mode = 'add';
+    viewboxText = '0 0 20 15';
 
     constructor() {}
 
@@ -32,8 +33,10 @@ export class DrawingAreaComponent implements OnInit {
 
     onClick(event) {
         console.log(event);
-        const clickedPoint = new Point(event.offsetX, event.offsetY);
-        const foundPoint = findPointInPolygon(this.polygon, clickedPoint);
+
+        const clickedPoint = this.getClickedPoint(event);
+
+        const foundPoint = findPointInPolygon(this.polygon, clickedPoint, 1);
         switch (this.mode) {
             case 'add':
                 this.polygon.push(clickedPoint);
@@ -47,5 +50,16 @@ export class DrawingAreaComponent implements OnInit {
                 break;
             default:
         }
+    }
+
+    private getClickedPoint(event: any) {
+        const svg = event.currentTarget;
+        const p = svg.createSVGPoint();
+
+        p.x = event.clientX;
+        p.y = event.clientY;
+        let goodPoint = p.matrixTransform(svg.getScreenCTM().inverse());
+
+        return new Point(goodPoint.x, goodPoint.y);
     }
 }

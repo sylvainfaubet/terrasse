@@ -1,5 +1,3 @@
-const MAX_DISTANCE = 10;
-
 export class Point {
     x: number;
     y: number;
@@ -10,9 +8,9 @@ export class Point {
     }
 }
 
-export const findPointInPolygon = (polygon: Array<Point>, point: Point) => {
+export const findPointInPolygon = (polygon: Array<Point>, point: Point, maxDistance: number) => {
     for (const polygonPoint of polygon) {
-        if (distance(point, polygonPoint) < MAX_DISTANCE) {
+        if (distance(point, polygonPoint) < maxDistance) {
             return polygonPoint;
         }
     }
