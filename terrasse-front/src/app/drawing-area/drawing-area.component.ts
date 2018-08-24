@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Point, findPointInPolygon } from '../shared/geometrie';
 
 @Component({
@@ -11,12 +11,20 @@ export class DrawingAreaComponent implements OnInit {
     fill = 'red';
     stroke = 'black';
     mode = 'add';
-    viewboxText = '0 0 20 15';
+    viewBoxHeight = 15;
+    viewBoxRatio = 1.1;
 
-    constructor() {}
+    constructor(private el: ElementRef) {}
 
     ngOnInit() {
+        console.log(this.el);
         this.newPolygon();
+    }
+
+    getViewboxText() {
+        const svg = this.el.nativeElement.getElementsByTagName('svg')[0];
+        this.viewBoxRatio = svg.clientWidth / svg.clientHeight;
+        return '0 0 ' + this.viewBoxRatio * this.viewBoxHeight + ' ' + this.viewBoxHeight;
     }
 
     newPolygon() {
@@ -35,6 +43,8 @@ export class DrawingAreaComponent implements OnInit {
         console.log(event);
 
         const clickedPoint = this.getClickedPoint(event);
+
+        clickedPoint.roundPosition();
 
         const foundPoint = findPointInPolygon(this.polygon, clickedPoint, 1);
         switch (this.mode) {

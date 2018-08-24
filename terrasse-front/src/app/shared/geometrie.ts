@@ -6,6 +6,11 @@ export class Point {
         this.x = x;
         this.y = y;
     }
+
+    roundPosition() {
+        this.x = Math.round(this.x * 2) / 2;
+        this.y = Math.round(this.y * 2) / 2;
+    }
 }
 
 export const findPointInPolygon = (polygon: Array<Point>, point: Point, maxDistance: number) => {

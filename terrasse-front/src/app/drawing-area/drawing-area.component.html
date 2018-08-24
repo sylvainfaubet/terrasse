@@ -8,8 +8,9 @@
         </mat-button-toggle-group>
     </mat-card>
     <div class="drawing-zone" fxFlex fxLayoutAlign="start start">
-        <svg (click)="onClick($event)" [attr.viewBox]="viewboxText" preserveAspectRatio="xMidYMid">
+        <svg (click)="onClick($event)" [attr.viewBox]="getViewboxText()">
             <polygon [attr.fill]="fill" [attr.stroke]="stroke" stroke-width="0.1" [attr.points]="formatPoints(polygon)"></polygon>
+            <circle *ngFor="let p of polygon" [attr.cx]="p.x" [attr.cy]="p.y" r="0.2" stroke="red" fill="transparent" stroke-width="0.1"/>
             <defs>
                 <pattern id="grid" width="1" height="1" patternUnits="userSpaceOnUse">
                     <path d="M 1 0 L 0 0 0 1" fill="none" stroke="gray" stroke-width="0.1"/>
