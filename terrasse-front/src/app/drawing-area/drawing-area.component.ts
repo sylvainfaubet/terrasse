@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { Point, findPointInPolygon } from '../shared/geometrie';
+import { Point, findPointInPolygon, airePolygone, perimetrePolygone } from '../shared/geometrie';
 
 @Component({
     selector: 'terrasse-drawing-area',
@@ -13,17 +13,31 @@ export class DrawingAreaComponent implements OnInit {
     mode = 'add';
     viewBoxHeight = 15;
     viewBoxRatio = 1.1;
+    matrix: SVGMatrix;
+    svg:any;
+    viewBoxRatioDone: boolean;
 
-    constructor(private el: ElementRef) {}
+    constructor(private el: ElementRef){}
 
     ngOnInit() {
-        console.log(this.el);
         this.newPolygon();
+        this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
+        this.matrix = this.svg.createSVGMatrix().translate(0,this.viewBoxHeight).scale(1,-1);
+    }
+
+    getArea(polygon){
+        return airePolygone(polygon);
+    }
+
+    getPerimeter(polygon){
+        return perimetrePolygone(polygon);
     }
 
     getViewboxText() {
-        const svg = this.el.nativeElement.getElementsByTagName('svg')[0];
-        this.viewBoxRatio = svg.clientWidth / svg.clientHeight;
+        if(!this.viewBoxRatioDone){
+            this.viewBoxRatio = Math.round(this.svg.parentElement.clientWidth / this.svg.parentElement.clientHeight);
+            this.viewBoxRatioDone= true;
+        }
         return '0 0 ' + this.viewBoxRatio * this.viewBoxHeight + ' ' + this.viewBoxHeight;
     }
 
@@ -41,6 +55,7 @@ export class DrawingAreaComponent implements OnInit {
 
     onClick(event) {
         console.log(event);
+
 
         const clickedPoint = this.getClickedPoint(event);
 
@@ -68,7 +83,8 @@ export class DrawingAreaComponent implements OnInit {
 
         p.x = event.clientX;
         p.y = event.clientY;
-        let goodPoint = p.matrixTransform(svg.getScreenCTM().inverse());
+
+        let goodPoint = p.matrixTransform(svg.getScreenCTM().inverse()).matrixTransform(this.matrix);
 
         return new Point(goodPoint.x, goodPoint.y);
     }
