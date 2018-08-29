@@ -22,7 +22,7 @@ export class DrawingAreaComponent implements OnInit {
     ngOnInit() {
         this.newPolygon();
         this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
-        this.matrix = this.svg.createSVGMatrix().translate(0,this.viewBoxHeight).scale(1,-1);
+        this.matrix = this.svg.createSVGMatrix().translate(0,this.viewBoxHeight);
     }
 
     getArea(polygon){
@@ -84,7 +84,9 @@ export class DrawingAreaComponent implements OnInit {
         p.x = event.clientX;
         p.y = event.clientY;
 
-        let goodPoint = p.matrixTransform(svg.getScreenCTM().inverse()).matrixTransform(this.matrix);
+        let goodPoint = p.matrixTransform(svg.getScreenCTM().inverse())
+        //.matrixTransform(this.matrix); // for firefox
+
 
         return new Point(goodPoint.x, goodPoint.y);
     }

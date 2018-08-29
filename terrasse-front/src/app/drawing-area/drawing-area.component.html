@@ -10,7 +10,10 @@
         <span>perimetre : {{getPerimeter(polygon)}}</span>
     </mat-card>
     <div class="drawing-zone" fxFlex fxLayoutAlign="start start">
-        <svg (click)="onClick($event)" [attr.viewBox]="getViewboxText()" transform="scale(1,-1)">
+        <svg
+        (click)="onClick($event)"
+        transform="scale(1,-1)"
+        [attr.viewBox]="getViewboxText()">
             <polygon [attr.fill]="fill" [attr.stroke]="stroke" stroke-width="0.1" [attr.points]="formatPoints(polygon)"></polygon>
             <circle *ngFor="let p of polygon" [attr.cx]="p.x" [attr.cy]="p.y" r="0.2" stroke="red" fill="transparent" stroke-width="0.1"/>
             <defs>

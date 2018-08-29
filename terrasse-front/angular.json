@@ -17,10 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "../docs",
+            "outputPath": "dist/terrasse-front",
             "index": "src/index.html",
-            "deployUrl": "/terrasse/",
-            "baseHref": "/terrasse",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -48,6 +46,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "outputPath": "../docs",
+              "deployUrl": "/terrasse/",
+              "baseHref": "/terrasse",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
