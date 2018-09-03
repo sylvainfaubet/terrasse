@@ -14,7 +14,7 @@
         (click)="onClick($event)"
         transform="scale(1,-1)"
         [attr.viewBox]="getViewboxText()">
-            <polygon [attr.fill]="fill" [attr.stroke]="stroke" stroke-width="0.1" [attr.points]="formatPoints(polygon)"></polygon>
+            <polygon [attr.fill]="config.fill" [attr.stroke]="config.stroke" stroke-width="0.1" [attr.points]="formatPoints(polygon)"></polygon>
             <circle *ngFor="let p of polygon" [attr.cx]="p.x" [attr.cy]="p.y" r="0.2" stroke="red" fill="transparent" stroke-width="0.1"/>
             <defs>
                 <pattern id="grid" width="1" height="1" patternUnits="userSpaceOnUse">

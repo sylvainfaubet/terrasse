@@ -7,38 +7,42 @@ import { Point, findPointInPolygon, airePolygone, perimetrePolygone } from '../s
     styleUrls: ['./drawing-area.component.scss'],
 })
 export class DrawingAreaComponent implements OnInit {
+    project: any;
+    config: any;
     polygon: Array<Point>;
-    fill = 'red';
-    stroke = 'black';
     mode = 'add';
-    viewBoxHeight = 15;
-    viewBoxRatio = 1.1;
-    matrix: SVGMatrix;
-    svg:any;
+    svg: any;
     viewBoxRatioDone: boolean;
 
-    constructor(private el: ElementRef){}
+    constructor(private el: ElementRef) {
+        this.project = {
+            area: {
+                height: 15,
+                width: 25,
+            },
+        };
+
+        this.config = {
+            fill: 'red',
+            stroke: 'black',
+        };
+    }
 
     ngOnInit() {
         this.newPolygon();
         this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
-        this.matrix = this.svg.createSVGMatrix().translate(0,this.viewBoxHeight);
     }
 
-    getArea(polygon){
+    getArea(polygon) {
         return airePolygone(polygon);
     }
 
-    getPerimeter(polygon){
+    getPerimeter(polygon) {
         return perimetrePolygone(polygon);
     }
 
     getViewboxText() {
-        if(!this.viewBoxRatioDone){
-            this.viewBoxRatio = Math.round(this.svg.parentElement.clientWidth / this.svg.parentElement.clientHeight);
-            this.viewBoxRatioDone= true;
-        }
-        return '0 0 ' + this.viewBoxRatio * this.viewBoxHeight + ' ' + this.viewBoxHeight;
+        return '0 0 ' + this.project.area.width + ' ' + this.project.area.height;
     }
 
     newPolygon() {
@@ -55,7 +59,6 @@ export class DrawingAreaComponent implements OnInit {
 
     onClick(event) {
         console.log(event);
-
 
         const clickedPoint = this.getClickedPoint(event);
 
@@ -84,9 +87,7 @@ export class DrawingAreaComponent implements OnInit {
         p.x = event.clientX;
         p.y = event.clientY;
 
-        let goodPoint = p.matrixTransform(svg.getScreenCTM().inverse())
-        //.matrixTransform(this.matrix); // for firefox
-
+        let goodPoint = p.matrixTransform(svg.getScreenCTM().inverse());
 
         return new Point(goodPoint.x, goodPoint.y);
     }
