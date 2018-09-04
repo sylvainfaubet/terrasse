@@ -1,21 +1,28 @@
 <div fxFill fxLayout="column">
     <mat-card fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayout.xs="column" fxLayoutGap="10px">
-        <button mat-flat-button (click)="newPolygon()">recommencer</button>
-        <mat-button-toggle-group #group="matButtonToggleGroup" [value]="mode" (change)="onModeChange($event.value)">
-            <mat-button-toggle value="add">ajouter</mat-button-toggle>
-            <!-- <mat-button-toggle value="modify">modifier</mat-button-toggle> -->
-            <mat-button-toggle value="delete">supprimer</mat-button-toggle>
-        </mat-button-toggle-group>
-        <span>aire : {{getArea(polygon)}}</span>
-        <span>perimetre : {{getPerimeter(polygon)}}</span>
+        <button mat-flat-button (click)="newPolygon('terrasse')">recommencer</button>
+        <mat-form-field>
+            <mat-select [(value)]="mode">
+              <mat-option value="add">ajouter</mat-option>
+              <mat-option value="delete">supprimer</mat-option>
+            </mat-select>
+          </mat-form-field>
+        <mat-form-field>
+          <mat-select [(value)]="currentPolygon">
+            <mat-option *ngFor="let figure of project.objects" [value]="figure.polygon">{{figure.type}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <span>aire : {{getArea()}}</span>
+        <span>perimetre : {{getPerimeter()}}</span>
+
     </mat-card>
     <div class="drawing-zone" fxFlex fxLayoutAlign="start start">
         <svg
         (click)="onClick($event)"
         transform="scale(1,-1)"
         [attr.viewBox]="getViewboxText()">
-            <polygon [attr.fill]="config.fill" [attr.stroke]="config.stroke" stroke-width="0.1" [attr.points]="formatPoints(polygon)"></polygon>
-            <circle *ngFor="let p of polygon" [attr.cx]="p.x" [attr.cy]="p.y" r="0.2" stroke="red" fill="transparent" stroke-width="0.1"/>
+            <polygon *ngFor="let figure of project.objects" [attr.fill]="config[figure.type].fill" [attr.stroke]="config[figure.type].stroke" stroke-width="0.1" [attr.points]="formatPoints(figure.polygon)"></polygon>
+            <circle *ngFor="let p of currentPolygon" [attr.cx]="p.x" [attr.cy]="p.y" r="0.2" stroke="red" fill="transparent" stroke-width="0.1"/>
             <defs>
                 <pattern id="grid" width="1" height="1" patternUnits="userSpaceOnUse">
                     <path d="M 0 1 L 1 1 1 0" fill="none" stroke="gray" stroke-width="0.1"/>

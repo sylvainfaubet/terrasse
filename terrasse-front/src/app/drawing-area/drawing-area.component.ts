@@ -9,8 +9,8 @@ import { Point, findPointInPolygon, airePolygone, perimetrePolygone } from '../s
 export class DrawingAreaComponent implements OnInit {
     project: any;
     config: any;
-    polygon: Array<Point>;
     mode = 'add';
+    currentPolygon: Array<Point>;
     svg: any;
     viewBoxRatioDone: boolean;
 
@@ -20,33 +20,51 @@ export class DrawingAreaComponent implements OnInit {
                 height: 15,
                 width: 25,
             },
+            objects: [
+                {
+                    type: 'terrasse',
+                    polygon: [{ x: 0, y: 0 }, { x: 13, y: 0 }, { x: 13, y: 10 }, { x: 0, y: 10 }],
+                },
+                {
+                    type: 'piscine',
+                    polygon: [{ x: 2, y: 2 }, { x: 9, y: 2 }, { x: 9, y: 8 }, { x: 2, y: 8 }],
+                },
+            ],
         };
 
         this.config = {
-            fill: 'red',
-            stroke: 'black',
+            terrasse: {
+                fill: 'red',
+                stroke: 'black',
+            },
+            piscine: {
+                fill: 'lightblue',
+                stroke: 'black',
+            },
         };
+
+        this.currentPolygon = this.project.objects[0].polygon;
     }
 
     ngOnInit() {
-        this.newPolygon();
         this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
     }
 
-    getArea(polygon) {
-        return airePolygone(polygon);
+    getArea() {
+        return airePolygone(this.project.objects[0].polygon);
     }
 
-    getPerimeter(polygon) {
-        return perimetrePolygone(polygon);
+    getPerimeter() {
+        return perimetrePolygone(this.project.objects[0].polygon);
     }
 
     getViewboxText() {
         return '0 0 ' + this.project.area.width + ' ' + this.project.area.height;
     }
 
-    newPolygon() {
-        this.polygon = new Array<Point>();
+    newPolygon(type: string) {
+        this.currentPolygon = new Array<Point>();
+        this.project.objects.push({ type, polygon: this.currentPolygon });
     }
 
     formatPoints(polygon) {
@@ -64,16 +82,16 @@ export class DrawingAreaComponent implements OnInit {
 
         clickedPoint.roundPosition();
 
-        const foundPoint = findPointInPolygon(this.polygon, clickedPoint, 1);
+        const foundPoint = findPointInPolygon(this.currentPolygon, clickedPoint, 1);
         switch (this.mode) {
             case 'add':
-                this.polygon.push(clickedPoint);
+                this.currentPolygon.push(clickedPoint);
                 break;
             case 'modify':
                 break;
             case 'delete':
                 if (foundPoint) {
-                    this.polygon.splice(this.polygon.indexOf(foundPoint), 1);
+                    this.currentPolygon.splice(this.currentPolygon.indexOf(foundPoint), 1);
                 }
                 break;
             default:

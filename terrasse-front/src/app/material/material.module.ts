@@ -6,6 +6,7 @@ import {
     MatCardModule,
     MatIconModule,
     MatListModule,
+    MatSelectModule,
     MatSidenavModule,
     MatToolbarModule,
 } from '@angular/material';
@@ -17,6 +18,7 @@ const Modules = [
     MatCheckboxModule,
     MatIconModule,
     MatListModule,
+    MatSelectModule,
     MatSidenavModule,
     MatToolbarModule,
 ];
