@@ -1,0 +1,5 @@
+{
+  "watch": true,
+  "routes": "config/routes.json",
+  "middlewares": "config/middlewares"
+}

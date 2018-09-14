@@ -4,7 +4,7 @@
   "description": "back-office for terrasse project",
   "main": "src/server.ts",
   "scripts": {
-    "start": "json-server --watch data/db.json"
+    "start": "json-server data/db.json"
   },
   "author": "faubet.sylvain@gmail.com",
   "license": "ISC",

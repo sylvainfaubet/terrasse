@@ -1,62 +1,56 @@
-{"projects" : [{
-	"id":1,
-	"terrasses":[{
-		"type":"bois",
-		"contour":[{
-			"x":0,"y":0
-		},{
-			"x":13,"y":0
-		},{
-			"x":13,"y":10
-		},{
-			"x":0,"y":10
-		}],
-		"piscine":[{
-			"x":4,"y":3
-		},{
-			"x":11,"y":3
-		},{
-			"x":11,"y":6
-		},{
-			"x":4,"y":6
-		},{
-			"x":3,"y":5
-		},{
-			"x":3,"y":4
-		}],
-		"jardinieres":[{
-			"profondeur":0.2,
-			"contour":[{
-				"x":1,"y":9
-			},{
-				"x":2,"y":9
-			},{
-				"x":2,"y":8.5
-			},{
-				"x":1,"y":8.5
-			}]
-		}],
-		"arbres":[{
-			"contour":[{
-				"x":1,"y":1
-			},{
-				"x":1,"y":2
-			},{
-				"x":2,"y":2
-			},{
-				"x":2,"y":1
-			}]
-		}],
-		"escaliers":[{
-			"contour":[{
-				"x":1,"y":1
-			},{
-				"x":1,"y":2
-			},{
-				"x":2,"y":2
-			},{
-				"x":2,"y":1
-			}]
-		}]
-	}]
-}]}
+{
+  "projects": [
+    {
+      "id": 1,
+      "area": {
+        "height": 15,
+        "width": 25
+      }
+    }
+  ],
+  "polygons": [
+    {
+      "id": 1,
+      "projectId": 1,
+      "category": "terrasse",
+      "type": "bois"
+    }
+  ],
+  "points": [
+    {
+      "polygonsId": 1,
+      "position": 1,
+      "x": 13,
+      "y": 0
+    },
+    {
+      "polygonsId": 1,
+      "position": 0,
+      "x": 0,
+      "y": 0
+    },
+
+    {
+      "polygonsId": 1,
+      "position": 2,
+      "x": 13,
+      "y": 10
+    },
+    {
+      "polygonsId": 1,
+      "position": 3,
+      "x": 0,
+      "y": 10
+    }
+  ],
+  "config": [
+    {
+      "id": 1,
+      "toto": "tata"
+    },
+    {
+      "id": 2,
+      "toto": "titi"
+    }
+  ]
+}
