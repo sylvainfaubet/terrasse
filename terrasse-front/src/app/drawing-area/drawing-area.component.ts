@@ -1,5 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+
 import { Point, findPointInPolygon, airePolygone, perimetrePolygone } from '../shared/geometrie';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'terrasse-drawing-area',
@@ -9,45 +11,22 @@ import { Point, findPointInPolygon, airePolygone, perimetrePolygone } from '../s
 export class DrawingAreaComponent implements OnInit {
     project: any;
     config: any;
+
     mode = 'add';
     currentPolygon: Array<Point>;
     svg: any;
     viewBoxRatioDone: boolean;
 
-    constructor(private el: ElementRef) {
-        this.project = {
-            area: {
-                height: 15,
-                width: 25,
-            },
-            objects: [
-                {
-                    type: 'terrasse',
-                    polygon: [{ x: 0, y: 0 }, { x: 13, y: 0 }, { x: 13, y: 10 }, { x: 0, y: 10 }],
-                },
-                {
-                    type: 'piscine',
-                    polygon: [{ x: 2, y: 2 }, { x: 9, y: 2 }, { x: 9, y: 8 }, { x: 2, y: 8 }],
-                },
-            ],
-        };
-
-        this.config = {
-            terrasse: {
-                fill: 'red',
-                stroke: 'black',
-            },
-            piscine: {
-                fill: 'lightblue',
-                stroke: 'black',
-            },
-        };
-
-        this.currentPolygon = this.project.objects[0].polygon;
+    constructor(private el: ElementRef, route: ActivatedRoute) {
+        this.project = route.snapshot.data.project;
+        this.config = route.snapshot.data.config;
     }
 
     ngOnInit() {
         this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
+        console.log('DrawingAreaComponent ngOnInit', this);
+
+        this.currentPolygon = this.project.objects[0].polygon;
     }
 
     getArea() {
