@@ -5,7 +5,16 @@ import { CreateComponent } from './create/create.component';
 const routes: Routes = [
     {
         path: 'projects',
-        children: [{ path: 'create', component: CreateComponent }],
+
+        children: [
+            {
+                path: 'create',
+                component: CreateComponent,
+                data: {
+                    project: {},
+                },
+            },
+        ],
     },
 ];
 

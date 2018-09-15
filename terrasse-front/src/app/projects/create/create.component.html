@@ -1,3 +1,14 @@
+<p>Commençons par le terrain :</p>
 <p>
-  create works!
+    quelle taille fait il ?
 </p>
+
+<mat-form-field>
+    <input matInput placeholder="Largeur" [(ngModel)]="project.area.width">
+</mat-form-field>
+x
+<mat-form-field>
+    <input matInput placeholder="Longueur" [(ngModel)]="project.area.height">
+</mat-form-field>
+
+<button mat-flat-button (click)="validate(project)">valider</button>

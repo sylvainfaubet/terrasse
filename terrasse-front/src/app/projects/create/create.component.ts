@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'terrasse-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+    selector: 'terrasse-create',
+    templateUrl: './create.component.html',
+    styleUrls: ['./create.component.scss'],
 })
 export class CreateComponent implements OnInit {
+    public project;
+    constructor(private route: ActivatedRoute, private router: Router) {}
 
-  constructor() { }
+    ngOnInit() {
+        this.route.data.subscribe(({ project }) => {
+            this.project = project;
+            this.project.area = { width: 15, height: 10 };
+        });
+    }
 
-  ngOnInit() {
-  }
-
+    validate(project) {
+        console.log(project);
+        this.router.navigate(['draw']);
+    }
 }
