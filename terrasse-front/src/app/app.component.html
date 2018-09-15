@@ -1,4 +1,4 @@
-<mat-sidenav-container fxFill>
+<mat-sidenav-container>
     <mat-sidenav #sidenav>
         <mat-list (click)="sidenav.toggle()">
             <mat-list-item *ngFor="let route of routes" routerLink="{{route.path}}" routerLinkActive="active">{{route.path}}</mat-list-item>
@@ -6,7 +6,7 @@
     </mat-sidenav>
     <mat-sidenav-content fxLayout="column">
         <mat-toolbar color="primary">
-            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+            <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
             <div id="title">{{ title }}</div>
         </mat-toolbar>
         <div fxFlex fxLayoutAlign="start start">
@@ -15,5 +15,3 @@
         <terrasse-footer></terrasse-footer>
     </mat-sidenav-content>
 </mat-sidenav-container>
-
-

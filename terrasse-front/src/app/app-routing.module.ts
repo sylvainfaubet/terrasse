@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SandboxComponent } from './sandbox/sandbox.component';
 import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
+import { environment } from '../environments/environment';
 
 export const routes: Routes = [
     { path: 'home', component: DashboardComponent },
@@ -38,21 +38,18 @@ export const routes: Routes = [
             },
         },
     },
-    {
-        path: 'sandbox',
-        component: SandboxComponent,
-        children: [
-            {
-                path: '',
-                component: DrawingAreaComponent,
-            },
-        ],
-    },
-    { path: '', pathMatch: 'full', redirectTo: 'draw' },
+    { path: '', pathMatch: 'full', redirectTo: 'home' },
 ];
 
+if (!environment.production) {
+    routes.push({
+        path: 'sandbox',
+        loadChildren: './sandbox/sandbox.module#SandboxModule',
+    });
+}
+
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { enableTracing: true })],
     exports: [RouterModule],
     providers: [],
 })

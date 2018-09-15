@@ -1,8 +1,12 @@
 terrasse-root {
-    mat-sidenav-content {
-        mat-toolbar {
-            #title {
-                margin-left:10px;
+    mat-sidenav-container {
+        width: 100%;
+        height: 100%;
+        mat-sidenav-content {
+            mat-toolbar {
+                #title {
+                    margin-left:10px;
+                }
             }
         }
     }

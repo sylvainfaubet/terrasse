@@ -84,7 +84,7 @@ export class DrawingAreaComponent implements OnInit {
         p.x = event.clientX;
         p.y = event.clientY;
 
-        let goodPoint = p.matrixTransform(svg.getScreenCTM().inverse());
+        const goodPoint = p.matrixTransform(svg.getScreenCTM().inverse());
 
         return new Point(goodPoint.x, goodPoint.y);
     }
