@@ -5,7 +5,6 @@ import { CreateComponent } from './create/create.component';
 const routes: Routes = [
     {
         path: 'projects',
-
         children: [
             {
                 path: 'create',
