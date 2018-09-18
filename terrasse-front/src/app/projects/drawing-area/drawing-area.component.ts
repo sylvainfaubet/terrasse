@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 
-import { Point, findPointInPolygon, airePolygone, perimetrePolygone } from '../shared/geometrie';
+import { Point } from '../shared/point';
+import { Polygon, PolygonType } from '../shared/polygon';
+import { findPointInPolygon, airePolygone, perimetrePolygone } from '../shared/geometrie';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,41 +15,49 @@ export class DrawingAreaComponent implements OnInit {
     config: any;
 
     mode = 'add';
-    currentPolygon: Array<Point>;
+    currentPolygon: Polygon;
     svg: any;
     viewBoxRatioDone: boolean;
 
     constructor(private el: ElementRef, route: ActivatedRoute) {
-        this.project = route.snapshot.data.project;
-        this.config = route.snapshot.data.config;
+        route.parent.data.subscribe(data => {
+            this.project = data.project;
+        });
+        route.data.subscribe(data => {
+            this.config = data.config;
+        });
     }
 
     ngOnInit() {
         this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
         console.log('DrawingAreaComponent ngOnInit', this);
 
-        this.currentPolygon = this.project.objects[0].polygon;
+        if (this.project.polygons.length > 0) {
+            this.currentPolygon = this.project.polygons[0];
+        } else {
+            this.newPolygon(PolygonType.Terrasse);
+        }
     }
 
     getArea() {
-        return airePolygone(this.project.objects[0].polygon);
+        return airePolygone(this.currentPolygon.path);
     }
 
     getPerimeter() {
-        return perimetrePolygone(this.project.objects[0].polygon);
+        return perimetrePolygone(this.currentPolygon.path);
     }
 
     getViewboxText() {
         return '0 0 ' + this.project.area.width + ' ' + this.project.area.height;
     }
 
-    newPolygon(type: string) {
-        this.currentPolygon = new Array<Point>();
-        this.project.objects.push({ type, polygon: this.currentPolygon });
+    newPolygon(type: PolygonType) {
+        this.currentPolygon = new Polygon(type);
+        this.project.polygons.push(this.currentPolygon);
     }
 
-    formatPoints(polygon) {
-        return polygon.map(point => point.x + ',' + point.y).join(' ');
+    formatPoints(polygon: Polygon) {
+        return polygon.path.map(point => point.x + ',' + point.y).join(' ');
     }
 
     onModeChange(value) {
@@ -61,16 +71,16 @@ export class DrawingAreaComponent implements OnInit {
 
         clickedPoint.roundPosition();
 
-        const foundPoint = findPointInPolygon(this.currentPolygon, clickedPoint, 1);
+        const foundPoint = findPointInPolygon(this.currentPolygon.path, clickedPoint, 1);
         switch (this.mode) {
             case 'add':
-                this.currentPolygon.push(clickedPoint);
+                this.currentPolygon.path.push(clickedPoint);
                 break;
             case 'modify':
                 break;
             case 'delete':
                 if (foundPoint) {
-                    this.currentPolygon.splice(this.currentPolygon.indexOf(foundPoint), 1);
+                    this.currentPolygon.path.splice(this.currentPolygon.path.indexOf(foundPoint), 1);
                 }
                 break;
             default:

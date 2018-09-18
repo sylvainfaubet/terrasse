@@ -5,6 +5,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 
 @import 'app/app.component';
 @import 'app/dashboard/dashboard.component';
-@import 'app/drawing-area/drawing-area.component';
 @import 'app/footer/footer.component';
 @import 'app/sandbox/sandbox.component';
+
+@import 'app/projects/project.module';
