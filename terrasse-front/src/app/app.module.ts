@@ -3,19 +3,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
+import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
-import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
-import { SandboxComponent } from './sandbox/sandbox.component';
+
+@NgModule({
+    declarations: [FooterComponent, DashboardComponent],
+    exports: [FooterComponent, DashboardComponent],
+})
+export class AppCommonModule {}
 
 @NgModule({
     bootstrap: [AppComponent],
-    declarations: [AppComponent, DashboardComponent, FooterComponent, DrawingAreaComponent, SandboxComponent],
+    declarations: [AppComponent],
     exports: [MaterialModule],
-    imports: [BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule, FlexLayoutModule],
+    imports: [AppCommonModule, BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule, FlexLayoutModule],
     providers: [],
 })
 export class AppModule {}

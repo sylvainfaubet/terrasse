@@ -1,27 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SandboxComponent } from './sandbox/sandbox.component';
-import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
+import { environment } from '../environments/environment';
 
 export const routes: Routes = [
     { path: 'home', component: DashboardComponent },
-    { path: 'draw', component: DrawingAreaComponent },
+    { path: '', pathMatch: 'full', redirectTo: 'projects/1/draw' },
     {
         path: 'sandbox',
-        component: SandboxComponent,
-        children: [
-            {
-                path: '',
-                component: DrawingAreaComponent,
-            },
-        ],
+        canLoad: ['canLoadSanbox'],
+        loadChildren: './sandbox/sandbox.module#SandboxModule',
     },
-    { path: '', pathMatch: 'full', redirectTo: 'draw' },
+    {
+        path: 'projects',
+        loadChildren: './projects/projects.module#ProjectsModule',
+    },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { enableTracing: true })],
     exports: [RouterModule],
+    providers: [
+        {
+            provide: 'canLoadSanbox',
+            useValue: () => !environment.production,
+        },
+    ],
 })
 export class AppRoutingModule {}
