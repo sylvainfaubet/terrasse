@@ -6,18 +6,25 @@ import { environment } from '../environments/environment';
 export const routes: Routes = [
     { path: 'home', component: DashboardComponent },
     { path: '', pathMatch: 'full', redirectTo: 'projects/1/draw' },
-];
-
-if (!environment.production) {
-    routes.push({
+    {
         path: 'sandbox',
+        canLoad: ['canLoadSanbox'],
         loadChildren: './sandbox/sandbox.module#SandboxModule',
-    });
-}
+    },
+    {
+        path: 'projects',
+        loadChildren: './projects/projects.module#ProjectsModule',
+    },
+];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes, { enableTracing: true })],
     exports: [RouterModule],
-    providers: [],
+    providers: [
+        {
+            provide: 'canLoadSanbox',
+            useValue: () => !environment.production,
+        },
+    ],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

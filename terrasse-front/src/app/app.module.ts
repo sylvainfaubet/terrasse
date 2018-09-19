@@ -11,13 +11,17 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 
-import { ProjectsModule } from './projects/projects.module';
+@NgModule({
+    declarations: [FooterComponent, DashboardComponent],
+    exports: [FooterComponent, DashboardComponent],
+})
+export class AppCommonModule {}
 
 @NgModule({
     bootstrap: [AppComponent],
-    declarations: [AppComponent, DashboardComponent, FooterComponent],
+    declarations: [AppComponent],
     exports: [MaterialModule],
-    imports: [ProjectsModule, BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule, FlexLayoutModule],
+    imports: [AppCommonModule, BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule, FlexLayoutModule],
     providers: [],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,6 +1,20 @@
-<div fxLayout="row">
+<div fxLayout="row" fxFlex>
+    <div class="drawing-zone" fxLayoutAlign="start start">
+        <svg (click)="onClick($event)" transform="scale(1,-1)" preserveAspectRatio="xMidYMid meet" [attr.viewBox]="getViewboxText()">
+            <polygon *ngFor="let figure of project.polygons" [attr.fill]="config[figure.type].fill" [attr.stroke]="config[figure.type].stroke"
+                stroke-width="0.1" [attr.points]="formatPoints(figure)"></polygon>
+            <circle *ngFor="let p of currentPolygon.path;let last = last" [attr.cx]="p.x" [attr.cy]="p.y" r="0.2"
+                [attr.stroke]="last ? 'blue' : 'red'" fill="transparent" stroke-width="0.1" />
+            <defs>
+                <pattern id="grid" width="1" height="1" patternUnits="userSpaceOnUse">
+                    <path d="M 0 1 L 1 1 1 0" fill="none" stroke="gray" stroke-width="0.1" />
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+    </div>
     <mat-card fxLayoutAlign="space-around center" fxLayout="column" fxLayoutGap="10px">
-        <button mat-flat-button (click)="newPolygon('terrasse')">recommencer</button>
+        <button mat-flat-button (click)="newPolygon('terrasse')">ajouter une terrasse</button>
         <div>
             <mat-form-field>
                 <mat-select [(value)]="mode">
@@ -19,19 +33,4 @@
         <div>aire : {{getArea()}}</div>
         <div>perimetre : {{getPerimeter()}}</div>
     </mat-card>
-
-    <div class="drawing-zone" fxLayoutAlign="start start">
-        <svg (click)="onClick($event)" transform="scale(1,-1)" [attr.viewBox]="getViewboxText()">
-            <polygon *ngFor="let figure of project.polygons" [attr.fill]="config[figure.type].fill" [attr.stroke]="config[figure.type].stroke"
-                stroke-width="0.1" [attr.points]="formatPoints(figure)"></polygon>
-            <circle *ngFor="let p of currentPolygon.path" [attr.cx]="p.x" [attr.cy]="p.y" r="0.2" stroke="red" fill="transparent"
-                stroke-width="0.1" />
-            <defs>
-                <pattern id="grid" width="1" height="1" patternUnits="userSpaceOnUse">
-                    <path d="M 0 1 L 1 1 1 0" fill="none" stroke="gray" stroke-width="0.1" />
-                </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-    </div>
 </div>

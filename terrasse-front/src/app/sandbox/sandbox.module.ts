@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { SandboxComponent } from './sandbox.component';
 import { SandboxRoutingModule } from './sandbox-routing.module';
+import { AppCommonModule } from '../app.module';
+import { ProjectsModule } from '../projects/projects.module';
 
 @NgModule({
-    imports: [CommonModule, SandboxRoutingModule],
+    imports: [SandboxRoutingModule, AppCommonModule, ProjectsModule],
     declarations: [SandboxComponent],
 })
 export class SandboxModule {}
