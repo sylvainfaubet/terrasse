@@ -18,6 +18,7 @@ export class DrawingAreaComponent implements OnInit {
     currentPolygon: Polygon;
     svg: any;
     viewBoxRatioDone: boolean;
+    polygonType: PolygonType;
 
     constructor(private el: ElementRef, route: ActivatedRoute) {
         route.parent.data.subscribe(data => {
@@ -26,6 +27,7 @@ export class DrawingAreaComponent implements OnInit {
         route.data.subscribe(data => {
             this.config = data.config;
         });
+        this.polygonType = PolygonType.Terrasse;
     }
 
     ngOnInit() {

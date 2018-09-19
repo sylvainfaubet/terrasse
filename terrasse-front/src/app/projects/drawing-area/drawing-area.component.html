@@ -14,7 +14,7 @@
         </svg>
     </div>
     <mat-card fxLayoutAlign="space-around center" fxLayout="column" fxLayoutGap="10px">
-        <button mat-flat-button (click)="newPolygon('terrasse')">ajouter une terrasse</button>
+        <button mat-flat-button (click)="newPolygon(polygonType)">ajouter une terrasse</button>
         <div>
             <mat-form-field>
                 <mat-select [(value)]="mode">
