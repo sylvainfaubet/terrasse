@@ -20,7 +20,7 @@ export class AppCommonModule {}
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [AppComponent],
-    exports: [MaterialModule],
+    exports: [MaterialModule, FlexLayoutModule],
     imports: [AppCommonModule, BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule, FlexLayoutModule],
     providers: [],
 })
