@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
     providedIn: 'root',
 })
 export class ProjectService {
-
     projects: Project[] = [{ id: 1, area: { width: 20, height: 15 }, polygons: [] }];
 
     createProject(): Project {
@@ -17,5 +16,4 @@ export class ProjectService {
         console.log('getProject', id, this.projects[id - 1]);
         return this.projects[id - 1];
     }
-
 }

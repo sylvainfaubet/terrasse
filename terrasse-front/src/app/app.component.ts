@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 import { routes } from './app-routing.module';
 
@@ -7,7 +8,15 @@ import { routes } from './app-routing.module';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     routes = routes;
-    title = 'Terrasse 2.0';
+    title: String;
+
+    constructor(@Inject(DOCUMENT) document: any) {
+        this.title = document.title;
+    }
+
+    ngOnInit() {
+        console.log(this);
+    }
 }

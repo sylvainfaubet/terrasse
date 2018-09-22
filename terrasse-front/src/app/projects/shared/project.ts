@@ -2,13 +2,5 @@ import { Polygon } from './polygon';
 import { Area } from './area';
 
 export class Project {
-    id: Number;
-    area: Area;
-    polygons: Array<Polygon>;
-
-    constructor(id: Number, area: Area = new Area(), polygons: Array<Polygon> = []) {
-        this.id = id;
-        this.area = area;
-        this.polygons = polygons;
-    }
+    constructor(public id: Number, public name?: String, public area: Area = new Area(), public polygons: Array<Polygon> = []) {}
 }

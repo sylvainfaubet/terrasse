@@ -1,4 +1,3 @@
 export class Area {
-    width: Number;
-    height: Number;
+    constructor(public width?: Number, public height?: Number) {}
 }

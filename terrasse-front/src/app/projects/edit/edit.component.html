@@ -1,7 +1,10 @@
-<h1>Gestion du Projet</h1>
 <p>
-    quelle est la taille du terrain
+    Gestion du Projet :
+    <mat-form-field>
+        <input matInput placeholder="nom" [(ngModel)]="project.name">
+    </mat-form-field>
 </p>
+<p>quelle est la taille du terrain ?</p>
 
 <mat-form-field>
     <input matInput placeholder="Largeur" [(ngModel)]="project.area.width">

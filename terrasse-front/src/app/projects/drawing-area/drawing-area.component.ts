@@ -17,22 +17,18 @@ export class DrawingAreaComponent implements OnInit {
     mode = 'add';
     currentPolygon: Polygon;
     svg: any;
-    viewBoxRatioDone: boolean;
-    polygonTypes;
+    polygonTypes = PolygonType;
 
     constructor(private el: ElementRef, route: ActivatedRoute) {
-        route.parent.data.subscribe(data => {
-            this.project = data.project;
-        });
         route.data.subscribe(data => {
             this.config = data.config;
+            this.project = data.project;
         });
-        this.polygonTypes = PolygonType;
     }
 
     ngOnInit() {
         this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
-        console.log('DrawingAreaComponent ngOnInit', this);
+        console.log(this);
 
         if (this.project.polygons.length > 0) {
             this.currentPolygon = this.project.polygons[0];
@@ -70,7 +66,6 @@ export class DrawingAreaComponent implements OnInit {
         console.log(event);
 
         const clickedPoint = this.getClickedPoint(event);
-
         clickedPoint.roundPosition();
 
         const foundPoint = findPointInPolygon(this.currentPolygon.path, clickedPoint, 1);
