@@ -4,7 +4,7 @@
             <polygon *ngFor="let figure of project.polygons" [attr.fill]="config[figure.type].fill" [attr.stroke]="config[figure.type].stroke"
                 stroke-width="0.1" [attr.points]="formatPoints(figure)"></polygon>
             <circle *ngFor="let p of currentPolygon.path;let last = last; let first= first" [attr.cx]="p.x" [attr.cy]="p.y"
-                r="0.2" [attr.stroke]="last ? 'red' : first ? 'blue' : 'gray'" fill="transparent" stroke-width="0.1" />
+                r="0.2" [attr.stroke]="last ? 'green' : first ? 'blue' : 'gray'" fill="transparent" stroke-width="0.1" />
             <defs>
                 <pattern id="grid" width="1" height="1" patternUnits="userSpaceOnUse">
                     <path d="M 0 1 L 1 1 1 0" fill="none" stroke="gray" stroke-width="0.1" />
