@@ -1,17 +1,10 @@
-<mat-sidenav-container>
-    <mat-sidenav #sidenav>
-        <mat-list (click)="sidenav.toggle()">
-            <mat-list-item *ngFor="let route of routes" routerLink="{{route.path}}" routerLinkActive="active">{{route.path}}</mat-list-item>
-        </mat-list>
-    </mat-sidenav>
-    <mat-sidenav-content fxLayout="column">
-        <mat-toolbar color="primary">
-            <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
-            <div id="title">{{ title }}</div>
-        </mat-toolbar>
-        <div>
-            <router-outlet></router-outlet>
-        </div>
-        <terrasse-footer></terrasse-footer>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+<div fxLayout="column" fxFlexFill>
+    <mat-toolbar color="primary" fxFlex=10 fxFlex.xs=15>
+        <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
+        <div id="title">{{ title }}</div>
+    </mat-toolbar>
+    <div fxFlex>
+        <router-outlet></router-outlet>
+    </div>
+    <terrasse-footer fxFlex.xs=10 fxFlex=5></terrasse-footer>
+</div>
