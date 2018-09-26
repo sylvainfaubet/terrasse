@@ -12,6 +12,7 @@ import {
     MatInputModule,
     MatFormFieldModule,
     MatSliderModule,
+    MatDialogModule,
 } from '@angular/material';
 
 const Modules = [
@@ -27,6 +28,7 @@ const Modules = [
     MatSelectModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatDialogModule,
 ];
 
 @NgModule({

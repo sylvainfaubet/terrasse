@@ -1,9 +1,12 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material';
 
 import { Point } from '../shared/point';
 import { Polygon, PolygonType } from '../shared/polygon';
 import { findPointInPolygon, airePolygone, perimetrePolygone } from '../shared/geometrie';
-import { ActivatedRoute } from '@angular/router';
+
+import { EditPointModalComponent } from '../edit-point-modal/edit-point-modal.component';
 
 @Component({
     selector: 'terrasse-drawing-area',
@@ -19,7 +22,7 @@ export class DrawingAreaComponent implements OnInit {
     svg: any;
     polygonTypes = PolygonType;
 
-    constructor(private el: ElementRef, route: ActivatedRoute) {
+    constructor(private el: ElementRef, route: ActivatedRoute, public dialog: MatDialog) {
         route.data.subscribe(data => {
             this.config = data.config;
             this.project = data.project;
@@ -74,6 +77,16 @@ export class DrawingAreaComponent implements OnInit {
                 this.currentPolygon.path.push(clickedPoint);
                 break;
             case 'modify':
+                if (foundPoint) {
+                    const dialogRef = this.dialog.open(EditPointModalComponent, {
+                        width: '250px',
+                        data: foundPoint,
+                    });
+                    dialogRef.afterClosed().subscribe(result => {
+                        console.log('The dialog was closed', result);
+                    });
+                }
+
                 break;
             case 'delete':
                 if (foundPoint) {
