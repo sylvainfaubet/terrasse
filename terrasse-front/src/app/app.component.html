@@ -1,10 +1,7 @@
 <div fxLayout="column" fxFlexFill>
-    <mat-toolbar color="primary" fxFlex=10 fxFlex.xs=15>
-        <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
-        <div id="title">{{ title }}</div>
-    </mat-toolbar>
+    <terrasse-header fxFlex=10 [title]="title"></terrasse-header>
     <div fxFlex>
         <router-outlet></router-outlet>
     </div>
-    <terrasse-footer fxFlex.xs=10 fxFlex=5></terrasse-footer>
+    <terrasse-footer fxFlex.xs=8 fxFlex=5></terrasse-footer>
 </div>

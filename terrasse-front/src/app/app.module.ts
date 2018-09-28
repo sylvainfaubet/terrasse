@@ -10,10 +10,12 @@ import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-    declarations: [FooterComponent, DashboardComponent],
-    exports: [FooterComponent, DashboardComponent],
+    imports: [FlexLayoutModule, MaterialModule],
+    declarations: [FooterComponent, DashboardComponent, HeaderComponent],
+    exports: [FooterComponent, DashboardComponent, HeaderComponent],
 })
 export class AppCommonModule {}
 

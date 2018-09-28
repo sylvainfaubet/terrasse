@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
+
 import { Point } from '../shared/point';
 import { Polygon, PolygonType } from '../shared/polygon';
 import { findPointInPolygon, airePolygone, perimetrePolygone } from '../shared/geometrie';
