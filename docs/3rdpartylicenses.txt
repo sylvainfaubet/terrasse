@@ -338,14 +338,6 @@ Apache License
  See the License for the specific language governing permissions and
  limitations under the License.
 
-@angular/router@6.1.3
-MIT
-MIT
-
-@angular/animations@6.1.3
-MIT
-MIT
-
 @angular/flex-layout@6.0.0-beta.17
 MIT
 The MIT License
@@ -395,6 +387,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 @angular/core@6.1.3
+MIT
+MIT
+
+@angular/router@6.1.3
+MIT
+MIT
+
+@angular/animations@6.1.3
 MIT
 MIT
 
