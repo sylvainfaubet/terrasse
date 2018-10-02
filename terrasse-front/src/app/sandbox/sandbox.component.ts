@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Point } from '../projects/shared/point';
+import { Point } from '../projects/shared/model/point';
 import { MatDialog } from '@angular/material';
 import { EditPointModalComponent } from '../projects/edit-point-modal/edit-point-modal.component';
 

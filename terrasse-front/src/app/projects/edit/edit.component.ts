@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Project } from '../shared/project';
+import { Project } from '../shared/model/project';
 
 @Component({
     selector: 'terrasse-edit',
     templateUrl: './edit.component.html',
-    styleUrls: ['./edit.component.scss']
+    styleUrls: ['./edit.component.scss'],
 })
 export class EditComponent implements OnInit {
-
     project: Project;
 
     constructor(private route: ActivatedRoute, private router: Router) {
@@ -17,8 +16,7 @@ export class EditComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
     validate(project) {
         console.log(project);

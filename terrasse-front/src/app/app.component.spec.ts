@@ -1,31 +1,28 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-const title = 'Terrasse 2.0';
 describe('AppComponent', () => {
+    // const title = 'Terrasse 2.0';
+    let fixture: ComponentFixture<AppComponent>;
+    let component: AppComponent;
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
             imports: [RouterTestingModule],
             declarations: [AppComponent],
+            schemas: [NO_ERRORS_SCHEMA],
         }).compileComponents();
+
+        fixture = TestBed.createComponent(AppComponent);
+        component = fixture.componentInstance;
     }));
+
     it('should create the app', async(() => {
-        const fixture = TestBed.createComponent(AppComponent);
-        const app = fixture.debugElement.componentInstance;
-        expect(app).toBeTruthy();
+        expect(component).toBeTruthy();
     }));
-    it(`should have as title '${title}'`, async(() => {
-        const fixture = TestBed.createComponent(AppComponent);
-        const app = fixture.debugElement.componentInstance;
-        expect(app.title).toEqual(`${title}`);
-    }));
-    it('should render title in a h1 tag', async(() => {
-        const fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('mat-toolbar').textContent).toContain(`${title}`);
-    }));
+
+    // it(`should have as title '${title}'`, async(() => {
+    //     expect(component.title).toEqual(`${title}`);
+    // }));
 });

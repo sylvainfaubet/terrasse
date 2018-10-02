@@ -1,4 +1,4 @@
-import { Project } from './project';
+import { Project } from '../model/project';
 import { Injectable } from '@angular/core';
 
 @Injectable({

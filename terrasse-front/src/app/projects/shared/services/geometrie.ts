@@ -1,4 +1,8 @@
-import { Point } from './point';
+import { Point } from '../model/point';
+
+export const distance = (a: Point, b: Point) => {
+    return Math.sqrt(Math.pow(b.x - a.x, 2) + Math.pow(b.y - a.y, 2));
+};
 
 export const findPointInPolygon = (polygon: Array<Point>, point: Point, maxDistance: number) => {
     for (const polygonPoint of polygon) {
@@ -8,11 +12,6 @@ export const findPointInPolygon = (polygon: Array<Point>, point: Point, maxDista
     }
     return undefined;
 };
-
-export const distance = (a: Point, b: Point) => {
-    return Math.sqrt(Math.pow(b.x - a.x, 2) + Math.pow(b.y - a.y, 2));
-};
-
 export const perimetrePolygone = (path: Array<Point>) => {
     let perimetre = 0;
 

@@ -1,14 +1,13 @@
-
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { ProjectService } from './project.service';
-import { Project } from './project';
+import { Project } from '../model/project';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ProjectResolver implements Resolve<Project> {
-    constructor(private projectService: ProjectService) { }
+    constructor(private projectService: ProjectService) {}
 
     resolve(route: ActivatedRouteSnapshot) {
         const project = this.projectService.getProject(route.paramMap.get('id'));
