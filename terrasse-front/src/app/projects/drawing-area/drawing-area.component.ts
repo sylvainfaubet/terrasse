@@ -31,7 +31,6 @@ export class DrawingAreaComponent implements OnInit {
 
     ngOnInit() {
         this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
-        console.log(this);
 
         if (this.project.polygons.length > 0) {
             this.currentPolygon = this.project.polygons[0];
@@ -69,7 +68,7 @@ export class DrawingAreaComponent implements OnInit {
         console.log(event);
 
         const clickedPoint = this.getClickedPoint(event);
-        clickedPoint.roundPosition();
+        Point.roundPosition(clickedPoint);
 
         const foundPoint = findPointInPolygon(this.currentPolygon.path, clickedPoint, 1);
         switch (this.mode) {

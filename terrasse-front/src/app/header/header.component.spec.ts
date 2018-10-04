@@ -6,6 +6,7 @@ import { MaterialModule } from '../material/material.module';
 describe('HeaderComponent', () => {
     let component: HeaderComponent;
     let fixture: ComponentFixture<HeaderComponent>;
+    const TITLE = 'titre';
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -22,5 +23,11 @@ describe('HeaderComponent', () => {
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('should render title', () => {
+        component.title = TITLE;
+        fixture.detectChanges();
+        expect(fixture.elementRef.nativeElement.innerText).toBe(TITLE);
     });
 });

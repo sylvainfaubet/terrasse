@@ -1,12 +1,11 @@
+function roundValue(val: number) {
+    return Math.round(val * 2) / 2;
+}
 export class Point {
     constructor(public x: number, public y: number) {}
 
-    roundPosition() {
-        this.x = this.roundValue(this.x);
-        this.y = this.roundValue(this.y);
-    }
-
-    private roundValue(val: number) {
-        return Math.round(val * 2) / 2;
+    static roundPosition(point: Point) {
+        point.x = roundValue(point.x);
+        point.y = roundValue(point.y);
     }
 }
