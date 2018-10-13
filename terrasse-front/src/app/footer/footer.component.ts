@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-    isDisplayedKito = new Date().toDateString() === new Date('2018-10-14').toDateString();
+    isDisplayedKito = new Date().toDateString() === new Date('2018-10-17').toDateString();
 
     constructor(private router: Router) {}
 
