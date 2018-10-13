@@ -15,6 +15,11 @@ export const routes: Routes = [
         path: 'projects',
         loadChildren: './projects/projects.module#ProjectsModule',
     },
+    {
+        path: 'kito',
+        // canLoad: ['canLoadKito'],
+        loadChildren: './kito/kito.module#KitoModule',
+    },
 ];
 
 @NgModule({
@@ -24,6 +29,10 @@ export const routes: Routes = [
         {
             provide: 'canLoadSanbox',
             useValue: () => !environment.production,
+        },
+        {
+            provide: 'canLoadKito',
+            useValue: () => new Date().toDateString() === new Date('2018-10-13').toDateString(),
         },
     ],
 })
