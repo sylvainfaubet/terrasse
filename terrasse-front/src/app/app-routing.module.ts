@@ -32,7 +32,7 @@ export const routes: Routes = [
         },
         {
             provide: 'canLoadKito',
-            useValue: () => new Date().toDateString() === new Date('2018-10-14').toDateString(),
+            useValue: () => true,
         },
     ],
 })
