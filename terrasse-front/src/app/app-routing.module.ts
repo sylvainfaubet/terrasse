@@ -17,7 +17,7 @@ export const routes: Routes = [
     },
     {
         path: 'kito',
-        // canLoad: ['canLoadKito'],
+        canLoad: ['canLoadKito'],
         loadChildren: './kito/kito.module#KitoModule',
     },
 ];
@@ -32,7 +32,7 @@ export const routes: Routes = [
         },
         {
             provide: 'canLoadKito',
-            useValue: () => new Date().toDateString() === new Date('2018-10-13').toDateString(),
+            useValue: () => new Date().toDateString() === new Date('2018-10-14').toDateString(),
         },
     ],
 })
