@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from './material/material.module';
@@ -13,7 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-    imports: [FlexLayoutModule, MaterialModule],
+    imports: [FlexLayoutModule, MaterialModule, CommonModule],
     declarations: [FooterComponent, DashboardComponent, HeaderComponent],
     exports: [FooterComponent, DashboardComponent, HeaderComponent],
 })
