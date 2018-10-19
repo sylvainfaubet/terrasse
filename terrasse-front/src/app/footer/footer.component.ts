@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'terrasse-footer',
@@ -9,11 +8,7 @@ import { Router } from '@angular/router';
 export class FooterComponent implements OnInit {
     isDisplayedKito = new Date().toDateString() === new Date('2018-10-17').toDateString();
 
-    constructor(private router: Router) {}
+    constructor() {}
 
     ngOnInit() {}
-
-    open() {
-        this.router.navigate(['kito']);
-    }
 }

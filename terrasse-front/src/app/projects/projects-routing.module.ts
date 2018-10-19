@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
 import { EditComponent } from './edit/edit.component';
 import { ProjectResolver } from './shared/services/project.resolver';
 

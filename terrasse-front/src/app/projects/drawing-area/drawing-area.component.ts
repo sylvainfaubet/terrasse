@@ -11,7 +11,7 @@ import { Polygon } from '../shared/model/polygon';
 })
 export class DrawingAreaComponent implements OnInit {
     @Input()
-    onClickedPoint: Function;
+    clickPoint: Function;
 
     project: any;
     config: any;
@@ -42,7 +42,7 @@ export class DrawingAreaComponent implements OnInit {
     }
 
     onClick(event) {
-        this.onClickedPoint(this.getClickedPoint(event));
+        this.clickPoint(this.getClickedPoint(event));
     }
 
     private getClickedPoint(event: any) {
