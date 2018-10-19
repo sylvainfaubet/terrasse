@@ -16,10 +16,6 @@ const routes: Routes = [
                     {
                         path: '',
                         component: EditComponent,
-                    },
-                    {
-                        path: 'draw',
-                        component: DrawingAreaComponent,
                         data: {
                             config: {
                                 terrasse: {

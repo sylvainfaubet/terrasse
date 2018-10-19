@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as fireworks from 'fireworks';
 
 @Component({
@@ -6,13 +6,17 @@ import * as fireworks from 'fireworks';
     templateUrl: './birthday.component.html',
     styleUrls: ['./birthday.component.scss'],
 })
-export class BirthdayComponent implements OnInit {
+export class BirthdayComponent implements OnInit, OnDestroy {
     interval;
     date;
 
     ngOnInit() {
         this.interval = setInterval(this.boom, 1500);
         this.date = new Date('2018-10-17').toDateString();
+    }
+
+    ngOnDestroy() {
+        this.stop();
     }
 
     boom() {

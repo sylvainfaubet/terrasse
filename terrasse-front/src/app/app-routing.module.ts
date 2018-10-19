@@ -5,7 +5,7 @@ import { environment } from '../environments/environment';
 
 export const routes: Routes = [
     { path: 'home', component: DashboardComponent },
-    { path: '', pathMatch: 'full', redirectTo: 'projects/1/draw' },
+    { path: '', pathMatch: 'full', redirectTo: 'projects/1' },
     {
         path: 'sandbox',
         canLoad: ['canLoadSanbox'],

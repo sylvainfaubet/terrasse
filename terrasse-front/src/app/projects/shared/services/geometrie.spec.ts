@@ -1,4 +1,4 @@
-import { distance, findPointInPolygon, perimetrePolygone, airePolygone } from './geometrie';
+import { distance, findPointInPolygon, perimetrePolygone, airePolygone, changePointsOrder } from './geometrie';
 import { Point } from '../model/point';
 
 const path: Array<Point> = [{ x: 0, y: 0 }, { x: 3, y: 4 }, { x: 0, y: 4 }];
@@ -22,5 +22,11 @@ describe('geometrie', () => {
 
     it('should get area', () => {
         expect(airePolygone(path)).toBe(6);
+    });
+
+    it('should not modify original path', () => {
+        const testPath = [new Point(0, 0), new Point(1, 1), new Point(2, 2)];
+        const rotatedPath = changePointsOrder(testPath, true);
+        expect(rotatedPath !== testPath);
     });
 });

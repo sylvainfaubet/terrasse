@@ -35,3 +35,13 @@ export const airePolygone = (path: Array<Point>) => {
 
     return Math.sqrt(Math.pow(aire, 2));
 };
+
+export const changePointsOrder = (path: Array<Point>, firstToLast: boolean) => {
+    const result = path.slice();
+    if (firstToLast) {
+        result.push(result.shift());
+    } else {
+        result.unshift(result.pop());
+    }
+    return result;
+};

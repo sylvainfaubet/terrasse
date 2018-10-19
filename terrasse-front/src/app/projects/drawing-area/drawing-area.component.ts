@@ -1,12 +1,8 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MatDialog } from '@angular/material';
 
 import { Point } from '../shared/model/point';
-import { Polygon, PolygonType } from '../shared/model/polygon';
-import { findPointInPolygon, airePolygone, perimetrePolygone } from '../shared/services/geometrie';
-
-import { EditPointModalComponent } from '../edit-point-modal/edit-point-modal.component';
+import { Polygon } from '../shared/model/polygon';
 
 @Component({
     selector: 'terrasse-drawing-area',
@@ -14,15 +10,18 @@ import { EditPointModalComponent } from '../edit-point-modal/edit-point-modal.co
     styleUrls: ['./drawing-area.component.scss'],
 })
 export class DrawingAreaComponent implements OnInit {
+    @Input()
+    onClickedPoint: Function;
+
     project: any;
     config: any;
 
-    mode = 'add';
+    @Input()
     currentPolygon: Polygon;
-    svg: any;
-    polygonTypes = PolygonType;
 
-    constructor(private el: ElementRef, route: ActivatedRoute, public dialog: MatDialog) {
+    svg: any;
+
+    constructor(private el: ElementRef, route: ActivatedRoute) {
         route.data.subscribe(data => {
             this.config = data.config;
             this.project = data.project;
@@ -30,70 +29,20 @@ export class DrawingAreaComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log(this);
         this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
-
-        if (this.project.polygons.length > 0) {
-            this.currentPolygon = this.project.polygons[0];
-        } else {
-            this.newPolygon(PolygonType.Terrasse);
-        }
-    }
-
-    getArea() {
-        return airePolygone(this.currentPolygon.path);
-    }
-
-    getPerimeter() {
-        return perimetrePolygone(this.currentPolygon.path);
     }
 
     getViewboxText() {
         return '0 0 ' + this.project.area.width + ' ' + this.project.area.height;
     }
 
-    newPolygon(type: PolygonType) {
-        this.currentPolygon = new Polygon(type);
-        this.project.polygons.push(this.currentPolygon);
-    }
-
     formatPoints(polygon: Polygon) {
         return polygon.path.map(point => point.x + ',' + point.y).join(' ');
     }
 
-    onModeChange(value) {
-        this.mode = value;
-    }
-
     onClick(event) {
-        console.log(event);
-
-        const clickedPoint = this.getClickedPoint(event);
-        Point.roundPosition(clickedPoint);
-
-        const foundPoint = findPointInPolygon(this.currentPolygon.path, clickedPoint, 1);
-        switch (this.mode) {
-            case 'add':
-                this.currentPolygon.path.push(clickedPoint);
-                break;
-            case 'modify':
-                if (foundPoint) {
-                    const dialogRef = this.dialog.open(EditPointModalComponent, {
-                        width: '250px',
-                        data: foundPoint,
-                    });
-                    dialogRef.afterClosed().subscribe(result => {
-                        console.log('The dialog was closed', result);
-                    });
-                }
-
-                break;
-            case 'delete':
-                if (foundPoint) {
-                    this.currentPolygon.path.splice(this.currentPolygon.path.indexOf(foundPoint), 1);
-                }
-                break;
-            default:
-        }
+        this.onClickedPoint(this.getClickedPoint(event));
     }
 
     private getClickedPoint(event: any) {
@@ -105,6 +54,8 @@ export class DrawingAreaComponent implements OnInit {
 
         const goodPoint = p.matrixTransform(svg.getScreenCTM().inverse());
 
-        return new Point(goodPoint.x, goodPoint.y);
+        const clickedPoint: Point = new Point(goodPoint.x, goodPoint.y);
+        Point.roundPosition(clickedPoint);
+        return clickedPoint;
     }
 }

@@ -1,4 +1,4 @@
-<p>
+<!-- <p>
     Gestion du Projet :
     <mat-form-field>
         <input matInput placeholder="nom" [(ngModel)]="project.name">
@@ -12,6 +12,43 @@
 x
 <mat-form-field>
     <input matInput placeholder="Longueur" [(ngModel)]="project.area.height">
-</mat-form-field>
+</mat-form-field> -->
 
-<button mat-flat-button (click)="validate(project)">valider</button>
+<div fxLayout.xs=column fxLayout="row" fxLayoutAlign="space-around justify">
+    <mat-card fxFlex=50>
+        <terrasse-drawing-area [currentPolygon]="currentPolygon" [onClickedPoint]="doJobOnClickedPoint"></terrasse-drawing-area>
+    </mat-card>
+    <mat-card fxFlex=40>
+        <div>
+            <button mat-flat-button (click)="newPolygon(polygonTypes.Terrasse)">ajouter une terrasse</button>
+            <button style="margin-left: 10px" mat-flat-button (click)="newPolygon(polygonTypes.Piscine)">ajouter une
+                piscine</button>
+        </div>
+        <div>
+            au clic :
+            <mat-form-field>
+                <mat-select [(value)]="mode">
+                    <mat-option value="add">ajouter point</mat-option>
+                    <mat-option value="modify">modifier point</mat-option>
+                    <mat-option value="delete">supprimer point</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            édition de l'élément :
+            <mat-form-field>
+                <mat-select [(value)]="currentPolygon">
+                    <mat-option *ngFor="let figure of project.polygons" [value]="figure">{{(figure.name || '') + ' ('+
+                        figure.type+')'}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            nom :
+            <mat-form-field>
+                <input matInput placeholder="nom" [(ngModel)]="currentPolygon.name">
+            </mat-form-field>
+        </div>
+        <div>aire : {{getArea()}}</div>
+        <div>perimetre : {{getPerimeter()}}</div>
+    </mat-card>

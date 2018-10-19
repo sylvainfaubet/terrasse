@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
 import { Project } from '../shared/model/project';
+import { Polygon, PolygonType } from '../shared/model/polygon';
+import { Point } from '../shared/model/point';
+import { EditPointModalComponent } from '../edit-point-modal/edit-point-modal.component';
+import { airePolygone, findPointInPolygon, perimetrePolygone } from '../shared/services/geometrie';
 
 @Component({
     selector: 'terrasse-edit',
@@ -9,17 +14,70 @@ import { Project } from '../shared/model/project';
 })
 export class EditComponent implements OnInit {
     project: Project;
+    config: any;
 
-    constructor(private route: ActivatedRoute, private router: Router) {
-        this.route.data.subscribe(({ project }) => {
+    currentPolygon: Polygon;
+    mode: String = 'add';
+    polygonTypes = PolygonType;
+
+    constructor(route: ActivatedRoute, public dialog: MatDialog) {
+        route.data.subscribe(({ project, config }) => {
             this.project = project;
+            this.config = config;
         });
+        this.doJobOnClickedPoint = this.doJobOnClickedPoint.bind(this);
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        if (this.project.polygons.length > 0) {
+            this.currentPolygon = this.project.polygons[0];
+        } else {
+            this.newPolygon(PolygonType.Terrasse);
+        }
+    }
 
-    validate(project) {
-        console.log(project);
-        this.router.navigate(['projects', project.id, 'draw']);
+    newPolygon(type: PolygonType) {
+        this.currentPolygon = new Polygon(type);
+        this.project.polygons.push(this.currentPolygon);
+    }
+
+    getArea() {
+        return airePolygone(this.currentPolygon.path);
+    }
+
+    onModeChange(value) {
+        this.mode = value;
+    }
+
+    getPerimeter() {
+        return perimetrePolygone(this.currentPolygon.path);
+    }
+
+    doJobOnClickedPoint(clickedPoint: Point) {
+        const foundPoint = findPointInPolygon(this.currentPolygon.path, clickedPoint, 1);
+
+        switch (this.mode) {
+            case 'add':
+                this.currentPolygon.path.push(clickedPoint);
+                break;
+            case 'modify':
+                if (foundPoint) {
+                    const dialogRef = this.dialog.open(EditPointModalComponent, {
+                        width: '250px',
+                        data: foundPoint,
+                    });
+                    dialogRef.afterClosed().subscribe(result => {
+                        console.log('The dialog was closed', result);
+                    });
+                }
+
+                break;
+            case 'delete':
+                if (foundPoint) {
+                    this.currentPolygon.path.splice(this.currentPolygon.path.indexOf(foundPoint), 1);
+                }
+                break;
+            default:
+        }
     }
 }
