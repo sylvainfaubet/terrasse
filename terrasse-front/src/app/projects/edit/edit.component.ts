@@ -5,7 +5,7 @@ import { Project } from '../shared/model/project';
 import { Polygon, PolygonType } from '../shared/model/polygon';
 import { Point } from '../shared/model/point';
 import { EditPointModalComponent } from '../edit-point-modal/edit-point-modal.component';
-import { airePolygone, findPointInPolygon, perimetrePolygone } from '../shared/services/geometrie';
+import { findPointInPolygon } from '../shared/services/geometrie';
 
 @Component({
     selector: 'terrasse-edit',
@@ -31,26 +31,7 @@ export class EditComponent implements OnInit {
     ngOnInit() {
         if (this.project.polygons.length > 0) {
             this.currentPolygon = this.project.polygons[0];
-        } else {
-            this.newPolygon(PolygonType.Terrasse);
         }
-    }
-
-    newPolygon(type: PolygonType) {
-        this.currentPolygon = new Polygon(type);
-        this.project.polygons.push(this.currentPolygon);
-    }
-
-    getArea() {
-        return airePolygone(this.currentPolygon.path);
-    }
-
-    onModeChange(value) {
-        this.mode = value;
-    }
-
-    getPerimeter() {
-        return perimetrePolygone(this.currentPolygon.path);
     }
 
     doJobOnClickedPoint(clickedPoint: Point) {
@@ -62,15 +43,8 @@ export class EditComponent implements OnInit {
                 break;
             case 'modify':
                 if (foundPoint) {
-                    const dialogRef = this.dialog.open(EditPointModalComponent, {
-                        width: '250px',
-                        data: foundPoint,
-                    });
-                    dialogRef.afterClosed().subscribe(result => {
-                        console.log('The dialog was closed', result);
-                    });
+                    this.modifyPoint(foundPoint);
                 }
-
                 break;
             case 'delete':
                 if (foundPoint) {
@@ -79,5 +53,15 @@ export class EditComponent implements OnInit {
                 break;
             default:
         }
+    }
+
+    modifyPoint(point: Point) {
+        const dialogRef = this.dialog.open(EditPointModalComponent, {
+            width: '250px',
+            data: point,
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed', result);
+        });
     }
 }

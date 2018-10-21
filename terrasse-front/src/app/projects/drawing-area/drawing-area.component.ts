@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Point } from '../shared/model/point';
@@ -10,8 +10,8 @@ import { Polygon } from '../shared/model/polygon';
     styleUrls: ['./drawing-area.component.scss'],
 })
 export class DrawingAreaComponent implements OnInit {
-    @Input()
-    clickPoint: Function;
+    @Output()
+    clickEvent = new EventEmitter<Point>();
 
     project: any;
     config: any;
@@ -42,7 +42,7 @@ export class DrawingAreaComponent implements OnInit {
     }
 
     onClick(event) {
-        this.clickPoint(this.getClickedPoint(event));
+        this.clickEvent.emit(this.getClickedPoint(event));
     }
 
     private getClickedPoint(event: any) {
