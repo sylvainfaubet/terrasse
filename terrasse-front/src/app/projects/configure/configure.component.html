@@ -6,7 +6,7 @@
 <div>
     au clic :
     <mat-form-field>
-        <mat-select [(value)]="modeValue" (selectionChange)="mode.emit(mode)">
+        <mat-select [(value)]="modeValue" (selectionChange)="mode.emit(modeValue)">
             <mat-option value="add">ajouter point</mat-option>
             <mat-option value="modify">modifier point</mat-option>
             <mat-option value="delete">supprimer point</mat-option>
