@@ -3,8 +3,15 @@
     {
       "path": "./terrasse-front"
     },
-    { "path": "./terrasse-service" },
-    { "path": "./sandbox" }
+    {
+      "path": "./terrasse-service"
+    },
+    {
+      "path": "./sandbox"
+    },
+    {
+      "path": "."
+    }
   ],
   "settings": {}
 }
