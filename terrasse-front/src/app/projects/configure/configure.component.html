@@ -1,32 +1,62 @@
-<div>
-    <button mat-flat-button (click)="newPolygon(polygonTypes.Terrasse)">ajouter une terrasse</button>
-    <button style="margin-left: 10px" mat-flat-button (click)="newPolygon(polygonTypes.Piscine)">ajouter une
-        piscine</button>
+<div fxLayoutGap="10px" fxLayout="column">
+
+    <div fxLayoutAlign="row" fxLayoutGap="10px" fxFlexAlign="center">
+        <div>aire : {{getArea()}}</div>
+        <div>perimetre : {{getPerimeter()}}</div>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center">
+        <div> au clic : </div>
+        <mat-radio-group fxLayoutGap="10px" fxLayout="column" [(ngModel)]="modeValue" (change)="mode.emit(modeValue)">
+            <mat-radio-button value="add">ajouter</mat-radio-button>
+            <mat-radio-button value="modify">modifier</mat-radio-button>
+            <mat-radio-button value="delete">supprimer</mat-radio-button>
+        </mat-radio-group>
+
+        <div> point </div>
+    </div>
+    <div fxLayoutGap="10px">
+        <button mat-flat-button (click)="changeCurrentPolygon()" [disabled]="project.polygons.length == 1">
+            changer d'élément
+        </button>
+        <button mat-flat-button [disabled]="isNotChangeablePolygon(currentPolygon)" (click)="changePolygonFirstElement(currentPolygon)">
+            rotation des points d'édition
+        </button>
+    </div>
+
+
+    <!-- <div>
+        <mat-form-field>
+            <input matInput placeholder="nom de l'élément" [(ngModel)]="currentPolygon.name">
+        </mat-form-field>
+    </div> -->
+    <div fxLayoutGap="10px">
+        <button mat-flat-button (click)="newPolygon(selectedPolygonType)">ajouter une</button>
+        <mat-form-field>
+            <mat-select [(value)]="selectedPolygonType">
+                <mat-option *ngFor="let type of polygonTypes" [value]="type">{{type}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <button mat-flat-button (click)="removePolygon(currentPolygon)" [disabled]="project.polygons.length == 1">
+            supprimer le dessin en cours
+        </button>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="nom du projet" [(ngModel)]="project.name">
+        </mat-form-field>
+    </div>
+    <div fxLayoutGap="10px">
+        <mat-form-field>
+            <input matInput placeholder="Largeur du terrain" [(ngModel)]="project.area.width">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Longueur du terrain" [(ngModel)]="project.area.height">
+        </mat-form-field>
+    </div>
 </div>
-<div>
-    au clic :
-    <mat-form-field>
-        <mat-select [(value)]="modeValue" (selectionChange)="mode.emit(modeValue)">
-            <mat-option value="add">ajouter point</mat-option>
-            <mat-option value="modify">modifier point</mat-option>
-            <mat-option value="delete">supprimer point</mat-option>
-        </mat-select>
-    </mat-form-field>
-</div>
-<div>
-    édition de l'élément :
-    <mat-form-field>
-        <mat-select [(value)]="currentPolygon" (selectionChange)="setCurrentPolygon(currentPolygon)">
-            <mat-option *ngFor="let figure of project.polygons" [value]="figure">{{(figure.name || '') + ' ('+
-                figure.type+')'}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-</div>
-<div>
-    nom :
-    <mat-form-field>
-        <input matInput placeholder="nom" [(ngModel)]="currentPolygon.name">
-    </mat-form-field>
-</div>
-<div>aire : {{getArea()}}</div>
-<div>perimetre : {{getPerimeter()}}</div>

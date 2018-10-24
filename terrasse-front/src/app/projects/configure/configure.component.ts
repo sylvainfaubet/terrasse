@@ -16,6 +16,7 @@ export class ConfigureComponent implements OnInit {
     @Output()
     mode = new EventEmitter();
 
+    currentPolygonIndex: number;
     @Input()
     currentPolygon: Polygon;
     @Output()
@@ -23,7 +24,8 @@ export class ConfigureComponent implements OnInit {
 
     project: Project;
 
-    polygonTypes = PolygonType;
+    polygonTypes = [PolygonType.Piscine, PolygonType.Terrasse];
+    selectedPolygonType = PolygonType.Terrasse;
 
     constructor(route: ActivatedRoute) {
         route.data.subscribe(data => {
@@ -31,16 +33,42 @@ export class ConfigureComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
-
-    setCurrentPolygon(polygon: Polygon) {
-        this.currentPolygonChange.emit(polygon);
+    ngOnInit() {
+        this.setCurrentPolygonIndex(this.project.polygons.findIndex(item => this.currentPolygon === item));
     }
 
     newPolygon(type: PolygonType) {
+        console.log(type);
         const polygon = new Polygon(type);
         this.project.polygons.push(polygon);
-        this.setCurrentPolygon(polygon);
+        this.setCurrentPolygonIndex(this.project.polygons.length - 1);
+    }
+
+    setCurrentPolygonIndex(index: number) {
+        this.currentPolygonIndex = index;
+        this.currentPolygonChange.emit(this.project.polygons[index]);
+    }
+
+    changeCurrentPolygon() {
+        this.setCurrentPolygonIndex((this.currentPolygonIndex + 1) % this.project.polygons.length);
+    }
+
+    removePolygon(polygon: Polygon) {
+        if (this.project.polygons.length > 1) {
+            this.project.polygons = this.project.polygons.filter(item => item !== polygon);
+            if (this.currentPolygon === polygon) {
+                this.setCurrentPolygonIndex(0);
+            }
+        } else {
+            alert('on ne peut pas supprimer le dernier dessin sans en créer un autre');
+        }
+    }
+
+    isNotChangeablePolygon(polygon: Polygon) {
+        return polygon.path.length < 3;
+    }
+    changePolygonFirstElement(polygon: Polygon) {
+        polygon.path.push(polygon.path.shift());
     }
 
     getPerimeter() {
