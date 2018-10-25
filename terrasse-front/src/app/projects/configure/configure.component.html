@@ -1,11 +1,11 @@
 <div fxLayoutGap="10px" fxLayout="column">
 
-    <div fxLayoutAlign="row" fxLayoutGap="10px" fxFlexAlign="center">
+    <div fxLayoutAlign="row" fxLayoutGap="10px" fxLayoutAlign="center">
         <div>aire : {{getArea()}}</div>
         <div>perimetre : {{getPerimeter()}}</div>
     </div>
 
-    <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center">
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center">
         <div> au clic : </div>
         <mat-radio-group fxLayoutGap="10px" fxLayout="column" [(ngModel)]="modeValue" (change)="mode.emit(modeValue)">
             <mat-radio-button value="add">ajouter</mat-radio-button>
@@ -15,12 +15,12 @@
 
         <div> point </div>
     </div>
-    <div fxLayoutGap="10px">
+    <div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="center">
         <button mat-flat-button (click)="changeCurrentPolygon()" [disabled]="project.polygons.length == 1">
             changer d'élément
         </button>
         <button mat-flat-button [disabled]="isNotChangeablePolygon(currentPolygon)" (click)="changePolygonFirstElement(currentPolygon)">
-            rotation des points d'édition
+            rotation des points
         </button>
     </div>
 
@@ -30,7 +30,7 @@
             <input matInput placeholder="nom de l'élément" [(ngModel)]="currentPolygon.name">
         </mat-form-field>
     </div> -->
-    <div fxLayoutGap="10px">
+    <div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="center center">
         <button mat-flat-button (click)="newPolygon(selectedPolygonType)">ajouter une</button>
         <mat-form-field>
             <mat-select [(value)]="selectedPolygonType">
@@ -39,7 +39,7 @@
         </mat-form-field>
     </div>
 
-    <div>
+    <div fxLayoutAlign="center center">
         <button mat-flat-button (click)="removePolygon(currentPolygon)" [disabled]="project.polygons.length == 1">
             supprimer le dessin en cours
         </button>
@@ -50,7 +50,7 @@
             <input matInput placeholder="nom du projet" [(ngModel)]="project.name">
         </mat-form-field>
     </div>
-    <div fxLayoutGap="10px">
+    <div fxLayoutGap="10px" fxLayoutAlign="center center">
         <mat-form-field>
             <input matInput placeholder="Largeur du terrain" [(ngModel)]="project.area.width">
         </mat-form-field>
