@@ -29,7 +29,6 @@ export class DrawingAreaComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this);
         this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
     }
 

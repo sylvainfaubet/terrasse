@@ -86,7 +86,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "codeCoverage": true,
+            "codeCoverage": false,
 
             "styles": [
               {
@@ -97,8 +97,7 @@
             "scripts": [],
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/coverage"
+              "src/assets"
             ]
           }
         },

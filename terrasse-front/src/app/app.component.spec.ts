@@ -4,7 +4,9 @@ import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AppComponent', () => {
-    // const title = 'Terrasse 2.0';
+    const title = 'Terrasse 2.0';
+    document.title = title;
+
     let fixture: ComponentFixture<AppComponent>;
     let component: AppComponent;
     beforeEach(async(() => {
@@ -12,8 +14,8 @@ describe('AppComponent', () => {
             imports: [RouterTestingModule],
             declarations: [AppComponent],
             schemas: [NO_ERRORS_SCHEMA],
+            providers: [],
         }).compileComponents();
-
         fixture = TestBed.createComponent(AppComponent);
         component = fixture.componentInstance;
     }));
@@ -22,7 +24,7 @@ describe('AppComponent', () => {
         expect(component).toBeTruthy();
     }));
 
-    // it(`should have as title '${title}'`, async(() => {
-    //     expect(component.title).toEqual(`${title}`);
-    // }));
+    it(`should have as title '${title}'`, async(() => {
+        expect(component.title).toEqual(`${title}`);
+    }));
 });
