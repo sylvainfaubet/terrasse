@@ -45,12 +45,12 @@
         </button>
     </div>
 
-    <div>
+    <div fxLayoutAlign="center center">
         <mat-form-field>
             <input matInput placeholder="nom du projet" [(ngModel)]="project.name">
         </mat-form-field>
     </div>
-    <div fxLayoutGap="10px" fxLayoutAlign="center center">
+    <div fxLayoutGap="10px" fxLayoutAlign="center center" fxLayout.xs="column">
         <mat-form-field>
             <input matInput placeholder="Largeur du terrain" [(ngModel)]="project.area.width">
         </mat-form-field>

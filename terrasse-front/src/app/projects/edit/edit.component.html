@@ -1,4 +1,4 @@
-<div fxLayout.xs=column fxLayout="row" fxLayoutAlign="space-around justify">
+<div id="edit-component" fxLayout.xs=column fxLayout="row" fxLayoutGap="2%" fxLayoutAlign="space-around justify">
     <mat-card fxFlex=50>
         <terrasse-drawing-area [currentPolygon]="currentPolygon" (clickEvent)="doJobOnClickedPoint($event)"></terrasse-drawing-area>
     </mat-card>

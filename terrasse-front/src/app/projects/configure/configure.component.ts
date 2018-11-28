@@ -25,7 +25,7 @@ export class ConfigureComponent implements OnInit {
     project: Project;
 
     polygonTypes = [PolygonType.Piscine, PolygonType.Terrasse];
-    selectedPolygonType = PolygonType.Terrasse;
+    selectedPolygonType = PolygonType.Piscine;
 
     constructor(route: ActivatedRoute) {
         route.data.subscribe(data => {
