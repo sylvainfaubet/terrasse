@@ -6,20 +6,15 @@ import { environment } from '../environments/environment';
 export const routes: Routes = [
     // { path: 'home', component: DashboardComponent },
     { path: '', pathMatch: 'full', redirectTo: 'projects/1' },
-    // {
-    //     path: 'sandbox',
-    //     canLoad: ['canLoadSanbox'],
-    //     loadChildren: './sandbox/sandbox.module#SandboxModule',
-    // },
+    {
+        path: 'sandbox',
+        canLoad: ['canLoadSanbox'],
+        loadChildren: './sandbox/sandbox.module#SandboxModule',
+    },
     {
         path: 'projects',
         loadChildren: './projects/projects.module#ProjectsModule',
     },
-    // {
-    //     path: 'kito',
-    //     canLoad: ['canLoadKito'],
-    //     loadChildren: './kito/kito.module#KitoModule',
-    // },
 ];
 
 @NgModule({
@@ -29,10 +24,6 @@ export const routes: Routes = [
         {
             provide: 'canLoadSanbox',
             useValue: () => !environment.production,
-        },
-        {
-            provide: 'canLoadKito',
-            useValue: () => true,
         },
     ],
 })
