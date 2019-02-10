@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { Project } from '../shared/model/project';
-import { Polygon, PolygonType } from '../shared/model/polygon';
-import { Point } from '../shared/model/point';
+import { Point, Polygon, PolygonType, Project} from '../shared/model';
 import { EditPointModalComponent } from '../edit-point-modal/edit-point-modal.component';
 import { findPointInPolygon } from '../shared/services/geometrie';
 

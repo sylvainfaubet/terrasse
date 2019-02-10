@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { ProjectService } from './project.service';
-import { Project } from '../model/project';
+import { Project } from '../model';
 
 @Injectable({
     providedIn: 'root',

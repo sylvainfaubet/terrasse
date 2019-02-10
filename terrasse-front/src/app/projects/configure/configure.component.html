@@ -38,6 +38,27 @@
             </mat-select>
         </mat-form-field>
     </div>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Structure
+            </mat-panel-title>
+            <mat-panel-description>
+
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+            <input matInput placeholder="espace lambourdes basses" [(ngModel)]="currentPolygon.structure.bottomSpace">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="espace lambourdes hautes" [(ngModel)]="currentPolygon.structure.topSpace">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="angle" [(ngModel)]="currentPolygon.structure.angle">
+        </mat-form-field>
+    </mat-expansion-panel>
+
 
     <div fxLayoutAlign="center center">
         <button mat-flat-button (click)="removePolygon(currentPolygon)" [disabled]="project.polygons.length == 1">

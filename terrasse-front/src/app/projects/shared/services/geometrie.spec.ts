@@ -1,5 +1,5 @@
 import { distance, findPointInPolygon, perimetrePolygone, airePolygone, changePointsOrder } from './geometrie';
-import { Point } from '../model/point';
+import { Point } from '../model';
 
 const path: Array<Point> = [{ x: 0, y: 0 }, { x: 3, y: 4 }, { x: 0, y: 4 }];
 

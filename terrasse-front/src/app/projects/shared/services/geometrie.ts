@@ -1,4 +1,4 @@
-import { Point } from '../model/point';
+import { Point } from '../model';
 
 export const distance = (a: Point, b: Point) => {
     return Math.sqrt(Math.pow(b.x - a.x, 2) + Math.pow(b.y - a.y, 2));

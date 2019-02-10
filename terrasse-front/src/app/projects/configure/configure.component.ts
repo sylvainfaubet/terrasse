@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Polygon, PolygonType } from '../shared/model/polygon';
+import { Polygon } from '../shared/model/polygon';
+import { PolygonType} from '../shared/model/polygonType';
 import { airePolygone, perimetrePolygone } from '../shared/services/geometrie';
 
 import { Project } from '../shared/model/project';
