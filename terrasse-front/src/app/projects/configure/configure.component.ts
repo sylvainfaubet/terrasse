@@ -78,4 +78,7 @@ export class ConfigureComponent implements OnInit {
     getArea() {
         return airePolygone(this.currentPolygon.path);
     }
+    getTestedArea(){
+        return this.currentPolygon.area();
+    }
 }

@@ -7,9 +7,6 @@
       "path": "./terrasse-service"
     },
     {
-      "path": "./sandbox"
-    },
-    {
       "path": "."
     }
   ],
