@@ -4,3 +4,4 @@ export {Polygon} from './polygon';
 export {PolygonType} from './polygonType';
 export {Project} from './project';
 export {Structure} from './structure';
+export {PolygonInfo} from './polygonInfo';

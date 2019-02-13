@@ -3,6 +3,6 @@
         <terrasse-drawing-area [currentPolygon]="currentPolygon" (clickEvent)="doJobOnClickedPoint($event)"></terrasse-drawing-area>
     </mat-card>
     <mat-card fxFlex=40>
-        <terrasse-configure (mode)="mode = $event" [(currentPolygon)]="currentPolygon"></terrasse-configure>
+        <terrasse-configure (mode)="mode = $event" (change)="refreshCurrentPolygonInfo()" [(currentPolygon)]="currentPolygon"  [currentPolygonInfo]="currentPolygonInfo" ></terrasse-configure>
     </mat-card>
 </div>

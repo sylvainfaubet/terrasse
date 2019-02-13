@@ -1,10 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Polygon } from '../shared/model/polygon';
-import { PolygonType} from '../shared/model/polygonType';
-import { airePolygone, perimetrePolygone } from '../shared/services/geometrie';
-
-import { Project } from '../shared/model/project';
 import { ActivatedRoute } from '@angular/router';
+
+import { Polygon, PolygonInfo ,PolygonType, Project} from '../shared/model';
 
 @Component({
     selector: 'terrasse-configure',
@@ -16,10 +13,14 @@ export class ConfigureComponent implements OnInit {
 
     @Output()
     mode = new EventEmitter();
+    @Output()
+    change = new EventEmitter();
 
     currentPolygonIndex: number;
     @Input()
     currentPolygon: Polygon;
+    @Input()
+    currentPolygonInfo : PolygonInfo
     @Output()
     currentPolygonChange = new EventEmitter();
 
@@ -48,6 +49,7 @@ export class ConfigureComponent implements OnInit {
     setCurrentPolygonIndex(index: number) {
         this.currentPolygonIndex = index;
         this.currentPolygonChange.emit(this.project.polygons[index]);
+        this.change.emit();
     }
 
     changeCurrentPolygon() {
@@ -70,15 +72,5 @@ export class ConfigureComponent implements OnInit {
     }
     changePolygonFirstElement(polygon: Polygon) {
         polygon.path.push(polygon.path.shift());
-    }
-
-    getPerimeter() {
-        return perimetrePolygone(this.currentPolygon.path);
-    }
-    getArea() {
-        return airePolygone(this.currentPolygon.path);
-    }
-    getTestedArea(){
-        return this.currentPolygon.area();
     }
 }

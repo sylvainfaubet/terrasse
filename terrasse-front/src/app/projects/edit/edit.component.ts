@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { Point, Polygon, PolygonType, Project} from '../shared/model';
+import { Point, Polygon, PolygonInfo,PolygonType, Project} from '../shared/model';
 import { EditPointModalComponent } from '../edit-point-modal/edit-point-modal.component';
-import { findPointInPolygon } from '../shared/services/geometrie';
+import { findPointInPolygon, computePolygonInfo } from '../shared/services/geometrie';
 
 @Component({
     selector: 'terrasse-edit',
@@ -15,6 +15,7 @@ export class EditComponent implements OnInit {
     config: any;
 
     currentPolygon: Polygon;
+    currentPolygonInfo : PolygonInfo = new PolygonInfo(0,0);
     mode: String = 'add';
     polygonTypes = PolygonType;
 
@@ -24,6 +25,7 @@ export class EditComponent implements OnInit {
             this.config = config;
         });
         this.doJobOnClickedPoint = this.doJobOnClickedPoint.bind(this);
+
     }
 
     ngOnInit() {
@@ -51,6 +53,12 @@ export class EditComponent implements OnInit {
                 break;
             default:
         }
+        this.refreshCurrentPolygonInfo();
+    }
+
+    refreshCurrentPolygonInfo(){
+        console.log('refresh');
+        this.currentPolygonInfo = computePolygonInfo(this.currentPolygon, this.project.polygons.filter((polygon :Polygon) => polygon.type === PolygonType.Piscine));
     }
 
     modifyPoint(point: Point) {
@@ -60,6 +68,7 @@ export class EditComponent implements OnInit {
         });
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed', result);
+            this.refreshCurrentPolygonInfo();
         });
     }
 }
