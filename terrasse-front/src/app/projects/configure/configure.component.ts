@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Polygon, PolygonInfo ,PolygonType, Project} from '../shared/model';
+import { Polygon, PolygonInfo , PolygonType, Project} from '../shared/model';
 
 @Component({
     selector: 'terrasse-configure',
@@ -20,7 +20,7 @@ export class ConfigureComponent implements OnInit {
     @Input()
     currentPolygon: Polygon;
     @Input()
-    currentPolygonInfo : PolygonInfo
+    currentPolygonInfo: PolygonInfo;
     @Output()
     currentPolygonChange = new EventEmitter();
 

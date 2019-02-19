@@ -1,6 +1,6 @@
 import { Point, Polygon, PolygonInfo, PolygonType } from '../model';
 
-import polygonIntersection from "polygons-intersect";
+import polygonIntersection from 'polygons-intersect';
 
 export const distance = (a: Point, b: Point) => {
     return Math.sqrt(Math.pow(b.x - a.x, 2) + Math.pow(b.y - a.y, 2));
@@ -26,7 +26,7 @@ export const perimetrePolygone = (path: Array<Point>) => {
     return perimetre;
 };
 
-export function computeArea(path: Array<Point>):number{
+export function computeArea(path: Array<Point>): number {
     let aire = 0;
     for (let i = 0; i < path.length; i++) {
         const pi = path[i];
@@ -36,7 +36,7 @@ export function computeArea(path: Array<Point>):number{
     aire = aire / 2;
 
     return Math.sqrt(Math.pow(aire, 2));
-};
+}
 
 export const changePointsOrder = (path: Array<Point>, firstToLast: boolean) => {
     const result = path.slice();
@@ -48,18 +48,18 @@ export const changePointsOrder = (path: Array<Point>, firstToLast: boolean) => {
     return result;
 };
 
-export function polygonArea(polygon:Polygon, polygonsToCut:Array<Polygon>) : number {
-        if(polygon.type === PolygonType.Piscine){
-            return computeArea(polygon.path);
-        }
-        let areaToRemove = 0;
-        polygonsToCut.forEach(polygonToCut => {
-            const intersect = polygonIntersection(polygon.path, polygonToCut.path);
-            areaToRemove = computeArea(intersect) + areaToRemove;
-        });
-        return computeArea(polygon.path) - areaToRemove;
+export function polygonArea(polygon: Polygon, polygonsToCut: Array<Polygon>): number {
+    if (polygon.type === PolygonType.Piscine) {
+        return computeArea(polygon.path);
+    }
+    let areaToRemove = 0;
+    polygonsToCut.forEach(polygonToCut => {
+        const intersect = polygonIntersection(polygon.path, polygonToCut.path);
+        areaToRemove = computeArea(intersect) + areaToRemove;
+    });
+    return computeArea(polygon.path) - areaToRemove;
 }
 
-export function computePolygonInfo(polygon:Polygon, polygonsToCut:Array<Polygon> = []):PolygonInfo {
-    return new PolygonInfo(polygonArea(polygon, polygonsToCut),perimetrePolygone(polygon.path));
+export function computePolygonInfo(polygon: Polygon, polygonsToCut: Array<Polygon> = []): PolygonInfo {
+    return new PolygonInfo(polygonArea(polygon, polygonsToCut), perimetrePolygone(polygon.path));
 }

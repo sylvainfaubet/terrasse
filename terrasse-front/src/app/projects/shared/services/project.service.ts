@@ -6,7 +6,7 @@ import { PolygonType, Polygon } from '../model';
     providedIn: 'root',
 })
 export class ProjectService {
-    projects: Project[] = [new Project(0,[new Polygon(PolygonType.Terrasse)])];
+    projects: Project[] = [new Project(0, [new Polygon(PolygonType.Terrasse)])];
 
     createProject(): Project {
         this.projects.push(new Project(this.projects.length));
