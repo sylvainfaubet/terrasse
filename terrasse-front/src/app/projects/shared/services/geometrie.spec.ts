@@ -1,5 +1,6 @@
-import { distance, findPointInPolygon, perimetrePolygone, airePolygone, changePointsOrder } from './geometrie';
+import { distance, findPointInPolygon, polygonPerimeter, computeArea, changePointsOrder, polygonArea } from './geometrie';
 import { Point } from '../model';
+import { cases } from './test_cases';
 
 const path: Array<Point> = [{ x: 0, y: 0 }, { x: 3, y: 4 }, { x: 0, y: 4 }];
 
@@ -17,16 +18,22 @@ describe('geometrie', () => {
     });
 
     it('should get perimeter', () => {
-        expect(perimetrePolygone(path)).toBe(12);
+        expect(polygonPerimeter(path)).toBe(12);
     });
 
     it('should get area', () => {
-        expect(airePolygone(path)).toBe(6);
+        expect(computeArea(path)).toBe(6);
     });
 
     it('should not modify original path', () => {
         const testPath = [new Point(0, 0), new Point(1, 1), new Point(2, 2)];
         const rotatedPath = changePointsOrder(testPath, true);
-        expect(rotatedPath !== testPath);
+        expect(rotatedPath).not.toBe(testPath);
+    });
+
+    it('should return exact value', () => {
+        cases.forEach(value => {
+            expect(polygonArea(value.polygon, value.polygonsToCut)).toBe(value.expectedValue, value.name + ' failed');
+        });
     });
 });

@@ -14,7 +14,7 @@ export const findPointInPolygon = (polygon: Array<Point>, point: Point, maxDista
     }
     return undefined;
 };
-export const perimetrePolygone = (path: Array<Point>) => {
+export const polygonPerimeter = (path: Array<Point>) => {
     let perimetre = 0;
 
     for (let i = 1; i < path.length; i++) {
@@ -61,5 +61,5 @@ export function polygonArea(polygon: Polygon, polygonsToCut: Array<Polygon>): nu
 }
 
 export function computePolygonInfo(polygon: Polygon, polygonsToCut: Array<Polygon> = []): PolygonInfo {
-    return new PolygonInfo(polygonArea(polygon, polygonsToCut), perimetrePolygone(polygon.path));
+    return new PolygonInfo(polygonArea(polygon, polygonsToCut), polygonPerimeter(polygon.path));
 }
