@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Polygon, PolygonInfo , PolygonType, Project} from '../shared/model';
+import { Polygon, PolygonInfo, PolygonType, Project } from '../shared/model';
 
 @Component({
     selector: 'terrasse-configure',
@@ -72,5 +72,8 @@ export class ConfigureComponent implements OnInit {
     }
     changePolygonFirstElement(polygon: Polygon) {
         polygon.path.push(polygon.path.shift());
+    }
+    reversePolygon(polygon: Polygon) {
+        polygon.path.reverse();
     }
 }
