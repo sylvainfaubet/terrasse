@@ -1,13 +1,13 @@
 <div fxLayoutGap="10px" fxLayout="column">
    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center">
-        <div> au clic : </div>
-        <mat-radio-group fxLayoutGap="10px" fxLayout="column" [(ngModel)]="modeValue" (change)="mode.emit(modeValue)">
-            <mat-radio-button value="add">ajouter</mat-radio-button>
-            <mat-radio-button value="modify">modifier</mat-radio-button>
-            <mat-radio-button value="delete">supprimer</mat-radio-button>
-        </mat-radio-group>
-
-        <div> point </div>
+        <div fxFlex>au clic :</div>
+        <div fxFlex="75">
+            <mat-radio-group fxLayoutGap="10px grid" fxLayout="row wrap" [(ngModel)]="modeValue" (change)="mode.emit(modeValue)">
+                <mat-radio-button value="add">ajouter</mat-radio-button>
+                <mat-radio-button value="modify">modifier</mat-radio-button>
+                <mat-radio-button value="delete">supprimer</mat-radio-button>
+            </mat-radio-group>
+        </div>
     </div>
     <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -25,12 +25,6 @@
         </div>
     </mat-expansion-panel>
 
-
-    <!-- <div>
-        <mat-form-field>
-            <input matInput placeholder="nom de l'élément" [(ngModel)]="currentPolygon.name">
-        </mat-form-field>
-    </div> -->
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
@@ -44,6 +38,19 @@
         <div fxFlexFill fxLayoutGap="10px grid" fxLayout="row wrap" fxLayoutAlign="center center">
 
             <div fxFlex>
+                <mat-form-field>
+                    <mat-label>type de dessin à ajouter</mat-label>
+                    <mat-select [(value)]="selectedPolygonType">
+                        <mat-option *ngFor="let type of polygonTypes" [value]="type">{{type}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex >
+                <button mat-flat-button color="primary" (click)="newPolygon(selectedPolygonType)">
+                    ajouter une {{selectedPolygonType}}
+                </button>
+            </div>
+            <div fxFlex>
                 <button mat-flat-button color="primary" [disabled]="isNotChangeablePolygon(currentPolygon)" (click)="changePolygonFirstElement(currentPolygon)">
                     rotation des points
                 </button>
@@ -55,7 +62,7 @@
             </div>
             <div fxFlex>
                 <button mat-flat-button color="primary" [disabled]="project.polygons.length == 1" (click)="changeCurrentPolygon()" >
-                    changer d'élément
+                    changer de dessin
                 </button>
             </div>
             <div fxFlex fxFlex.xs="100">
@@ -63,15 +70,6 @@
                     supprimer la {{currentPolygon.type}}
                 </button>
             </div>
-
-            <div fxFlex="40">
-                <button mat-flat-button color="primary" (click)="newPolygon(selectedPolygonType)">ajouter une</button>
-            </div>
-            <mat-form-field fxFlex="60">
-                <mat-select [(value)]="selectedPolygonType">
-                    <mat-option *ngFor="let type of polygonTypes" [value]="type">{{type}}</mat-option>
-                </mat-select>
-            </mat-form-field>
         </div>
 
     </mat-expansion-panel>
