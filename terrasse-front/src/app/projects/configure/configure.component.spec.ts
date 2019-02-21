@@ -5,7 +5,7 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Polygon, PolygonType, PolygonInfo } from '../shared/model';
+import { Draw, DrawType, Project, Zone } from '../shared/model';
 
 describe('ConfigureComponent', () => {
     let component: ConfigureComponent;
@@ -20,7 +20,7 @@ describe('ConfigureComponent', () => {
                     provide: ActivatedRoute,
                     useValue: {
                         data: of({
-                            project: { area: { width: 10, height: 13 }, polygons: [new Polygon(PolygonType.Terrasse)] },
+                            project: new Project(0, [new Draw(DrawType.Terrasse)], new Zone(10, 13)),
                             config: { terrasse: {} },
                         }),
                     },
@@ -32,8 +32,7 @@ describe('ConfigureComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(ConfigureComponent);
         component = fixture.componentInstance;
-        component.currentPolygon = component.project.polygons[0];
-        component.currentPolygonInfo = new PolygonInfo(0, 0);
+        component.currentDraw = component.project.draws[0];
         fixture.detectChanges();
     });
 

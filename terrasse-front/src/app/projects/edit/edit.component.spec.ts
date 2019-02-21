@@ -6,6 +6,7 @@ import { MaterialModule } from '../../material/material.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
+import { Project, Zone } from '../shared/model';
 
 describe('EditComponent', () => {
     let component: EditComponent;
@@ -19,7 +20,7 @@ describe('EditComponent', () => {
             providers: [
                 {
                     provide: ActivatedRoute,
-                    useValue: { data: of({ project: { name: 'toto', area: { width: 10, height: 15 }, polygons: [] } }) },
+                    useValue: { data: of({ project: new Project(0, [], new Zone(10, 13)) }) },
                 },
                 { provide: Router, useValue: {} },
             ],

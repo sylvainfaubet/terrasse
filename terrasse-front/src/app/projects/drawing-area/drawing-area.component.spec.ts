@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 
 import { DrawingAreaComponent } from './drawing-area.component';
 import { MaterialModule } from '../../material/material.module';
+import { Project, Zone } from '../shared/model';
 
 describe('DrawingAreaComponent', () => {
     let component: DrawingAreaComponent;
@@ -19,7 +20,7 @@ describe('DrawingAreaComponent', () => {
             providers: [
                 {
                     provide: ActivatedRoute,
-                    useValue: { data: of({ project: { area: { width: 10, height: 13 }, polygons: [] }, config: { terrasse: {} } }) },
+                    useValue: { data: of({ project: new Project(0, [], new Zone(10, 13)), config: { terrasse: {} } }) },
                 },
             ],
         }).compileComponents();
