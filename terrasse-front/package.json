@@ -33,7 +33,7 @@
     "@angular/router": "^7.2.4",
     "core-js": "^2.6.4",
     "fireworks": "^2.1.1",
-    "polygons-intersect": "^1.0.3",
+    "polygon": "^1.0.2",
     "rxjs": "^6.4.0",
     "zone.js": "~0.8.29"
   },

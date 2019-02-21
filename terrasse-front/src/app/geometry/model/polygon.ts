@@ -8,11 +8,11 @@ export class Polygon {
     }
 
     perimeter() {
-        return polygonPerimeter(this.path);
+        return polygonPerimeter(this);
     }
 
     getPointAtMax(point: Point, maxDistance: number = 1) {
-        return findPointInPolygon(this.path, point, maxDistance);
+        return findPointInPolygon(this, point, maxDistance);
     }
 
     getSvgPath() {

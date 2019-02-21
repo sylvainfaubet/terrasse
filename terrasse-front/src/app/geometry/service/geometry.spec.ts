@@ -1,34 +1,49 @@
 import { distance, findPointInPolygon, polygonPerimeter, computeArea, changePointsOrder, polygonArea } from './geometry.service';
-import { Point } from '../model';
+import { Point, Polygon } from '../model';
 import { cases } from './geometry.test_cases';
 
-const path: Array<Point> = [{ x: 0, y: 0 }, { x: 3, y: 4 }, { x: 0, y: 4 }];
-
+let point1, point2, point3: Point;
+let polygon: Polygon;
 describe('geometrie', () => {
+    beforeEach(() => {
+        point1 = new Point(0, 0);
+        point2 = new Point(3, 4);
+        point3 = new Point(0, 4);
+        polygon = new Polygon([point1, point2, point3]);
+    });
+
     it('should give distance', () => {
-        expect(distance(path[0], path[1])).toBe(5);
+        expect(distance(point1, point2)).toBe(5);
     });
 
     it('should find point', () => {
-        expect(findPointInPolygon(path, new Point(3.25, 4.3), 1)).toBe(path[1]);
+        expect(findPointInPolygon(polygon, new Point(3.25, 4.3), 1)).toBe(point2);
     });
 
     it('should not find point', () => {
-        expect(findPointInPolygon(path, new Point(5, 5), 1)).toBeUndefined();
+        expect(findPointInPolygon(polygon, new Point(5, 5), 1)).toBeUndefined();
     });
 
     it('should get perimeter', () => {
-        expect(polygonPerimeter(path)).toBe(12);
+        expect(polygonPerimeter(polygon)).toBe(12);
     });
 
     it('should get area', () => {
-        expect(computeArea(path)).toBe(6);
+        expect(computeArea(polygon)).toBe(6);
     });
 
-    it('should not modify original path', () => {
-        const testPath = [new Point(0, 0), new Point(1, 1), new Point(2, 2)];
-        const rotatedPath = changePointsOrder(testPath, true);
-        expect(rotatedPath).not.toBe(testPath);
+    it('should not modify original path changePointsOrder', () => {
+        const rotatedPolygonFirstToLast = changePointsOrder(polygon, true);
+        const rotatedPolygonLastToFirst = changePointsOrder(polygon, false);
+
+        expect(rotatedPolygonFirstToLast.path).not.toBe(polygon.path);
+        expect(rotatedPolygonLastToFirst.path).not.toBe(polygon.path);
+
+        expect(rotatedPolygonFirstToLast.path).toEqual([point2, point3, point1]);
+        expect(rotatedPolygonLastToFirst.path).toEqual([point2, point3, point1]);
+
+        expect(rotatedPolygonFirstToLast.isNotClosed).toBe(polygon.isNotClosed);
+        expect(rotatedPolygonLastToFirst.isNotClosed).toBe(polygon.isNotClosed);
     });
 
     it('should return exact value', () => {

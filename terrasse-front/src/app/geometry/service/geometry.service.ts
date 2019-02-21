@@ -1,15 +1,13 @@
 import { Point, Polygon } from '../model';
 
-import polygonIntersection from 'polygons-intersect';
-
-export const polygonPerimeter = (path: Array<Point>) => {
+export const polygonPerimeter = (polygon: Polygon) => {
     let perimetre = 0;
 
-    for (let i = 1; i < path.length; i++) {
-        perimetre += distance(path[i - 1], path[i]);
+    for (let i = 1; i < polygon.path.length; i++) {
+        perimetre += distance(polygon.path[i - 1], polygon.path[i]);
     }
-    if (path.length > 1) {
-        perimetre += distance(path[path.length - 1], path[0]);
+    if (polygon.path.length > 1) {
+        perimetre += distance(polygon.path[polygon.path.length - 1], polygon.path[0]);
     }
     return perimetre;
 };
@@ -18,8 +16,8 @@ export const distance = (a: Point, b: Point) => {
     return Math.sqrt(Math.pow(b.x - a.x, 2) + Math.pow(b.y - a.y, 2));
 };
 
-export const findPointInPolygon = (polygon: Array<Point>, point: Point, maxDistance: number) => {
-    for (const polygonPoint of polygon) {
+export const findPointInPolygon = (polygon: Polygon, point: Point, maxDistance: number) => {
+    for (const polygonPoint of polygon.path) {
         if (distance(point, polygonPoint) < maxDistance) {
             return polygonPoint;
         }
@@ -27,33 +25,41 @@ export const findPointInPolygon = (polygon: Array<Point>, point: Point, maxDista
     return undefined;
 };
 
-export function computeArea(path: Array<Point>): number {
+export function computeArea(polygon: Polygon): number {
     let aire = 0;
-    for (let i = 0; i < path.length; i++) {
-        const pi = path[i];
-        const pi1 = path[(i + 1) % path.length];
+    for (let i = 0; i < polygon.path.length; i++) {
+        const pi = polygon.path[i];
+        const pi1 = polygon.path[(i + 1) % polygon.path.length];
         aire += (pi.x + pi1.x) * (pi1.y - pi.y);
     }
     aire = aire / 2;
 
+    console.log(aire);
     return Math.sqrt(Math.pow(aire, 2));
 }
 
-export const changePointsOrder = (path: Array<Point>, firstToLast: boolean) => {
-    const result = path.slice();
+export const changePointsOrder = (polygon: Polygon, firstToLast: boolean): Polygon => {
+    const result = polygon.path.slice();
     if (firstToLast) {
         result.push(result.shift());
     } else {
         result.unshift(result.pop());
     }
-    return result;
+    return new Polygon(result, polygon.isNotClosed);
 };
 
-export function polygonArea(polygon: Polygon, polygonsToCut: Array<Polygon> = []): number {
+function polygonIntersection(polygonA: Polygon, polygonB: Polygon): Polygon[] {
+    console.log(polygonA, polygonB);
+    return [];
+}
+
+export function polygonArea(polygon: Polygon, polygonsToCut: Polygon[] = []): number {
     let areaToRemove = 0;
     polygonsToCut.forEach(polygonToCut => {
-        const intersect = polygonIntersection(polygon.path, polygonToCut.path);
-        areaToRemove = computeArea(intersect) + areaToRemove;
+        const intersections = polygonIntersection(polygon, polygonToCut);
+        intersections.forEach(intersection => {
+            areaToRemove += computeArea(intersection);
+        });
     });
-    return computeArea(polygon.path) - areaToRemove;
+    return computeArea(polygon) - areaToRemove;
 }
