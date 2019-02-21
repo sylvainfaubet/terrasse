@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Point, Polygon, PolygonInfo, PolygonType, Project } from '../shared/model';
 import { EditPointModalComponent } from '../edit-point-modal/edit-point-modal.component';
-import { findPointInPolygon, computePolygonInfo } from '../shared/services/geometry';
+import { findPointInPolygon, computePolygonInfo } from '../../geometry/geometry.service';
 
 @Component({
     selector: 'terrasse-edit',

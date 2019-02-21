@@ -1,4 +1,4 @@
-import { Point, Polygon, PolygonInfo, PolygonType } from '../model';
+import { Point, Polygon } from './model';
 
 import polygonIntersection from 'polygons-intersect';
 
@@ -49,17 +49,10 @@ export const changePointsOrder = (path: Array<Point>, firstToLast: boolean) => {
 };
 
 export function polygonArea(polygon: Polygon, polygonsToCut: Array<Polygon>): number {
-    if (polygon.type === PolygonType.Piscine) {
-        return computeArea(polygon.path);
-    }
     let areaToRemove = 0;
     polygonsToCut.forEach(polygonToCut => {
         const intersect = polygonIntersection(polygon.path, polygonToCut.path);
         areaToRemove = computeArea(intersect) + areaToRemove;
     });
     return computeArea(polygon.path) - areaToRemove;
-}
-
-export function computePolygonInfo(polygon: Polygon, polygonsToCut: Array<Polygon> = []): PolygonInfo {
-    return new PolygonInfo(polygonArea(polygon, polygonsToCut), polygonPerimeter(polygon.path));
 }

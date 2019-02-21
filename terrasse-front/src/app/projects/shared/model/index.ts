@@ -1,7 +1,5 @@
-export {Area} from './area';
-export {Point} from './point';
-export {Polygon} from './polygon';
-export {PolygonType} from './polygonType';
-export {Project} from './project';
-export {Structure} from './structure';
-export {PolygonInfo} from './polygonInfo';
+export { Draw } from './draw';
+export { DrawType } from './drawType';
+export { Project } from './project';
+export { Structure } from './structure';
+export { Zone } from './zone';

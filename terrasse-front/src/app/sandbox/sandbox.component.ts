@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Point } from '../projects/shared/model/point';
+import { Point } from '../geometry/model/point';
 
 @Component({
     selector: 'terrasse-sandbox',

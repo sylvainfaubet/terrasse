@@ -1,4 +1,4 @@
-export enum PolygonType {
+export enum DrawType {
     Terrasse = 'terrasse',
     Piscine = 'piscine',
 }
