@@ -11,9 +11,10 @@ import { EditComponent } from './edit/edit.component';
 import { EditPointComponent } from './edit-point/edit-point.component';
 import { EditPointModalComponent } from './edit-point-modal/edit-point-modal.component';
 import { ConfigureComponent } from './configure/configure.component';
+import { GeometryModule } from '../geometry/geometry.module';
 
 @NgModule({
-    imports: [ProjectsRoutingModule, MaterialModule, FormsModule, CommonModule, FlexLayoutModule],
+    imports: [ProjectsRoutingModule, MaterialModule, FormsModule, CommonModule, FlexLayoutModule, GeometryModule],
     exports: [EditPointComponent],
     entryComponents: [EditPointModalComponent],
     declarations: [DrawingAreaComponent, EditComponent, EditPointComponent, EditPointModalComponent, ConfigureComponent],

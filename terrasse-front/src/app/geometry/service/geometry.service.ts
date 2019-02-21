@@ -1,6 +1,18 @@
-import { Point, Polygon } from './model';
+import { Point, Polygon } from '../model';
 
 import polygonIntersection from 'polygons-intersect';
+
+export const polygonPerimeter = (path: Array<Point>) => {
+    let perimetre = 0;
+
+    for (let i = 1; i < path.length; i++) {
+        perimetre += distance(path[i - 1], path[i]);
+    }
+    if (path.length > 1) {
+        perimetre += distance(path[path.length - 1], path[0]);
+    }
+    return perimetre;
+};
 
 export const distance = (a: Point, b: Point) => {
     return Math.sqrt(Math.pow(b.x - a.x, 2) + Math.pow(b.y - a.y, 2));
@@ -13,17 +25,6 @@ export const findPointInPolygon = (polygon: Array<Point>, point: Point, maxDista
         }
     }
     return undefined;
-};
-export const polygonPerimeter = (path: Array<Point>) => {
-    let perimetre = 0;
-
-    for (let i = 1; i < path.length; i++) {
-        perimetre += distance(path[i - 1], path[i]);
-    }
-    if (path.length > 1) {
-        perimetre += distance(path[path.length - 1], path[0]);
-    }
-    return perimetre;
 };
 
 export function computeArea(path: Array<Point>): number {
@@ -48,7 +49,7 @@ export const changePointsOrder = (path: Array<Point>, firstToLast: boolean) => {
     return result;
 };
 
-export function polygonArea(polygon: Polygon, polygonsToCut: Array<Polygon>): number {
+export function polygonArea(polygon: Polygon, polygonsToCut: Array<Polygon> = []): number {
     let areaToRemove = 0;
     polygonsToCut.forEach(polygonToCut => {
         const intersect = polygonIntersection(polygon.path, polygonToCut.path);

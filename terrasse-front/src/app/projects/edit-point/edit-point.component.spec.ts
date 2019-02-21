@@ -4,7 +4,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EditPointComponent } from './edit-point.component';
 import { MaterialModule } from '../../material/material.module';
-import { Point } from '../../geometry/model/point';
+import { Point } from '../../geometry/geometry.module';
 
 describe('EditPointComponent', () => {
     let component: EditPointComponent;

@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Point } from '../../geometry/model/point';
-import { Polygon } from '../shared/model/draw';
+import { Draw } from '../shared/model';
+import { Point } from '../../geometry/geometry.module';
 
 @Component({
     selector: 'terrasse-drawing-area',
@@ -17,7 +17,7 @@ export class DrawingAreaComponent implements OnInit {
     config: any;
 
     @Input()
-    currentPolygon: Polygon;
+    currentDraw: Draw;
 
     svg: any;
 
@@ -33,11 +33,11 @@ export class DrawingAreaComponent implements OnInit {
     }
 
     getViewboxText() {
-        return '0 0 ' + this.project.area.width + ' ' + this.project.area.height;
+        return '0 0 ' + this.project.zone.width + ' ' + this.project.zone.height;
     }
 
-    formatPoints(polygon: Polygon) {
-        return polygon.path.map(point => (point.x || 0) + ',' + (point.y || 0)).join(' ');
+    formatPoints(draw: Draw) {
+        return draw.polygon.getSvgPath();
     }
 
     onClick(event) {

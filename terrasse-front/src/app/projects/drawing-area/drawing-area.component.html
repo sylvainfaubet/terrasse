@@ -9,20 +9,18 @@
 
     <rect width="100%" height="100%" stroke="gray" stroke-width="0.1" fill="url(#drawGrid)" />
 
-    <g *ngFor="let figure of project.polygons; index as i">
+    <g *ngFor="let draw of project.draws; index as i">
             <defs>
-                <pattern [attr.id]="'structure' + i" [attr.width]="figure.structure.topSpace" [attr.height]="figure.structure.bottomSpace" patternUnits="userSpaceOnUse" [attr.patternTransform]="'rotate('+figure.structure.angle+')'">
-                    <rect [attr.width]="figure.structure.topSpace" [attr.height]="figure.structure.bottomSpace" [attr.fill]="config[figure.type].fill" stroke="gray" stroke-width="0.05" />
+                <pattern [attr.id]="'structure' + i" [attr.width]="draw.structure.topSpace" [attr.height]="draw.structure.bottomSpace" patternUnits="userSpaceOnUse" [attr.patternTransform]="'rotate('+draw.structure.angle+')'">
+                    <rect [attr.width]="draw.structure.topSpace" [attr.height]="draw.structure.bottomSpace" [attr.fill]="config[draw.type].fill" stroke="gray" stroke-width="0.05" />
                 </pattern>
             </defs>
-        <polygon [attr.fill]="figure.type === 'terrasse' ? 'url(#structure' + i + ')' : config[figure.type].fill" [attr.stroke]="config[figure.type].stroke"
-        stroke-width="0.1" [attr.points]="formatPoints(figure)"></polygon>
+        <polygon [attr.fill]="draw.type === 'terrasse' ? 'url(#structure' + i + ')' : config[draw.type].fill" [attr.stroke]="config[draw.type].stroke"
+        stroke-width="0.1" [attr.points]="formatPoints(draw)"></polygon>
     </g>
 
-    <g *ngIf="currentPolygon">
-        <circle *ngFor="let p of currentPolygon.path;let last = last; let first= first" [attr.cx]="p.x" [attr.cy]="p.y"
-            r="0.2" [attr.stroke]="last ? 'green' : first ? 'blue' : 'gray'" fill="transparent" stroke-width="0.1" />
+    <g *ngIf="currentDraw">
+        <circle *ngFor="let p of currentDraw.polygon.path;let last = last; let first= first" [attr.cx]="p.x" [attr.cy]="p.y"
+            r="0.2" [attr.stroke]="last ? 'indigo' : first ? 'cyan' : 'gray'" fill="transparent" stroke-width="0.1" />
     </g>
-
-
 </svg>

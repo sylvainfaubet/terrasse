@@ -1,4 +1,4 @@
-import { Polygon, Point } from './model';
+import { Polygon, Point } from '../model';
 
 const piscine1 = new Polygon([new Point(10, 3), new Point(10, 6), new Point(8, 6), new Point(8, 3)]); // area 6
 

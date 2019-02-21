@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { Point, Polygon, PolygonInfo, PolygonType, Project } from '../shared/model';
+import { Project, Draw, DrawType } from '../shared/model';
+import { Point } from '../../geometry/geometry.module';
 import { EditPointModalComponent } from '../edit-point-modal/edit-point-modal.component';
-import { findPointInPolygon, computePolygonInfo } from '../../geometry/geometry.service';
 
 @Component({
     selector: 'terrasse-edit',
@@ -14,10 +14,9 @@ export class EditComponent implements OnInit {
     project: Project;
     config: any;
 
-    currentPolygon: Polygon;
-    currentPolygonInfo: PolygonInfo = new PolygonInfo(0, 0);
+    currentDraw: Draw;
     mode: String = 'add';
-    polygonTypes = PolygonType;
+    polygonTypes = DrawType;
 
     constructor(route: ActivatedRoute, public dialog: MatDialog) {
         route.data.subscribe(({ project, config }) => {
@@ -28,17 +27,17 @@ export class EditComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (this.project.polygons.length > 0) {
-            this.currentPolygon = this.project.polygons[0];
+        if (this.project.draws.length > 0) {
+            this.currentDraw = this.project.draws[0];
         }
     }
 
     doJobOnClickedPoint(clickedPoint: Point) {
-        const foundPoint = findPointInPolygon(this.currentPolygon.path, clickedPoint, 1);
+        const foundPoint = this.currentDraw.polygon.getPointAtMax(clickedPoint, 1);
 
         switch (this.mode) {
             case 'add':
-                this.currentPolygon.path.push(clickedPoint);
+                this.currentDraw.polygon.addPoint(clickedPoint);
                 break;
             case 'modify':
                 if (foundPoint) {
@@ -47,18 +46,11 @@ export class EditComponent implements OnInit {
                 break;
             case 'delete':
                 if (foundPoint) {
-                    this.currentPolygon.path.splice(this.currentPolygon.path.indexOf(foundPoint), 1);
+                    this.currentDraw.polygon.removePoint(foundPoint);
                 }
                 break;
             default:
         }
-        this.refreshCurrentPolygonInfo();
-    }
-
-    refreshCurrentPolygonInfo() {
-        console.log('refresh');
-        const piscines = this.project.polygons.filter((polygon: Polygon) => polygon.type === PolygonType.Piscine);
-        this.currentPolygonInfo = computePolygonInfo(this.currentPolygon, piscines);
     }
 
     modifyPoint(point: Point) {
@@ -68,7 +60,6 @@ export class EditComponent implements OnInit {
         });
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed', result);
-            this.refreshCurrentPolygonInfo();
         });
     }
 }

@@ -1,6 +1,6 @@
 import './edit-point.component.scss';
 import { Component, OnInit, Input } from '@angular/core';
-import { Point } from '../../geometry/model/point';
+import { Point } from '../../geometry/geometry.module';
 
 @Component({
     selector: 'terrasse-edit-point',

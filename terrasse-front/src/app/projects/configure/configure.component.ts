@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Polygon, PolygonInfo, PolygonType, Project } from '../shared/model';
+import { Draw, DrawType, Project } from '../shared/model';
 
 @Component({
     selector: 'terrasse-configure',
@@ -16,18 +16,16 @@ export class ConfigureComponent implements OnInit {
     @Output()
     change = new EventEmitter();
 
-    currentPolygonIndex: number;
+    currentDrawIndex: number;
     @Input()
-    currentPolygon: Polygon;
-    @Input()
-    currentPolygonInfo: PolygonInfo;
+    currentDraw: Draw;
     @Output()
-    currentPolygonChange = new EventEmitter();
+    currentDrawChange = new EventEmitter();
 
     project: Project;
 
-    polygonTypes = [PolygonType.Piscine, PolygonType.Terrasse];
-    selectedPolygonType = PolygonType.Piscine;
+    drawTypes = [DrawType.Piscine, DrawType.Terrasse];
+    selectedDrawType = DrawType.Piscine;
 
     constructor(route: ActivatedRoute) {
         route.data.subscribe(data => {
@@ -36,44 +34,50 @@ export class ConfigureComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.setCurrentPolygonIndex(this.project.polygons.findIndex(item => this.currentPolygon === item));
+        this.setcurrentDrawIndex(this.project.draws.findIndex(item => this.currentDraw === item));
     }
 
-    newPolygon(type: PolygonType) {
+    newDraw(type: DrawType) {
         console.log(type);
-        const polygon = new Polygon(type);
-        this.project.polygons.push(polygon);
-        this.setCurrentPolygonIndex(this.project.polygons.length - 1);
+        const draw = new Draw(type);
+        this.project.draws.push(draw);
+        this.setcurrentDrawIndex(this.project.draws.length - 1);
     }
 
-    setCurrentPolygonIndex(index: number) {
-        this.currentPolygonIndex = index;
-        this.currentPolygonChange.emit(this.project.polygons[index]);
+    setcurrentDrawIndex(index: number) {
+        this.currentDrawIndex = index;
+        this.currentDrawChange.emit(this.project.draws[index]);
         this.change.emit();
     }
 
-    changeCurrentPolygon() {
-        this.setCurrentPolygonIndex((this.currentPolygonIndex + 1) % this.project.polygons.length);
+    changecurrentDraw() {
+        this.setcurrentDrawIndex((this.currentDrawIndex + 1) % this.project.draws.length);
     }
 
-    removePolygon(polygon: Polygon) {
-        if (this.project.polygons.length > 1) {
-            this.project.polygons = this.project.polygons.filter(item => item !== polygon);
-            if (this.currentPolygon === polygon) {
-                this.setCurrentPolygonIndex(0);
+    removeDraw(draw: Draw) {
+        if (this.project.draws.length > 1) {
+            this.project.draws = this.project.draws.filter(item => item !== draw);
+            if (this.currentDraw === draw) {
+                this.setcurrentDrawIndex(0);
             }
         } else {
             alert('on ne peut pas supprimer le dernier dessin sans en créer un autre');
         }
     }
 
-    isNotChangeablePolygon(polygon: Polygon) {
-        return polygon.path.length < 3;
+    isNotChangeable(draw: Draw) {
+        return draw.polygon.path.length < 3;
     }
-    changePolygonFirstElement(polygon: Polygon) {
-        polygon.path.push(polygon.path.shift());
+
+    isOnlyOneDraw() {
+        return this.project.draws.length === 1;
     }
-    reversePolygon(polygon: Polygon) {
-        polygon.path.reverse();
+
+    changeDrawFirstElement(draw: Draw) {
+        draw.polygon.changeFirstElement();
+    }
+
+    reverseDraw(draw: Draw) {
+        draw.polygon.path.reverse();
     }
 }

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Point, Polygon } from './model';
+export { Point, Polygon } from './model';
 
 @NgModule({
-    declarations: [Point, Polygon],
+    declarations: [],
     imports: [CommonModule],
+    providers: [],
 })
 export class GeometryModule {}

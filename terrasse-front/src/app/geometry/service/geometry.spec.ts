@@ -1,5 +1,5 @@
 import { distance, findPointInPolygon, polygonPerimeter, computeArea, changePointsOrder, polygonArea } from './geometry.service';
-import { Point } from './model';
+import { Point } from '../model';
 import { cases } from './geometry.test_cases';
 
 const path: Array<Point> = [{ x: 0, y: 0 }, { x: 3, y: 4 }, { x: 0, y: 4 }];

@@ -1,12 +1,12 @@
 import { Project } from '../model/project';
 import { Injectable } from '@angular/core';
-import { PolygonType, Polygon } from '../model';
+import { DrawType, Draw } from '../model';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ProjectService {
-    projects: Project[] = [new Project(0, [new Polygon(PolygonType.Terrasse)])];
+    projects: Project[] = [new Project(0, [new Draw(DrawType.Terrasse)])];
 
     createProject(): Project {
         this.projects.push(new Project(this.projects.length));

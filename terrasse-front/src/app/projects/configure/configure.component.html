@@ -20,8 +20,8 @@
         </mat-expansion-panel-header>
 
         <div fxLayoutAlign="row" fxLayoutGap="10px" fxLayoutAlign="start center">
-            <div fxFlex>aire : {{currentPolygonInfo.area}}</div>
-            <div fxFlex>perimetre : {{currentPolygonInfo.perimeter}}</div>
+            <div fxFlex>aire : {{currentDraw.polygon.area()}}</div>
+            <div fxFlex>perimetre : {{currentDraw.polygon.perimeter()}}</div>
         </div>
     </mat-expansion-panel>
 
@@ -40,34 +40,34 @@
             <div fxFlex>
                 <mat-form-field>
                     <mat-label>type de dessin à ajouter</mat-label>
-                    <mat-select [(value)]="selectedPolygonType">
-                        <mat-option *ngFor="let type of polygonTypes" [value]="type">{{type}}</mat-option>
+                    <mat-select [(value)]="selectedDrawType">
+                        <mat-option *ngFor="let type of drawTypes" [value]="type">{{type}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
             <div fxFlex >
-                <button mat-flat-button color="primary" (click)="newPolygon(selectedPolygonType)">
-                    ajouter une {{selectedPolygonType}}
+                <button mat-flat-button color="primary" (click)="newDraw(selectedDrawType)">
+                    ajouter une {{selectedDrawType}}
                 </button>
             </div>
             <div fxFlex>
-                <button mat-flat-button color="primary" [disabled]="isNotChangeablePolygon(currentPolygon)" (click)="changePolygonFirstElement(currentPolygon)">
+                <button mat-flat-button color="primary" [disabled]="isNotChangeable(currentDraw)" (click)="changeDrawFirstElement(currentDraw)">
                     rotation des points
                 </button>
             </div>
             <div fxFlex>
-                <button mat-flat-button color="primary" [disabled]="isNotChangeablePolygon(currentPolygon)" (click)="reversePolygon(currentPolygon)">
+                <button mat-flat-button color="primary" [disabled]="isNotChangeable(currentDraw)" (click)="reverseDraw(currentDraw)">
                     inversion du sens
                 </button>
             </div>
             <div fxFlex>
-                <button mat-flat-button color="primary" [disabled]="project.polygons.length == 1" (click)="changeCurrentPolygon()" >
+                <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="changeCurrentDraw()" >
                     changer de dessin
                 </button>
             </div>
             <div fxFlex fxFlex.xs="100">
-                <button mat-flat-button color="primary" [disabled]="project.polygons.length == 1" (click)="removePolygon(currentPolygon)" >
-                    supprimer la {{currentPolygon.type}}
+                <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="removeDraw(currentDraw)" >
+                    supprimer la {{currentDraw.type}}
                 </button>
             </div>
         </div>
@@ -85,13 +85,13 @@
         </mat-expansion-panel-header>
         <div fxFlexFill fxLayoutGap="10px grid" fxLayout="row wrap" fxLayoutAlign="center center">
             <mat-form-field>
-                <input matInput placeholder="espace lambourdes basses" [(ngModel)]="currentPolygon.structure.bottomSpace">
+                <input matInput placeholder="espace lambourdes basses" [(ngModel)]="currentDraw.structure.bottomSpace">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="espace lambourdes hautes" [(ngModel)]="currentPolygon.structure.topSpace">
+                <input matInput placeholder="espace lambourdes hautes" [(ngModel)]="currentDraw.structure.topSpace">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="angle" [(ngModel)]="currentPolygon.structure.angle">
+                <input matInput placeholder="angle" [(ngModel)]="currentDraw.structure.angle">
             </mat-form-field>
         </div>
     </mat-expansion-panel>
@@ -112,10 +112,10 @@
                 <input matInput placeholder="nom du projet" [(ngModel)]="project.name">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Largeur du terrain" [(ngModel)]="project.area.width">
+                <input matInput placeholder="Largeur du terrain" [(ngModel)]="project.zone.width">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Longueur du terrain" [(ngModel)]="project.area.height">
+                <input matInput placeholder="Longueur du terrain" [(ngModel)]="project.zone.height">
             </mat-form-field>
         </div>
 
