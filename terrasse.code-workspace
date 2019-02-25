@@ -1,14 +1,64 @@
 {
   "folders": [
     {
-      "path": "./terrasse-front"
+      "path": "./terrasse-front",
+      "name": "front"
     },
     {
-      "path": "./terrasse-service"
+      "path": "./terrasse-service",
+      "name": "back"
     },
     {
       "path": "."
     }
   ],
-  "settings": {}
+  "settings": {
+    "eslint.autoFixOnSave": true,
+    "tslint.autoFixOnSave": true
+  },
+  "launch": {
+    "configurations": [
+      {
+        "name": "ng serve",
+        "type": "chrome",
+        "request": "launch",
+        "preLaunchTask": "npm: start",
+        "url": "http://localhost",
+        "webRoot": "${workspaceFolder:front}"
+      },
+      {
+        "name": "ng test",
+        "type": "chrome",
+        "request": "launch",
+        "preLaunchTask": "npm start",
+        "url": "http://localhost:9876/debug.html",
+        "cwd": "${workspaceFolder:front}",
+        "webRoot": "${workspaceFolder:front}",
+        "sourceMaps": true,
+        "sourceMapPathOverrides": {
+          "/./*": "${webRoot}/*",
+          "/src/*": "${webRoot}/*",
+          "/*": "*",
+          "/./~/*": "${webRoot}/node_modules/*"
+        }
+      },
+      {
+        "name": "ng e2e",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder:front}/node_modules/protractor/bin/protractor",
+        "protocol": "inspector",
+        "args": ["${workspaceFolder:front}/e2e/protractor.conf.js"]
+      }
+    ],
+    "tasks": [],
+    "compounds": []
+  },
+  "extensions": {
+    "recommendations": [
+      "eg2.tslint",
+      "dbaeumer.vscode-eslint",
+      "msjsdiag.debugger-for-chrome"
+    ]
+  }
 }

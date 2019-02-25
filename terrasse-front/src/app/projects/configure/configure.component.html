@@ -20,7 +20,7 @@
         </mat-expansion-panel-header>
 
         <div fxLayoutAlign="row" fxLayoutGap="10px" fxLayoutAlign="start center">
-            <div fxFlex>aire : {{currentDraw.polygon.area()}}</div>
+            <div fxFlex>aire : {{calcArea(currentDraw)}}</div>
             <div fxFlex>perimetre : {{currentDraw.polygon.perimeter()}}</div>
         </div>
     </mat-expansion-panel>

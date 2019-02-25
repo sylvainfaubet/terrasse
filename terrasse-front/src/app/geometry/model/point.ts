@@ -8,4 +8,8 @@ export class Point {
         point.x = roundValue(point.x);
         point.y = roundValue(point.y);
     }
+
+    toArray() {
+        return [this.x, this.y];
+    }
 }

@@ -1,18 +1,29 @@
 import { Point } from './point';
 import { polygonPerimeter, findPointInPolygon, polygonArea } from '../service/geometry.service';
 export class Polygon {
-    constructor(public path: Array<Point> = [], public isNotClosed: Boolean = false) {}
+    constructor(public path: Point[] = [], public isNotClosed: Boolean = false) {}
 
-    area(polygonsToCut: Array<Polygon>) {
-        return polygonArea(this, polygonsToCut);
+    areaWithoutPolygons(polygons: Polygon[]) {
+        return polygonArea(this.path, polygons.map(poly => poly.path));
+    }
+
+    area(isSigned: boolean = false) {
+        let aire = 0;
+        for (let i = 0; i < this.path.length; i++) {
+            const pi = this.path[i];
+            const pi1 = this.path[(i + 1) % this.path.length];
+            aire += (pi.x + pi1.x) * (pi1.y - pi.y);
+        }
+        aire = aire / 2;
+        return aire > 0 ? aire : isSigned ? aire : -aire;
     }
 
     perimeter() {
-        return polygonPerimeter(this);
+        return polygonPerimeter(this.path);
     }
 
     getPointAtMax(point: Point, maxDistance: number = 1) {
-        return findPointInPolygon(this, point, maxDistance);
+        return findPointInPolygon(this.path, point, maxDistance);
     }
 
     getSvgPath() {

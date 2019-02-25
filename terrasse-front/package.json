@@ -22,7 +22,7 @@
     "@angular/cdk": "^7.3.2",
     "@angular/common": "^7.2.4",
     "@angular/compiler": "^7.2.4",
-    "@angular/compiler-cli": "^7.2.4",
+    "@angular/compiler-cli": "^7.2.6",
     "@angular/core": "^7.2.4",
     "@angular/flex-layout": "^7.0.0-beta.23",
     "@angular/forms": "^7.2.4",
@@ -32,8 +32,6 @@
     "@angular/platform-browser-dynamic": "^7.2.4",
     "@angular/router": "^7.2.4",
     "core-js": "^2.6.4",
-    "fireworks": "^2.1.1",
-    "polygon": "^1.0.2",
     "rxjs": "^6.4.0",
     "zone.js": "~0.8.29"
   },

@@ -50,7 +50,7 @@ export class ConfigureComponent implements OnInit {
         this.change.emit();
     }
 
-    changecurrentDraw() {
+    changeCurrentDraw() {
         this.setcurrentDrawIndex((this.currentDrawIndex + 1) % this.project.draws.length);
     }
 
@@ -79,5 +79,14 @@ export class ConfigureComponent implements OnInit {
 
     reverseDraw(draw: Draw) {
         draw.polygon.path.reverse();
+    }
+
+    calcArea(draw) {
+        if (draw.type === DrawType.Piscine) {
+            return draw.polygon.area();
+        }
+        return draw.polygon.areaWithoutPolygons(
+            this.project.draws.filter(drawItem => drawItem.type === DrawType.Piscine).map(drawItem => drawItem.polygon),
+        );
     }
 }
