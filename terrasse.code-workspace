@@ -13,8 +13,7 @@
     }
   ],
   "settings": {
-    "eslint.autoFixOnSave": true,
-    "tslint.autoFixOnSave": true
+    "eslint.autoFixOnSave": true
   },
   "launch": {
     "configurations": [
@@ -56,8 +55,7 @@
   },
   "extensions": {
     "recommendations": [
-      "eg2.tslint",
-      "dbaeumer.vscode-eslint",
+      "ms-vscode.vscode-typescript-tslint-plugin",
       "msjsdiag.debugger-for-chrome"
     ]
   }

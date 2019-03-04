@@ -1,4 +1,6 @@
-import { Point } from '../model';
+import { Point, Polygon } from '../model';
+
+import polygonIntersect from 'polygons-intersect';
 
 export const polygonPerimeter = (path: Point[]) => {
     let perimetre = 0;
@@ -48,8 +50,7 @@ export const changePointsOrder = (path: Point[], firstToLast: boolean): Point[] 
 
 function polygonIntersection(pathA: Point[], pathB: Point[]): Point[][] {
     console.log('polygonIntersection', pathA, pathB);
-
-    return [];
+    return polygonIntersect(pathA, pathB).map(path => new Polygon(path.map(point => new Point(point.x, point.y))));
 }
 
 export function polygonArea(path: Point[], pathsToCut: Point[][] = []): number {
