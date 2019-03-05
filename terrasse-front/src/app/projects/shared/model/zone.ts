@@ -1,3 +1,11 @@
 export class Zone {
-    constructor(public width: Number, public height: Number) {}
+    constructor(public width: number, public height: number) { }
+    setFromJSON(data) {
+        if (data.width) {
+            this.width = data.width;
+        }
+        if (data.height) {
+            this.height = data.height;
+        }
+    }
 }

@@ -1,7 +1,7 @@
 import { Point } from './point';
 import { polygonPerimeter, findPointInPolygon, polygonArea } from '../service/geometry.service';
 export class Polygon {
-    constructor(public path: Point[] = [], public isNotClosed: Boolean = false) {}
+    constructor(public path: Point[] = [], public isNotClosed: Boolean = false) { }
 
     areaWithoutPolygons(polygons: Polygon[]) {
         return polygonArea(this.path, polygons.map(poly => poly.path));
@@ -40,5 +40,14 @@ export class Polygon {
 
     changeFirstElement() {
         this.path.push(this.path.shift());
+    }
+
+    setFromJSON(data) {
+        if (data.isNotClosed !== undefined) {
+            this.isNotClosed = data.isNotClosed;
+        }
+        if (Array.isArray(data.path)) {
+            this.path = data.path.map(point => new Point(point.x, point.y));
+        }
     }
 }

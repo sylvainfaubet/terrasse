@@ -47,7 +47,9 @@
         "request": "launch",
         "program": "${workspaceFolder:front}/node_modules/protractor/bin/protractor",
         "protocol": "inspector",
-        "args": ["${workspaceFolder:front}/e2e/protractor.conf.js"]
+        "args": [
+          "${workspaceFolder:front}/e2e/protractor.conf.js"
+        ]
       }
     ],
     "tasks": [],

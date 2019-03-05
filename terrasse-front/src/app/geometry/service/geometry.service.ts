@@ -49,6 +49,9 @@ export const changePointsOrder = (path: Point[], firstToLast: boolean): Point[] 
 
 function polygonIntersection(pathA: Point[], pathB: Point[]): Point[][] {
     console.log('polygonIntersection', pathA, pathB);
+    if (pathA.length === 0 && pathB.length === 0) {
+        return [];
+    }
     return polygonIntersect(pathA, pathB).map(path => path.map(point => new Point(point.x, point.y)));
 }
 

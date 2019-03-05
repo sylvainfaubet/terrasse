@@ -14,7 +14,13 @@ export class ProjectService {
     }
 
     getProject(id): Project {
-        console.log('getProject', id, this.projects[id - 1]);
-        return this.projects[id - 1];
+        return this.projects[id];
+    }
+
+    setProjectFromData(data) {
+        const project = new Project(this.projects.length);
+        project.setFromJSON(data);
+        this.projects.push(project);
+        return project;
     }
 }
