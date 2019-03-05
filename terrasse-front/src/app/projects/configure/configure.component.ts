@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Draw, DrawType, Project } from '../shared/model';
+import { DownloadService } from 'src/app/download/download.service';
+import { ProjectService } from '../shared/services/project.service';
 
 @Component({
     selector: 'terrasse-configure',
@@ -27,9 +29,10 @@ export class ConfigureComponent implements OnInit {
     drawTypes = [DrawType.Piscine, DrawType.Terrasse];
     selectedDrawType = DrawType.Piscine;
 
-    constructor(route: ActivatedRoute) {
+    constructor(route: ActivatedRoute, private downloadService: DownloadService, private projectService: ProjectService, private router: Router) {
         route.data.subscribe(data => {
             this.project = data.project;
+            this.setcurrentDrawIndex(0);
         });
     }
 
@@ -88,5 +91,15 @@ export class ConfigureComponent implements OnInit {
         return draw.polygon.areaWithoutPolygons(
             this.project.draws.filter(drawItem => drawItem.type === DrawType.Piscine).map(drawItem => drawItem.polygon),
         );
+    }
+    saveProject() {
+        this.downloadService.saveAsJson(this.project);
+    }
+
+    loadProject() {
+        this.downloadService.getFromJson().then(data => {
+            const project = this.projectService.setProjectFromData(data);
+            this.router.navigate(['/projects', project.id]);
+        });
     }
 }

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router, NavigationError } from '@angular/router';
 // import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { filter } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 
 export const routes: Routes = [
     // { path: 'home', component: DashboardComponent },
-    { path: '', pathMatch: 'full', redirectTo: 'projects/1' },
+    { path: '', pathMatch: 'full', redirectTo: 'projects/0' },
     {
         path: 'sandbox',
         canLoad: ['canLoadSanbox'],
@@ -18,7 +20,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+    imports: [RouterModule.forRoot(routes, { enableTracing: false })],
     exports: [RouterModule],
     providers: [
         {
@@ -27,4 +29,12 @@ export const routes: Routes = [
         },
     ],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+    constructor(private router: Router) {
+        this.router.events.pipe(
+            filter(event => event instanceof NavigationError)
+        ).subscribe(() => {
+            this.router.navigate(['']);
+        });
+    }
+}

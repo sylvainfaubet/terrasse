@@ -49,7 +49,14 @@ export const changePointsOrder = (path: Point[], firstToLast: boolean): Point[] 
 
 function polygonIntersection(pathA: Point[], pathB: Point[]): Point[][] {
     console.log('polygonIntersection', pathA, pathB);
-    return polygonIntersect(pathA, pathB).map(path => path.map(point => new Point(point.x, point.y)));
+    if (pathA.length === 0 && pathB.length === 0) {
+        return [];
+    }
+    const intersections = polygonIntersect(pathA, pathB);
+    if (Array.isArray(intersections[0])) {
+        return intersections.map(path => path.map(point => new Point(point.x, point.y)));
+    }
+    return [intersections.map(point => new Point(point.x, point.y))];
 }
 
 export function polygonArea(path: Point[], pathsToCut: Point[][] = []): number {
