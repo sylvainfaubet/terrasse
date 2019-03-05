@@ -32,6 +32,7 @@ export class ConfigureComponent implements OnInit {
     constructor(route: ActivatedRoute, private downloadService: DownloadService, private projectService: ProjectService, private router: Router) {
         route.data.subscribe(data => {
             this.project = data.project;
+            this.setcurrentDrawIndex(0);
         });
     }
 
