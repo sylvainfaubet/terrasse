@@ -7,7 +7,7 @@ import { Project } from '../model';
     providedIn: 'root',
 })
 export class ProjectResolver implements Resolve<Project> {
-    constructor(private projectService: ProjectService) {}
+    constructor(private projectService: ProjectService) { }
 
     resolve(route: ActivatedRouteSnapshot) {
         const project = this.projectService.getProject(route.paramMap.get('id'));

@@ -93,16 +93,12 @@ export class ConfigureComponent implements OnInit {
         );
     }
     saveProject() {
-        if (!this.project.name) {
-            this.project.name = 'toto';
-        }
         this.downloadService.saveAsJson(this.project);
     }
 
     loadProject() {
         this.downloadService.getFromJson().then(data => {
             const project = this.projectService.setProjectFromData(data);
-            console.log('test')
             this.router.navigate(['/projects', project.id]);
         });
     }

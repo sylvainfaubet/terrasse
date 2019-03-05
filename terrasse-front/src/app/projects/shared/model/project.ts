@@ -3,7 +3,7 @@ import { Zone } from './zone';
 import { DrawType } from './drawType';
 
 export class Project {
-    constructor(public id: Number, public draws: Array<Draw> = [], public zone: Zone = new Zone(20, 15), public name?: String) { }
+    constructor(public id: number, public draws: Draw[] = [], public zone: Zone = new Zone(20, 15), public name?: string) { }
 
     setFromJSON(data) {
         this.name = data.name;

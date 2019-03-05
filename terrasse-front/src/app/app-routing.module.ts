@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router, NavigationError } from '@angular/router';
 // import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { filter } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 
 export const routes: Routes = [
@@ -27,4 +29,12 @@ export const routes: Routes = [
         },
     ],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+    constructor(private router: Router) {
+        this.router.events.pipe(
+            filter(event => event instanceof NavigationError)
+        ).subscribe(() => {
+            this.router.navigate(['']);
+        });
+    }
+}

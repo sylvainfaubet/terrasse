@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
     providedIn: 'root',
 })
 export class DownloadService {
-    constructor() {}
+    constructor() { }
 
     saveAsJson(data, name: string = data.name || '') {
         const properties = { type: 'application/json' };
@@ -12,7 +12,7 @@ export class DownloadService {
         const a = document.createElement('a');
         const blob = new Blob([JSON.stringify(data)], properties);
         a.href = window.URL.createObjectURL(blob);
-        a.download = name + '.json';
+        a.download = name;
         a.click();
     }
 
@@ -25,13 +25,17 @@ export class DownloadService {
                 target: HTMLInputElement & EventTarget;
             }
 
-            input.onchange = function(e: HTMLInputEvent) {
+            input.onchange = function (e: HTMLInputEvent) {
                 console.log('onChange');
                 const file = e.target.files[0];
                 const fileReader = new FileReader();
                 fileReader.readAsText(file);
                 fileReader.onloadend = () => {
-                    resolve(JSON.parse(fileReader.result.toString()));
+                    const data = JSON.parse(fileReader.result.toString());
+                    if (!data.name) {
+                        data.name = file.name.split('.')[0];
+                    }
+                    resolve(data);
                 };
             };
 
