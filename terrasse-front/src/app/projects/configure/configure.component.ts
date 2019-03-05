@@ -29,7 +29,12 @@ export class ConfigureComponent implements OnInit {
     drawTypes = [DrawType.Piscine, DrawType.Terrasse];
     selectedDrawType = DrawType.Piscine;
 
-    constructor(route: ActivatedRoute, private downloadService: DownloadService, private projectService: ProjectService, private router: Router) {
+    constructor(
+        route: ActivatedRoute,
+        private downloadService: DownloadService,
+        private projectService: ProjectService,
+        private router: Router
+    ) {
         route.data.subscribe(data => {
             this.project = data.project;
             this.setcurrentDrawIndex(0);
