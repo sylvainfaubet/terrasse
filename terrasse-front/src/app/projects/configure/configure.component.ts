@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Draw, DrawType, Project } from '../shared/model';
 import { DownloadService } from 'src/app/download/download.service';
 import { ProjectService } from '../shared/services/project.service';
+import { Polygon, Point } from 'src/app/geometry/model';
+import { EditPointModalService } from '../edit-point-modal/edit-point-modal.service';
 
 @Component({
     selector: 'terrasse-configure',
@@ -33,7 +35,8 @@ export class ConfigureComponent implements OnInit {
         route: ActivatedRoute,
         private downloadService: DownloadService,
         private projectService: ProjectService,
-        private router: Router
+        private router: Router,
+        private editPointModalService: EditPointModalService
     ) {
         route.data.subscribe(data => {
             this.project = data.project;
@@ -105,6 +108,12 @@ export class ConfigureComponent implements OnInit {
         this.downloadService.getFromJson().then(data => {
             const project = this.projectService.setProjectFromData(data);
             this.router.navigate(['/projects', project.id]);
+        });
+    }
+    movePolygon(polygon: Polygon) {
+        const translate = new Point(0, 0);
+        this.editPointModalService.modifyPoint(translate).subscribe(() => {
+            polygon.move(translate);
         });
     }
 }

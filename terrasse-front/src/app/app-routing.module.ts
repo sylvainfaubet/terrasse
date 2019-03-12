@@ -20,7 +20,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { enableTracing: false })],
+    imports: [RouterModule.forRoot(routes, { enableTracing: true })],
     exports: [RouterModule],
     providers: [
         {
@@ -33,8 +33,9 @@ export class AppRoutingModule {
     constructor(private router: Router) {
         this.router.events.pipe(
             filter(event => event instanceof NavigationError)
-        ).subscribe(() => {
-            this.router.navigate(['']);
+        ).subscribe((event) => {
+            console.log(event);
+            this.router.navigate(['projects', 0]);
         });
     }
 }

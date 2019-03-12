@@ -1,5 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, HostListener } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Point } from 'src/app/geometry/model';
 
 @Component({
     selector: 'terrasse-edit-point-modal',
@@ -7,9 +8,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
     styleUrls: ['./edit-point-modal.component.scss'],
 })
 export class EditPointModalComponent {
-    constructor(public dialogRef: MatDialogRef<EditPointModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
+    constructor(public dialogRef: MatDialogRef<EditPointModalComponent>, @Inject(MAT_DIALOG_DATA) public point: Point) { }
+
+    @HostListener('window:keyup', ['$event'])
+    keyEvent(event: KeyboardEvent) {
+        if (event.key === 'Enter') {
+            this.onNoClick();
+        }
+    }
 
     onNoClick(): void {
-        this.dialogRef.close(this.data);
+        this.dialogRef.close(this.point);
     }
 }

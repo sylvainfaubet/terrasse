@@ -50,4 +50,10 @@ export class Polygon {
             this.path = data.path.map(point => new Point(point.x, point.y));
         }
     }
+    move(translate: Point) {
+        this.path.forEach(point => {
+            point.x += translate.x;
+            point.y += translate.y;
+        });
+    }
 }

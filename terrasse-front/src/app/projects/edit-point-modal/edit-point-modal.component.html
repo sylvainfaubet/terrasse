@@ -1,1 +1,10 @@
-<terrasse-edit-point [(point)]="data"></terrasse-edit-point>
+<div fxFlexFill>
+    <div fxFlexFill fxLayoutGap="10px grid" fxLayout="column" fxLayoutAlign="center center">
+        <mat-form-field fxFlex>
+            <input matInput type="number" placeholder="X" [(ngModel)]="point.x">
+        </mat-form-field>
+        <mat-form-field fxFlex>
+            <input matInput type="number" placeholder="Y" [(ngModel)]="point.y">
+        </mat-form-field>
+    </div>
+</div>

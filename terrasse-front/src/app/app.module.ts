@@ -18,13 +18,20 @@ import { HeaderComponent } from './header/header.component';
     declarations: [FooterComponent, DashboardComponent, HeaderComponent],
     exports: [FooterComponent, DashboardComponent, HeaderComponent],
 })
-export class AppCommonModule {}
+export class AppCommonModule { }
 
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [AppComponent],
-    exports: [MaterialModule, FlexLayoutModule],
-    imports: [AppCommonModule, BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule, FlexLayoutModule],
+    exports: [AppCommonModule, MaterialModule, FlexLayoutModule],
+    imports: [
+        AppCommonModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        AppRoutingModule,
+        MaterialModule,
+        FlexLayoutModule
+    ],
     providers: [],
 })
-export class AppModule {}
+export class AppModule { }

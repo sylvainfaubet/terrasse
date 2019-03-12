@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { Project, Draw, DrawType } from '../shared/model';
 import { Point } from '../../geometry/geometry.module';
-import { EditPointModalComponent } from '../edit-point-modal/edit-point-modal.component';
+import { EditPointModalService } from '../edit-point-modal/edit-point-modal.service';
 
 @Component({
     selector: 'terrasse-edit',
     templateUrl: './edit.component.html',
-    styleUrls: ['./edit.component.scss'],
+    styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
     project: Project;
@@ -18,7 +17,7 @@ export class EditComponent implements OnInit {
     mode: String = 'add';
     polygonTypes = DrawType;
 
-    constructor(route: ActivatedRoute, public dialog: MatDialog) {
+    constructor(route: ActivatedRoute, private editPointModalService: EditPointModalService) {
         route.data.subscribe(({ project, config }) => {
             this.project = project;
             this.config = config;
@@ -41,7 +40,7 @@ export class EditComponent implements OnInit {
                 break;
             case 'modify':
                 if (foundPoint) {
-                    this.modifyPoint(foundPoint);
+                    this.editPointModalService.modifyPoint(foundPoint);
                 }
                 break;
             case 'delete':
@@ -51,15 +50,5 @@ export class EditComponent implements OnInit {
                 break;
             default:
         }
-    }
-
-    modifyPoint(point: Point) {
-        const dialogRef = this.dialog.open(EditPointModalComponent, {
-            width: '250px',
-            data: point,
-        });
-        dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed', result);
-        });
     }
 }

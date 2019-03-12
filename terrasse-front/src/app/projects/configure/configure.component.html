@@ -1,8 +1,9 @@
 <div fxLayoutGap="10px" fxLayout="column">
-   <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center">
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center">
         <div fxFlex>au clic :</div>
         <div fxFlex="75">
-            <mat-radio-group fxLayoutGap="10px grid" fxLayout="row wrap" [(ngModel)]="modeValue" (change)="mode.emit(modeValue)">
+            <mat-radio-group fxLayoutGap="10px grid" fxLayout="row wrap" [(ngModel)]="modeValue"
+                (change)="mode.emit(modeValue)">
                 <mat-radio-button value="add">ajouter</mat-radio-button>
                 <mat-radio-button value="modify">modifier</mat-radio-button>
                 <mat-radio-button value="delete">supprimer</mat-radio-button>
@@ -45,28 +46,35 @@
                     </mat-select>
                 </mat-form-field>
             </div>
-            <div fxFlex >
+            <div fxFlex>
                 <button mat-flat-button color="primary" (click)="newDraw(selectedDrawType)">
                     ajouter une {{selectedDrawType}}
                 </button>
             </div>
             <div fxFlex>
-                <button mat-flat-button color="primary" [disabled]="isNotChangeable(currentDraw)" (click)="changeDrawFirstElement(currentDraw)">
+                <button mat-flat-button color="primary" [disabled]="isNotChangeable(currentDraw)"
+                    (click)="changeDrawFirstElement(currentDraw)">
                     rotation des points
                 </button>
             </div>
             <div fxFlex>
-                <button mat-flat-button color="primary" [disabled]="isNotChangeable(currentDraw)" (click)="reverseDraw(currentDraw)">
+                <button mat-flat-button color="primary" [disabled]="isNotChangeable(currentDraw)"
+                    (click)="reverseDraw(currentDraw)">
                     inversion du sens
                 </button>
             </div>
             <div fxFlex>
-                <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="changeCurrentDraw()" >
+                <button mat-flat-button color="primary" (click)="movePolygon(currentDraw.polygon)">
+                    déplacer
+                </button>
+            </div>
+            <div fxFlex>
+                <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="changeCurrentDraw()">
                     changer de dessin
                 </button>
             </div>
             <div fxFlex fxFlex.xs="100">
-                <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="removeDraw(currentDraw)" >
+                <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="removeDraw(currentDraw)">
                     supprimer la {{currentDraw.type}}
                 </button>
             </div>

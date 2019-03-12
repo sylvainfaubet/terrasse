@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { ConfigureComponent } from './configure.component';
 import { MaterialModule } from 'src/app/material/material.module';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Draw, DrawType, Project, Zone } from '../shared/model';
@@ -25,6 +25,9 @@ describe('ConfigureComponent', () => {
                         }),
                     },
                 },
+
+                { provide: Router, useValue: {} },
+
             ],
         }).compileComponents();
     }));
