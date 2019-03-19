@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, Input, Output, EventEmitter } from '@ang
 import { ActivatedRoute } from '@angular/router';
 
 import { Draw } from '../shared/model';
-import { Point } from '../../geometry/geometry.module';
+import { Point } from '../../geometry/model/point';
 
 @Component({
     selector: 'terrasse-drawing-area',

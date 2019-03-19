@@ -1,6 +1,6 @@
 import { Component, Inject, HostListener } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Point } from 'src/app/geometry/model';
+import { Point } from 'src/app/geometry/model/point';
 
 @Component({
     selector: 'terrasse-edit-point-modal',

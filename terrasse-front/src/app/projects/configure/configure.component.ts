@@ -4,7 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Draw, DrawType, Project } from '../shared/model';
 import { DownloadService } from 'src/app/download/download.service';
 import { ProjectService } from '../shared/services/project.service';
-import { Polygon, Point } from 'src/app/geometry/model';
+import {  Point } from 'src/app/geometry/model/point';
+import { Polygon  } from 'src/app/geometry/model/polygon';
 import { EditPointModalService } from '../edit-point-modal/edit-point-modal.service';
 
 @Component({

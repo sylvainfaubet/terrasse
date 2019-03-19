@@ -1,71 +1,81 @@
+import { Injectable } from '@angular/core';
 import { Point } from '../model/point';
 import polygonIntersect from 'polygons-intersect';
 
-export const distance = (a: Point, b: Point) => {
-    return Math.sqrt(Math.pow(b.x - a.x, 2) + Math.pow(b.y - a.y, 2));
-};
+@Injectable({
+    providedIn: 'root'
+})
+export class GeometryService {
 
-export const polygonPerimeter = (path: Point[]) => {
-    let perimetre = 0;
+    constructor() { }
 
-    for (let i = 1; i < path.length; i++) {
-        perimetre += distance(path[i - 1], path[i]);
+    distance (a: Point, b: Point) {
+        return Math.sqrt(Math.pow(b.x - a.x, 2) + Math.pow(b.y - a.y, 2));
     }
-    if (path.length > 1) {
-        perimetre += distance(path[path.length - 1], path[0]);
-    }
-    return perimetre;
-};
 
-export const findPointInPolygon = (path: Point[], point: Point, maxDistance: number) => {
-    for (const polygonPoint of path) {
-        if (distance(point, polygonPoint) < maxDistance) {
-            return polygonPoint;
+    polygonPerimeter (path: Point[]) {
+            let perimetre = 0;
+
+            for (let i = 1; i < path.length; i++) {
+                perimetre += this.distance(path[i - 1], path[i]);
+            }
+            if (path.length > 1) {
+                perimetre += this.distance(path[path.length - 1], path[0]);
+            }
+            return perimetre;
+    }
+
+
+    findPointInPolygon (path: Point[], point: Point, maxDistance: number)  {
+        for (const polygonPoint of path) {
+            if (this.distance(point, polygonPoint) < maxDistance) {
+                return polygonPoint;
+            }
         }
+        return undefined;
     }
-    return undefined;
-};
 
-export function computeArea(path: Point[], isSigned: boolean = false): number {
-    let aire = 0;
-    for (let i = 0; i < path.length; i++) {
-        const pi = path[i];
-        const pi1 = path[(i + 1) % path.length];
-        aire += (pi.x + pi1.x) * (pi1.y - pi.y);
+    computeArea(path: Point[], isSigned: boolean = false): number {
+        let aire = 0;
+        for (let i = 0; i < path.length; i++) {
+            const pi = path[i];
+            const pi1 = path[(i + 1) % path.length];
+            aire += (pi.x + pi1.x) * (pi1.y - pi.y);
+        }
+        aire = aire / 2;
+        return isSigned ? aire : aire > 0 ? aire : -aire;
     }
-    aire = aire / 2;
-    return isSigned ? aire : aire > 0 ? aire : -aire;
-}
 
-export const changePointsOrder = (path: Point[], firstToLast: boolean): Point[] => {
-    const result = path.slice();
-    if (firstToLast) {
-        result.push(result.shift());
-    } else {
-        result.unshift(result.pop());
+    changePointsOrder (path: Point[], firstToLast: boolean): Point[]  {
+        const result = path.slice();
+        if (firstToLast) {
+            result.push(result.shift());
+        } else {
+            result.unshift(result.pop());
+        }
+        return result;
     }
-    return result;
-};
 
-function polygonIntersection(pathA: Point[], pathB: Point[]): Point[][] {
-    console.log('polygonIntersection', pathA, pathB);
-    if (pathA.length === 0 && pathB.length === 0) {
-        return [];
+    polygonIntersection(pathA: Point[], pathB: Point[]): Point[][] {
+        console.log('polygonIntersection', pathA, pathB);
+        if (pathA.length === 0 && pathB.length === 0) {
+            return [];
+        }
+        const intersections = polygonIntersect(pathA, pathB);
+        if (Array.isArray(intersections[0])) {
+            return intersections.map(path => path.map(point => new Point(point.x, point.y)));
+        }
+        return [intersections.map(point => new Point(point.x, point.y))];
     }
-    const intersections = polygonIntersect(pathA, pathB);
-    if (Array.isArray(intersections[0])) {
-        return intersections.map(path => path.map(point => new Point(point.x, point.y)));
-    }
-    return [intersections.map(point => new Point(point.x, point.y))];
-}
 
-export function polygonArea(path: Point[], pathsToCut: Point[][] = []): number {
-    let areaToRemove = 0;
-    pathsToCut.forEach(pathToCut => {
-        const intersections = polygonIntersection(path, pathToCut);
-        intersections.forEach(intersection => {
-            areaToRemove += computeArea(intersection);
+    polygonArea(path: Point[], pathsToCut: Point[][] = []): number {
+        let areaToRemove = 0;
+        pathsToCut.forEach(pathToCut => {
+            const intersections = this.polygonIntersection(path, pathToCut);
+            intersections.forEach(intersection => {
+                areaToRemove += this.computeArea(intersection);
+            });
         });
-    });
-    return computeArea(path) - areaToRemove;
+        return this.computeArea(path) - areaToRemove;
+    }
 }

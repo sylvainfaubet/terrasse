@@ -1,6 +1,6 @@
-import { Polygon } from '../../../geometry/geometry.module';
+import { Polygon } from '../../../geometry/model/polygon';
 import { DrawType } from './drawType';
-import { Structure } from './structure';
+import { Structure } from '../../../structure/structure.model';
 
 export class Draw {
     constructor(

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project, Draw, DrawType } from '../shared/model';
-import { Point } from '../../geometry/geometry.module';
+import { Point } from '../../geometry/model/point';
 import { EditPointModalService } from '../edit-point-modal/edit-point-modal.service';
 
 @Component({

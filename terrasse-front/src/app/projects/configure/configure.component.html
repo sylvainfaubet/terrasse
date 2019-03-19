@@ -81,7 +81,6 @@
         </div>
 
     </mat-expansion-panel>
-
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
@@ -91,20 +90,9 @@
 
             </mat-panel-description>
         </mat-expansion-panel-header>
-        <div fxFlexFill fxLayoutGap="10px grid" fxLayout="row wrap" fxLayoutAlign="center center">
-            <mat-form-field>
-                <input matInput placeholder="espace lambourdes basses" [(ngModel)]="currentDraw.structure.bottomSpace">
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="espace lambourdes hautes" [(ngModel)]="currentDraw.structure.topSpace">
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="angle" [(ngModel)]="currentDraw.structure.angle">
-            </mat-form-field>
-        </div>
+        <terrasse-structure-info></terrasse-structure-info>
+        <terrasse-structure-config [(structure)]="currentDraw.structure"></terrasse-structure-config>
     </mat-expansion-panel>
-
-
 
     <mat-expansion-panel>
         <mat-expansion-panel-header>

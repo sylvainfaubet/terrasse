@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { EditPointModalComponent } from './edit-point-modal.component';
-import { Point } from 'src/app/geometry/model';
+import { Point } from 'src/app/geometry/model/point';
 
 @Injectable({
     providedIn: 'root'

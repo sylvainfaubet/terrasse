@@ -15,10 +15,20 @@ import { GeometryModule } from '../geometry/geometry.module';
 
 import { MatDialogModule } from '@angular/material';
 import { EditPointModalService } from './edit-point-modal/edit-point-modal.service';
+import { StructureModule } from '../structure/structure.module';
 
 @NgModule({
-    imports: [ProjectsRoutingModule, MaterialModule, FormsModule, CommonModule, FlexLayoutModule, GeometryModule, DownloadModule,
-        MatDialogModule],
+    imports: [
+        CommonModule,
+        DownloadModule,
+        FlexLayoutModule,
+        FormsModule,
+        GeometryModule,
+        MatDialogModule,
+        MaterialModule,
+        ProjectsRoutingModule,
+        StructureModule,
+    ],
     exports: [],
     providers: [
         { provide: EditPointModalService, useClass: EditPointModalService }],
