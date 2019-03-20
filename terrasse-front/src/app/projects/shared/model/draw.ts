@@ -1,4 +1,4 @@
-import { Polygon } from '../../../geometry/model/polygon';
+import { Polygon } from 'src/app/geometry/polygon.model';
 import { DrawType } from './drawType';
 import { Structure } from '../../../structure/structure.model';
 
@@ -8,7 +8,7 @@ export class Draw {
         public polygon: Polygon = new Polygon(),
         public structure: Structure = new Structure(),
         public name?: String,
-    ) { }
+    ) {}
 
     setFromJSON(data) {
         switch (data.type) {

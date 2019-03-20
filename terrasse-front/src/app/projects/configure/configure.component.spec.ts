@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Draw, DrawType, Project, Zone } from '../shared/model';
+import { StructureModule } from 'src/app/structure/structure.module';
 
 describe('ConfigureComponent', () => {
     let component: ConfigureComponent;
@@ -13,7 +14,7 @@ describe('ConfigureComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [MaterialModule, FormsModule, BrowserAnimationsModule],
+            imports: [MaterialModule, FormsModule, StructureModule, BrowserAnimationsModule],
             declarations: [ConfigureComponent],
             providers: [
                 {
@@ -27,7 +28,6 @@ describe('ConfigureComponent', () => {
                 },
 
                 { provide: Router, useValue: {} },
-
             ],
         }).compileComponents();
     }));

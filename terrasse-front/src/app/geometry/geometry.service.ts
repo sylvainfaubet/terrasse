@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Point } from '../model/point';
+import { Point } from './point.model';
 import polygonIntersect from 'polygons-intersect';
 
 @Injectable({

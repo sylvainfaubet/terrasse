@@ -1,8 +1,12 @@
-import { Point } from './point';
-import { GeometryService } from '../service/geometry.service';
+import { Point } from './point.model';
+import { GeometryService } from './geometry.service';
 
 export class Polygon {
-    constructor(public path: Point[] = [], public isNotClosed: Boolean = false, private geometryService: GeometryService = new GeometryService()) { }
+    constructor(
+        public path: Point[] = [],
+        public isNotClosed: Boolean = false,
+        private geometryService: GeometryService = new GeometryService(),
+    ) {}
 
     areaWithoutPolygons(polygons: Polygon[]) {
         return this.geometryService.polygonArea(this.path, polygons.map(poly => poly.path));

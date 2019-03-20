@@ -1,5 +1,5 @@
-import { Polygon } from '../model/polygon';
-import { Point } from '../model/point';
+import { Polygon } from './polygon.model';
+import { Point } from './point.model';
 
 const terrasse1 = new Polygon([new Point(2, 9), new Point(7, 9), new Point(7, 14), new Point(2, 14)]); // area 25
 const piscine1 = new Polygon([new Point(3, 10), new Point(6, 10), new Point(6, 13), new Point(3, 13)]); // area 9

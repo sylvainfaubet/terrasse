@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Draw, DrawType, Project } from '../shared/model';
 import { DownloadService } from 'src/app/download/download.service';
 import { ProjectService } from '../shared/services/project.service';
-import {  Point } from 'src/app/geometry/model/point';
-import { Polygon  } from 'src/app/geometry/model/polygon';
+import { Point } from 'src/app/geometry/point.model';
+import { Polygon } from 'src/app/geometry/polygon.model';
 import { EditPointModalService } from '../edit-point-modal/edit-point-modal.service';
 
 @Component({
@@ -37,7 +37,7 @@ export class ConfigureComponent implements OnInit {
         private downloadService: DownloadService,
         private projectService: ProjectService,
         private router: Router,
-        private editPointModalService: EditPointModalService
+        private editPointModalService: EditPointModalService,
     ) {
         route.data.subscribe(data => {
             this.project = data.project;

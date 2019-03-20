@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project, Draw, DrawType } from '../shared/model';
-import { Point } from '../../geometry/model/point';
+import { Point } from 'src/app/geometry/point.model';
 import { EditPointModalService } from '../edit-point-modal/edit-point-modal.service';
 
 @Component({
     selector: 'terrasse-edit',
     templateUrl: './edit.component.html',
-    styleUrls: ['./edit.component.scss']
+    styleUrls: ['./edit.component.scss'],
 })
 export class EditComponent implements OnInit {
     project: Project;
