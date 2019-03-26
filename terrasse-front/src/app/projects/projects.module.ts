@@ -10,12 +10,11 @@ import { ConfigureComponent } from './configure/configure.component';
 import { DownloadModule } from '../download/download.module';
 import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
 import { EditComponent } from './edit/edit.component';
-import { EditPointModalComponent } from './edit-point-modal/edit-point-modal.component';
 import { GeometryModule } from '../geometry/geometry.module';
 
 import { MatDialogModule } from '@angular/material';
-import { EditPointModalService } from './edit-point-modal/edit-point-modal.service';
 import { StructureModule } from '../structure/structure.module';
+import { PointModule } from '../point/point.module';
 
 @NgModule({
     imports: [
@@ -26,18 +25,12 @@ import { StructureModule } from '../structure/structure.module';
         GeometryModule,
         MatDialogModule,
         MaterialModule,
+        PointModule,
         ProjectsRoutingModule,
         StructureModule,
     ],
     exports: [],
-    providers: [
-        { provide: EditPointModalService, useClass: EditPointModalService }],
-    entryComponents: [EditComponent, EditPointModalComponent],
-    declarations: [
-        DrawingAreaComponent,
-        EditComponent,
-        EditPointModalComponent,
-        ConfigureComponent
-    ],
+    entryComponents: [EditComponent],
+    declarations: [DrawingAreaComponent, EditComponent, ConfigureComponent],
 })
-export class ProjectsModule { }
+export class ProjectsModule {}

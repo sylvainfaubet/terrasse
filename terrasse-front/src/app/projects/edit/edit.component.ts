@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project, Draw, DrawType } from '../shared/model';
 import { Point } from 'src/app/geometry/point.model';
-import { EditPointModalService } from '../edit-point-modal/edit-point-modal.service';
+import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
+import { Mode } from 'src/app/point/mode/mode.model';
 
 @Component({
     selector: 'terrasse-edit',
@@ -14,7 +15,7 @@ export class EditComponent implements OnInit {
     config: any;
 
     currentDraw: Draw;
-    mode: String = 'add';
+    mode: Mode = Mode.ADD;
     polygonTypes = DrawType;
 
     constructor(route: ActivatedRoute, private editPointModalService: EditPointModalService) {
@@ -33,17 +34,17 @@ export class EditComponent implements OnInit {
 
     doJobOnClickedPoint(clickedPoint: Point) {
         const foundPoint = this.currentDraw.polygon.getPointAtMax(clickedPoint, 1);
-
+        console.log('doJobOnClickedPoint', this.mode);
         switch (this.mode) {
-            case 'add':
+            case Mode.ADD:
                 this.currentDraw.polygon.addPoint(clickedPoint);
                 break;
-            case 'modify':
+            case Mode.MODIFY:
                 if (foundPoint) {
                     this.editPointModalService.modifyPoint(foundPoint);
                 }
                 break;
-            case 'delete':
+            case Mode.SUPPRESS:
                 if (foundPoint) {
                     this.currentDraw.polygon.removePoint(foundPoint);
                 }
