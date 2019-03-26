@@ -1,10 +1,15 @@
-import { Point } from './point';
-import { polygonPerimeter, findPointInPolygon, polygonArea } from '../service/geometry.service';
+import { Point } from './point.model';
+import { GeometryService } from './geometry.service';
+
 export class Polygon {
-    constructor(public path: Point[] = [], public isNotClosed: Boolean = false) { }
+    constructor(
+        public path: Point[] = [],
+        public isNotClosed: Boolean = false,
+        private geometryService: GeometryService = new GeometryService(),
+    ) {}
 
     areaWithoutPolygons(polygons: Polygon[]) {
-        return polygonArea(this.path, polygons.map(poly => poly.path));
+        return this.geometryService.polygonArea(this.path, polygons.map(poly => poly.path));
     }
 
     area(isSigned: boolean = false) {
@@ -19,11 +24,11 @@ export class Polygon {
     }
 
     perimeter() {
-        return polygonPerimeter(this.path);
+        return this.geometryService.polygonPerimeter(this.path);
     }
 
     getPointAtMax(point: Point, maxDistance: number = 1) {
-        return findPointInPolygon(this.path, point, maxDistance);
+        return this.geometryService.findPointInPolygon(this.path, point, maxDistance);
     }
 
     getSvgPath() {
@@ -50,6 +55,7 @@ export class Polygon {
             this.path = data.path.map(point => new Point(point.x, point.y));
         }
     }
+
     move(translate: Point) {
         this.path.forEach(point => {
             point.x += translate.x;

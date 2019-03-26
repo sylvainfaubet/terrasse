@@ -1,0 +1,10 @@
+<div class="container" fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex="55px">au clic :</div>
+    <div fxFlex>
+        <mat-radio-group fxLayoutGap="10px grid" fxLayout="row wrap" [(ngModel)]="mode">
+            <mat-radio-button [value]="modeEnum.ADD">ajouter</mat-radio-button>
+            <mat-radio-button [value]="modeEnum.MODIFY">modifier</mat-radio-button>
+            <mat-radio-button [value]="modeEnum.SUPPRESS">supprimer</mat-radio-button>
+        </mat-radio-group>
+    </div>
+</div>

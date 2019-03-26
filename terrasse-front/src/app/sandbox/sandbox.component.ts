@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Point } from '../geometry/model/point';
+import { Point } from 'src/app/geometry/point.model';
 
 @Component({
     selector: 'terrasse-sandbox',
@@ -9,7 +9,7 @@ import { Point } from '../geometry/model/point';
 export class SandboxComponent implements OnInit {
     data = new Point(1, 3);
 
-    constructor() {}
+    constructor() { }
 
-    ngOnInit() {}
+    ngOnInit() { }
 }

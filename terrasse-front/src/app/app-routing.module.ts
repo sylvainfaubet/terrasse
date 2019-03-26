@@ -33,9 +33,11 @@ export class AppRoutingModule {
     constructor(private router: Router) {
         this.router.events.pipe(
             filter(event => event instanceof NavigationError)
-        ).subscribe((event) => {
-            console.log(event);
-            this.router.navigate(['projects', 0]);
+        ).subscribe((event: NavigationError) => {
+            if (event.url !== '/projects/0') {
+                console.log(event);
+                this.router.navigate(['projects', 0]);
+            }
         });
     }
 }
