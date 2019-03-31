@@ -8,7 +8,7 @@ if (environment.production) {
   enableProdMode();
 }
 
-console.log("main test 1");
+console.log("main test 2");
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
