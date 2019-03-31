@@ -12,9 +12,9 @@
         "build:prod": "ng build --prod",
         "update": "ng update",
         "docker:bash": "docker exec -it terrasse bash",
-        "docker:build": "docker build . -t terrasse",
-        "docker:run": "docker run -d -p 80:80 terrasse",
-	"docker:rm" : "docker rm terrasse",
+        "docker:build": "docker image tag terrasse:latest terrasse:old && docker build . -t terrasse",
+	    "docker:clean" : "docker rm terrasse:old; docker container purge -f",
+        "docker:run": "docker run -d -p 80:80 -n terrasse terrasse:latest",
         "docker:stop": "docker stop terrasse"
     },
     "private": true,
