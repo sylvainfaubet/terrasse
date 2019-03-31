@@ -14,8 +14,7 @@
         "docker:bash": "docker exec -it terrasse bash",
         "docker:build": "docker image tag terrasse:latest terrasse:old && docker build . -t terrasse",
 	    "docker:clean" : "docker rm terrasse:old; docker container purge -f",
-        "docker:run": "docker run -d -p 80:80 -n terrasse terrasse:latest",
-        "docker:stop": "docker stop terrasse"
+        "docker:restart": "docker stop $(docker ps -a -q --filter ancestor=terrasse:old --format=\"{{.ID}}\")"
     },
     "private": true,
     "dependencies": {
