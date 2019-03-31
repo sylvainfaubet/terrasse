@@ -11,10 +11,11 @@
         "e2e": "ng e2e",
         "build:prod": "ng build --prod",
         "update": "ng update",
-        "docker:build": "npm run build && docker build . -t terrasse",
-        "docker:run": "docker run -d -p 80:80 --name terrasse terrasse",
-        "docker:stop": "docker stop terrasse; docker rm terrasse",
-        "docker:bash": "docker exec -it terrasse bash"
+        "docker:bash": "docker exec -it terrasse bash",
+        "docker:build": "docker build . -t terrasse",
+        "docker:run": "docker run -d -p 80:80 terrasse",
+	"docker:rm" : "docker rm terrasse",
+        "docker:stop": "docker stop terrasse"
     },
     "private": true,
     "dependencies": {
