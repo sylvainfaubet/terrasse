@@ -13,7 +13,7 @@
         "update": "ng update",
         "docker:bash": "docker exec -it terrasse bash",
         "docker:build": "docker image tag terrasse:latest terrasse:old && docker build . -t terrasse",
-	    "docker:clean" : "docker rm terrasse:old; docker container purge -f",
+	    "docker:clean" : "docker rm terrasse:old; docker container prune -f",
         "docker:restart": "docker stop $(docker ps -a -q --filter ancestor=terrasse:old --format=\"{{.ID}}\")"
     },
     "private": true,
