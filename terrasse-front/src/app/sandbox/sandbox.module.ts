@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 
 import { SandboxComponent } from './sandbox.component';
 import { SandboxRoutingModule } from './sandbox-routing.module';
-import { AppCommonModule } from '../app.module';
-import { ProjectsModule } from '../projects/projects.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { PointModule } from '../point/point.module';
+import { BlankComponent } from './blank/blank.component';
 
 @NgModule({
-    imports: [SandboxRoutingModule, AppCommonModule, ProjectsModule, FlexLayoutModule],
-    declarations: [SandboxComponent],
+    imports: [
+        SandboxRoutingModule,
+        PointModule
+    ],
+    declarations: [SandboxComponent, BlankComponent],
 })
 export class SandboxModule {}

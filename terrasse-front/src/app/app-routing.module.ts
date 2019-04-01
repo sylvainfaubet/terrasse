@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router, NavigationError } from '@angular/router';
-// import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { filter } from 'rxjs/operators';
-import { environment } from '../environments/environment';
+import { NoProdCanLoad } from '../environments/noProd.canload';
 
 export const routes: Routes = [
-    // { path: 'home', component: DashboardComponent },
     { path: '', pathMatch: 'full', redirectTo: 'projects/0' },
     {
         path: 'sandbox',
-        canLoad: ['canLoadSanbox'],
+        canLoad: [NoProdCanLoad],
         loadChildren: './sandbox/sandbox.module#SandboxModule',
     },
     {
@@ -22,18 +20,11 @@ export const routes: Routes = [
 @NgModule({
     imports: [RouterModule.forRoot(routes, { enableTracing: true })],
     exports: [RouterModule],
-    providers: [
-        {
-            provide: 'canLoadSanbox',
-            useValue: () => !environment.production,
-        },
-    ],
+    providers: [NoProdCanLoad],
 })
 export class AppRoutingModule {
     constructor(private router: Router) {
-        this.router.events.pipe(
-            filter(event => event instanceof NavigationError)
-        ).subscribe((event: NavigationError) => {
+        this.router.events.pipe(filter(event => event instanceof NavigationError)).subscribe((event: NavigationError) => {
             if (event.url !== '/projects/0') {
                 console.log(event);
                 this.router.navigate(['projects', 0]);

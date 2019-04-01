@@ -9,29 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
-@NgModule({
-    imports: [FlexLayoutModule, MaterialModule, CommonModule],
-    declarations: [FooterComponent, DashboardComponent, HeaderComponent],
-    exports: [FooterComponent, DashboardComponent, HeaderComponent],
-})
-export class AppCommonModule { }
 
 @NgModule({
     bootstrap: [AppComponent],
-    declarations: [AppComponent],
-    exports: [AppCommonModule, MaterialModule, FlexLayoutModule],
-    imports: [
-        AppCommonModule,
-        BrowserAnimationsModule,
-        BrowserModule,
-        AppRoutingModule,
-        MaterialModule,
-        FlexLayoutModule
-    ],
+    declarations: [AppComponent,FooterComponent, HeaderComponent],
+    exports: [FooterComponent, HeaderComponent, MaterialModule, FlexLayoutModule],
+    imports: [CommonModule, BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule, FlexLayoutModule],
     providers: [],
 })
-export class AppModule { }
+export class AppModule {}

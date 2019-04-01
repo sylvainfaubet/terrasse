@@ -65,13 +65,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "terrasse-front:build",
-            "proxyConfig": "conf/proxy.conf.json",
-            "host":"0.0.0.0",
-            "port":80
+            "proxyConfig": "conf/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "terrasse-front:build:production"
+              "browserTarget": "terrasse-front:build:production",
+              "deployUrl": "/terrasse/"
             }
           }
         },
