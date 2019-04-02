@@ -1,6 +1,8 @@
-import { Draw } from './draw';
 import { Zone } from './zone';
-import { DrawType } from './drawType';
+import { Draw } from 'src/app/draw/draw';
+import { DrawType } from 'src/app/draw/draw.type';
+
+
 
 export class Project {
     constructor(public id: number, public draws: Draw[] = [], public zone: Zone = new Zone(), public name?: string) { }

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Project, Draw, DrawType } from '../shared/model';
+import { Project } from '../shared/model';
 import { Point } from 'src/app/point/point';
 import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
 import { Mode } from 'src/app/point/mode/mode.model';
+import { Draw } from 'src/app/draw/draw';
+import { DrawType } from 'src/app/draw/draw.type';
 
 @Component({
     selector: 'terrasse-edit',

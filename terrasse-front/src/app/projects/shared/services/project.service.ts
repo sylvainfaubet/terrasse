@@ -1,7 +1,8 @@
 import { Project } from '../model/project';
-import { Injectable } from '@angular/core';
-import { DrawType, Draw } from '../model';
 import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { DrawType } from 'src/app/draw/draw.type';
+import { Draw } from 'src/app/draw/draw';
 
 @Injectable({
     providedIn: 'root',

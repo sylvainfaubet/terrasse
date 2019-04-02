@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Draw } from '../shared/model';
 import { Point } from 'src/app/point/point';
+import { Draw } from 'src/app/draw/draw';
 
 @Component({
     selector: 'terrasse-drawing-area',

@@ -1,12 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Draw, DrawType, Project } from '../shared/model';
+import {Project } from '../shared/model';
 import { DownloadService } from 'src/app/download/download.service';
 import { ProjectService } from '../shared/services/project.service';
 import { Point } from 'src/app/point/point';
 import { Polygon } from 'src/app/polygon/polygon';
 import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
+import { Draw } from 'src/app/draw/draw';
+import { DrawType } from 'src/app/draw/draw.type';
 
 @Component({
     selector: 'terrasse-configure',
@@ -86,14 +88,6 @@ export class ConfigureComponent implements OnInit {
         draw.polygon.path.reverse();
     }
 
-    calcArea(draw) {
-        if (draw.type === DrawType.Piscine) {
-            return draw.polygon.area();
-        }
-        return draw.polygon.areaWithoutPolygons(
-            this.project.draws.filter(drawItem => drawItem.type === DrawType.Piscine).map(drawItem => drawItem.polygon),
-        );
-    }
     saveProject() {
         this.downloadService.saveAsJson(this.project);
     }
