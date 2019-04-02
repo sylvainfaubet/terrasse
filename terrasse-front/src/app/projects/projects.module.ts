@@ -10,7 +10,6 @@ import { ConfigureComponent } from './configure/configure.component';
 import { DownloadModule } from '../download/download.module';
 import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
 import { EditComponent } from './edit/edit.component';
-import { GeometryModule } from '../geometry/geometry.module';
 
 import { MatDialogModule } from '@angular/material';
 import { StructureModule } from '../structure/structure.module';
@@ -22,7 +21,6 @@ import { PointModule } from '../point/point.module';
         DownloadModule,
         FlexLayoutModule,
         FormsModule,
-        GeometryModule,
         MatDialogModule,
         MaterialModule,
         PointModule,

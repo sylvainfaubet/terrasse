@@ -1,16 +1,11 @@
-import { Point } from './point.model';
-import { GeometryService } from './geometry.service';
+import { Point } from '../point/point';
 
 export class Polygon {
+
     constructor(
         public path: Point[] = [],
         public isNotClosed: Boolean = false,
-        private geometryService: GeometryService = new GeometryService(),
     ) {}
-
-    areaWithoutPolygons(polygons: Polygon[]) {
-        return this.geometryService.polygonArea(this.path, polygons.map(poly => poly.path));
-    }
 
     area(isSigned: boolean = false) {
         let aire = 0;
@@ -24,11 +19,23 @@ export class Polygon {
     }
 
     perimeter() {
-        return this.geometryService.polygonPerimeter(this.path);
+        let perimeter = 0;
+
+        this.path.forEach((point:Point,index:number,array:Point[]) => {
+            if(index + 1 < array.length){
+                perimeter += point.distance(array[index + 1]);
+            } else if (!this.isNotClosed && array.length === index + 1){
+                perimeter += point.distance(array[0]);
+            }
+        })
+        return perimeter;
     }
 
-    getPointAtMax(point: Point, maxDistance: number = 1) {
-        return this.geometryService.findPointInPolygon(this.path, point, maxDistance);
+    getPointNextTo(point: Point, maxDistance: number){
+        return this.path
+        .filter((pointItem:Point) => pointItem.distance(point) < maxDistance)
+        .sort((p1,p2) => p1.distance(point) - p2.distance(point))
+        .shift()
     }
 
     getSvgPath() {
@@ -43,7 +50,7 @@ export class Polygon {
         this.path.splice(this.path.indexOf(point), 1);
     }
 
-    changeFirstElement() {
+    rollFirstToLast() {
         this.path.push(this.path.shift());
     }
 

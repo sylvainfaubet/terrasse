@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, Input, Output, EventEmitter } from '@ang
 import { ActivatedRoute } from '@angular/router';
 
 import { Draw } from '../shared/model';
-import { Point } from 'src/app/geometry/point.model';
+import { Point } from 'src/app/point/point';
 
 @Component({
     selector: 'terrasse-drawing-area',
@@ -54,7 +54,7 @@ export class DrawingAreaComponent implements OnInit {
         const goodPoint = p.matrixTransform(svg.getScreenCTM().inverse());
 
         const clickedPoint: Point = new Point(goodPoint.x, goodPoint.y);
-        Point.roundPosition(clickedPoint);
+        clickedPoint.roundPosition();
         return clickedPoint;
     }
 }

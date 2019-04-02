@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project, Draw, DrawType } from '../shared/model';
-import { Point } from 'src/app/geometry/point.model';
+import { Point } from 'src/app/point/point';
 import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
 import { Mode } from 'src/app/point/mode/mode.model';
 
@@ -33,7 +33,7 @@ export class EditComponent implements OnInit {
     }
 
     doJobOnClickedPoint(clickedPoint: Point) {
-        const foundPoint = this.currentDraw.polygon.getPointAtMax(clickedPoint, 1);
+        const foundPoint = this.currentDraw.polygon.getPointNextTo(clickedPoint, 1);
         console.log('doJobOnClickedPoint', this.mode);
         switch (this.mode) {
             case Mode.ADD:

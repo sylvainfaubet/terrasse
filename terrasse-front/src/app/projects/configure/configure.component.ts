@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Draw, DrawType, Project } from '../shared/model';
 import { DownloadService } from 'src/app/download/download.service';
 import { ProjectService } from '../shared/services/project.service';
-import { Point } from 'src/app/geometry/point.model';
-import { Polygon } from 'src/app/geometry/polygon.model';
+import { Point } from 'src/app/point/point';
+import { Polygon } from 'src/app/polygon/polygon';
 import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
 
 @Component({
@@ -79,7 +79,7 @@ export class ConfigureComponent implements OnInit {
     }
 
     changeDrawFirstElement(draw: Draw) {
-        draw.polygon.changeFirstElement();
+        draw.polygon.rollFirstToLast();
     }
 
     reverseDraw(draw: Draw) {
