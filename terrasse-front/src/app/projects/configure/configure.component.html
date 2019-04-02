@@ -9,11 +9,7 @@
 
             </mat-panel-description>
         </mat-expansion-panel-header>
-
-        <div fxLayoutAlign="row" fxLayoutGap="10px" fxLayoutAlign="start center">
-            <div fxFlex>aire : {{calcArea(currentDraw)}}</div>
-            <div fxFlex>perimetre : {{currentDraw.polygon.perimeter()}}</div>
-        </div>
+        <terrasse-draw-info [draw]="currentDraw" [project]="project"></terrasse-draw-info>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
