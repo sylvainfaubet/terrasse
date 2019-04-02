@@ -1,3 +1,6 @@
-<mat-toolbar color="primary">
-    <div id="title">{{ title }}</div>
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="start center">
+    <div id="title" fxFlex>{{ title }}</div>
+    <a *ngIf="isSandboxAvailable" [routerLink]="['/sandbox']" routerLinkActive="active" mat-flat-button fxFlex="100px">
+        sandbox
+    </a>
 </mat-toolbar>

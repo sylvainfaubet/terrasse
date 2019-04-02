@@ -12,54 +12,11 @@
       "path": "."
     }
   ],
-  "settings": {
-    "tslint.autoFixOnSave": true,
-    "tslint.alwaysShowRuleFailuresAsWarnings": true
-  },
+  "settings": {},
   "launch": {
-    "configurations": [
-      {
-        "name": "ng serve",
-        "type": "chrome",
-        "request": "launch",
-        "preLaunchTask": "npm: start",
-        "url": "http://localhost",
-        "webRoot": "${workspaceFolder:front}"
-      },
-      {
-        "name": "ng test",
-        "type": "chrome",
-        "request": "launch",
-        "preLaunchTask": "npm start",
-        "url": "http://localhost:9876/debug.html",
-        "cwd": "${workspaceFolder:front}",
-        "webRoot": "${workspaceFolder:front}",
-        "sourceMaps": true,
-        "sourceMapPathOverrides": {
-          "/./*": "${webRoot}/*",
-          "/src/*": "${webRoot}/*",
-          "/*": "*",
-          "/./~/*": "${webRoot}/node_modules/*"
-        }
-      },
-      {
-        "name": "ng e2e",
-        "type": "node",
-        "request": "launch",
-        "program": "${workspaceFolder:front}/node_modules/protractor/bin/protractor",
-        "protocol": "inspector",
-        "args": [
-          "${workspaceFolder:front}/e2e/protractor.conf.js"
-        ]
-      }
-    ],
+    "configurations": [],
     "tasks": [],
     "compounds": []
   },
-  "extensions": {
-    "recommendations": [
-      "ms-vscode.vscode-typescript-tslint-plugin",
-      "msjsdiag.debugger-for-chrome"
-    ]
-  }
+  "extensions": {}
 }
