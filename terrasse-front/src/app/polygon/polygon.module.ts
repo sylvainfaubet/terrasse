@@ -7,6 +7,6 @@ import { PolygonService } from './polygon.service';
     CommonModule
   ],
   declarations: [],
-  providers:[PolygonService]
+  providers: [PolygonService]
 })
 export class PolygonModule { }

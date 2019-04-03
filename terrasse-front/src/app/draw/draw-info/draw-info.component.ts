@@ -12,12 +12,12 @@ import { PolygonService } from 'src/app/polygon/polygon.service';
 export class DrawInfoComponent implements OnInit {
 
     @Input()
-    draw:Draw
+    draw: Draw;
 
     @Input()
-    project:Project;
+    project: Project;
 
-    constructor(private polygonService:PolygonService) { }
+    constructor(private polygonService: PolygonService) { }
 
     ngOnInit() {}
 

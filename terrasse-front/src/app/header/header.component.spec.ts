@@ -31,6 +31,6 @@ describe('HeaderComponent', () => {
     it('should render title', () => {
         component.title = TITLE;
         fixture.detectChanges();
-        expect(fixture.elementRef.nativeElement.innerText).toBe(TITLE+'\nsandbox');
+        expect(fixture.elementRef.nativeElement.innerText).toBe(TITLE + '\nsandbox');
     });
 });

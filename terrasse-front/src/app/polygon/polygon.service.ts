@@ -19,11 +19,11 @@ export class PolygonService {
         return [new Polygon(intersections.map(point => new Point(point.x, point.y)))];
     }
 
-    polygonAreaWithoutCuts(polygon:Polygon, polygonsToCut:Polygon[]){
+    polygonAreaWithoutCuts(polygon: Polygon, polygonsToCut: Polygon[]) {
         let areaToRemove = 0;
-        polygonsToCut.forEach((polygonToCut:Polygon) => {
+        polygonsToCut.forEach((polygonToCut: Polygon) => {
             const intersections = this.polygonIntersections(polygon, polygonToCut);
-            intersections.forEach((intersect:Polygon) => {
+            intersections.forEach((intersect: Polygon) => {
                 areaToRemove += intersect.area();
             });
         });

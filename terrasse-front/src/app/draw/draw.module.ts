@@ -4,8 +4,8 @@ import { DrawInfoComponent } from './draw-info/draw-info.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
-  declarations: [DrawInfoComponent, ],
-  exports:[DrawInfoComponent],
+  declarations: [DrawInfoComponent],
+  exports: [DrawInfoComponent],
   imports: [
     CommonModule,
     FlexLayoutModule

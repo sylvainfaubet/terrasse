@@ -21,21 +21,21 @@ export class Polygon {
     perimeter() {
         let perimeter = 0;
 
-        this.path.forEach((point:Point,index:number,array:Point[]) => {
-            if(index + 1 < array.length){
+        this.path.forEach((point: Point, index: number, array: Point[]) => {
+            if (index + 1 < array.length) {
                 perimeter += point.distance(array[index + 1]);
-            } else if (!this.isNotClosed && array.length === index + 1){
+            } else if (!this.isNotClosed && array.length === index + 1) {
                 perimeter += point.distance(array[0]);
             }
-        })
+        });
         return perimeter;
     }
 
-    getPointNextTo(point: Point, maxDistance: number){
+    getPointNextTo(point: Point, maxDistance: number) {
         return this.path
-        .filter((pointItem:Point) => pointItem.distance(point) < maxDistance)
-        .sort((p1,p2) => p1.distance(point) - p2.distance(point))
-        .shift()
+        .filter((pointItem: Point) => pointItem.distance(point) < maxDistance)
+        .sort((p1, p2) => p1.distance(point) - p2.distance(point))
+        .shift();
     }
 
     getSvgPath() {

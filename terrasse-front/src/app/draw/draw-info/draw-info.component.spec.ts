@@ -16,7 +16,7 @@ describe('DrawInfoComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DrawInfoComponent ],
-      providers:[{provide:PolygonService, useClass:MockService}]
+      providers: [{provide: PolygonService, useClass: MockService}]
     })
     .compileComponents();
   }));
@@ -28,7 +28,7 @@ describe('DrawInfoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', ()=>{
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -33,6 +33,6 @@ import { ProjectService } from './project.service';
     exports: [],
     entryComponents: [EditComponent],
     declarations: [DrawingAreaComponent, EditComponent, ConfigureComponent],
-    providers:[ProjectService]
+    providers: [ProjectService]
 })
 export class ProjectModule {}

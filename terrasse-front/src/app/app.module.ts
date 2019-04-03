@@ -15,7 +15,7 @@ import { HeaderComponent } from './header/header.component';
 
 @NgModule({
     bootstrap: [AppComponent],
-    declarations: [AppComponent,FooterComponent, HeaderComponent],
+    declarations: [AppComponent, FooterComponent, HeaderComponent],
     exports: [FooterComponent, HeaderComponent, MaterialModule, FlexLayoutModule],
     imports: [CommonModule, BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule, FlexLayoutModule],
     providers: [],
