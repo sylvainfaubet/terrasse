@@ -1,5 +1,5 @@
-import { CanLoad} from "@angular/router";
-import { environment } from "src/environments/environment";
+import { CanLoad} from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 export class NoProdCanLoad implements CanLoad {
 

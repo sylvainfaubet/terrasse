@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 describe('ProjectService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-      providers:[{provide:Router,useValue:{}}]
+      providers: [{provide: Router, useValue: {}}]
   }));
 
   it('should be created', () => {

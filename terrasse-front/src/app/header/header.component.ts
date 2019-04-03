@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
     @Input()
     title: String;
 
-    isSandboxAvailable:boolean = new NoProdCanLoad().canLoad();
+    isSandboxAvailable: boolean = new NoProdCanLoad().canLoad();
 
     constructor() {}
 

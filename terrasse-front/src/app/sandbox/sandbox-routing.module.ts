@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SandboxComponent } from './sandbox.component';
-import { BlankComponent } from "./blank/blank.component";
+import { BlankComponent } from './blank/blank.component';
 
 const routes: Routes = [
     {
