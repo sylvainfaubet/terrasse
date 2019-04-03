@@ -1,4 +1,4 @@
-import { Zone } from './zone';
+import { Zone } from 'src/app/zone/zone';
 import { Draw } from 'src/app/draw/draw';
 import { DrawType } from 'src/app/draw/draw.type';
 

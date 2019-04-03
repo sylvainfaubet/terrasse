@@ -5,15 +5,15 @@ import { filter } from 'rxjs/operators';
 import { NoProdCanLoad } from '../environments/noProd.canload';
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'projects/0' },
+    { path: '', pathMatch: 'full', redirectTo: 'project/0' },
     {
         path: 'sandbox',
         canLoad: [NoProdCanLoad],
         loadChildren: './sandbox/sandbox.module#SandboxModule',
     },
     {
-        path: 'projects',
-        loadChildren: './projects/projects.module#ProjectsModule',
+        path: 'project',
+        loadChildren: './project/project.module#ProjectModule',
     },
 ];
 
@@ -25,9 +25,9 @@ export const routes: Routes = [
 export class AppRoutingModule {
     constructor(private router: Router) {
         this.router.events.pipe(filter(event => event instanceof NavigationError)).subscribe((event: NavigationError) => {
-            if (event.url !== '/projects/0') {
+            if (event.url !== '/project/0') {
                 console.log(event);
-                this.router.navigate(['projects', 0]);
+                this.router.navigate(['project', 0]);
             }
         });
     }

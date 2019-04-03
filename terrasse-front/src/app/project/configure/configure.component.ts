@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import {Project } from '../shared/model';
+import { Project } from '../project';
 import { DownloadService } from 'src/app/download/download.service';
-import { ProjectService } from '../shared/services/project.service';
+import { ProjectService } from '../project.service';
 import { Point } from 'src/app/point/point';
 import { Polygon } from 'src/app/polygon/polygon';
 import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from '../material/material.module';
-import { ProjectsRoutingModule } from './projects-routing.module';
+import { ProjectsRoutingModule } from './project-routing.module';
 
 import { ConfigureComponent } from './configure/configure.component';
 import { DownloadModule } from '../download/download.module';
@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material';
 import { StructureModule } from '../structure/structure.module';
 import { PointModule } from '../point/point.module';
 import { DrawModule } from '../draw/draw.module';
+import { ProjectService } from './project.service';
 
 @NgModule({
     imports: [
@@ -32,5 +33,6 @@ import { DrawModule } from '../draw/draw.module';
     exports: [],
     entryComponents: [EditComponent],
     declarations: [DrawingAreaComponent, EditComponent, ConfigureComponent],
+    providers:[ProjectService]
 })
-export class ProjectsModule {}
+export class ProjectModule {}

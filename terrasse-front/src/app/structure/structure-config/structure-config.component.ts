@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Structure } from '../structure.model';
+import { Structure } from '../structure';
 
 @Component({
     selector: 'terrasse-structure-config',

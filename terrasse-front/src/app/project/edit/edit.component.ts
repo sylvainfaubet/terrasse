@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Project } from '../shared/model';
+import { Project } from '../project';
 import { Point } from 'src/app/point/point';
 import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
 import { Mode } from 'src/app/point/mode/mode.model';
