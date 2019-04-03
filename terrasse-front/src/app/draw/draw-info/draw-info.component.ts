@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Draw } from '../draw';
 import { DrawType } from '../draw.type';
-import { Project } from 'src/app/projects/shared/model';
+import { Project } from 'src/app/project/project';
+import { PolygonService } from 'src/app/polygon/polygon.service';
 
 @Component({
   selector: 'terrasse-draw-info',
@@ -16,15 +17,15 @@ export class DrawInfoComponent implements OnInit {
     @Input()
     project:Project;
 
-    constructor() { }
+    constructor(private polygonService:PolygonService) { }
 
     ngOnInit() {}
 
-    calcArea(draw) {
-        if (draw.type === DrawType.Piscine) {
-            return draw.polygon.area();
+    calcArea() {
+        if (this.draw.type === DrawType.Piscine) {
+            return this.draw.polygon.area();
         }
-        return draw.polygon.areaWithoutPolygons(
+        return this.polygonService.polygonAreaWithoutCuts(this.draw.polygon,
             this.project.draws.filter(drawItem => drawItem.type === DrawType.Piscine).map(drawItem => drawItem.polygon),
         );
     }

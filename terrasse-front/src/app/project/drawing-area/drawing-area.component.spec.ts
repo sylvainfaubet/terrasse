@@ -6,7 +6,9 @@ import { of } from 'rxjs';
 
 import { DrawingAreaComponent } from './drawing-area.component';
 import { MaterialModule } from '../../material/material.module';
-import { Project, Zone } from '../shared/model';
+import { Project } from '../project';
+import { Zone } from 'src/app/zone/zone';
+
 
 describe('DrawingAreaComponent', () => {
     let component: DrawingAreaComponent;

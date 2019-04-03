@@ -6,7 +6,8 @@ import { MaterialModule } from '../../material/material.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
-import { Project, Zone } from '../shared/model';
+import { Project } from '../project';
+import { Zone } from 'src/app/zone/zone';
 
 describe('EditComponent', () => {
     let component: EditComponent;
