@@ -12,7 +12,10 @@
       "path": "."
     }
   ],
-  "settings": {},
+  "settings": {    
+    "prettier.eslintIntegration": true,
+    "prettier.tslintIntegration": true
+  },
   "launch": {
     "configurations": [],
     "tasks": [],

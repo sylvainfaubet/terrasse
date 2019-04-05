@@ -1,20 +1,12 @@
 {
     "tabWidth": 4,
-
     "useTabs": false,
-
     "singleQuote": true,
-
     "trailingComma": "all",
-
     "parser": "typescript",
-
     "semi": true,
-
     "overrides":[{
-
         "files":"*.html",
         "semi":false
-
     }]
 }
