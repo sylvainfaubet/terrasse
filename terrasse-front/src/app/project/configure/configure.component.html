@@ -92,12 +92,7 @@
             <mat-form-field>
                 <input matInput placeholder="nom du projet" [(ngModel)]="project.name">
             </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Largeur du terrain" [(ngModel)]="project.zone.width">
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Longueur du terrain" [(ngModel)]="project.zone.height">
-            </mat-form-field>
+            <terrasse-zone-config [(zone)]="project.zone"></terrasse-zone-config>
         </div>
 
     </mat-expansion-panel>

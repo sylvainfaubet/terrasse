@@ -16,6 +16,7 @@ import { DrawModule } from '../draw/draw.module';
 import { PointModule } from '../point/point.module';
 import { StructureModule } from '../structure/structure.module';
 import { ProjectService } from './project.service';
+import { ZoneModule } from '../zone/zone.module';
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import { ProjectService } from './project.service';
         PointModule,
         DrawModule,
         ProjectsRoutingModule,
-        StructureModule
+        StructureModule,
+        ZoneModule,
     ],
     exports: [],
     entryComponents: [EditComponent],
