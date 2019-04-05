@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 
 import { routes } from './app-routing.module';
 
@@ -9,8 +9,8 @@ import { routes } from './app-routing.module';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    routes = routes;
-    title: String;
+    public routes = routes;
+    public title: String;
 
     constructor(@Inject(DOCUMENT) document: any) {
         this.title = document.title;

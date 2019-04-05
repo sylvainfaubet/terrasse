@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NoProdCanLoad } from 'src/environments/noProd.canload';
 
 @Component({
@@ -7,12 +7,11 @@ import { NoProdCanLoad } from 'src/environments/noProd.canload';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-    @Input()
-    title: String;
+    @Input() public title: String;
 
-    isSandboxAvailable: boolean = new NoProdCanLoad().canLoad();
+    public isSandboxAvailable: boolean = new NoProdCanLoad().canLoad();
 
     constructor() {}
 
-    ngOnInit() {}
+    public ngOnInit() {}
 }

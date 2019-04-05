@@ -1,18 +1,17 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Mode } from './mode.model';
 
 @Component({
     selector: 'terrasse-mode',
     templateUrl: './mode.component.html',
-    styleUrls: ['./mode.component.scss'],
+    styleUrls: ['./mode.component.scss']
 })
 export class ModeComponent implements OnInit {
     modeEnum = Mode;
 
     modeValue: Mode;
 
-    @Output()
-    modeChange = new EventEmitter<Mode>();
+    @Output() modeChange = new EventEmitter<Mode>();
 
     @Input()
     get mode() {

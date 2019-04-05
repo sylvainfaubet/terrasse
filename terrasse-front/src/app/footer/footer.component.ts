@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-    isDisplayedKito = new Date().toDateString() === new Date('2018-10-17').toDateString();
+    public isDisplayedKito = new Date().toDateString() === new Date('2018-10-17').toDateString();
 
     constructor() {}
 
-    ngOnInit() {}
+    public ngOnInit() {}
 }

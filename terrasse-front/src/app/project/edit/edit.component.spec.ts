@@ -1,13 +1,13 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { EditComponent } from './edit.component';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MaterialModule } from '../../material/material.module';
+import { EditComponent } from './edit.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
-import { Project } from '../project';
 import { Zone } from 'src/app/zone/zone';
+import { Project } from '../project';
 
 describe('EditComponent', () => {
     let component: EditComponent;
@@ -21,10 +21,10 @@ describe('EditComponent', () => {
             providers: [
                 {
                     provide: ActivatedRoute,
-                    useValue: { data: of({ project: new Project(0, [], new Zone(10, 13)) }) },
+                    useValue: { data: of({ project: new Project(0, [], new Zone(10, 13)) }) }
                 },
-                { provide: Router, useValue: {} },
-            ],
+                { provide: Router, useValue: {} }
+            ]
         }).compileComponents();
     }));
 

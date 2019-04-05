@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Project } from './project';
 import { Router } from '@angular/router';
 import { Draw } from '../draw/draw';
 import { DrawType } from '../draw/draw.type';
+import { Project } from './project';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
 
-    constructor(private router: Router) { }
+    projects: Array<Project> = [new Project(0, [new Draw(DrawType.Terrasse)])];
 
-    projects: Project[] = [new Project(0, [new Draw(DrawType.Terrasse)])];
+    constructor(private readonly router: Router) { }
 
     createProject(): Project {
         this.projects.push(new Project(this.projects.length));
+
         return this.projects[this.projects.length - 1];
     }
 
@@ -22,6 +23,7 @@ export class ProjectService {
         if (id > this.projects.length) {
             this.router.navigate(['/projects', this.projects.length - 1]);
         }
+
         return this.projects[id];
     }
 
@@ -29,6 +31,7 @@ export class ProjectService {
         const project = new Project(this.projects.length);
         project.setFromJSON(data);
         this.projects.push(project);
+
         return project;
     }
 }

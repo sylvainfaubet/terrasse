@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SandboxComponent } from './sandbox.component';
 import { MaterialModule } from '../material/material.module';
+import { SandboxComponent } from './sandbox.component';
 
 describe('SandboxComponent', () => {
     let component: SandboxComponent;
@@ -12,7 +12,7 @@ describe('SandboxComponent', () => {
         TestBed.configureTestingModule({
             schemas: [NO_ERRORS_SCHEMA],
             imports: [MaterialModule],
-            declarations: [SandboxComponent],
+            declarations: [SandboxComponent]
         }).compileComponents();
     }));
 

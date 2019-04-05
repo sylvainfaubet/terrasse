@@ -1,27 +1,25 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Project } from '../project';
 import { DownloadService } from 'src/app/download/download.service';
-import { ProjectService } from '../project.service';
-import { Point } from 'src/app/point/point';
-import { Polygon } from 'src/app/polygon/polygon';
-import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
 import { Draw } from 'src/app/draw/draw';
 import { DrawType } from 'src/app/draw/draw.type';
+import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
+import { Point } from 'src/app/point/point';
+import { Polygon } from 'src/app/polygon/polygon';
+import { Project } from '../project';
+import { ProjectService } from '../project.service';
 
 @Component({
     selector: 'terrasse-configure',
     templateUrl: './configure.component.html',
-    styleUrls: ['./configure.component.scss'],
+    styleUrls: ['./configure.component.scss']
 })
 export class ConfigureComponent implements OnInit {
     currentDrawIndex: number;
 
-    @Input()
-    currentDraw: Draw;
-    @Output()
-    currentDrawChange = new EventEmitter();
+    @Input() currentDraw: Draw;
+    @Output() currentDrawChange = new EventEmitter();
 
     project: Project;
 
@@ -30,10 +28,10 @@ export class ConfigureComponent implements OnInit {
 
     constructor(
         route: ActivatedRoute,
-        private downloadService: DownloadService,
-        private projectService: ProjectService,
-        private router: Router,
-        private editPointModalService: EditPointModalService,
+        private readonly downloadService: DownloadService,
+        private readonly projectService: ProjectService,
+        private readonly router: Router,
+        private readonly editPointModalService: EditPointModalService
     ) {
         route.data.subscribe(data => {
             this.project = data.project;

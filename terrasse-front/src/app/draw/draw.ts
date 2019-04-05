@@ -1,13 +1,13 @@
 import { Polygon } from 'src/app/polygon/polygon';
-import { DrawType } from './draw.type';
 import { Structure } from 'src/app/structure/structure';
+import { DrawType } from './draw.type';
 
 export class Draw {
     constructor(
         public type: DrawType,
         public polygon: Polygon = new Polygon(),
         public structure: Structure = new Structure(),
-        public name?: String,
+        public name?: String
     ) {}
 
     setFromJSON(data) {

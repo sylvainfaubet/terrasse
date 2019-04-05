@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Structure } from '../structure';
 
 @Component({
@@ -8,10 +8,8 @@ import { Structure } from '../structure';
 })
 export class StructureConfigComponent implements OnInit {
 
-    @Input()
-    structure: Structure;
-    @Output()
-    currentDrawChange = new EventEmitter();
+    @Input() structure: Structure;
+    @Output() currentDrawChange = new EventEmitter();
 
     constructor() { }
 

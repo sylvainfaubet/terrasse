@@ -1,5 +1,5 @@
 export class Zone {
-    constructor(public width: number = 25, public height: number = 20) { }
+    constructor(public width = 25, public height = 20) { }
 
     setFromJSON(data) {
         if (data.width) {
