@@ -7,8 +7,9 @@ describe('workspace-project App', () => {
         page = new AppPage();
     });
 
-    it('should display title', () => {
-        page.navigateTo('/');
-        expect(page.getHeaderTitle()).toEqual('Terrasse 2.0');
+    it('should display title', async () => {
+        await page.navigateTo('/');
+        const title = await page.getHeaderTitle();
+        await expect(title).toEqual('Terrasse 2.0');
     });
 });

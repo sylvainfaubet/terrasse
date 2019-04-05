@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
-import { EditPointModalComponent } from './edit-point-modal.component';
 import { Point } from 'src/app/point/point';
+import { EditPointModalComponent } from './edit-point-modal.component';
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: 'root'
 })
 export class EditPointModalService {
-    constructor(private dialog: MatDialog) {}
+    constructor(private readonly dialog: MatDialog) {}
 
     modifyPoint(point: Point) {
         const dialogRef = this.dialog.open(EditPointModalComponent, {
             width: '300px',
-            data: point,
+            data: point
         });
+
         return dialogRef.afterClosed();
     }
 }

@@ -1,20 +1,20 @@
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from '../material/material.module';
 import { ProjectsRoutingModule } from './project-routing.module';
 
-import { ConfigureComponent } from './configure/configure.component';
 import { DownloadModule } from '../download/download.module';
+import { ConfigureComponent } from './configure/configure.component';
 import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
 import { EditComponent } from './edit/edit.component';
 
 import { MatDialogModule } from '@angular/material';
-import { StructureModule } from '../structure/structure.module';
-import { PointModule } from '../point/point.module';
 import { DrawModule } from '../draw/draw.module';
+import { PointModule } from '../point/point.module';
+import { StructureModule } from '../structure/structure.module';
 import { ProjectService } from './project.service';
 
 @NgModule({
@@ -28,7 +28,7 @@ import { ProjectService } from './project.service';
         PointModule,
         DrawModule,
         ProjectsRoutingModule,
-        StructureModule,
+        StructureModule
     ],
     exports: [],
     entryComponents: [EditComponent],

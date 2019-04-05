@@ -1,14 +1,13 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
-import { DrawingAreaComponent } from './drawing-area.component';
+import { Zone } from 'src/app/zone/zone';
 import { MaterialModule } from '../../material/material.module';
 import { Project } from '../project';
-import { Zone } from 'src/app/zone/zone';
-
+import { DrawingAreaComponent } from './drawing-area.component';
 
 describe('DrawingAreaComponent', () => {
     let component: DrawingAreaComponent;
@@ -22,9 +21,9 @@ describe('DrawingAreaComponent', () => {
             providers: [
                 {
                     provide: ActivatedRoute,
-                    useValue: { data: of({ project: new Project(0, [], new Zone(10, 13)), config: { terrasse: {} } }) },
-                },
-            ],
+                    useValue: { data: of({ project: new Project(0, [], new Zone(10, 13)), config: { terrasse: {} } }) }
+                }
+            ]
         }).compileComponents();
     }));
 

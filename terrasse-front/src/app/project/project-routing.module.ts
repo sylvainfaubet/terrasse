@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { EditComponent } from './edit/edit.component';
 import { ProjectResolver } from './project.resolver';
@@ -19,23 +19,23 @@ const routes: Routes = [
                             config: {
                                 terrasse: {
                                     fill: 'red',
-                                    stroke: 'black',
+                                    stroke: 'black'
                                 },
                                 piscine: {
                                     fill: 'lightblue',
-                                    stroke: 'black',
-                                },
-                            },
-                        },
-                    },
-                ],
-            },
-        ],
-    },
+                                    stroke: 'black'
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule],
+    exports: [RouterModule]
 })
 export class ProjectsRoutingModule {}

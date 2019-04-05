@@ -1,27 +1,25 @@
-import { Component, OnInit, ElementRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Point } from 'src/app/point/point';
 import { Draw } from 'src/app/draw/draw';
+import { Point } from 'src/app/point/point';
 
 @Component({
     selector: 'terrasse-drawing-area',
     templateUrl: './drawing-area.component.html',
-    styleUrls: ['./drawing-area.component.scss'],
+    styleUrls: ['./drawing-area.component.scss']
 })
 export class DrawingAreaComponent implements OnInit {
-    @Output()
-    clickEvent = new EventEmitter<Point>();
+    @Output() clickEvent = new EventEmitter<Point>();
 
     project: any;
     config: any;
 
-    @Input()
-    currentDraw: Draw;
+    @Input() currentDraw: Draw;
 
     svg: any;
 
-    constructor(private el: ElementRef, route: ActivatedRoute) {
+    constructor(private readonly el: ElementRef, route: ActivatedRoute) {
         route.data.subscribe(data => {
             this.config = data.config;
             this.project = data.project;
@@ -55,6 +53,7 @@ export class DrawingAreaComponent implements OnInit {
 
         const clickedPoint: Point = new Point(goodPoint.x, goodPoint.y);
         clickedPoint.roundPosition();
+
         return clickedPoint;
     }
 }

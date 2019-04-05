@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
-import { EditPointModalComponent } from './edit-point-modal.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { EditPointModalComponent } from './edit-point-modal.component';
 
 describe('EditPointModalComponent', () => {
     let component: EditPointModalComponent;
@@ -15,13 +15,13 @@ describe('EditPointModalComponent', () => {
             providers: [
                 {
                     provide: MAT_DIALOG_DATA,
-                    useValue: {},
+                    useValue: {}
                 },
                 {
                     provide: MatDialogRef,
-                    useValue: {},
-                },
-            ],
+                    useValue: {}
+                }
+            ]
         }).compileComponents();
     }));
 

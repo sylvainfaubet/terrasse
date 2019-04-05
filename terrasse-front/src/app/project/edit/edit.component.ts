@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Project } from '../project';
-import { Point } from 'src/app/point/point';
-import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
-import { Mode } from 'src/app/point/mode/mode.model';
 import { Draw } from 'src/app/draw/draw';
 import { DrawType } from 'src/app/draw/draw.type';
+import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
+import { Mode } from 'src/app/point/mode/mode.model';
+import { Point } from 'src/app/point/point';
+import { Project } from '../project';
 
 @Component({
     selector: 'terrasse-edit',
     templateUrl: './edit.component.html',
-    styleUrls: ['./edit.component.scss'],
+    styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
     project: Project;
@@ -20,7 +20,7 @@ export class EditComponent implements OnInit {
     mode: Mode = Mode.ADD;
     polygonTypes = DrawType;
 
-    constructor(route: ActivatedRoute, private editPointModalService: EditPointModalService) {
+    constructor(route: ActivatedRoute, private readonly editPointModalService: EditPointModalService) {
         route.data.subscribe(({ project, config }) => {
             this.project = project;
             this.config = config;

@@ -8,6 +8,7 @@ describe('ProjectsModule', () => {
     });
 
     it('should create an instance', () => {
-        expect(appModule).toBeTruthy();
+        expect(appModule)
+        .toBeTruthy();
     });
 });

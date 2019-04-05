@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StructureService } from './structure.service';
-import { StructureConfigComponent } from './structure-config/structure-config.component';
-import { MaterialModule } from '../material/material.module';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '../material/material.module';
+import { StructureConfigComponent } from './structure-config/structure-config.component';
+import { StructureService } from './structure.service';
 
 @NgModule({
     declarations: [StructureConfigComponent],
@@ -14,7 +14,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         CommonModule,
         FlexLayoutModule,
         FormsModule,
-        MaterialModule,
+        MaterialModule
     ]
 })
 export class StructureModule { }

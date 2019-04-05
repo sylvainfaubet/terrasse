@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DrawInfoComponent } from './draw-info.component';
 import { PolygonService } from 'src/app/polygon/polygon.service';
 import { Draw } from '../draw';
 import { DrawType } from '../draw.type';
+import { DrawInfoComponent } from './draw-info.component';
 
 class MockService {
 

@@ -28,13 +28,13 @@
                 <mat-form-field>
                     <mat-label>type de dessin à ajouter</mat-label>
                     <mat-select [(value)]="selectedDrawType">
-                        <mat-option *ngFor="let type of drawTypes" [value]="type">{{type}}</mat-option>
+                        <mat-option *ngFor="let type of drawTypes" [value]="type">{{ type }}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
             <div fxFlex>
                 <button mat-flat-button color="primary" (click)="newDraw(selectedDrawType)">
-                    ajouter une {{selectedDrawType}}
+                    ajouter une {{ selectedDrawType }}
                 </button>
             </div>
             <div fxFlex>
@@ -61,7 +61,7 @@
             </div>
             <div fxFlex fxFlex.xs="100">
                 <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="removeDraw(currentDraw)">
-                    supprimer la {{currentDraw.type}}
+                    supprimer la {{ currentDraw.type }}
                 </button>
             </div>
         </div>
