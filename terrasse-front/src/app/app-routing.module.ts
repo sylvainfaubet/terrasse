@@ -3,15 +3,9 @@ import { NavigationError, Router, RouterModule, Routes } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { NoProdCanLoad } from '../environments/noProd.canload';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'project/0' },
-    {
-        path: 'sandbox',
-        canLoad: [NoProdCanLoad],
-        loadChildren: './sandbox/sandbox.module#SandboxModule',
-    },
     {
         path: 'project',
         loadChildren: './project/project.module#ProjectModule',
@@ -21,7 +15,6 @@ export const routes: Routes = [
 @NgModule({
     imports: [RouterModule.forRoot(routes, { enableTracing: true })],
     exports: [RouterModule],
-    providers: [NoProdCanLoad],
 })
 export class AppRoutingModule implements OnInit {
 

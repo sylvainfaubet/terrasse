@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlankComponent } from './blank.component';
+import { DrawTypeSelectorComponent } from './draw-type-selector.component';
 
-describe('BlankComponent', () => {
-  let component: BlankComponent;
-  let fixture: ComponentFixture<BlankComponent>;
+describe('DrawTypeSelectorComponent', () => {
+  let component: DrawTypeSelectorComponent;
+  let fixture: ComponentFixture<DrawTypeSelectorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlankComponent ]
+      declarations: [ DrawTypeSelectorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BlankComponent);
+    fixture = TestBed.createComponent(DrawTypeSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
