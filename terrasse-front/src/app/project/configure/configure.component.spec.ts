@@ -4,13 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { Draw } from 'src/app/draw/draw';
-import { DrawModule } from 'src/app/draw/draw.module';
 import { DrawType } from 'src/app/draw/draw.type';
 import { MaterialModule } from 'src/app/material/material.module';
-import { StructureModule } from 'src/app/structure/structure.module';
 import { Zone } from 'src/app/zone/zone';
 import { Project } from '../project';
 import { ConfigureComponent } from './configure.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('ConfigureComponent', () => {
     let component: ConfigureComponent;
@@ -18,7 +17,7 @@ describe('ConfigureComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [MaterialModule, FormsModule, StructureModule, BrowserAnimationsModule, DrawModule],
+            imports: [MaterialModule, FormsModule, BrowserAnimationsModule],
             declarations: [ConfigureComponent],
             providers: [
                 {
@@ -32,7 +31,8 @@ describe('ConfigureComponent', () => {
                 },
 
                 { provide: Router, useValue: {} }
-            ]
+            ],
+            schemas: [ NO_ERRORS_SCHEMA ]
         }).compileComponents();
     }));
 
