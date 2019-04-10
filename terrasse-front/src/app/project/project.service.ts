@@ -5,13 +5,12 @@ import { DrawType } from '../draw/draw.type';
 import { Project } from './project';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class ProjectService {
-
     projects: Array<Project> = [new Project(0, [new Draw(DrawType.Terrasse)])];
 
-    constructor(private readonly router: Router) { }
+    constructor(private readonly router: Router) {}
 
     createProject(): Project {
         this.projects.push(new Project(this.projects.length));
@@ -20,8 +19,9 @@ export class ProjectService {
     }
 
     getProject(id): Project {
+        console.log('ProjectService', 'getProject', this);
         if (id > this.projects.length) {
-            this.router.navigate(['/projects', this.projects.length - 1]);
+            this.router.navigate(['/project', this.projects.length - 1]);
         }
 
         return this.projects[id];
@@ -31,7 +31,7 @@ export class ProjectService {
         const project = new Project(this.projects.length);
         project.setFromJSON(data);
         this.projects.push(project);
-
+        console.log('ProjectService', 'setProjectFromData', this);
         return project;
     }
 }

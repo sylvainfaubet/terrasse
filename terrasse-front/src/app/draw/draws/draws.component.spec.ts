@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DrawCrudComponent } from './draw-crud.component';
+import { DrawsComponent } from './draws.component';
 
-describe('DrawCrudComponent', () => {
-  let component: DrawCrudComponent;
-  let fixture: ComponentFixture<DrawCrudComponent>;
+describe('DrawsComponent', () => {
+  let component: DrawsComponent;
+  let fixture: ComponentFixture<DrawsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DrawCrudComponent ]
+      declarations: [ DrawsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DrawCrudComponent);
+    fixture = TestBed.createComponent(DrawsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

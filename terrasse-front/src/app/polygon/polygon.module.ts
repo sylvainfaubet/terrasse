@@ -1,12 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PolygonService } from './polygon.service';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [],
-  providers: [PolygonService]
+    imports: [CommonModule],
+    declarations: [],
+    providers: [],
 })
-export class PolygonModule { }
+export class PolygonModule {}

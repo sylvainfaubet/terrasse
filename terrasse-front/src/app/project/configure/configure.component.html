@@ -22,49 +22,8 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <div fxFlexFill fxLayoutGap="10px grid" fxLayout="row wrap" fxLayoutAlign="center center">
+        <terrasse-draws [(draws)]="project.draws" [(currentDraw)]="currentDraw"></terrasse-draws>
 
-            <div fxFlex>
-                <mat-form-field>
-                    <mat-label>type de dessin à ajouter</mat-label>
-                    <mat-select [(value)]="selectedDrawType">
-                        <mat-option *ngFor="let type of drawTypes" [value]="type">{{ type }}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div fxFlex>
-                <button mat-flat-button color="primary" (click)="newDraw(selectedDrawType)">
-                    ajouter une {{ selectedDrawType }}
-                </button>
-            </div>
-            <div fxFlex>
-                <button mat-flat-button color="primary" [disabled]="isNotChangeable(currentDraw)"
-                    (click)="changeDrawFirstElement(currentDraw)">
-                    rotation des points
-                </button>
-            </div>
-            <div fxFlex>
-                <button mat-flat-button color="primary" [disabled]="isNotChangeable(currentDraw)"
-                    (click)="reverseDraw(currentDraw)">
-                    inversion du sens
-                </button>
-            </div>
-            <div fxFlex>
-                <button mat-flat-button color="primary" (click)="movePolygon(currentDraw.polygon)">
-                    déplacer
-                </button>
-            </div>
-            <div fxFlex>
-                <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="changeCurrentDraw()">
-                    changer de dessin
-                </button>
-            </div>
-            <div fxFlex fxFlex.xs="100">
-                <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="removeDraw(currentDraw)">
-                    supprimer la {{ currentDraw.type }}
-                </button>
-            </div>
-        </div>
 
     </mat-expansion-panel>
     <mat-expansion-panel>
@@ -92,11 +51,9 @@
             <mat-form-field>
                 <input matInput placeholder="nom du projet" [(ngModel)]="project.name">
             </mat-form-field>
-            <terrasse-zone-config [(zone)]="project.zone"></terrasse-zone-config>
         </div>
-
+        <terrasse-zone-config [(zone)]="project.zone"></terrasse-zone-config>
     </mat-expansion-panel>
 
-    <button mat-flat-button color="primary" (click)="saveProject()">sauvegarder</button>
-    <button mat-flat-button color="primary" (click)="loadProject()">charger</button>
+    <terrasse-saving [(project)]="project"></terrasse-saving>
 </div>

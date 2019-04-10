@@ -14,7 +14,8 @@
   ],
   "settings": {    
     "prettier.eslintIntegration": true,
-    "prettier.tslintIntegration": true
+    "prettier.tslintIntegration": true,
+    "editor.formatOnSave": true
   },
   "launch": {
     "configurations": [],

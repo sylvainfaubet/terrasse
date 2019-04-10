@@ -10,7 +10,7 @@ import { Project } from '../project';
 @Component({
     selector: 'terrasse-edit',
     templateUrl: './edit.component.html',
-    styleUrls: ['./edit.component.scss']
+    styleUrls: ['./edit.component.scss'],
 })
 export class EditComponent implements OnInit {
     project: Project;
@@ -23,16 +23,13 @@ export class EditComponent implements OnInit {
     constructor(route: ActivatedRoute, private readonly editPointModalService: EditPointModalService) {
         route.data.subscribe(({ project, config }) => {
             this.project = project;
+            this.currentDraw = this.project.draws[0];
             this.config = config;
         });
         this.doJobOnClickedPoint = this.doJobOnClickedPoint.bind(this);
     }
 
-    ngOnInit() {
-        if (this.project.draws.length > 0) {
-            this.currentDraw = this.project.draws[0];
-        }
-    }
+    ngOnInit() {}
 
     doJobOnClickedPoint(clickedPoint: Point) {
         const foundPoint = this.currentDraw.polygon.getPointNextTo(clickedPoint, 1);
