@@ -15,8 +15,8 @@ import { MatDialogModule } from '@angular/material';
 import { DrawModule } from '../draw/draw.module';
 import { PointModule } from '../point/point.module';
 import { StructureModule } from '../structure/structure.module';
-import { ProjectService } from './project.service';
 import { ZoneModule } from '../zone/zone.module';
+import { SavingComponent } from './saving/saving.component';
 
 @NgModule({
     imports: [
@@ -34,7 +34,7 @@ import { ZoneModule } from '../zone/zone.module';
     ],
     exports: [],
     entryComponents: [EditComponent],
-    declarations: [DrawingAreaComponent, EditComponent, ConfigureComponent],
-    providers: [ProjectService]
+    declarations: [DrawingAreaComponent, EditComponent, ConfigureComponent, SavingComponent],
+    providers: [],
 })
 export class ProjectModule {}

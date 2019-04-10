@@ -1,105 +1,33 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { DownloadService } from 'src/app/download/download.service';
 import { Draw } from 'src/app/draw/draw';
-import { DrawType } from 'src/app/draw/draw.type';
-import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
-import { Point } from 'src/app/point/point';
-import { Polygon } from 'src/app/polygon/polygon';
 import { Project } from '../project';
-import { ProjectService } from '../project.service';
 
 @Component({
     selector: 'terrasse-configure',
     templateUrl: './configure.component.html',
-    styleUrls: ['./configure.component.scss']
+    styleUrls: ['./configure.component.scss'],
 })
-export class ConfigureComponent implements OnInit {
-    currentDrawIndex: number;
+export class ConfigureComponent {
+    currentDrawValue: Draw;
 
-    @Input() currentDraw: Draw;
+    @Input()
+    get currentDraw() {
+        return this.currentDrawValue;
+    }
     @Output() currentDrawChange = new EventEmitter();
+    set currentDraw(draw: Draw) {
+        this.currentDrawValue = draw;
+        this.currentDrawChange.emit(draw);
+    }
 
     project: Project;
 
-    drawTypes = [DrawType.Piscine, DrawType.Terrasse];
-    selectedDrawType = DrawType.Piscine;
-
-    constructor(
-        route: ActivatedRoute,
-        private readonly downloadService: DownloadService,
-        private readonly projectService: ProjectService,
-        private readonly router: Router,
-        private readonly editPointModalService: EditPointModalService
-    ) {
+    constructor(route: ActivatedRoute) {
         route.data.subscribe(data => {
             this.project = data.project;
-            this.setCurrentDrawIndex(0);
-        });
-    }
-
-    ngOnInit() {
-        this.setCurrentDrawIndex(this.project.draws.findIndex(item => this.currentDraw === item));
-    }
-
-    newDraw(type: DrawType) {
-        console.log(type);
-        const draw = new Draw(type);
-        this.project.draws.push(draw);
-        this.setCurrentDrawIndex(this.project.draws.length - 1);
-    }
-
-    setCurrentDrawIndex(index: number) {
-        this.currentDrawIndex = index;
-        this.currentDrawChange.emit(this.project.draws[index]);
-    }
-
-    changeCurrentDraw() {
-        this.setCurrentDrawIndex((this.currentDrawIndex + 1) % this.project.draws.length);
-    }
-
-    removeDraw(draw: Draw) {
-        if (this.project.draws.length > 1) {
-            this.project.draws = this.project.draws.filter(item => item !== draw);
-            if (this.currentDraw === draw) {
-                this.setCurrentDrawIndex(0);
-            }
-        } else {
-            alert('on ne peut pas supprimer le dernier dessin sans en créer un autre');
-        }
-    }
-
-    isNotChangeable(draw: Draw) {
-        return draw.polygon.path.length < 3;
-    }
-
-    isOnlyOneDraw() {
-        return this.project.draws.length === 1;
-    }
-
-    changeDrawFirstElement(draw: Draw) {
-        draw.polygon.rollFirstToLast();
-    }
-
-    reverseDraw(draw: Draw) {
-        draw.polygon.path.reverse();
-    }
-
-    saveProject() {
-        this.downloadService.saveAsJson(this.project);
-    }
-
-    loadProject() {
-        this.downloadService.getFromJson().then(data => {
-            const project = this.projectService.setProjectFromData(data);
-            this.router.navigate(['/projects', project.id]);
-        });
-    }
-    movePolygon(polygon: Polygon) {
-        const translate = new Point(0, 0);
-        this.editPointModalService.modifyPoint(translate).subscribe(() => {
-            polygon.move(translate);
+            this.currentDraw = data.project.draws[0];
         });
     }
 }

@@ -1,11 +1,7 @@
 import { Point } from '../point/point';
 
 export class Polygon {
-
-    constructor(
-        public path: Point[] = [],
-        public isNotClosed: Boolean = false,
-    ) {}
+    constructor(public path: Point[] = [], public isNotClosed: Boolean = false) {}
 
     public area(isSigned = false) {
         let aire = 0;
@@ -33,13 +29,13 @@ export class Polygon {
 
     public getPointNextTo(point: Point, maxDistance: number) {
         return this.path
-        .filter((pointItem: Point) => pointItem.distance(point) < maxDistance)
-        .sort((p1, p2) => p1.distance(point) - p2.distance(point))
-        .shift();
+            .filter((pointItem: Point) => pointItem.distance(point) < maxDistance)
+            .sort((p1, p2) => p1.distance(point) - p2.distance(point))
+            .shift();
     }
 
     public getSvgPath() {
-        return this.path.map((point) => (point.x || 0) + ',' + (point.y || 0)).join(' ');
+        return this.path.map(point => (point.x || 0) + ',' + (point.y || 0)).join(' ');
     }
 
     public addPoint(point: Point) {
@@ -59,12 +55,12 @@ export class Polygon {
             this.isNotClosed = data.isNotClosed;
         }
         if (Array.isArray(data.path)) {
-            this.path = data.path.map((point) => new Point(point.x, point.y));
+            this.path = data.path.map(point => new Point(point.x, point.y));
         }
     }
 
     public move(translate: Point) {
-        this.path.forEach((point) => {
+        this.path.forEach(point => {
             point.x += translate.x;
             point.y += translate.y;
         });

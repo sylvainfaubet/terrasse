@@ -1,0 +1,38 @@
+<div fxFlexFill fxLayoutGap="10px grid" fxLayout="row wrap" fxLayoutAlign="center center">
+
+    <terrasse-draw-type-selector [(type)]="selectedDrawType"></terrasse-draw-type-selector>
+    <div fxFlex>
+        <button mat-flat-button color="primary" (click)="newDraw(selectedDrawType)">
+            ajouter une {{ selectedDrawType }}
+        </button>
+    </div>
+
+    <div fxFlex>
+        <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="changeCurrentDraw()">
+            changer de dessin
+        </button>
+    </div>
+    <div fxFlex fxFlex.xs="100">
+        <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="removeDraw(currentDraw)">
+            supprimer la {{ currentDraw.type }}
+        </button>
+    </div>
+
+    <div fxFlex>
+        <button mat-flat-button color="primary" [disabled]="isNotChangeable(currentDraw)"
+            (click)="changeDrawFirstElement(currentDraw)">
+            rotation des points
+        </button>
+    </div>
+    <div fxFlex>
+        <button mat-flat-button color="primary" [disabled]="isNotChangeable(currentDraw)"
+            (click)="reverseDraw(currentDraw)">
+            inversion du sens
+        </button>
+    </div>
+    <div fxFlex>
+        <button mat-flat-button color="primary" (click)="movePolygon(currentDraw.polygon)">
+            déplacer
+        </button>
+    </div>
+</div>
