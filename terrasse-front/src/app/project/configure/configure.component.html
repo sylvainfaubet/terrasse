@@ -40,8 +40,8 @@
             <mat-form-field>
                 <input matInput placeholder="nom du projet" [(ngModel)]="project.name">
             </mat-form-field>
-            <terrasse-zone-config [(zone)]="project.zone"></terrasse-zone-config>
         </div>
+        <terrasse-zone-config [(zone)]="project.zone"></terrasse-zone-config>
     </mat-expansion-panel>
 
     <terrasse-saving [(project)]="project"></terrasse-saving>
