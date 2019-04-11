@@ -17,6 +17,7 @@ import { PointModule } from '../point/point.module';
 import { StructureModule } from '../structure/structure.module';
 import { ZoneModule } from '../zone/zone.module';
 import { SavingComponent } from './saving/saving.component';
+import { PolygonModule } from '../polygon/polygon.module';
 
 @NgModule({
     imports: [
@@ -28,6 +29,7 @@ import { SavingComponent } from './saving/saving.component';
         MaterialModule,
         PointModule,
         DrawModule,
+        PolygonModule,
         ProjectsRoutingModule,
         StructureModule,
         ZoneModule,

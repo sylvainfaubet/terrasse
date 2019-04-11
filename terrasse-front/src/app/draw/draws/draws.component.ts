@@ -1,9 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Draw } from '../draw';
 import { DrawType } from '../draw.type';
-import { Polygon } from 'src/app/polygon/polygon';
-import { Point } from 'src/app/point/point';
-import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
 
 @Component({
     selector: 'terrasse-draws',
@@ -29,8 +26,6 @@ export class DrawsComponent implements OnInit {
 
     @Output()
     currentDrawChange = new EventEmitter<Draw>();
-
-    constructor(private readonly editPointModalService: EditPointModalService) {}
 
     ngOnInit() {
         console.log('DrawsComponent', this.draws);
@@ -65,32 +60,7 @@ export class DrawsComponent implements OnInit {
         }
     }
 
-    changeDrawFirstElement(draw: Draw) {
-        if (draw) {
-            draw.polygon.rollFirstToLast();
-        }
-    }
-
-    reverseDraw(draw: Draw) {
-        if (draw) {
-            draw.polygon.path.reverse();
-        }
-    }
-
-    isNotChangeable(draw: Draw) {
-        return draw && draw.polygon.path.length < 3;
-    }
-
     isOnlyOneDraw() {
         return this.draws && this.draws.length === 1;
-    }
-
-    movePolygon(polygon: Polygon) {
-        if (polygon) {
-            const translate = new Point(0, 0);
-            this.editPointModalService.modifyPoint(translate).subscribe(() => {
-                polygon.move(translate);
-            });
-        }
     }
 }

@@ -1,39 +1,31 @@
-<div fxLayoutGap="10px" fxLayout="column">
+<div fxFlex fxLayoutGap="10px" fxLayout="column"  fxLayoutAlign="justify justify">
 
-    <mat-expansion-panel>
+    <mat-expansion-panel [expanded]="isLargeScreen()">
         <mat-expansion-panel-header>
             <mat-panel-title>
                 Informations Dessins
             </mat-panel-title>
-            <mat-panel-description>
-
-            </mat-panel-description>
         </mat-expansion-panel-header>
         <terrasse-draw-info [draw]="currentDraw" [project]="project"></terrasse-draw-info>
     </mat-expansion-panel>
 
-    <mat-expansion-panel>
+    <mat-expansion-panel [expanded]="isLargeScreen()">
         <mat-expansion-panel-header>
             <mat-panel-title>
                 Dessins
             </mat-panel-title>
-            <mat-panel-description>
-
-            </mat-panel-description>
         </mat-expansion-panel-header>
-
-        <terrasse-draws [(draws)]="project.draws" [(currentDraw)]="currentDraw"></terrasse-draws>
-
-
+        <div fxFlexFill fxLayoutGap="10px grid" fxLayout="column" >
+            <terrasse-draws [(draws)]="project.draws" [(currentDraw)]="currentDraw"></terrasse-draws>
+            <terrasse-polygon-config [(polygon)]="currentDraw.polygon"></terrasse-polygon-config>
+        </div>
     </mat-expansion-panel>
+
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
                 Structure
             </mat-panel-title>
-            <mat-panel-description>
-
-            </mat-panel-description>
         </mat-expansion-panel-header>
         <terrasse-structure-config [(structure)]="currentDraw.structure"></terrasse-structure-config>
     </mat-expansion-panel>
@@ -43,16 +35,13 @@
             <mat-panel-title>
                 Terrain
             </mat-panel-title>
-            <mat-panel-description>
-
-            </mat-panel-description>
         </mat-expansion-panel-header>
-        <div fxFlexFill fxLayoutGap="10px grid" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div fxFlexFill fxLayoutGap="10px grid" fxLayout="column" fxLayoutAlign="center center">
             <mat-form-field>
                 <input matInput placeholder="nom du projet" [(ngModel)]="project.name">
             </mat-form-field>
+            <terrasse-zone-config [(zone)]="project.zone"></terrasse-zone-config>
         </div>
-        <terrasse-zone-config [(zone)]="project.zone"></terrasse-zone-config>
     </mat-expansion-panel>
 
     <terrasse-saving [(project)]="project"></terrasse-saving>
