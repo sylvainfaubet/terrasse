@@ -43,17 +43,23 @@ export class DrawingAreaComponent implements OnInit {
     }
 
     private getClickedPoint(event: any) {
+
         const svg = event.currentTarget;
         const p = svg.createSVGPoint();
 
         p.x = event.clientX;
         p.y = event.clientY;
 
-        const goodPoint = p.matrixTransform(svg.getScreenCTM().inverse());
+        const transformation = svg.getScreenCTM().inverse();
+      
+        const goodPoint = p.matrixTransform(transformation);
+        if(window.navigator.vendor !== "Google Inc."){
+            goodPoint.y += svg.height.baseVal.value;
+        }
 
         const clickedPoint: Point = new Point(goodPoint.x, goodPoint.y);
         clickedPoint.roundPosition();
-
+        
         return clickedPoint;
     }
 }
