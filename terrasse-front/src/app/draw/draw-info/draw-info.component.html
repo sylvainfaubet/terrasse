@@ -1,4 +1,3 @@
-<div fxLayoutAlign="row" fxLayoutGap="10px" fxLayoutAlign="start center">
-    <div fxFlex>aire : {{ calcArea() }}</div>
-    <div fxFlex>perimetre : {{ draw.polygon.perimeter() }}</div>
-</div>
+<div *ngIf="draw.type === 'terrasse'">aire sans piscines : {{ calcArea() | number}}</div>
+<terrasse-polygon-info [(polygon)]="draw.polygon"></terrasse-polygon-info>
+

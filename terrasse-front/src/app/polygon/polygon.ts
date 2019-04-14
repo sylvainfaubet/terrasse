@@ -57,6 +57,7 @@ export class Polygon {
         if (Array.isArray(data.path)) {
             this.path = data.path.map(point => new Point(point.x, point.y));
         }
+        return this;
     }
 
     public move(translate: Point) {

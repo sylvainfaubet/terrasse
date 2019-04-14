@@ -33,4 +33,41 @@ export class PolygonService {
 
         return polygon.area() - areaToRemove;
     }
+
+    public polygonEnglobingRect(polygon: Polygon): Polygon {
+        if (polygon && polygon.path.length > 1) {
+            const result = {
+                minX: polygon.path[0].x,
+                maxX: polygon.path[0].x,
+                minY: polygon.path[0].y,
+                maxY: polygon.path[0].y,
+            };
+
+            polygon.path.forEach(point => {
+                result.minX = Math.min(result.minX, point.x);
+                result.minY = Math.min(result.minY, point.y);
+                result.maxX = Math.max(result.maxX, point.x);
+                result.maxY = Math.max(result.maxY, point.y);
+            });
+            return new Polygon([
+                new Point(result.minX, result.minY),
+                new Point(result.minX, result.maxY),
+                new Point(result.maxX, result.maxY),
+                new Point(result.maxX, result.minY),
+            ]);
+        }
+        return;
+    }
+
+    public getCentroid(polygon: Polygon): Point {
+        let length = polygon.path.length;
+        let center = polygon.path.reduce(function(last, current) {
+            console.log('getCentroid', last, current);
+            last.x += current.x / length;
+            last.y += current.y / length;
+            return last;
+        }, new Point(0, 0));
+
+        return center;
+    }
 }
