@@ -22,4 +22,13 @@ export class Point {
     public toArray() {
         return [this.x, this.y];
     }
+
+    public rotate(center: Point, angle: number) {
+        const sin = Math.sin(angle * (Math.PI / 180.0));
+        const cos = Math.cos(angle * (Math.PI / 180.0));
+        const x = this.x - center.x;
+        const y = this.y - center.y;
+        this.x = x * cos + y * sin + center.x;
+        this.y = -x * sin + y * cos + center.y;
+    }
 }

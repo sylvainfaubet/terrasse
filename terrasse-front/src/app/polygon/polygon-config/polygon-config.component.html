@@ -1,20 +1,24 @@
 <div fxFlexFill fxLayoutGap="10px grid" fxLayout="column">
 
   <div fxFlex>
-    <button mat-flat-button color="primary" [disabled]="isNotChangeable(polygon)"
-    (click)="polygon.rollFirstToLast()">
-    rotation des points
-  </button>
-</div>
-<div fxFlex>
-  <button mat-flat-button color="primary" [disabled]="isNotChangeable(polygon)"
-  (click)="polygon.path.reverse()">
-  inversion du sens
-</button>
-</div>
-<div fxFlex>
-  <button mat-flat-button color="primary" (click)="movePolygon(polygon)">
-    déplacer
-  </button>
-</div>
+    <button mat-flat-button color="primary" [disabled]="isNotChangeable()"
+      (click)="polygon.rollFirstToLast()">
+      rotation des points
+    </button>
+  </div>
+  <div fxFlex>
+    <button mat-flat-button color="primary" [disabled]="isNotChangeable()"
+      (click)="polygon.path.reverse()">
+      inversion du sens
+    </button>
+  </div>
+  <div fxFlex>
+    <button mat-flat-button color="primary" (click)="movePolygon()">
+      déplacer
+    </button>
+  </div>
+  <div fxFlex fxLayout="row wrap" fxLayoutAlign="start center">
+    <mat-slider fxFlex thumbLabel min="-90" max="90" step="1" [(value)]="angle"></mat-slider>
+    <button fxFlex mat-flat-button color="primary" (click)="rotatePolygon()">tourner</button>
+  </div>
 </div>

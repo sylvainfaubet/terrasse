@@ -60,9 +60,8 @@ export class PolygonService {
     }
 
     public getCentroid(polygon: Polygon): Point {
-        let length = polygon.path.length;
-        let center = polygon.path.reduce(function(last, current) {
-            console.log('getCentroid', last, current);
+        const length = polygon.path.length;
+        const center = polygon.path.reduce(function(last, current) {
             last.x += current.x / length;
             last.y += current.y / length;
             return last;

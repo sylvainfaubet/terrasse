@@ -66,4 +66,9 @@ export class Polygon {
             point.y += translate.y;
         });
     }
+    public rotate(center: Point, angle: number) {
+        this.path.forEach(point => {
+            point.rotate(center, angle);
+        });
+    }
 }
