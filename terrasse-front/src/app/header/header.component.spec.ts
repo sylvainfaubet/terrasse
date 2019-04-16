@@ -14,7 +14,7 @@ describe('HeaderComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [HeaderComponent],
-            imports: [MaterialModule, CommonModule, FlexLayoutModule, RouterTestingModule]
+            imports: [MaterialModule, CommonModule, FlexLayoutModule, RouterTestingModule],
         }).compileComponents();
     }));
 
@@ -31,6 +31,6 @@ describe('HeaderComponent', () => {
     it('should render title', () => {
         component.title = TITLE;
         fixture.detectChanges();
-        expect(fixture.elementRef.nativeElement.innerText).toBe(TITLE + '\nsandbox');
+        expect(fixture.elementRef.nativeElement.innerText).toBe(TITLE);
     });
 });
