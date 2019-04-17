@@ -1,7 +1,7 @@
 <div id="edit-component" fxLayout.xs=column fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around justify">
     <mat-card fxHide>
     </mat-card>
-    <mat-card fxFlex.xs fxFlex=50 >
+    <mat-card fxFlex.xs fxFlex=60 >
         <terrasse-mode [(mode)]="mode" ></terrasse-mode>
         <terrasse-drawing-area [currentDraw]="currentDraw" (clickEvent)="doJobOnClickedPoint($event)"></terrasse-drawing-area>
     </mat-card>
