@@ -31,4 +31,9 @@ export class Point {
         this.x = x * cos + y * sin + center.x;
         this.y = -x * sin + y * cos + center.y;
     }
+    public angleWith(point: Point) {
+        const opos = this.y - point.y;
+        const adj = this.x - point.x;
+        return Math.atan(opos / adj) * (180 / Math.PI);
+    }
 }

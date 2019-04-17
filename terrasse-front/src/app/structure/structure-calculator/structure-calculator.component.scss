@@ -1,0 +1,8 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+button + button {
+    margin-top:10px
+}

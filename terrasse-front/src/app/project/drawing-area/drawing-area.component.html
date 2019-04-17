@@ -21,6 +21,6 @@
 
     <g *ngIf="currentDraw">
         <circle *ngFor="let p of currentDraw.polygon.path; let last = last; let first= first trackBy index" [attr.cx]="p.x" [attr.cy]="p.y"
-            r="0.2" [attr.stroke]="last ? 'indigo' : first ? 'cyan' : 'gray'" fill="transparent" stroke-width="0.1" />
+            r="0.2" [attr.stroke]="last ? 'green' : first ? 'blue' : 'gray'" fill="transparent" stroke-width="0.1" />
     </g>
 </svg>

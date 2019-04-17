@@ -34,21 +34,26 @@ export class PolygonService {
         return polygon.area() - areaToRemove;
     }
 
+    private getMinMaxRect(polygon: Polygon) {
+        const result = {
+            minX: polygon.path[0].x,
+            maxX: polygon.path[0].x,
+            minY: polygon.path[0].y,
+            maxY: polygon.path[0].y,
+        };
+
+        polygon.path.forEach(point => {
+            result.minX = Math.min(result.minX, point.x);
+            result.minY = Math.min(result.minY, point.y);
+            result.maxX = Math.max(result.maxX, point.x);
+            result.maxY = Math.max(result.maxY, point.y);
+        });
+        return result;
+    }
+
     public polygonEnglobingRect(polygon: Polygon): Polygon {
         if (polygon && polygon.path.length > 1) {
-            const result = {
-                minX: polygon.path[0].x,
-                maxX: polygon.path[0].x,
-                minY: polygon.path[0].y,
-                maxY: polygon.path[0].y,
-            };
-
-            polygon.path.forEach(point => {
-                result.minX = Math.min(result.minX, point.x);
-                result.minY = Math.min(result.minY, point.y);
-                result.maxX = Math.max(result.maxX, point.x);
-                result.maxY = Math.max(result.maxY, point.y);
-            });
+            const result = this.getMinMaxRect(polygon);
             return new Polygon([
                 new Point(result.minX, result.minY),
                 new Point(result.minX, result.maxY),
@@ -57,6 +62,11 @@ export class PolygonService {
             ]);
         }
         return;
+    }
+
+    private getEnglobingRectArea(polygon: Polygon): number {
+        const result = this.getMinMaxRect(polygon);
+        return (result.maxX - result.minX) * (result.maxY - result.minY);
     }
 
     public getCentroid(polygon: Polygon): Point {
@@ -68,5 +78,24 @@ export class PolygonService {
         }, new Point(0, 0));
 
         return center;
+    }
+
+    public getBestPolygonAngle(polygon: Polygon): number {
+        if (polygon && polygon.path.length > 1) {
+            const poly = new Polygon().setFromJSON(JSON.parse(JSON.stringify(polygon)));
+            let i = 0;
+            let minArea = 3000;
+            let bestAngle = 0;
+            for (; i < 180; i++) {
+                const area = this.getEnglobingRectArea(poly);
+                if (area < minArea) {
+                    bestAngle = i;
+                    minArea = area;
+                }
+                poly.rotate(new Point(0, 0), 1);
+            }
+            return bestAngle;
+        }
+        return 0;
     }
 }

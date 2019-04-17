@@ -4,10 +4,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { StructureConfigComponent } from './structure-config/structure-config.component';
+import { StructureCalculatorComponent } from './structure-calculator/structure-calculator.component';
 
 @NgModule({
-    declarations: [StructureConfigComponent],
-    exports: [StructureConfigComponent],
+    declarations: [StructureConfigComponent, StructureCalculatorComponent],
+    exports: [StructureConfigComponent, StructureCalculatorComponent],
     imports: [CommonModule, FlexLayoutModule, FormsModule, MaterialModule],
 })
 export class StructureModule {}
