@@ -34,7 +34,7 @@ export class PolygonService {
         return polygon.area() - areaToRemove;
     }
 
-    private getMinMaxRect(polygon: Polygon) {
+    public getMinMaxRect(polygon: Polygon) {
         const result = {
             minX: polygon.path[0].x,
             maxX: polygon.path[0].x,

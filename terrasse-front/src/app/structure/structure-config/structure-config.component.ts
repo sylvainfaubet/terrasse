@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Structure } from '../structure';
+import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
 
 @Component({
     selector: 'terrasse-structure-config',
@@ -9,9 +10,11 @@ import { Structure } from '../structure';
 export class StructureConfigComponent implements OnInit {
     @Input() structure: Structure;
 
-    constructor() {}
+    constructor(private editPointModalService: EditPointModalService) {}
 
-    ngOnInit() {
-        console.log(this.structure);
+    ngOnInit() {}
+
+    moveStructure() {
+        this.editPointModalService.modifyPoint(this.structure.offset);
     }
 }

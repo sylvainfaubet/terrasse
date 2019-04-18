@@ -4,7 +4,7 @@ function roundValue(val: number, round: number) {
     return Math.round(val * round) / round;
 }
 export class Point {
-    constructor(public x: number, public y: number) {}
+    constructor(public x: number = 0, public y: number = 0) {}
 
     public roundPosition(round = 2) {
         this.x = roundValue(this.x, round);
@@ -35,5 +35,14 @@ export class Point {
         const opos = this.y - point.y;
         const adj = this.x - point.x;
         return Math.atan(opos / adj) * (180 / Math.PI);
+    }
+    public setFromJSON(data) {
+        if (data.x) {
+            this.x = data.x;
+        }
+        if (data.y) {
+            this.y = data.y;
+        }
+        return this;
     }
 }

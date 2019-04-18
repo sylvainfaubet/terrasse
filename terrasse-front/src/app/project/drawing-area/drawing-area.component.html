@@ -11,7 +11,7 @@
 
     <g *ngFor="let draw of project.draws; index as i">
             <defs>
-                <pattern [attr.id]="'structure' + i" [attr.width]="draw.structure.topSpace" [attr.height]="draw.structure.bottomSpace" patternUnits="userSpaceOnUse" [attr.patternTransform]="'rotate('+draw.structure.angle+')'">
+                <pattern [attr.id]="'structure' + i" [attr.width]="draw.structure.topSpace" [attr.height]="draw.structure.bottomSpace" patternUnits="userSpaceOnUse" [attr.patternTransform]="'rotate('+draw.structure.angle+') translate('+draw.structure.offset.x + ','+draw.structure.offset.y+')'">
                     <rect [attr.width]="draw.structure.topSpace" [attr.height]="draw.structure.bottomSpace" [attr.fill]="config[draw.type].fill" stroke="gray" stroke-width="0.05" />
                 </pattern>
             </defs>
