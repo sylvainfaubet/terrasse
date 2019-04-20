@@ -13,12 +13,30 @@ import { AppComponent } from './app.component';
 
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [AppComponent, FooterComponent, HeaderComponent],
-    exports: [FooterComponent, HeaderComponent, MaterialModule, FlexLayoutModule],
-    imports: [CommonModule, BrowserAnimationsModule, BrowserModule, AppRoutingModule, MaterialModule, FlexLayoutModule],
+    exports: [
+        FooterComponent,
+        HeaderComponent,
+        CommonModule,
+        MaterialModule,
+        FlexLayoutModule,
+    ],
+    imports: [
+        CommonModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        AppRoutingModule,
+        MaterialModule,
+        FlexLayoutModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+        }),
+    ],
     providers: [],
 })
 export class AppModule {
