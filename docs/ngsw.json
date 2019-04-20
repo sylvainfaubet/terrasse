@@ -1,0 +1,72 @@
+{
+  "configVersion": 1,
+  "timestamp": 1555797058158,
+  "index": "/terrasse/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/terrasse/4.cf4be22778ec29465c73.js",
+        "/terrasse/index.html",
+        "/terrasse/main.eda2ec6b8ac3128adb06.js",
+        "/terrasse/polyfills.a589302521a5c65c4704.js",
+        "/terrasse/runtime.801069b2800dcc3dc999.js",
+        "/terrasse/styles.bfc4e8e5c8e97edfc7d5.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/terrasse/assets/icons/android-chrome-192x192.png",
+        "/terrasse/assets/icons/android-chrome-512x512.png",
+        "/terrasse/assets/icons/apple-touch-icon.png",
+        "/terrasse/assets/icons/favicon-16x16.png",
+        "/terrasse/assets/icons/favicon-32x32.png",
+        "/terrasse/assets/icons/favicon.ico",
+        "/terrasse/assets/icons/mstile-150x150.png",
+        "/terrasse/assets/icons/safari-pinned-tab.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/terrasse/4.cf4be22778ec29465c73.js": "934a38ddfbf35b749d458b1f705cd45120cb7c4d",
+    "/terrasse/assets/icons/android-chrome-192x192.png": "d1fd34fbb78f279fc982003e93a03fe5ad425548",
+    "/terrasse/assets/icons/android-chrome-512x512.png": "453e2e241de1157c6335338373a6c5c5da6bb039",
+    "/terrasse/assets/icons/apple-touch-icon.png": "ebf258f07350c11bbb2ee298a0f52163847a32b9",
+    "/terrasse/assets/icons/favicon-16x16.png": "a266648cd82842f5fd32f9c7a1f22e4160bcd9d4",
+    "/terrasse/assets/icons/favicon-32x32.png": "2d03c0502e88b0d03e1eed6b1d4a30dbd9679297",
+    "/terrasse/assets/icons/favicon.ico": "982f8dba7ce23ddf421c46c2b75a0a215084c2f5",
+    "/terrasse/assets/icons/mstile-150x150.png": "9ac1494cd484c7bd386329d1717a244921023d9c",
+    "/terrasse/assets/icons/safari-pinned-tab.svg": "af79082286c2314b6d36299f1b7acfd324624822",
+    "/terrasse/index.html": "b271e9a7d28eab155ac0541c105e903deacdd83c",
+    "/terrasse/main.eda2ec6b8ac3128adb06.js": "9a0ff91d60559367e2b875a620371feeb249ab38",
+    "/terrasse/polyfills.a589302521a5c65c4704.js": "9523895b2983416284537971454a8e67b59b13ec",
+    "/terrasse/runtime.801069b2800dcc3dc999.js": "ad24ff741d14ad5f390bd98cdf481023b4783eea",
+    "/terrasse/styles.bfc4e8e5c8e97edfc7d5.css": "67eeac23e463eec605595411679a2de0b1924b43"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

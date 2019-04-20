@@ -97,20 +97,25 @@ THE SOFTWARE.
 
 @angular/material/form-field
 
+@angular/material/progress-spinner
+
 @angular/material/radio
 
 @angular/material/select
 
 @angular/material/slider
 
-undefined
-
 @angular/material/toolbar
 
 @angular/platform-browser
 MIT
 
+undefined
+
 @angular/router
+MIT
+
+@angular/service-worker
 MIT
 
 core-js
