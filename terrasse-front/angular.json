@@ -69,7 +69,9 @@
           "configurations": {
             "production": {
               "browserTarget": "terrasse-front:build:production",
-              "deployUrl": "/terrasse/"
+              "host": "0.0.0.0",
+              "servePath": "/terrasse",
+              "port": 80
             },
             "mobile": {
               "host": "0.0.0.0"
