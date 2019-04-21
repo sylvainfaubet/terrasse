@@ -19,13 +19,7 @@ import { environment } from '../environments/environment';
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [AppComponent, FooterComponent, HeaderComponent],
-    exports: [
-        FooterComponent,
-        HeaderComponent,
-        CommonModule,
-        MaterialModule,
-        FlexLayoutModule,
-    ],
+    exports: [FooterComponent, HeaderComponent, CommonModule, MaterialModule, FlexLayoutModule],
     imports: [
         CommonModule,
         BrowserAnimationsModule,
@@ -33,7 +27,7 @@ import { environment } from '../environments/environment';
         AppRoutingModule,
         MaterialModule,
         FlexLayoutModule,
-        ServiceWorkerModule.register('ngsw-worker.js', {
+        ServiceWorkerModule.register('terrasse/ngsw-worker.js', {
             enabled: environment.production,
         }),
     ],
