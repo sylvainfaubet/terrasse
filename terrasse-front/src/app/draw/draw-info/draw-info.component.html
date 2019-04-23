@@ -1,3 +1,11 @@
-<div *ngIf="draw.type === 'terrasse'">aire sans piscines : {{ calcArea() | number}}</div>
+<div *ngIf="draw.type === 'terrasse'">
+    <div>aire sans piscines : {{ calcArea() | number}}</div>
+    <div>7% de chutes : {{ fallingWood | number}}</div>
+    <div *ngIf="calcStructureLines() && structureLines">
+        <div>nombre de lignes structure haute : {{structureLines.nbTopLines}}</div>
+        <div>nombre de lignes structure basse : {{structureLines.nbBottomLines}}</div>
+    </div>
+    <div>nombre de piliers : {{structurePilars}}</div>
+</div>
 <terrasse-polygon-info [(polygon)]="draw.polygon"></terrasse-polygon-info>
 

@@ -23,12 +23,12 @@ export class DrawService {
 
     drawStructureGetInfos(draw: Draw) {
         const poly = new Polygon().setFromJSON(JSON.parse(JSON.stringify(draw.polygon)));
-        poly.rotate(new Point(0, 0), -draw.structure.angle);
+        poly.rotate(new Point(0, 0), draw.structure.angle);
         const rect = this.polygonService.getMinMaxRect(poly);
         console.log('drawStructureGetInfos', rect, poly, draw);
         return {
-            nbBottomLines: Math.round((rect.maxY - rect.minY) / draw.structure.bottomSpace),
-            nbTopLines: Math.round((rect.maxX - rect.minX) / draw.structure.topSpace),
+            nbTopLines: Math.round((rect.maxX - rect.minX) / draw.structure.topSpace + draw.structure.offset.x),
+            nbBottomLines: Math.round((rect.maxY - rect.minY) / draw.structure.bottomSpace + draw.structure.offset.y),
         };
     }
 }
