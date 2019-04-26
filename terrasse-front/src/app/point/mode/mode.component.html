@@ -1,10 +1,11 @@
-<div class="container" fxLayout="row" fxLayoutGap="10px">
-    <div fxFlex="55px">au clic :</div>
-    <div fxFlex>
-        <mat-radio-group fxLayoutGap="10px grid" fxLayout="row wrap" [(ngModel)]="mode">
-            <mat-radio-button [value]="modeEnum.ADD">ajouter</mat-radio-button>
-            <mat-radio-button [value]="modeEnum.MODIFY">modifier</mat-radio-button>
-            <mat-radio-button [value]="modeEnum.SUPPRESS">supprimer</mat-radio-button>
-        </mat-radio-group>
-    </div>
-</div>
+<mat-button-toggle-group name="point" aria-label="point" [(ngModel)]="mode">
+    <mat-button-toggle  [value]="modeEnum.ADD" title="ajouter">
+        <i class="material-icons">add</i>
+    </mat-button-toggle>
+    <mat-button-toggle  [value]="modeEnum.MODIFY" title="modifier">
+        <i class="material-icons">edit</i>
+    </mat-button-toggle>
+    <mat-button-toggle [value]="modeEnum.SUPPRESS" title="supprimer">
+        <i class="material-icons">remove</i>
+    </mat-button-toggle>
+</mat-button-toggle-group>

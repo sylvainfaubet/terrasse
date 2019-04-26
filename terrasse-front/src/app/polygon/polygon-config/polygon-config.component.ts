@@ -10,7 +10,7 @@ import { PolygonService } from '../polygon.service';
     styleUrls: ['./polygon-config.component.scss'],
 })
 export class PolygonConfigComponent implements OnInit {
-    angle: number;
+    angle = 10;
     center: Point;
     @Input()
     polygon: Polygon;
@@ -30,8 +30,8 @@ export class PolygonConfigComponent implements OnInit {
         });
     }
 
-    rotatePolygon() {
+    rotatePolygon(invert: boolean) {
         this.center = this.polygonService.getCentroid(this.polygon);
-        this.polygon.rotate(this.center, this.angle);
+        this.polygon.rotate(this.center, (invert ? -1 : 1) * this.angle);
     }
 }
