@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'project/0' },
+    { path: '', pathMatch: 'full', redirectTo: 'project' },
     {
         path: 'project',
         loadChildren: './project/project.module#ProjectModule',
     },
+    {
+        path: 'location',
+        loadChildren: './location/location.module#LocationModule'
+    }
 ];
 
 @NgModule({
@@ -14,5 +18,5 @@ export const routes: Routes = [
     exports: [RouterModule],
 })
 export class AppRoutingModule {
-    constructor() {}
+    constructor() { }
 }

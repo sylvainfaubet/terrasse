@@ -9,6 +9,7 @@ const routes: Routes = [
     {
         path: '',
         children: [
+            { path: '', pathMatch: 'full', redirectTo: '0' },
             {
                 path: ':id',
                 resolve: { project: ProjectResolver },
