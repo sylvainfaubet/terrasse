@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class GetLocationComponent implements OnInit {
 
     label = 'récupérer la position';
+    alertMessage: any;
+    position: Position;
 
-    constructor() { }
+    constructor() {
+        this.onClick = this.onClick.bind(this);
+    }
 
     ngOnInit() {
     }
@@ -20,11 +24,22 @@ export class GetLocationComponent implements OnInit {
         console.log('GetLocationComponent', 'onClick', event);
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
-                console.log(position);
+                this.position = position;
+                console.log(position, this);
+            }, error => {
+                console.log(error);
             });
         } else {
-            console.log('pas de position');
+            alert('vous n\'avez pas mis à disposition votre position');
         }
+    }
+
+    formatPosition(position: Position): any {
+        return `
+        ${position.coords.latitude} ${position.coords.longitude} (${position.coords.accuracy}m)
+        ${position.coords.altitude ? position.coords.altitude : '' +
+                (position.coords.altitudeAccuracy ? '(' + position.coords.altitudeAccuracy + ')' : '')}
+        `;
     }
 
 }

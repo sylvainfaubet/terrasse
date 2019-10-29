@@ -7,7 +7,7 @@ import { MaterialModule } from '../material/material.module';
 const ROUTES: Route[] = [{
     path: '',
     component: GetLocationComponent
-}]
+}];
 
 @NgModule({
     declarations: [GetLocationComponent],

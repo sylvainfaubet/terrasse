@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'terrasse-header',
@@ -7,8 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
     @Input() public title: String;
+    isProd = environment.production;
 
-    constructor() {}
+    constructor() { }
 
-    public ngOnInit() {}
+    public ngOnInit() { }
 }
