@@ -13,6 +13,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule,
     FormsModule
   ],
-  exports:[ZoneConfigComponent]
+  exports: [ZoneConfigComponent]
 })
 export class ZoneModule { }

@@ -15,7 +15,7 @@ export class PolygonInfoComponent implements OnInit {
     ngOnInit() {}
 
     getCentroid() {
-        
+
         return this.polygonService.getCentroid(this.polygon);
     }
 }

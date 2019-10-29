@@ -13,7 +13,7 @@ describe('ZoneConfigComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ZoneConfigComponent ],
-      imports:[MaterialModule, FormsModule,BrowserAnimationsModule]
+      imports: [MaterialModule, FormsModule, BrowserAnimationsModule]
     })
     .compileComponents();
   }));

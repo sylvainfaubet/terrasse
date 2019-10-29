@@ -9,7 +9,7 @@ import { Zone } from '../zone';
 export class ZoneConfigComponent implements OnInit {
 
     @Input()
-    zone:Zone;
+    zone: Zone;
 
   constructor() { }
 

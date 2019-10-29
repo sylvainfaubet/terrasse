@@ -51,15 +51,15 @@ export class DrawingAreaComponent implements OnInit {
         p.y = event.clientY;
 
         const transformation = svg.getScreenCTM().inverse();
-      
+
         const goodPoint = p.matrixTransform(transformation);
-        if(window.navigator.vendor !== "Google Inc."){
+        if (window.navigator.vendor !== 'Google Inc.') {
             goodPoint.y += svg.height.baseVal.value;
         }
 
         const clickedPoint: Point = new Point(goodPoint.x, goodPoint.y);
         clickedPoint.roundPosition();
-        
+
         return clickedPoint;
     }
 }
