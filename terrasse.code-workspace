@@ -5,16 +5,10 @@
       "name": "front"
     },
     {
-      "path": "./terrasse-service",
-      "name": "back"
-    },
-    {
       "path": "."
     }
   ],
-  "settings": {    
-    "prettier.eslintIntegration": true,
-    "prettier.tslintIntegration": true,
+  "settings": {
     "editor.formatOnSave": true
   },
   "launch": {
