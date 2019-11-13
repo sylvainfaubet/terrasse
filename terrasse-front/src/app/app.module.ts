@@ -1,6 +1,5 @@
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import localeFr from '@angular/common/locales/fr';
@@ -17,24 +16,23 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 @NgModule({
-    bootstrap: [AppComponent],
-    declarations: [AppComponent, FooterComponent, HeaderComponent],
-    exports: [FooterComponent, HeaderComponent, CommonModule, MaterialModule, FlexLayoutModule],
-    imports: [
-        CommonModule,
-        BrowserAnimationsModule,
-        BrowserModule,
-        AppRoutingModule,
-        MaterialModule,
-        FlexLayoutModule,
-        ServiceWorkerModule.register('terrasse/ngsw-worker.js', {
-            enabled: environment.production,
-        }),
-    ],
-    providers: [],
+  bootstrap: [AppComponent],
+  declarations: [AppComponent, FooterComponent, HeaderComponent],
+  exports: [FooterComponent, HeaderComponent, CommonModule, MaterialModule],
+  imports: [
+    CommonModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    AppRoutingModule,
+    MaterialModule,
+    ServiceWorkerModule.register('terrasse/ngsw-worker.js', {
+      enabled: environment.production,
+    }),
+  ],
+  providers: [],
 })
 export class AppModule {
-    constructor() {
-        registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
-    }
+  constructor() {
+    registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
+  }
 }
