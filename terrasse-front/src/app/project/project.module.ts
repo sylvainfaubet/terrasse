@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from '../material/material.module';
@@ -20,23 +19,22 @@ import { SavingComponent } from './saving/saving.component';
 import { PolygonModule } from '../polygon/polygon.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        DownloadModule,
-        FlexLayoutModule,
-        FormsModule,
-        MatDialogModule,
-        MaterialModule,
-        PointModule,
-        DrawModule,
-        PolygonModule,
-        ProjectsRoutingModule,
-        StructureModule,
-        ZoneModule,
-    ],
-    exports: [],
-    entryComponents: [EditComponent],
-    declarations: [DrawingAreaComponent, EditComponent, ConfigureComponent, SavingComponent],
-    providers: [],
+  imports: [
+    CommonModule,
+    DownloadModule,
+    FormsModule,
+    MatDialogModule,
+    MaterialModule,
+    PointModule,
+    DrawModule,
+    PolygonModule,
+    ProjectsRoutingModule,
+    StructureModule,
+    ZoneModule,
+  ],
+  exports: [],
+  entryComponents: [EditComponent],
+  declarations: [DrawingAreaComponent, EditComponent, ConfigureComponent, SavingComponent],
+  providers: [],
 })
-export class ProjectModule {}
+export class ProjectModule { }

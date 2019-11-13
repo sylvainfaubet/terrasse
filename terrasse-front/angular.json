@@ -65,7 +65,6 @@
           "options": {
             "browserTarget": "terrasse-front:build",
             "proxyConfig": "conf/proxy.conf.json",
-            "ssl": true,
             "host": "0.0.0.0"
           },
           "configurations": {
