@@ -5,25 +5,36 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import localeFr from '@angular/common/locales/fr';
 import localeFrExtra from '@angular/common/locales/extra/fr';
 
-import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 
-import { AppComponent } from './app.component';
+import { AppComponent, components } from './components';
 
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { Routes, RouterModule } from '@angular/router';
+
+
+export const ROUTES: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'project' },
+  {
+    path: 'project',
+    loadChildren: './project/project.module#ProjectModule',
+  },
+  {
+    path: 'location',
+    loadChildren: './location/location.module#LocationModule'
+  }
+];
 
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [AppComponent, FooterComponent, HeaderComponent],
-  exports: [FooterComponent, HeaderComponent, CommonModule, MaterialModule],
+  declarations: [components],
+  exports: [CommonModule, MaterialModule],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
     BrowserModule,
-    AppRoutingModule,
+    RouterModule.forRoot(ROUTES, environment.routerConfig),
     MaterialModule,
     ServiceWorkerModule.register('terrasse/ngsw-worker.js', {
       enabled: environment.production,
