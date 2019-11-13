@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material.module';
 import { ModeComponent } from './mode.component';
@@ -12,10 +11,10 @@ describe('ModeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModeComponent ],
-      imports: [CommonModule, FormsModule, MaterialModule, FlexLayoutModule]
+      declarations: [ModeComponent],
+      imports: [CommonModule, FormsModule, MaterialModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
