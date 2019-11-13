@@ -1,7 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 
-import { routes } from './app-routing.module';
 import {
   Router,
   NavigationStart,
@@ -15,7 +14,6 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public routes = routes;
   public title: String;
   public loaded = false;
 
