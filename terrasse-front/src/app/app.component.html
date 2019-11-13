@@ -1,10 +1,11 @@
-<div fxLayout="column" fxFlexFill>
-    <terrasse-header fxFlex=10 [title]="title"></terrasse-header>
-    <div fxFlex>
-        <div fxFlexFill fxLayout="column" fxLayoutAlign="center center" *ngIf="loading">
-            <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-        </div>
-        <router-outlet></router-outlet>
-    </div>
-    <terrasse-footer fxFlex.xs=8 fxFlex=5></terrasse-footer>
+<terrasse-header [title]="title"></terrasse-header>
+<div class="content">
+  <ng-container *ngIf="!loaded; else content">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </ng-container>
+
+  <ng-template #content>
+    <router-outlet></router-outlet>
+  </ng-template>
 </div>
+<terrasse-footer></terrasse-footer>
