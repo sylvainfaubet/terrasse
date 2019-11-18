@@ -26,7 +26,7 @@ export class AppComponent {
         event instanceof NavigationEnd ||
         event instanceof NavigationCancel
       ) {
-        // this.loaded = true;
+        this.loaded = true;
       }
     });
   }
