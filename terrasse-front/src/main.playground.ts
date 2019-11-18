@@ -10,7 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 PlaygroundModule.configure({
   selector: 'terrasse-root',
   overlay: true,
-  modules: [MaterialModule, FormsModule, CommonModule, BrowserAnimationsModule, BrowserModule, MaterialModule],
+  modules: [MaterialModule, FormsModule, CommonModule, BrowserAnimationsModule, BrowserModule],
 });
 
 platformBrowserDynamic().bootstrapModule(PlaygroundModule);
