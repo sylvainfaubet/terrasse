@@ -8,6 +8,7 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "terrasse",
+      
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"
