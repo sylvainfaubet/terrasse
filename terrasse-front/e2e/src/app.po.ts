@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element } from "protractor";
 
 export class AppPage {
     async navigateTo(path: string): Promise<string> {
@@ -6,7 +6,7 @@ export class AppPage {
     }
 
     async getHeaderTitle(): Promise<string> {
-        return element(by.id('title'))
+        return element(by.id("title"))
         .getText();
     }
 }

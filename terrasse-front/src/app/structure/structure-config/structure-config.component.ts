@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Structure } from '../structure';
-import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
+import { Component, Input, OnInit } from "@angular/core";
+import { Structure } from "../structure";
+import { EditPointModalService } from "src/app/point/edit-point-modal/edit-point-modal.service";
 
 @Component({
-    selector: 'terrasse-structure-config',
-    templateUrl: './structure-config.component.html',
-    styleUrls: ['./structure-config.component.scss'],
+    selector: "terrasse-structure-config",
+    templateUrl: "./structure-config.component.html",
+    styleUrls: ["./structure-config.component.scss"],
 })
 export class StructureConfigComponent implements OnInit {
     @Input() structure: Structure;

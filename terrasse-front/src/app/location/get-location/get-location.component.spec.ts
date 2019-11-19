@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { GetLocationComponent } from './get-location.component';
+import { GetLocationComponent } from "./get-location.component";
 
-describe('GetLocationComponent', () => {
+describe("GetLocationComponent", () => {
   let component: GetLocationComponent;
   let fixture: ComponentFixture<GetLocationComponent>;
 
@@ -19,7 +19,7 @@ describe('GetLocationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

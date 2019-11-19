@@ -1,13 +1,13 @@
-import { PolygonModule } from './polygon.module';
+import { PolygonModule } from "./polygon.module";
 
-describe('PolygonModule', () => {
+describe("PolygonModule", () => {
   let polygonModule: PolygonModule;
 
   beforeEach(() => {
     polygonModule = new PolygonModule();
   });
 
-  it('should create an instance', () => {
+  it("should create an instance", () => {
     expect(polygonModule).toBeTruthy();
   });
 });

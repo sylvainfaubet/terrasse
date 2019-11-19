@@ -1,14 +1,14 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PolygonService } from 'src/app/polygon/polygon.service';
-import { Draw } from '../draw';
-import { DrawType } from '../draw.type';
-import { DrawInfoComponent } from './draw-info.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { PolygonService } from "src/app/polygon/polygon.service";
+import { Draw } from "../models/draw";
+import { DrawType } from "../models/draw.type";
+import { DrawInfoComponent } from "./draw-info.component";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
-class MockService {}
+class MockService { }
 
-describe('DrawInfoComponent', () => {
+describe("DrawInfoComponent", () => {
     let component: DrawInfoComponent;
     let fixture: ComponentFixture<DrawInfoComponent>;
 
@@ -27,7 +27,7 @@ describe('DrawInfoComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it("should create", () => {
         expect(component).toBeTruthy();
     });
 });
