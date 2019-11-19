@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "src/app/material/material.module";
-import { Structure } from "../structure";
+import { Structure } from "../../models/structure";
 import { StructureConfigComponent } from "./structure-config.component";
 
 describe("StructureConfigComponent", () => {
