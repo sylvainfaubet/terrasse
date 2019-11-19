@@ -1,4 +1,4 @@
-import { Point } from "../point/point";
+import { Point } from "../../point/point";
 
 export class Structure {
     constructor(
@@ -6,7 +6,7 @@ export class Structure {
         public topSpace: number = 0.5,
         public angle: number = 0,
         public offset: Point = new Point(0.1, 0.1),
-    ) {}
+    ) { }
 
     setFromJSON(data) {
         if (data.bottomSpace) {
