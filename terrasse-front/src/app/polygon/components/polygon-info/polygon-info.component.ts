@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Polygon } from "../polygon";
-import { PolygonService } from "../polygon.service";
+import { Polygon } from "../../models/polygon";
+import { PolygonService } from "../../services/polygon.service";
 
 @Component({
     selector: "terrasse-polygon-info",
@@ -10,9 +10,9 @@ import { PolygonService } from "../polygon.service";
 export class PolygonInfoComponent implements OnInit {
     @Input() polygon: Polygon;
 
-    constructor(private polygonService: PolygonService) {}
+    constructor(private polygonService: PolygonService) { }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     getCentroid() {
 

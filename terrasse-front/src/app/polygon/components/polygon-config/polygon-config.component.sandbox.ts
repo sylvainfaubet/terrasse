@@ -1,6 +1,6 @@
 import { sandboxOf } from "angular-playground";
 import { PolygonConfigComponent } from "./polygon-config.component";
-import { Polygon } from "../polygon";
+import { Polygon } from "../../models/polygon";
 import { Point } from "src/app/point/point";
 
 export default sandboxOf(PolygonConfigComponent).add("default", {
