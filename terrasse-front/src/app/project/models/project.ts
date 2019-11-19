@@ -1,4 +1,4 @@
-import { Zone } from "src/app/zone/zone";
+import { Zone } from "src/app/zone/models";
 import { Draw, DrawType } from "src/app/draw/models";
 
 export class Project {

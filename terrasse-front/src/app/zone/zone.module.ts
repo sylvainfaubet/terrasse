@@ -1,16 +1,16 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { ZoneConfigComponent } from "./zone-config/zone-config.component";
 import { MaterialModule } from "../material/material.module";
 import { FormsModule } from "@angular/forms";
+import { components } from "./components";
 
 @NgModule({
-  declarations: [ZoneConfigComponent],
+  declarations: components,
+  exports: components,
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule
   ],
-  exports: [ZoneConfigComponent]
 })
 export class ZoneModule { }

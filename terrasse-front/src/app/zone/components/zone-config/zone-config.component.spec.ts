@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { ZoneConfigComponent } from "./zone-config.component";
 import { MaterialModule } from "src/app/material/material.module";
 import { FormsModule } from "@angular/forms";
-import { Zone } from "../zone";
+import { Zone } from "../../models";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 describe("ZoneConfigComponent", () => {
@@ -12,10 +12,10 @@ describe("ZoneConfigComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ZoneConfigComponent ],
+      declarations: [ZoneConfigComponent],
       imports: [MaterialModule, FormsModule, BrowserAnimationsModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
