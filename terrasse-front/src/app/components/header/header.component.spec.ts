@@ -1,14 +1,14 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
 
-import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../../material/material.module';
-import { HeaderComponent } from './header.component';
+import { CommonModule } from "@angular/common";
+import { MaterialModule } from "../../material/material.module";
+import { HeaderComponent } from "./header.component";
 
-describe('HeaderComponent', () => {
+describe("HeaderComponent", () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
-  const TITLE = 'titre';
+  const TITLE = "titre";
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -23,11 +23,11 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it("should render title", () => {
     component.title = TITLE;
     fixture.detectChanges();
     expect(fixture.elementRef.nativeElement.innerText).toBe(TITLE);

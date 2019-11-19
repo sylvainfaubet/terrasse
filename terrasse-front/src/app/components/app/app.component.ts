@@ -1,17 +1,17 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, Inject } from '@angular/core';
+import { DOCUMENT } from "@angular/common";
+import { Component, Inject } from "@angular/core";
 
 import {
   Router,
   NavigationStart,
   NavigationEnd,
   NavigationCancel,
-} from '@angular/router';
+} from "@angular/router";
 
 @Component({
-  selector: 'terrasse-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: "terrasse-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
   public title: String;

@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { StructureCalculatorComponent } from './structure-calculator.component';
+import { StructureCalculatorComponent } from "./structure-calculator.component";
 
-describe('StructureCalculatorComponent', () => {
+describe("StructureCalculatorComponent", () => {
   let component: StructureCalculatorComponent;
   let fixture: ComponentFixture<StructureCalculatorComponent>;
 
@@ -19,7 +19,7 @@ describe('StructureCalculatorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,22 +1,41 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { MaterialModule } from '../material/material.module';
-import { ProjectsRoutingModule } from './project-routing.module';
+import { MaterialModule } from "../material/material.module";
 
-import { DownloadModule } from '../download/download.module';
-import { ConfigureComponent } from './configure/configure.component';
-import { DrawingAreaComponent } from './drawing-area/drawing-area.component';
-import { EditComponent } from './edit/edit.component';
+import { DownloadModule } from "../download/download.module";
 
-import { MatDialogModule } from '@angular/material';
-import { DrawModule } from '../draw/draw.module';
-import { PointModule } from '../point/point.module';
-import { StructureModule } from '../structure/structure.module';
-import { ZoneModule } from '../zone/zone.module';
-import { SavingComponent } from './saving/saving.component';
-import { PolygonModule } from '../polygon/polygon.module';
+import { MatDialogModule } from "@angular/material";
+import { DrawModule } from "../draw/draw.module";
+import { PointModule } from "../point/point.module";
+import { StructureModule } from "../structure/structure.module";
+import { ZoneModule } from "../zone/zone.module";
+import { PolygonModule } from "../polygon/polygon.module";
+import { Router, NavigationError, Routes, RouterModule } from "@angular/router";
+import { filter } from "rxjs/operators";
+import { ProjectResolver } from "./resolvers/project.resolver";
+import { ProjectConfigResolver } from "./resolvers/project-config.resolver";
+import { components, EditComponent } from "./components";
+
+const ROUTES: Routes = [
+
+  { path: "", pathMatch: "full", redirectTo: "0" },
+  {
+    path: ":projectId",
+    resolve: { project: ProjectResolver },
+    children: [
+      {
+        path: "",
+        component: EditComponent,
+        resolve: {
+          config: ProjectConfigResolver
+        },
+      },
+    ],
+  },
+];
+
 
 @NgModule({
   imports: [
@@ -28,13 +47,21 @@ import { PolygonModule } from '../polygon/polygon.module';
     PointModule,
     DrawModule,
     PolygonModule,
-    ProjectsRoutingModule,
     StructureModule,
     ZoneModule,
+    RouterModule.forChild(ROUTES)
   ],
   exports: [],
   entryComponents: [EditComponent],
-  declarations: [DrawingAreaComponent, EditComponent, ConfigureComponent, SavingComponent],
+  declarations: [components],
   providers: [],
 })
-export class ProjectModule { }
+export class ProjectModule {
+  constructor(private router: Router) {
+    this.router.events.pipe(filter(event => event instanceof NavigationError)).subscribe((event: NavigationError) => {
+      if (event.url !== "/project/0") {
+        this.router.navigate(["project", 0]);
+      }
+    });
+  }
+}

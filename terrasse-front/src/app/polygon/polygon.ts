@@ -1,4 +1,4 @@
-import { Point } from '../point/point';
+import { Point } from "../point/point";
 
 export class Polygon {
     constructor(public path: Point[] = [], public isNotClosed: Boolean = false) {}
@@ -35,7 +35,7 @@ export class Polygon {
     }
 
     public getSvgPath() {
-        return this.path.map(point => (point.x || 0) + ',' + (point.y || 0)).join(' ');
+        return this.path.map(point => (point.x || 0) + "," + (point.y || 0)).join(" ");
     }
 
     public addPoint(point: Point) {

@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { Draw } from '../draw';
-import { DrawType } from '../draw.type';
-import { DrawService } from '../draw.service';
-import { PolygonService } from 'src/app/polygon/polygon.service';
-import { Project } from 'src/app/project/project';
+import { Component, Input } from "@angular/core";
+import { Draw } from "../models/draw";
+import { DrawType } from "../models/draw.type";
+import { DrawService } from "../draw.service";
+import { PolygonService } from "src/app/polygon/polygon.service";
+import { Project } from "src/app/project/models/project";
 
 @Component({
-    selector: 'terrasse-draw-info',
-    templateUrl: './draw-info.component.html',
-    styleUrls: ['./draw-info.component.scss'],
+    selector: "terrasse-draw-info",
+    templateUrl: "./draw-info.component.html",
+    styleUrls: ["./draw-info.component.scss"],
 })
 export class DrawInfoComponent {
     @Input() draw: Draw;
@@ -19,7 +19,7 @@ export class DrawInfoComponent {
     structurePilars = 0;
     fallingWood = 0;
 
-    constructor(private readonly polygonService: PolygonService, private readonly drawService: DrawService) {}
+    constructor(private readonly polygonService: PolygonService, private readonly drawService: DrawService) { }
 
     calcArea(): number {
         if (this.draw.type === DrawType.Piscine) {
