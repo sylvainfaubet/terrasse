@@ -1,14 +1,14 @@
 import { Injectable } from "@angular/core";
 import polygonIntersect from "polygons-intersect";
 
-import { Point } from "../point/point";
-import { Polygon } from "./polygon";
+import { Point } from "../../point/point";
+import { Polygon } from "../models/polygon";
 
 @Injectable({
     providedIn: "root",
 })
 export class PolygonService {
-    constructor() {}
+    constructor() { }
 
     public polygonIntersections(p1: Polygon, p2: Polygon): Polygon[] {
         if (p1 && p1.path.length > 0 && p2 && p2.path.length > 0) {
@@ -71,7 +71,7 @@ export class PolygonService {
 
     public getCentroid(polygon: Polygon): Point {
         const length = polygon.path.length;
-        const center = polygon.path.reduce(function(last, current) {
+        const center = polygon.path.reduce(function (last, current) {
             last.x += current.x / length;
             last.y += current.y / length;
             return last;

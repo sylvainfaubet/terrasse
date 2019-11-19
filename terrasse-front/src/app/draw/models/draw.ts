@@ -1,4 +1,4 @@
-import { Polygon } from "src/app/polygon/polygon";
+import { Polygon } from "src/app/polygon/models/polygon";
 import { Structure } from "src/app/structure/structure";
 import { DrawType } from "./draw.type";
 
