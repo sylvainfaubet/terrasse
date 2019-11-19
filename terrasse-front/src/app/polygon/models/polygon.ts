@@ -1,7 +1,7 @@
-import { Point } from "../point/point";
+import { Point } from "../../point/point";
 
 export class Polygon {
-    constructor(public path: Point[] = [], public isNotClosed: Boolean = false) {}
+    constructor(public path: Point[] = [], public isNotClosed: Boolean = false) { }
 
     public area(isSigned = false) {
         let aire = 0;

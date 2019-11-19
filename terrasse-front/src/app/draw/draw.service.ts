@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Draw } from "./models/draw";
-import { PolygonService } from "../polygon/polygon.service";
-import { Polygon } from "../polygon/polygon";
+import { PolygonService } from "../polygon/services/polygon.service";
+import { Polygon } from "../polygon/models/polygon";
 import { Point } from "../point/point";
 
 @Injectable({

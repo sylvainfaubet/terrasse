@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Polygon } from "../polygon";
+import { Polygon } from "../../models/polygon";
 import { Point } from "src/app/point/point";
 import { EditPointModalService } from "src/app/point/edit-point-modal/edit-point-modal.service";
-import { PolygonService } from "../polygon.service";
+import { PolygonService } from "../../services/polygon.service";
 
 @Component({
     selector: "terrasse-polygon-config",
@@ -15,9 +15,9 @@ export class PolygonConfigComponent implements OnInit {
     @Input()
     polygon: Polygon;
 
-    constructor(private readonly editPointModalService: EditPointModalService, private readonly polygonService: PolygonService) {}
+    constructor(private readonly editPointModalService: EditPointModalService, private readonly polygonService: PolygonService) { }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     isNotChangeable() {
         return this.polygon && this.polygon.path.length < 3;

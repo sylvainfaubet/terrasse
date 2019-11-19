@@ -2,7 +2,7 @@ import { Component, Input } from "@angular/core";
 import { Draw } from "../models/draw";
 import { DrawType } from "../models/draw.type";
 import { DrawService } from "../draw.service";
-import { PolygonService } from "src/app/polygon/polygon.service";
+import { PolygonService } from "src/app/polygon/services/polygon.service";
 import { Project } from "src/app/project/models/project";
 
 @Component({
