@@ -1,12 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import localeFr from '@angular/common/locales/fr';
-import localeFrExtra from '@angular/common/locales/extra/fr';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import localeFr from "@angular/common/locales/fr";
+import localeFrExtra from "@angular/common/locales/extra/fr";
 
-import { PolygonInfoComponent } from './polygon-info.component';
-import { Polygon } from '../polygon';
-import { registerLocaleData } from '@angular/common';
+import { PolygonInfoComponent } from "./polygon-info.component";
+import { Polygon } from "../polygon";
+import { registerLocaleData } from "@angular/common";
 
-describe('PolygonInfoComponent', () => {
+describe("PolygonInfoComponent", () => {
     let component: PolygonInfoComponent;
     let fixture: ComponentFixture<PolygonInfoComponent>;
 
@@ -14,7 +14,7 @@ describe('PolygonInfoComponent', () => {
         TestBed.configureTestingModule({
             declarations: [PolygonInfoComponent],
         }).compileComponents();
-        registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
+        registerLocaleData(localeFr, "fr-FR", localeFrExtra);
     }));
 
     beforeEach(() => {
@@ -24,7 +24,7 @@ describe('PolygonInfoComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it("should create", () => {
         expect(component).toBeTruthy();
     });
 });

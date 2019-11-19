@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Draw } from '../draw';
-import { DrawType } from '../draw.type';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Draw } from "../models/draw";
+import { DrawType } from "../models/draw.type";
 
 @Component({
-    selector: 'terrasse-draws',
-    templateUrl: './draws.component.html',
-    styleUrls: ['./draws.component.scss'],
+    selector: "terrasse-draws",
+    templateUrl: "./draws.component.html",
+    styleUrls: ["./draws.component.scss"],
 })
 export class DrawsComponent implements OnInit {
     @Input()
@@ -28,7 +28,7 @@ export class DrawsComponent implements OnInit {
     currentDrawChange = new EventEmitter<Draw>();
 
     ngOnInit() {
-        console.log('DrawsComponent', this.draws);
+        console.log("DrawsComponent", this.draws);
         this.setCurrentDrawIndex(0);
     }
 
@@ -41,7 +41,7 @@ export class DrawsComponent implements OnInit {
 
     setCurrentDrawIndex(index: number) {
         this.currentDrawIndex = index;
-        console.log('setCurrentDrawIndex', this.draws[index]);
+        console.log("setCurrentDrawIndex", this.draws[index]);
         this.currentDrawChange.emit(this.draws[index]);
     }
 
@@ -56,7 +56,7 @@ export class DrawsComponent implements OnInit {
             }
             this.draws.splice(this.draws.indexOf(draw), 1);
         } else {
-            alert('on ne peut pas supprimer le dernier dessin sans en créer un autre');
+            alert("on ne peut pas supprimer le dernier dessin sans en créer un autre");
         }
     }
 

@@ -1,13 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Polygon } from '../polygon';
-import { Point } from 'src/app/point/point';
-import { EditPointModalService } from 'src/app/point/edit-point-modal/edit-point-modal.service';
-import { PolygonService } from '../polygon.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { Polygon } from "../polygon";
+import { Point } from "src/app/point/point";
+import { EditPointModalService } from "src/app/point/edit-point-modal/edit-point-modal.service";
+import { PolygonService } from "../polygon.service";
 
 @Component({
-    selector: 'terrasse-polygon-config',
-    templateUrl: './polygon-config.component.html',
-    styleUrls: ['./polygon-config.component.scss'],
+    selector: "terrasse-polygon-config",
+    templateUrl: "./polygon-config.component.html",
+    styleUrls: ["./polygon-config.component.scss"],
 })
 export class PolygonConfigComponent implements OnInit {
     angle = 10;

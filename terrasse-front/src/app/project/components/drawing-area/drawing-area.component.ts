@@ -1,13 +1,13 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
-import { Draw } from 'src/app/draw/draw';
-import { Point } from 'src/app/point/point';
+import { Draw } from "src/app/draw/models/draw";
+import { Point } from "src/app/point/point";
 
 @Component({
-    selector: 'terrasse-drawing-area',
-    templateUrl: './drawing-area.component.html',
-    styleUrls: ['./drawing-area.component.scss']
+    selector: "terrasse-drawing-area",
+    templateUrl: "./drawing-area.component.html",
+    styleUrls: ["./drawing-area.component.scss"]
 })
 export class DrawingAreaComponent implements OnInit {
     @Output() clickEvent = new EventEmitter<Point>();
@@ -27,11 +27,11 @@ export class DrawingAreaComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
+        this.svg = this.el.nativeElement.getElementsByTagName("svg")[0];
     }
 
     getViewboxText() {
-        return '0 0 ' + this.project.zone.width + ' ' + this.project.zone.height;
+        return "0 0 " + this.project.zone.width + " " + this.project.zone.height;
     }
 
     formatPoints(draw: Draw) {
@@ -53,7 +53,7 @@ export class DrawingAreaComponent implements OnInit {
         const transformation = svg.getScreenCTM().inverse();
 
         const goodPoint = p.matrixTransform(transformation);
-        if (window.navigator.vendor !== 'Google Inc.') {
+        if (window.navigator.vendor !== "Google Inc.") {
             goodPoint.y += svg.height.baseVal.value;
         }
 
