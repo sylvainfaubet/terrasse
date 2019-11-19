@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ActivatedRoute } from "@angular/router";
 import { of } from "rxjs";
 
-import { Zone } from "src/app/zone/zone";
+import { Zone } from "src/app/zone/models/zone";
 import { MaterialModule } from "../../../material/material.module";
 import { Project } from "../../models/project";
 import { DrawingAreaComponent } from "./drawing-area.component";
