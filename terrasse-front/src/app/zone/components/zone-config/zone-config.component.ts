@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Zone } from "../zone";
+import { Zone } from "../../models";
 
 @Component({
   selector: "terrasse-zone-config",
@@ -8,8 +8,8 @@ import { Zone } from "../zone";
 })
 export class ZoneConfigComponent implements OnInit {
 
-    @Input()
-    zone: Zone;
+  @Input()
+  zone: Zone;
 
   constructor() { }
 

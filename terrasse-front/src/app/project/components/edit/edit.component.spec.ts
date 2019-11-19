@@ -6,7 +6,7 @@ import { EditComponent } from "./edit.component";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { of } from "rxjs";
-import { Zone } from "src/app/zone/zone";
+import { Zone } from "src/app/zone/models/zone";
 import { Project } from "../../models/project";
 
 describe("EditComponent", () => {

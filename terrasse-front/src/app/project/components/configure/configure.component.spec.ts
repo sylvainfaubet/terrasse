@@ -6,7 +6,7 @@ import { of } from "rxjs";
 import { Draw } from "src/app/draw/models/draw";
 import { DrawType } from "src/app/draw/models/draw.type";
 import { MaterialModule } from "src/app/material/material.module";
-import { Zone } from "src/app/zone/zone";
+import { Zone } from "src/app/zone/models/zone";
 import { Project } from "../../models/project";
 import { ConfigureComponent } from "./configure.component";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
