@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { Structure } from "../structure";
+import { Structure } from "../../models/structure";
 import { EditPointModalService } from "src/app/point/edit-point-modal/edit-point-modal.service";
 
 @Component({
@@ -10,9 +10,9 @@ import { EditPointModalService } from "src/app/point/edit-point-modal/edit-point
 export class StructureConfigComponent implements OnInit {
     @Input() structure: Structure;
 
-    constructor(private editPointModalService: EditPointModalService) {}
+    constructor(private editPointModalService: EditPointModalService) { }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     moveStructure() {
         this.editPointModalService.modifyPoint(this.structure.offset);
