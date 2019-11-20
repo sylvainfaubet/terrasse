@@ -1,0 +1,16 @@
+## Docker-compose config
+COMPOSE_PROJECT_NAME=terrasse
+
+# All volumes driver
+VOLUMES_DRIVER=local
+
+# All Networks driver
+NETWORKS_DRIVER=bridge
+
+### Paths #################################################
+
+# Point to the path of your applications code on your host
+APP_CODE_PATH_HOST=./
+
+# Point to where the `APP_CODE_PATH_HOST` should be in the container. You may add flags to the path `:cached`, `:delegated`. When using Docker Sync add `:nocopy`
+APP_CODE_PATH_CONTAINER=/var/www
