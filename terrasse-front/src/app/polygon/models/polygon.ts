@@ -1,4 +1,4 @@
-import { Point } from "../../point/point";
+import { Point } from "../../point/models/point";
 
 export class Polygon {
     constructor(public path: Point[] = [], public isNotClosed: Boolean = false) { }

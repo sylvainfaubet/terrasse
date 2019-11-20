@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Structure } from "../../models/structure";
-import { EditPointModalService } from "src/app/point/edit-point-modal/edit-point-modal.service";
+import { EditPointModalService } from "src/app/point/components/edit-point-modal/edit-point-modal.service";
 
 @Component({
     selector: "terrasse-structure-config",

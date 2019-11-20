@@ -1,24 +1,24 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Draw } from "src/app/draw/models/draw";
-import { DrawService } from "src/app/draw/draw.service";
+import { DrawService } from "src/app/draw/services/draw.service";
 
 @Component({
-    selector: "terrasse-structure-calculator",
-    templateUrl: "./structure-calculator.component.html",
-    styleUrls: ["./structure-calculator.component.scss"],
+  selector: "terrasse-structure-calculator",
+  templateUrl: "./structure-calculator.component.html",
+  styleUrls: ["./structure-calculator.component.scss"],
 })
 export class StructureCalculatorComponent implements OnInit {
-    @Input()
-    draw: Draw;
+  @Input()
+  draw: Draw;
 
-    constructor(private readonly drawService: DrawService) { }
+  constructor(private readonly drawService: DrawService) { }
 
-    ngOnInit() { }
+  ngOnInit() { }
 
-    structureSetBestAngle() {
-        this.drawService.drawStructureSetBestAngle(this.draw);
-    }
-    structureAlign() {
-        this.drawService.drawStructureSetAlignToLastEdge(this.draw);
-    }
+  structureSetBestAngle() {
+    this.drawService.drawStructureSetBestAngle(this.draw);
+  }
+  structureAlign() {
+    this.drawService.drawStructureSetAlignToLastEdge(this.draw);
+  }
 }

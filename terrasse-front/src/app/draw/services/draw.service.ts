@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { Draw } from "./models/draw";
-import { PolygonService } from "../polygon/services/polygon.service";
-import { Polygon } from "../polygon/models/polygon";
-import { Point } from "../point/point";
+import { Draw } from "../models/draw";
+import { PolygonService } from "../../polygon/services/polygon.service";
+import { Polygon } from "../../polygon/models/polygon";
+import { Point } from "../../point/models/point";
 
 @Injectable({
     providedIn: "root",

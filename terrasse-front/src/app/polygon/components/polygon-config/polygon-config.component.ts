@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Polygon } from "../../models/polygon";
-import { Point } from "src/app/point/point";
-import { EditPointModalService } from "src/app/point/edit-point-modal/edit-point-modal.service";
+import { Point } from "src/app/point/models/point";
+import { EditPointModalService } from "src/app/point/components/edit-point-modal/edit-point-modal.service";
 import { PolygonService } from "../../services/polygon.service";
 
 @Component({
