@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 
 import { Draw } from "src/app/draw/models/draw";
 import { Project } from "../../models/project";
@@ -10,26 +9,13 @@ import { Project } from "../../models/project";
   styleUrls: ["./configure.component.scss"],
 })
 export class ConfigureComponent {
-  currentDrawValue: Draw;
 
-  @Input()
-  get currentDraw() {
-    return this.currentDrawValue;
-  }
+  @Input() currentDraw: Draw;
   @Output() currentDrawChange = new EventEmitter();
-  set currentDraw(draw: Draw) {
-    this.currentDrawValue = draw;
-    this.currentDrawChange.emit(draw);
-  }
 
-  project: Project;
+  @Input() project: Project;
 
-  constructor(route: ActivatedRoute) {
-    route.data.subscribe(data => {
-      this.project = data.project;
-      this.currentDraw = data.project.draws[0];
-    });
-  }
+  constructor() { }
 
   isLargeScreen() {
     // return this.mediaObserver.isActive('lg');

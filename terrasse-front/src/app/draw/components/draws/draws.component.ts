@@ -3,64 +3,55 @@ import { Draw } from "../../models/draw";
 import { DrawType } from "../../models/draw.type";
 
 @Component({
-    selector: "terrasse-draws",
-    templateUrl: "./draws.component.html",
-    styleUrls: ["./draws.component.scss"],
+  selector: "terrasse-draws",
+  templateUrl: "./draws.component.html",
+  styleUrls: ["./draws.component.scss"],
 })
 export class DrawsComponent implements OnInit {
-    @Input()
-    draws: Draw[];
+  @Input()
+  draws: Draw[];
 
-    currentDrawIndex: number;
+  private _currentDrawIndex = 0;
 
-    selectedDrawType = DrawType.Piscine;
+  set currentDrawIndex(index: number) {
+    this._currentDrawIndex = index;
+    this.currentDrawChange.emit(this.currentDraw);
+  }
 
-    @Input()
-    get currentDraw() {
-        return this.draws[this.currentDrawIndex];
+  selectedDrawType = DrawType.Piscine;
+
+  get currentDraw() {
+    return this.draws[this._currentDrawIndex];
+  }
+
+  @Output()
+  currentDrawChange = new EventEmitter<Draw>();
+
+  ngOnInit() {
+    if (this.draws && this.draws.length === 0) {
+      this.newDraw();
     }
-    set currentDraw(draw: Draw) {
-        const drawIndex = this.draws.findIndex(drawItem => drawItem === draw);
-        this.setCurrentDrawIndex(drawIndex > 0 ? drawIndex : 0);
-    }
+  }
 
-    @Output()
-    currentDrawChange = new EventEmitter<Draw>();
+  newDraw() {
+    const draw = new Draw(this.selectedDrawType);
+    this.draws.push(draw);
+    this.currentDrawIndex = this.draws.length - 1;
+  }
 
-    ngOnInit() {
-        console.log("DrawsComponent", this.draws);
-        this.setCurrentDrawIndex(0);
-    }
+  roundCurrentDraw() {
+    this.currentDrawIndex = this._currentDrawIndex + 1 % this.draws.length;
+  }
 
-    newDraw(type: DrawType) {
-        console.log(type);
-        const draw = new Draw(type);
-        this.draws.push(draw);
-        this.setCurrentDrawIndex(this.draws.length - 1);
+  removeDraw() {
+    if (this.draws.length > 1) {
+      this.draws.splice(this._currentDrawIndex, 1);
+    } else {
+      alert("on ne peut pas supprimer le dernier dessin sans en créer un autre");
     }
+  }
 
-    setCurrentDrawIndex(index: number) {
-        this.currentDrawIndex = index;
-        console.log("setCurrentDrawIndex", this.draws[index]);
-        this.currentDrawChange.emit(this.draws[index]);
-    }
-
-    changeCurrentDraw() {
-        this.setCurrentDrawIndex((this.currentDrawIndex + 1) % this.draws.length);
-    }
-
-    removeDraw(draw: Draw) {
-        if (this.draws.length > 1) {
-            if (this.currentDraw === draw) {
-                this.setCurrentDrawIndex(0);
-            }
-            this.draws.splice(this.draws.indexOf(draw), 1);
-        } else {
-            alert("on ne peut pas supprimer le dernier dessin sans en créer un autre");
-        }
-    }
-
-    isOnlyOneDraw() {
-        return this.draws && this.draws.length === 1;
-    }
+  get isOnlyOneDraw() {
+    return this.draws && this.draws.length === 1;
+  }
 }
