@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { PolygonService } from "src/app/polygon/services/polygon.service";
-import { Draw } from "../models/draw";
-import { DrawType } from "../models/draw.type";
+import { Draw } from "../../models/draw";
+import { DrawType } from "../../models/draw.type";
 import { DrawInfoComponent } from "./draw-info.component";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
