@@ -1,12 +1,9 @@
-<div id="edit-component" fxLayout.xs=column fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around justify">
-    <mat-card fxFlex.xs fxFlex=60 fxLayout="column">
-        <div fxLayout="row" fxLayoutGap="20px"  fxLayout.xs="column" fxLayoutAlign="start center">
-            <terrasse-mode [(mode)]="mode" ></terrasse-mode>
-            <terrasse-polygon-config [(polygon)]="currentDraw.polygon"></terrasse-polygon-config>
-        </div>
-        <terrasse-drawing-area [currentDraw]="currentDraw" (clickEvent)="doJobOnClickedPoint($event)"></terrasse-drawing-area>
-    </mat-card>
-    <mat-card fxFlex.xs fxFlex=400px>
-        <terrasse-configure [(currentDraw)]="currentDraw"></terrasse-configure>
-    </mat-card>
-</div>
+<mat-card>
+  <terrasse-drawing-area [currentDraw]="currentDraw" (clickEvent)="doJobOnClickedPoint($event)">
+  </terrasse-drawing-area>
+</mat-card>
+<mat-card>
+  <terrasse-polygon-config [(polygon)]="currentDraw.polygon"></terrasse-polygon-config>
+  <terrasse-mode [(mode)]="mode"></terrasse-mode>
+  <terrasse-configure [(currentDraw)]="currentDraw"></terrasse-configure>
+</mat-card>
