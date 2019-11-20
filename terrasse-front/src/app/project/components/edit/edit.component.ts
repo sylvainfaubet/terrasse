@@ -2,9 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Draw } from "src/app/draw/models/draw";
 import { DrawType } from "src/app/draw/models/draw.type";
-import { EditPointModalService } from "src/app/point/edit-point-modal/edit-point-modal.service";
-import { Mode } from "src/app/point/mode/mode.model";
-import { Point } from "src/app/point/point";
+import { EditPointModalService } from "src/app/point/components/edit-point-modal/edit-point-modal.service";
+import { Mode } from "src/app/point/components/mode/mode.model";
+import { Point } from "src/app/point/models/point";
 import { Project } from "../../models/project";
 
 @Component({

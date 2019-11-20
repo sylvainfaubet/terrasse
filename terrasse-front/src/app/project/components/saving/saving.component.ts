@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { DownloadService } from "src/app/download/download.service";
+import { DownloadService } from "@shared/services/download.service";
 import { ProjectService } from "../../services/project.service";
 import { Router } from "@angular/router";
 import { Project } from "../../models/project";

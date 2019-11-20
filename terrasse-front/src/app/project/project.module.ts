@@ -4,8 +4,6 @@ import { FormsModule } from "@angular/forms";
 
 import { MaterialModule } from "../material/material.module";
 
-import { DownloadModule } from "../download/download.module";
-
 import { MatDialogModule } from "@angular/material";
 import { DrawModule } from "../draw/draw.module";
 import { PointModule } from "../point/point.module";
@@ -40,7 +38,6 @@ const ROUTES: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    DownloadModule,
     FormsModule,
     MatDialogModule,
     MaterialModule,

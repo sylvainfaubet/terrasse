@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { Draw } from "../models/draw";
-import { DrawType } from "../models/draw.type";
+import { Draw } from "../../models/draw";
+import { DrawType } from "../../models/draw.type";
 
 @Component({
     selector: "terrasse-draws",
