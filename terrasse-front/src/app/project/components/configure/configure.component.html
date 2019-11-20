@@ -1,5 +1,4 @@
-<div fxFlex fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="justify justify">
-
+<ng-container *ngIf="currentDraw">
   <mat-expansion-panel [expanded]="isLargeScreen()">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -45,4 +44,4 @@
   </mat-expansion-panel>
 
   <terrasse-saving [(project)]="project"></terrasse-saving>
-</div>
+</ng-container>

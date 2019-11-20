@@ -1,20 +1,20 @@
-<div fxFlexFill fxLayoutGap="10px grid" fxLayout="column">
+<div>
 
-    <terrasse-draw-type-selector [(type)]="selectedDrawType"></terrasse-draw-type-selector>
-    <div fxFlex>
-        <button mat-flat-button color="primary" (click)="newDraw(selectedDrawType)">
-            ajouter une {{ selectedDrawType }}
-        </button>
-    </div>
+  <terrasse-draw-type-selector [(type)]="selectedDrawType"></terrasse-draw-type-selector>
+  <div>
+    <button mat-flat-button color="primary" (click)="newDraw()">
+      ajouter une {{ selectedDrawType }}
+    </button>
+  </div>
 
-    <div fxFlex>
-        <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="changeCurrentDraw()">
-            changer de dessin
-        </button>
-    </div>
-    <div fxFlex fxFlex.xs="100">
-        <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw()" (click)="removeDraw(currentDraw)">
-            supprimer la {{ currentDraw.type }}
-        </button>
-    </div>
+  <div>
+    <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw" (click)="roundCurrentDraw()">
+      changer de dessin
+    </button>
+  </div>
+  <div>
+    <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw" (click)="removeDraw()">
+      supprimer la {{ currentDraw.type }}
+    </button>
+  </div>
 </div>
