@@ -1,4 +1,4 @@
-<ng-container *ngIf="currentDraw">
+<ng-container *ngIf="currentDraw && project">
   <mat-expansion-panel [expanded]="isLargeScreen()">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -15,7 +15,7 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     <div>
-      <terrasse-draws [(draws)]="project.draws" [(currentDraw)]="currentDraw"></terrasse-draws>
+      <terrasse-draws [(draws)]="project.draws" (currentDraw)="currentDraw"></terrasse-draws>
     </div>
   </mat-expansion-panel>
 
@@ -35,11 +35,10 @@
         Terrain
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <div fxFlexFill fxLayoutGap="10px grid" fxLayout="column" fxLayoutAlign="center center">
-      <mat-form-field>
-        <input matInput placeholder="nom du projet" [(ngModel)]="project.name">
-      </mat-form-field>
-    </div>
+    <mat-form-field>
+      <input matInput placeholder="nom du projet" [(ngModel)]="project.name">
+    </mat-form-field>
+
     <terrasse-zone-config [(zone)]="project.zone"></terrasse-zone-config>
   </mat-expansion-panel>
 
