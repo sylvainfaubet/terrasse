@@ -1,26 +1,30 @@
-<svg (click)="onClick($event)" width="100%" transform=" scale(1,-1)" preserveAspectRatio="xMidYMid meet"
-    [attr.viewBox]="getViewboxText()">
+<svg (click)="onClick($event)" height="100%" transform=" scale(1,-1)" preserveAspectRatio="xMidYMid"
+  [attr.viewBox]="getViewboxText()">
 
+  <defs>
+    <pattern id="drawGrid" width="1" height="1" patternUnits="userSpaceOnUse">
+      <rect width="1" height="1" fill="none" stroke="gray" stroke-width="0.05" />
+    </pattern>
+  </defs>
+
+  <rect width="100%" height="100%" stroke="gray" stroke-width="0.1" fill="url(#drawGrid)" />
+
+  <g *ngFor="let draw of project.draws; index as i">
     <defs>
-        <pattern id="drawGrid" width="1" height="1" patternUnits="userSpaceOnUse">
-            <rect width="1" height="1" fill="none" stroke="gray" stroke-width="0.05" />
-        </pattern>
+      <pattern [attr.id]="'structure' + i" [attr.width]="draw.structure.topSpace"
+        [attr.height]="draw.structure.bottomSpace" patternUnits="userSpaceOnUse"
+        [attr.patternTransform]="'rotate('+draw.structure.angle+') translate('+draw.structure.offset.x + ','+draw.structure.offset.y+')'">
+        <rect [attr.width]="draw.structure.topSpace" [attr.height]="draw.structure.bottomSpace"
+          [attr.fill]="config[draw.type].fill" stroke="gray" stroke-width="0.05" />
+      </pattern>
     </defs>
+    <polygon [attr.fill]="draw.type === 'terrasse' ? 'url(#structure' + i + ')' : config[draw.type].fill"
+      [attr.stroke]="config[draw.type].stroke" stroke-width="0.1" [attr.points]="formatPoints(draw)"></polygon>
+  </g>
 
-    <rect width="100%" height="100%" stroke="gray" stroke-width="0.1" fill="url(#drawGrid)" />
-
-    <g *ngFor="let draw of project.draws; index as i">
-            <defs>
-                <pattern [attr.id]="'structure' + i" [attr.width]="draw.structure.topSpace" [attr.height]="draw.structure.bottomSpace" patternUnits="userSpaceOnUse" [attr.patternTransform]="'rotate('+draw.structure.angle+') translate('+draw.structure.offset.x + ','+draw.structure.offset.y+')'">
-                    <rect [attr.width]="draw.structure.topSpace" [attr.height]="draw.structure.bottomSpace" [attr.fill]="config[draw.type].fill" stroke="gray" stroke-width="0.05" />
-                </pattern>
-            </defs>
-        <polygon [attr.fill]="draw.type === 'terrasse' ? 'url(#structure' + i + ')' : config[draw.type].fill" [attr.stroke]="config[draw.type].stroke"
-        stroke-width="0.1" [attr.points]="formatPoints(draw)"></polygon>
-    </g>
-
-    <g *ngIf="currentDraw">
-        <circle *ngFor="let p of currentDraw.polygon.path; let last = last; let first= first trackBy index" [attr.cx]="p.x" [attr.cy]="p.y"
-            r="0.2" [attr.stroke]="last ? 'green' : first ? 'blue' : 'gray'" fill="transparent" stroke-width="0.1" />
-    </g>
+  <g *ngIf="currentDraw">
+    <circle *ngFor="let p of currentDraw.polygon.path; let last = last; let first= first trackBy index" [attr.cx]="p.x"
+      [attr.cy]="p.y" r="0.2" [attr.stroke]="last ? 'green' : first ? 'blue' : 'gray'" fill="transparent"
+      stroke-width="0.1" />
+  </g>
 </svg>

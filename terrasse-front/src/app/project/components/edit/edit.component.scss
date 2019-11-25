@@ -4,3 +4,10 @@
     display: flex;
     justify-content: space-between;
 }
+.main-card {
+  flex: 1 1 0rem;
+}
+
+mat-card + mat-card {
+  margin-left: 1rem;
+}
