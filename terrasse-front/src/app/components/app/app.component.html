@@ -1,8 +1,8 @@
 <terrasse-header [title]="title"></terrasse-header>
 <div class="content">
-  <ng-container *ngIf="!loaded; else content">
+  <div class="loader-container" *ngIf="!loaded; else content">
     <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-  </ng-container>
+  </div>
 
   <ng-template #content>
     <router-outlet></router-outlet>
