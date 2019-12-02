@@ -1,26 +1,3 @@
-<div fxFlexFill fxLayoutGap="10px grid" fxLayout="row" fxLayoutAlign="center center">
-  <div fxFlex>
-    <button fxFlex mat-flat-button color="primary" [disabled]="isNotChangeable()"
-      (click)="polygon.rollFirstToLast()" title="rotation des points">
-      <i class="material-icons">cached</i>
-    </button>
-  </div>
-  <div fxFlex>
-    <button fxFlex mat-flat-button color="primary" (click)="movePolygon()" title="déplacer">
-      <i class="material-icons">control_camera</i>
-    </button>
-  </div>
-  <div fxFlex>
-    <button fxFlex mat-flat-button color="primary" (click)="rotatePolygon(true)" title="tourner vers la gauche">
-      <i class="material-icons"> rotate_left</i>
-    </button>
-  </div>
-  <mat-form-field fxFlex style="width:50px" >
-      <input type="number" matInput placeholder="angle" min="0" max="90" [(ngModel)]="angle">
-  </mat-form-field>
-  <div fxFlex>
-      <button fxFlex mat-flat-button color="primary" (click)="rotatePolygon()" title="tourner vers la droite">
-        <i class="material-icons"> rotate_right</i>
-      </button>
-    </div>
-</div>
+<terrasse-polygon-roll [polygon]="polygon"></terrasse-polygon-roll>
+<!-- <terrasse-polygon-move [polygon]="polygon"></terrasse-polygon-move> -->
+<terrasse-polygon-rotate [polygon]="polygon"></terrasse-polygon-rotate>
