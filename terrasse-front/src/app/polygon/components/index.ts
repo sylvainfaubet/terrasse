@@ -1,7 +1,5 @@
-import { PolygonConfigComponent } from "./polygon-config/polygon-config.component";
-import { PolygonInfoComponent } from "./polygon-info/polygon-info.component";
-
-export const components = [PolygonConfigComponent, PolygonInfoComponent];
-
+export * from "./polygon-rotate/polygon-rotate.component";
 export * from "./polygon-config/polygon-config.component";
 export * from "./polygon-info/polygon-info.component";
+export * from "./polygon-move/polygon-move.component";
+export * from "./polygon-roll/polygon-roll.component";
