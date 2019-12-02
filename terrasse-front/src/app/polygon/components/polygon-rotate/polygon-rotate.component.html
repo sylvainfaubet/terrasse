@@ -1,0 +1,11 @@
+<ng-container *ngIf="polygon">
+  <button mat-flat-button color="primary" (click)="rotatePolygon(true)" title="tourner vers la gauche">
+    <i class="material-icons"> rotate_left</i>
+  </button>
+  <mat-form-field style="width:50px">
+    <input type="number" matInput placeholder="angle" min="0" max="90" [(ngModel)]="angle">
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="rotatePolygon()" title="tourner vers la droite">
+    <i class="material-icons"> rotate_right</i>
+  </button>
+</ng-container>
