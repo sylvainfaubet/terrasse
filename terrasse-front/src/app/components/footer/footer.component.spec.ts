@@ -1,11 +1,11 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FooterComponent } from "./footer.component";
+import { FooterComponent } from './footer.component';
 
-const footerText = "Le site est en cours de construction, en cas de problème, merci de le déclarer ICI";
+const footerText = 'Le site est en cours de construction, en cas de problème, merci de le déclarer ICI';
 
-describe("FooterComponent", () => {
+describe('FooterComponent', () => {
     let component: FooterComponent;
     let fixture: ComponentFixture<FooterComponent>;
 
@@ -22,11 +22,11 @@ describe("FooterComponent", () => {
         fixture.detectChanges();
     });
 
-    it("should create", () => {
+    it('should create', () => {
         expect(component).toBeDefined();
     });
 
-    it("should display footer message", () => {
+    it('should display footer message', () => {
         expect(fixture.elementRef.nativeElement.innerText).toBe(footerText);
     });
 });

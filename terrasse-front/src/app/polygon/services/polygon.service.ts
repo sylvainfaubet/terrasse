@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import polygonIntersect from "polygons-intersect";
+import { Injectable } from '@angular/core';
+import polygonIntersect from 'polygons-intersect';
 
-import { Point } from "../../point/models/point";
-import { Polygon } from "../models/polygon";
+import { Point } from '../../point/models/point';
+import { Polygon } from '../models/polygon';
 
 @Injectable({
-    providedIn: "root",
+    providedIn: 'root',
 })
 export class PolygonService {
     constructor() { }

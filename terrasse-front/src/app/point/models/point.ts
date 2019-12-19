@@ -1,4 +1,4 @@
-import { formatNumber } from "@angular/common";
+import { formatNumber } from '@angular/common';
 
 function roundValue(val: number, round: number) {
     return Math.round(val * round) / round;
@@ -16,7 +16,7 @@ export class Point {
     }
 
     public toString() {
-        return "x : " + formatNumber(this.x, "fr-FR") + ", y : " + formatNumber(this.y, "fr-FR");
+        return 'x : ' + formatNumber(this.x, 'fr-FR') + ', y : ' + formatNumber(this.y, 'fr-FR');
     }
 
     public toArray() {

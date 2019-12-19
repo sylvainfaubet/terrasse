@@ -1,6 +1,6 @@
-import { Polygon } from "src/app/polygon/models/polygon";
-import { Structure } from "src/app/structure/models/structure";
-import { DrawType } from "./draw.type";
+import { Polygon } from 'src/app/polygon/models/polygon';
+import { Structure } from 'src/app/structure/models/structure';
+import { DrawType } from './draw.type';
 
 export class Draw {
   constructor(
