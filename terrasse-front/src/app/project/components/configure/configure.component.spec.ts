@@ -1,17 +1,17 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { FormsModule } from "@angular/forms";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { ActivatedRoute, Router } from "@angular/router";
-import { of } from "rxjs";
-import { Draw } from "src/app/draw/models/draw";
-import { DrawType } from "src/app/draw/models/draw.type";
-import { MaterialModule } from "src/app/material/material.module";
-import { Zone } from "src/app/zone/models/zone";
-import { Project } from "../../models/project";
-import { ConfigureComponent } from "./configure.component";
-import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActivatedRoute, Router } from '@angular/router';
+import { of } from 'rxjs';
+import { Draw } from 'src/app/draw/models/draw';
+import { DrawType } from 'src/app/draw/models/draw.type';
+import { MaterialModule } from 'src/app/material/material.module';
+import { Zone } from 'src/app/zone/models/zone';
+import { Project } from '../../models/project';
+import { ConfigureComponent } from './configure.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-describe("ConfigureComponent", () => {
+describe('ConfigureComponent', () => {
     let component: ConfigureComponent;
     let fixture: ComponentFixture<ConfigureComponent>;
 
@@ -43,7 +43,7 @@ describe("ConfigureComponent", () => {
         fixture.detectChanges();
     });
 
-    it("should create", () => {
+    it('should create', () => {
         expect(component).toBeTruthy();
     });
 });

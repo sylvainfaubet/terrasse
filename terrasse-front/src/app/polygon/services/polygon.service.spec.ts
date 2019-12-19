@@ -1,15 +1,15 @@
-import { inject, TestBed } from "@angular/core/testing";
+import { inject, TestBed } from '@angular/core/testing';
 
-import { PolygonService } from "./polygon.service";
+import { PolygonService } from './polygon.service';
 
-describe("PolygonService", () => {
+describe('PolygonService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [PolygonService]
     });
   });
 
-  it("should be created", inject([PolygonService], (service: PolygonService) => {
+  it('should be created', inject([PolygonService], (service: PolygonService) => {
     expect(service).toBeTruthy();
   }));
 });

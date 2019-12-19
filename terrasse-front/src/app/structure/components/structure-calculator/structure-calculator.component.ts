@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { Draw } from "src/app/draw/models/draw";
-import { DrawService } from "src/app/draw/services/draw.service";
+import { Component, OnInit, Input } from '@angular/core';
+import { Draw } from 'src/app/draw/models/draw';
+import { DrawService } from 'src/app/draw/services/draw.service';
 
 @Component({
-  selector: "terrasse-structure-calculator",
-  templateUrl: "./structure-calculator.component.html",
-  styleUrls: ["./structure-calculator.component.scss"],
+  selector: 'terrasse-structure-calculator',
+  templateUrl: './structure-calculator.component.html',
+  styleUrls: ['./structure-calculator.component.scss'],
 })
 export class StructureCalculatorComponent implements OnInit {
   @Input()

@@ -1,4 +1,4 @@
 export enum DrawType {
-    Terrasse = "terrasse",
-    Piscine = "piscine"
+    Terrasse = 'terrasse',
+    Piscine = 'piscine'
 }

@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PolygonConfigComponent } from "./polygon-config.component";
-import { MaterialModule } from "src/app/material/material.module";
+import { PolygonConfigComponent } from './polygon-config.component';
+import { MaterialModule } from 'src/app/material/material.module';
 
-describe("PolygonConfigComponent", () => {
+describe('PolygonConfigComponent', () => {
     let component: PolygonConfigComponent;
     let fixture: ComponentFixture<PolygonConfigComponent>;
 
@@ -20,7 +20,7 @@ describe("PolygonConfigComponent", () => {
         fixture.detectChanges();
     });
 
-    it("should create", () => {
+    it('should create', () => {
         expect(component).toBeTruthy();
     });
 });
