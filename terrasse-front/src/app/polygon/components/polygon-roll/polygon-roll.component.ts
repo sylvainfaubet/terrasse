@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { Polygon } from "../../models";
+import { Component, OnInit, Input } from '@angular/core';
+import { Polygon } from '../../models';
 
 @Component({
-  selector: "terrasse-polygon-roll",
-  templateUrl: "./polygon-roll.component.html",
-  styleUrls: ["./polygon-roll.component.scss"]
+  selector: 'terrasse-polygon-roll',
+  templateUrl: './polygon-roll.component.html',
+  styleUrls: ['./polygon-roll.component.scss']
 })
 export class PolygonRollComponent implements OnInit {
 

@@ -1,11 +1,11 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DrawsComponent } from "./draws.component";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { Draw } from "../../models/draw";
-import { DrawType } from "../../models/draw.type";
+import { DrawsComponent } from './draws.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Draw } from '../../models/draw';
+import { DrawType } from '../../models/draw.type';
 
-describe("DrawsComponent", () => {
+describe('DrawsComponent', () => {
     let component: DrawsComponent;
     let fixture: ComponentFixture<DrawsComponent>;
 
@@ -23,7 +23,7 @@ describe("DrawsComponent", () => {
         fixture.detectChanges();
     });
 
-    it("should create", () => {
+    it('should create', () => {
         expect(component).toBeTruthy();
     });
 });

@@ -1,9 +1,9 @@
-import { sandboxOf } from "angular-playground";
-import { PolygonConfigComponent } from "./polygon-config.component";
-import { Polygon } from "../../models/polygon";
-import { Point } from "src/app/point/models/point";
+import { sandboxOf } from 'angular-playground';
+import { PolygonConfigComponent } from './polygon-config.component';
+import { Polygon } from '../../models/polygon';
+import { Point } from 'src/app/point/models/point';
 
-export default sandboxOf(PolygonConfigComponent).add("default", {
+export default sandboxOf(PolygonConfigComponent).add('default', {
     template: `<terrasse-polygon-config [(polygon)]="polygon"></terrasse-polygon-config>`,
     context: {
         polygon: new Polygon([

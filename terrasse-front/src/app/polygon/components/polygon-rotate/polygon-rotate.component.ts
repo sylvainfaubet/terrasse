@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { PolygonService } from "../../services/polygon.service";
-import { Polygon } from "../../models";
+import { Component, OnInit, Input } from '@angular/core';
+import { PolygonService } from '../../services/polygon.service';
+import { Polygon } from '../../models';
 
 @Component({
-  selector: "terrasse-polygon-rotate",
-  templateUrl: "./polygon-rotate.component.html",
-  styleUrls: ["./polygon-rotate.component.scss"]
+  selector: 'terrasse-polygon-rotate',
+  templateUrl: './polygon-rotate.component.html',
+  styleUrls: ['./polygon-rotate.component.scss']
 })
 export class PolygonRotateComponent implements OnInit {
 

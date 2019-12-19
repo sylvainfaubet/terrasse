@@ -1,2 +1,2 @@
-export * from "./draw";
-export * from "./draw.type";
+export * from './draw';
+export * from './draw.type';
