@@ -1,12 +1,18 @@
-<div>points :</div>
+<div class="title">points :</div>
 <mat-button-toggle-group name="point" aria-label="point" [(ngModel)]="mode">
-  <mat-button-toggle [value]="modeEnum.ADD" title="ajouter">
-    <i class="material-icons">add</i>
+  <mat-button-toggle [value]="modeEnum.ADD" title="ajouter un point">
+    <span class="material-icons">
+      add_location
+    </span>
   </mat-button-toggle>
-  <mat-button-toggle [value]="modeEnum.MODIFY" title="modifier">
-    <i class="material-icons">edit</i>
+  <mat-button-toggle [value]="modeEnum.MODIFY" title="modifier un point">
+    <span class="material-icons">
+      edit_location
+    </span>
   </mat-button-toggle>
-  <mat-button-toggle [value]="modeEnum.SUPPRESS" title="supprimer">
-    <i class="material-icons">remove</i>
+  <mat-button-toggle [value]="modeEnum.SUPPRESS" title="supprimer un point">
+    <span class="material-icons">
+      delete_forever
+    </span>
   </mat-button-toggle>
 </mat-button-toggle-group>

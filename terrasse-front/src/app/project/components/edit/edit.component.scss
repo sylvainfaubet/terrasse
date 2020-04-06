@@ -1,8 +1,23 @@
-:host {
-    padding:1rem;
-    flex: 1 1 0rem;
-    display: flex;
-    justify-content: space-between;
+:host{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.main-content, .header-bar{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: .5em;
+}
+
+.header-bar {
+  padding: 0 1em;
+}
+.main-content {
+    flex: 1 0 0rem;
+    @media screen and (max-width:600px) {
+      flex-direction: column;
+    }
 }
 .main-card {
   flex: 1 1 0rem;
@@ -20,6 +35,14 @@
   }
 }
 
-mat-card + mat-card {
-  margin-left: 1rem;
+.side {
+  max-width: 15rem;
+  @media screen and (max-width:600px) {
+    max-width: 100%;
+  }
 }
+
+mat-card {
+  margin: .5rem;
+}
+

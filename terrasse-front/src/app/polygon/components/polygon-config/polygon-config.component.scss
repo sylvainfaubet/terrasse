@@ -1,5 +1,8 @@
 :host {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+terrasse-polygon-move, terrasse-polygon-rotate{
+  margin-left: 1rem;
 }

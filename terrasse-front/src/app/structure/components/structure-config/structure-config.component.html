@@ -1,12 +1,10 @@
-<div fxFlexFill fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center">
-    <mat-form-field>
-        <input type="number" step="0.01" matInput placeholder="espace lambourdes basses" [(ngModel)]="structure.bottomSpace">
-    </mat-form-field>
-    <mat-form-field>
-        <input type="number" step="0.01" matInput placeholder="espace lambourdes hautes" [(ngModel)]="structure.topSpace">
-    </mat-form-field>
-    <mat-form-field>
-        <input type="number" matInput placeholder="angle" [(ngModel)]="structure.angle">
-    </mat-form-field>
-    <button fxFlexFill mat-flat-button color="primary" (click)="moveStructure()">déplacer</button>
-</div>
+<mat-form-field>
+  <input type="number" step="0.01" matInput placeholder="espace lambourdes basses" [(ngModel)]="structure.bottomSpace">
+</mat-form-field>
+<mat-form-field>
+  <input type="number" step="0.01" matInput placeholder="espace lambourdes hautes" [(ngModel)]="structure.topSpace">
+</mat-form-field>
+<mat-form-field>
+  <input type="number" matInput placeholder="angle" [(ngModel)]="structure.angle">
+</mat-form-field>
+<button mat-flat-button color="primary" (click)="moveStructure()">déplacer</button>
