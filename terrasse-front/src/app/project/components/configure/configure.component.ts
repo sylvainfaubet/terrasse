@@ -16,8 +16,4 @@ export class ConfigureComponent {
   @Input() project: Project;
 
   constructor() { }
-
-  isLargeScreen() {
-    // return this.mediaObserver.isActive('lg');
-  }
 }

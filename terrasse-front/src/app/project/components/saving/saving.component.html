@@ -1,4 +1,12 @@
 <div>
-  <button mat-flat-button color="primary" (click)="saveProject()">sauvegarder</button>
-  <button mat-flat-button color="primary" (click)="loadProject()">charger</button>
+  <button mat-flat-button color="primary" (click)="loadProject()" title="charger un fichier">
+    <span class="material-icons">
+      folder_open
+    </span>
+  </button>
+  <button mat-flat-button color="primary" (click)="saveProject()" title="sauvegarder">
+    <span class="material-icons">
+      save
+    </span>
+  </button>
 </div>

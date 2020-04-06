@@ -2,5 +2,6 @@
   flex: auto;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  min-width: 12em;
+  justify-content: space-between;
 }
