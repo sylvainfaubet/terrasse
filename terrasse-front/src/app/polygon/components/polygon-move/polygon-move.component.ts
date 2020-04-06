@@ -18,7 +18,7 @@ export class PolygonMoveComponent implements OnInit {
 
   movePolygon() {
     const translate = new Point(0, 0);
-    this.editPointModalService.modifyPoint(translate).subscribe(() => {
+    this.editPointModalService.modifyPoint(translate, 'Déplacement du dessin').subscribe(() => {
       this.polygon.move(translate);
     });
   }

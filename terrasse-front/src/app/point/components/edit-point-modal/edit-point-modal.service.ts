@@ -5,17 +5,20 @@ import { Point } from 'src/app/point/models/point';
 import { EditPointModalComponent } from './edit-point-modal.component';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class EditPointModalService {
-    constructor(private readonly dialog: MatDialog) { }
+  constructor(private readonly dialog: MatDialog) { }
 
-    modifyPoint(point: Point) {
-        const dialogRef = this.dialog.open(EditPointModalComponent, {
-            width: '300px',
-            data: point
-        });
+  modifyPoint(point: Point, title?: string) {
+    const dialogRef = this.dialog.open(EditPointModalComponent, {
+      width: '300px',
+      data: {
+        point,
+        title
+      },
+    });
 
-        return dialogRef.afterClosed();
-    }
+    return dialogRef.afterClosed();
+  }
 }

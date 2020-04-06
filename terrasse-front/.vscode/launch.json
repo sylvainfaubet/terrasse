@@ -8,11 +8,17 @@
       "name": "ng serve",
       "type": "chrome",
       "request": "launch",
+      // "preLaunchTask": "npm: start",
       "url": "http://localhost:4200",
-      "linux": {
-        "runtimeExecutable": "${workspaceFolder}/node_modules/puppeteer/.local-chromium/linux-641577/chrome-linux/chrome",
-      },
-      "webRoot": "${workspaceFolder}"
+      "runtimeExecutable": "/snap/bin/chromium",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack:/*": "${webRoot}/*",
+        "/./*": "${webRoot}/*",
+        "/src/*": "${webRoot}/*",
+        "/*": "*",
+        "/./~/*": "${webRoot}/node_modules/*"
+      }
     },
     {
       "name": "ng test",
