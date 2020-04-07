@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  &>*{
+    margin:0.5rem;
+  }
 }
-terrasse-polygon-move, terrasse-polygon-rotate{
-  margin-left: 1rem;
-}
+
