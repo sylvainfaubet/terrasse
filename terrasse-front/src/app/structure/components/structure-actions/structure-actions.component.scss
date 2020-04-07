@@ -1,8 +1,5 @@
 :host{
   display: flex;
-  flex-direction: column;
-}
-.action-bar{
-  display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }

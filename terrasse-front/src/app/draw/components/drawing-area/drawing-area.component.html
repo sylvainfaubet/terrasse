@@ -1,4 +1,4 @@
-<svg (click)="onClick($event)" height="100%" transform=" scale(1,-1)" preserveAspectRatio="xMinYMin"
+<svg (click)="onClick($event)" width="100%" transform=" scale(1,-1)" preserveAspectRatio="xMinYMax"
   [attr.viewBox]="getViewboxText()">
 
   <defs>
@@ -22,8 +22,8 @@
       [attr.stroke]="config[draw.type].stroke" stroke-width="0.1" [attr.points]="formatPoints(draw)"></polygon>
   </g>
 
-  <g *ngIf="currentDraw">
-    <circle *ngFor="let p of currentDraw.polygon.path; let last = last; let first= first trackBy index" [attr.cx]="p.x"
+  <g *ngIf="draw">
+    <circle *ngFor="let p of draw.polygon.path; let last = last; let first= first trackBy index" [attr.cx]="p.x"
       [attr.cy]="p.y" r="0.2" [attr.stroke]="last ? 'green' : first ? 'blue' : 'gray'" fill="transparent"
       stroke-width="0.1" />
   </g>

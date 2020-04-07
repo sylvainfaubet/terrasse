@@ -7,11 +7,12 @@ import localeFrExtra from '@angular/common/locales/extra/fr';
 
 import { MaterialModule } from './material/material.module';
 
-import { AppComponent, components } from './components';
-
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { Routes, RouterModule } from '@angular/router';
+import { AppComponent } from './components/app/app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 export const ROUTES: Routes = [
@@ -28,7 +29,7 @@ export const ROUTES: Routes = [
 
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [components],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
   exports: [CommonModule, MaterialModule],
   imports: [
     CommonModule,
