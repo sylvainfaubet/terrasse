@@ -1,0 +1,16 @@
+<div class="header-bar">
+  <terrasse-saving [(project)]="project"></terrasse-saving>
+  <terrasse-mode [(mode)]="mode"></terrasse-mode>
+  <terrasse-polygon-config [(polygon)]="currentDraw.polygon"></terrasse-polygon-config>
+</div>
+<div class="main-content">
+  <mat-card class="side">
+    <terrasse-configure [(draw)]="currentDraw" [project]="project"></terrasse-configure>
+  </mat-card>
+
+  <mat-card class="main-card">
+    <terrasse-drawing-area [draw]="currentDraw" [project]="project" [config]="config"
+      (clickEvent)="doJobOnClickedPoint($event)">
+    </terrasse-drawing-area>
+  </mat-card>
+</div>

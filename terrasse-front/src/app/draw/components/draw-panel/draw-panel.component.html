@@ -1,0 +1,19 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Dessins
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div>
+    <terrasse-draws [(draws)]="project.draws" (currentDrawChange)="draw = $event">
+    </terrasse-draws>
+  </div>
+</mat-expansion-panel>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Informations Dessins
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <terrasse-draw-info [draw]="draw" [project]="project"></terrasse-draw-info>
+</mat-expansion-panel>

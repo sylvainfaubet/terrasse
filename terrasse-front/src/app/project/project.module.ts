@@ -14,7 +14,9 @@ import { Router, NavigationError, Routes, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { ProjectResolver } from './resolvers/project.resolver';
 import { ProjectConfigResolver } from './resolvers/project-config.resolver';
-import { components, EditComponent } from './components';
+import { EditComponent } from './containers/edit/edit.component';
+import { ConfigureComponent } from './components/configure/configure.component';
+import { SavingComponent } from './components/saving/saving.component';
 
 const ROUTES: Routes = [
 
@@ -49,8 +51,8 @@ const ROUTES: Routes = [
     RouterModule.forChild(ROUTES)
   ],
   exports: [],
-  entryComponents: [EditComponent],
-  declarations: [components],
+  entryComponents: [],
+  declarations: [EditComponent, ConfigureComponent, SavingComponent],
   providers: [],
 })
 export class ProjectModule {

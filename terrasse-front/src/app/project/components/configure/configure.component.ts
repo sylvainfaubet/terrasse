@@ -9,9 +9,18 @@ import { Project } from '../../models/project';
   styleUrls: ['./configure.component.scss'],
 })
 export class ConfigureComponent {
+  private _draw: Draw;
 
-  @Input() currentDraw: Draw;
-  @Output() currentDrawChange = new EventEmitter();
+  @Output() drawChange = new EventEmitter<Draw>();
+
+  @Input() set draw(draw: Draw) {
+    this.drawChange.emit(draw);
+    this._draw = draw;
+  }
+
+  get draw(): Draw {
+    return this._draw;
+  }
 
   @Input() project: Project;
 

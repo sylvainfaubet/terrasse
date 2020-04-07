@@ -40,12 +40,13 @@ export class DrawsComponent implements OnInit {
   }
 
   roundCurrentDraw() {
-    this.currentDrawIndex = this._currentDrawIndex + 1 % this.draws.length;
+    this.currentDrawIndex = (this._currentDrawIndex + 1) % this.draws.length;
   }
 
   removeDraw() {
     if (this.draws.length > 1) {
       this.draws.splice(this._currentDrawIndex, 1);
+      this.roundCurrentDraw();
     } else {
       alert('on ne peut pas supprimer le dernier dessin sans en créer un autre');
     }
