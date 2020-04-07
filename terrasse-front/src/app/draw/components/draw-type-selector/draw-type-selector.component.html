@@ -1,8 +1,6 @@
-<div>
-  <mat-form-field>
-    <mat-label>type de dessin à ajouter</mat-label>
-    <mat-select [(value)]="type" (selectionChange)="typeChange.emit($event.value)">
-      <mat-option *ngFor="let type of drawTypes" [value]="type">{{ type }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+<mat-form-field>
+  <mat-label>type de dessin à ajouter</mat-label>
+  <mat-select [(value)]="type" (selectionChange)="typeChange.emit($event.value)">
+    <mat-option *ngFor="let type of drawTypes" [value]="type">{{ type }}</mat-option>
+  </mat-select>
+</mat-form-field>

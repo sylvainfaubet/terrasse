@@ -1,20 +1,22 @@
-<div>
+<terrasse-draw-type-selector [(type)]="selectedDrawType"></terrasse-draw-type-selector>
+<div class="action-bar">
 
-  <terrasse-draw-type-selector [(type)]="selectedDrawType"></terrasse-draw-type-selector>
-  <div>
-    <button mat-flat-button color="primary" (click)="newDraw()">
-      ajouter une {{ selectedDrawType }}
-    </button>
-  </div>
+  <button mat-flat-button color="primary" (click)="newDraw()" title="ajouter un dessin">
+    <span class="material-icons">
+      add
+    </span>
+  </button>
+  <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw" (click)="roundCurrentDraw()"
+    title="changer de dessin">
+    <span class="material-icons">
+      swap_horiz
+    </span>
+  </button>
+  <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw" (click)="removeDraw()"
+    title="supprimer le dessin en cours">
+    <span class="material-icons">
+      remove
+    </span>
+  </button>
 
-  <div>
-    <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw" (click)="roundCurrentDraw()">
-      changer de dessin
-    </button>
-  </div>
-  <div>
-    <button mat-flat-button color="primary" [disabled]="isOnlyOneDraw" (click)="removeDraw()">
-      supprimer la {{ currentDraw.type }}
-    </button>
-  </div>
 </div>

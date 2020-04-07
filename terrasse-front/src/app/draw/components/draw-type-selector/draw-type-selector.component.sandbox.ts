@@ -1,6 +1,6 @@
 import { sandboxOf } from 'angular-playground';
 import { DrawTypeSelectorComponent } from './draw-type-selector.component';
-import { DrawType } from '../../models';
+import { DrawType } from '../../models/draw.type';
 
 export default sandboxOf(DrawTypeSelectorComponent)
   .add('default', {
