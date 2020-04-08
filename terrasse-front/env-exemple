@@ -1,3 +1,5 @@
+NODE_VERSION=13
+
 ## Docker-compose config
 COMPOSE_PROJECT_NAME=terrasse
 

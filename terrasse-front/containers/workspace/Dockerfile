@@ -1,0 +1,9 @@
+ARG NODE_VERSION
+FROM node:${NODE_VERSION}
+
+ARG WORKING_DIR
+WORKDIR ${WORKING_DIR}
+
+RUN npm install -g @angular/cli
+
+USER node

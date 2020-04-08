@@ -6,18 +6,22 @@ networks:
 
 services:
   workspace:
-    image: "angular/ngcontainer"
+    build:
+      context: containers/workspace
+      args:
+        - NODE_VERSION=${NODE_VERSION}
+        - WORKING_DIR=${APP_CODE_PATH_CONTAINER}
     ports:
       - "4200:4200"
       - "4201:4201"
       - "9876:9876"
     tty: true
-    user: node
-    working_dir: ${APP_CODE_PATH_CONTAINER}
     networks:
       - terrasse
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
+
+
   nginx:
     build:
       context: .
