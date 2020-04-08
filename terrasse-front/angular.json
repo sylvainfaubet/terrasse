@@ -18,6 +18,8 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/terrasse-front",
+            "deployUrl": "/terrasse/",
+            "baseHref": "/terrasse",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -44,9 +46,6 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputPath": "../docs",
-              "deployUrl": "/terrasse/",
-              "baseHref": "/terrasse",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -65,18 +64,8 @@
           "options": {
             "browserTarget": "terrasse-front:build",
             "proxyConfig": "conf/proxy.conf.json",
+            "servePath": "/terrasse",
             "host": "0.0.0.0"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "terrasse-front:build:production",
-              "host": "0.0.0.0",
-              "servePath": "/terrasse",
-              "port": 80
-            },
-            "mobile": {
-              "host": "0.0.0.0"
-            }
           }
         },
         "extract-i18n": {

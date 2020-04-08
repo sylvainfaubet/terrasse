@@ -1,3 +1,9 @@
+-include .env ## add BRANCHNAME in .envfile if default needed branch is not develop
+
+ifndef CONTAINER
+	CONTAINER=workspace
+endif
+
 COMPOSE=docker-compose
 
 help: ## Show this help.
@@ -7,13 +13,22 @@ copy-env: ## copy env-exemple in .env
 	cp env-exemple .env
 
 bash: ## Login to container
-	$(COMPOSE) exec workspace bash
+	$(COMPOSE) exec ${CONTAINER} bash
 
-dev-start: ## start containers
-	${COMPOSE} up -d
+up: ## start containers
+	${COMPOSE} up -d ${CONTAINER}
 
-start: ## start and log
-start: dev-start bash
+rebuild: ## rebuild containers
+	${COMPOSE} up --build -d ${CONTAINER}
 
-dev-stop: ## stop containers
-	${COMPOSE} down
+down: ## stop containers
+	${COMPOSE} down ${CONTAINER}
+
+prod:
+
+## into container commands
+start: ## start local server
+	npm start
+
+build:
+	npm run build
