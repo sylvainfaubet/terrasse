@@ -1,0 +1,82 @@
+{
+  "configVersion": 1,
+  "timestamp": 1586347552107,
+  "index": "/terrasse/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/terrasse/4.3568a4d87d2b035d2c92.js",
+        "/terrasse/5.ce1e2c418d4d8c6f3255.js",
+        "/terrasse/index.html",
+        "/terrasse/main.db6fce4d2d14c9569f2d.js",
+        "/terrasse/polyfills.a589302521a5c65c4704.js",
+        "/terrasse/runtime.c4c267799a686a193d01.js",
+        "/terrasse/styles.eb8a9018200aa95124f0.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/terrasse/MaterialIcons-Regular.012cf6a10129e2275d79.woff",
+        "/terrasse/MaterialIcons-Regular.570eb83859dc23dd0eec.woff2",
+        "/terrasse/MaterialIcons-Regular.a37b0c01c0baf1888ca8.ttf",
+        "/terrasse/MaterialIcons-Regular.e79bfd88537def476913.eot",
+        "/terrasse/assets/icons/android-chrome-192x192.png",
+        "/terrasse/assets/icons/android-chrome-512x512.png",
+        "/terrasse/assets/icons/apple-touch-icon.png",
+        "/terrasse/assets/icons/favicon-16x16.png",
+        "/terrasse/assets/icons/favicon-32x32.png",
+        "/terrasse/assets/icons/favicon.ico",
+        "/terrasse/assets/icons/mstile-150x150.png",
+        "/terrasse/assets/icons/safari-pinned-tab.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/terrasse/4.3568a4d87d2b035d2c92.js": "7dea0e4cf155508eec21ac4fac3b63b691dabf26",
+    "/terrasse/5.ce1e2c418d4d8c6f3255.js": "88aa0aebe7dc5e6e177fa4c8196492a5ca2d4ce8",
+    "/terrasse/MaterialIcons-Regular.012cf6a10129e2275d79.woff": "c6c953c2ccb2ca9abb21db8dbf473b5a435f0082",
+    "/terrasse/MaterialIcons-Regular.570eb83859dc23dd0eec.woff2": "09963592e8c953cc7e14e3fb0a5b05d5042e8435",
+    "/terrasse/MaterialIcons-Regular.a37b0c01c0baf1888ca8.ttf": "fc05de31234e0090f7ddc28ce1b23af4026cb1da",
+    "/terrasse/MaterialIcons-Regular.e79bfd88537def476913.eot": "26fb8cecb5512223277b4d290a24492a0f09ede1",
+    "/terrasse/assets/icons/android-chrome-192x192.png": "d1fd34fbb78f279fc982003e93a03fe5ad425548",
+    "/terrasse/assets/icons/android-chrome-512x512.png": "453e2e241de1157c6335338373a6c5c5da6bb039",
+    "/terrasse/assets/icons/apple-touch-icon.png": "ebf258f07350c11bbb2ee298a0f52163847a32b9",
+    "/terrasse/assets/icons/favicon-16x16.png": "a266648cd82842f5fd32f9c7a1f22e4160bcd9d4",
+    "/terrasse/assets/icons/favicon-32x32.png": "2d03c0502e88b0d03e1eed6b1d4a30dbd9679297",
+    "/terrasse/assets/icons/favicon.ico": "982f8dba7ce23ddf421c46c2b75a0a215084c2f5",
+    "/terrasse/assets/icons/mstile-150x150.png": "9ac1494cd484c7bd386329d1717a244921023d9c",
+    "/terrasse/assets/icons/safari-pinned-tab.svg": "af79082286c2314b6d36299f1b7acfd324624822",
+    "/terrasse/index.html": "5531aaef6c782c627c68eca113bd66d077d7642e",
+    "/terrasse/main.db6fce4d2d14c9569f2d.js": "0f3dff8151e3249462e476165aca8c50abfffc46",
+    "/terrasse/polyfills.a589302521a5c65c4704.js": "9523895b2983416284537971454a8e67b59b13ec",
+    "/terrasse/runtime.c4c267799a686a193d01.js": "2c0b2f290129782af44b45c148c788faa5033193",
+    "/terrasse/styles.eb8a9018200aa95124f0.css": "41fafbcd39e988fd6f21f2211cc40e55b36304ad"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
