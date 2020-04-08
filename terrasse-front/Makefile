@@ -24,7 +24,17 @@ rebuild: ## rebuild containers
 down: ## stop containers
 	${COMPOSE} down ${CONTAINER}
 
-prod:
+prod-deploy: ## run all build and prod publish
+prod-deploy:
+	${COMPOSE} up --build -d workspace
+	${COMPOSE} exec workspace make prod-build
+	cp -r dist/terrasse-front ../docs
+
+
+prod-build: ## build the project in prod env
+	npm ci -P
+	npm run build:prod
+
 
 ## into container commands
 start: ## start local server
