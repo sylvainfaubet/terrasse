@@ -22,7 +22,7 @@ rebuild: ## rebuild containers
 	${COMPOSE} up --build -d ${CONTAINER}
 
 down: ## stop containers
-	${COMPOSE} down ${CONTAINER}
+	${COMPOSE} down
 
 prod-deploy: ## run all build and prod publish
 prod-deploy:
