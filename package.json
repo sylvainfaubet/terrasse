@@ -32,6 +32,7 @@
     "core-js": "^2.6.5",
     "hammerjs": "^2.0.8",
     "material-design-icons": "^3.0.1",
+    "node-sass": "^4.13.1",
     "polygons-intersect": "github:sylvainfaubet/polygons-intersect",
     "rxjs": "^6.4.0",
     "zone.js": "~0.8.29"
