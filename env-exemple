@@ -1,6 +1,8 @@
+## ENV VARIABLES
+## -----------------------------
 NODE_VERSION=13
 
-## Docker-compose config
+# Docker-compose config
 COMPOSE_PROJECT_NAME=terrasse
 
 # All volumes driver
@@ -9,7 +11,7 @@ VOLUMES_DRIVER=local
 # All Networks driver
 NETWORKS_DRIVER=bridge
 
-### Paths #################################################
+#-- Paths --------------------------------------
 
 # Point to the path of your applications code on your host
 APP_CODE_PATH_HOST=./

@@ -1,9 +1,5 @@
 version: "3.4"
 
-networks:
-  terrasse:
-    driver: ${NETWORKS_DRIVER}
-
 services:
   workspace:
     build:
@@ -16,11 +12,8 @@ services:
       - "4201:4201"
       - "9876:9876"
     tty: true
-    networks:
-      - terrasse
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
-
 
   nginx:
     build:

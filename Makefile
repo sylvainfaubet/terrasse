@@ -1,4 +1,5 @@
--include .env ## add BRANCHNAME in .envfile if default needed branch is not develop
+
+-include .env
 
 ifndef CONTAINER
 	CONTAINER=workspace
@@ -8,6 +9,7 @@ COMPOSE=docker-compose
 
 help: ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+
 
 copy-env: ## copy env-exemple in .env
 	cp env-exemple .env
@@ -26,13 +28,13 @@ down: ## stop containers
 
 prod-deploy: ## run all build and prod publish
 prod-deploy:
-	${COMPOSE} up --build -d workspace
-	${COMPOSE} exec workspace make prod-build
-	cp -r dist/terrasse-front ../docs
+	${COMPOSE} run workspace make prod-build
+	rm -rf docs
+	cp -r dist/terrasse-front docs
 
 
 prod-build: ## build the project in prod env
-	npm ci -P
+	npm ci --only=prod
 	npm run build:prod
 
 
