@@ -148,7 +148,7 @@
             "index": "src/index.html",
             "main": "src/main.playground.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "tsConfig": "src/tsconfig.playground.json",
             "assets": [
               "src/favicon.ico",
               "src/assets"
