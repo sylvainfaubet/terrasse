@@ -5,7 +5,7 @@ name: Node.js CI
 
 on:
   push:
-    branches-ignore: [master]
+    pull-request: [master]
 
 jobs:
   test:
@@ -25,30 +25,3 @@ jobs:
    # - run: npm test -- --watch=false
     env:
       CI: true
-on:
-  push:
-    branches: [master]
-
-jobs:
-  deploy:
-    name: déploiement
-
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [13.x]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci --only=prod
-    - run: npm run build:prod
-    - run: rm -rf docs
-    - run: cp -r dist/terrasse-front docs
-    - run: git commit -m "deploy prod"
-    - run: git push
-
-      env:
-        CI: true
