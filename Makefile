@@ -44,3 +44,7 @@ start: ## start local server
 
 build:
 	npm run build
+
+test:
+	export CHROME_BIN=/snap/bin/chromium
+	npm test
