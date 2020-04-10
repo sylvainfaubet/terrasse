@@ -5,6 +5,7 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule } from '@angular/forms';
 import { Zone } from '../../models';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('ZoneConfigComponent', () => {
   let component: ZoneConfigComponent;
@@ -13,7 +14,8 @@ describe('ZoneConfigComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ZoneConfigComponent],
-      imports: [MaterialModule, FormsModule, BrowserAnimationsModule]
+      imports: [MaterialModule, FormsModule, BrowserAnimationsModule],
+      schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
   }));
