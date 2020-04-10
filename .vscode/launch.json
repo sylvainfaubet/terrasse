@@ -25,9 +25,7 @@
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:9876/debug.html",
-      "linux": {
-        "runtimeExecutable": "${workspaceFolder}/node_modules/puppeteer/.local-chromium/linux-641577/chrome-linux/chrome",
-      },
+      "runtimeExecutable": "/snap/bin/chromium",
       "webRoot": "${workspaceFolder}"
     },
   ]
