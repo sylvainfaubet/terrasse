@@ -12,38 +12,38 @@ import { ConfigureComponent } from './configure.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('ConfigureComponent', () => {
-    let component: ConfigureComponent;
-    let fixture: ComponentFixture<ConfigureComponent>;
+  let component: ConfigureComponent;
+  let fixture: ComponentFixture<ConfigureComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [MaterialModule, FormsModule, BrowserAnimationsModule],
-            declarations: [ConfigureComponent],
-            providers: [
-                {
-                    provide: ActivatedRoute,
-                    useValue: {
-                        data: of({
-                            project: new Project(0, [new Draw(DrawType.Terrasse)], new Zone(10, 13)),
-                            config: { terrasse: {} }
-                        })
-                    }
-                },
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [MaterialModule, FormsModule, BrowserAnimationsModule],
+      declarations: [ConfigureComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            data: of({
+              project: new Project(0, [new Draw(DrawType.Terrasse)], new Zone(10, 13)),
+              config: { terrasse: {} }
+            })
+          }
+        },
 
-                { provide: Router, useValue: {} }
-            ],
-            schemas: [NO_ERRORS_SCHEMA]
-        }).compileComponents();
-    }));
+        { provide: Router, useValue: {} }
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(ConfigureComponent);
-        component = fixture.componentInstance;
-        component.currentDraw = component.project.draws[0];
-        fixture.detectChanges();
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ConfigureComponent);
+    component = fixture.componentInstance;
+    component.draw = component.project.draws[0];
+    fixture.detectChanges();
+  });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
