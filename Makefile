@@ -44,3 +44,6 @@ start: ## start local server
 
 build:
 	npm run build
+
+test:
+	npm run test
