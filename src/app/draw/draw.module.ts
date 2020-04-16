@@ -7,7 +7,7 @@ import { DrawsComponent } from './components/draws/draws.component';
 import { DrawTypeSelectorComponent } from './components/draw-type-selector/draw-type-selector.component';
 import { DrawPanelComponent } from './components/draw-panel/draw-panel.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
 import { SharedModule } from '@shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 

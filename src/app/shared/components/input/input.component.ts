@@ -11,7 +11,7 @@ export class InputComponent implements OnInit {
   @Input() step: number;
   @Input() placeholder: number;
 
-  @Input() type = "number";
+  @Input() type = 'number';
 
   private _value: number;
 
