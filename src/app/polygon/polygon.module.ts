@@ -1,9 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-
 import {
   PolygonMoveComponent,
   PolygonRollComponent,
@@ -14,7 +11,7 @@ import {
 import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, SharedModule],
+  imports: [CommonModule, FormsModule, SharedModule],
   declarations: [PolygonConfigComponent, PolygonMoveComponent, PolygonRollComponent, PolygonRotateComponent, PolygonInfoComponent],
   exports: [PolygonConfigComponent, PolygonInfoComponent],
   providers: [],
