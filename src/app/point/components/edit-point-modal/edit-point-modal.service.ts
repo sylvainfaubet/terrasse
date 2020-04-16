@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 import { Point } from 'src/app/point/models/point';
 import { EditPointModalComponent } from './edit-point-modal.component';

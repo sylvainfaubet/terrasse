@@ -1,12 +1,4 @@
 <terrasse-structure-move [(structure)]="draw.structure"></terrasse-structure-move>
-<button mat-flat-button color="primary" (click)="structureSetBestAngle()"
-  title="calculer le meilleur angle de structure">
-  <span class="material-icons">
-    find_replace
-  </span>
-</button>
-<button mat-flat-button color="primary" (click)="structureAlign()" title="aligner avec un coté">
-  <span class="material-icons">
-    vertical_align_bottom
-  </span>
-</button>
+<terrasse-button icon="find_replace" (click)="structureSetBestAngle()" title="calculer le meilleur angle de structure">
+</terrasse-button>
+<terrasse-button icon="vertical_align_bottom" (click)="structureAlign()" title="aligner avec un coté"></terrasse-button>

@@ -1,9 +1,3 @@
-<mat-form-field>
-  <input type="number" step="0.01" matInput placeholder="espace lambourdes basses" [(ngModel)]="structure.bottomSpace">
-</mat-form-field>
-<mat-form-field>
-  <input type="number" step="0.01" matInput placeholder="espace lambourdes hautes" [(ngModel)]="structure.topSpace">
-</mat-form-field>
-<mat-form-field>
-  <input type="number" matInput placeholder="angle" [(ngModel)]="structure.angle">
-</mat-form-field>
+<terrasse-input placeholder="espace lambourdes basses" [(value)]="structure.bottomSpace" step='0.01'></terrasse-input>
+<terrasse-input placeholder="espace lambourdes hautes" [(value)]="structure.topSpace" step='0.01'></terrasse-input>
+<terrasse-input placeholder="angle de la structure" [(value)]="structure.angle" step='0.01'></terrasse-input>

@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import {
   PolygonMoveComponent,
@@ -9,9 +8,10 @@ import {
   PolygonRotateComponent,
   PolygonInfoComponent
 } from './components';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, MaterialModule, FormsModule],
+  imports: [CommonModule, FormsModule, SharedModule],
   declarations: [PolygonConfigComponent, PolygonMoveComponent, PolygonRollComponent, PolygonRotateComponent, PolygonInfoComponent],
   exports: [PolygonConfigComponent, PolygonInfoComponent],
   providers: [],

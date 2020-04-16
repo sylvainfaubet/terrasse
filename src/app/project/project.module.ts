@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import { MaterialModule } from '../material/material.module';
-
-import { MatDialogModule } from '@angular/material';
 import { DrawModule } from '../draw/draw.module';
 import { PointModule } from '../point/point.module';
 import { StructureModule } from '../structure/structure.module';
@@ -17,6 +13,8 @@ import { ProjectConfigResolver } from './resolvers/project-config.resolver';
 import { EditComponent } from './containers/edit/edit.component';
 import { ConfigureComponent } from './components/configure/configure.component';
 import { SavingComponent } from './components/saving/saving.component';
+import { MatCardModule } from '@angular/material/card';
+import { SharedModule } from '@shared/shared.module';
 
 const ROUTES: Routes = [
 
@@ -41,11 +39,11 @@ const ROUTES: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    MatDialogModule,
-    MaterialModule,
     PointModule,
     DrawModule,
+    MatCardModule,
     PolygonModule,
+    SharedModule,
     StructureModule,
     ZoneModule,
     RouterModule.forChild(ROUTES)

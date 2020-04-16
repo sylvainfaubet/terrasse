@@ -1,0 +1,4 @@
+<mat-form-field>
+  <input [type]="type" matInput [placeholder]="placeholder" [min]="min" [max]="max" [(value)]="value"
+    (change)="value = $event.currentTarget.value" [step]="step">
+</mat-form-field>
