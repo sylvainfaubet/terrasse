@@ -1,7 +1,7 @@
 name: Deploy CI
 on:
   push:
-    branches: [master]
+    branches: [develop, master]
 
 jobs:
   deploy:
@@ -12,17 +12,18 @@ jobs:
       matrix:
         node-version: [13.x]
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci --only=prod
-    - run: npm run build:prod
-    - run: rm -rf docs
-    - run: cp -r dist/terrasse-front docs
-    - run: git commit -m "deploy prod"
-    - run: git push
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci --only=prod
+      - run: npm run build:prod
+      - run: rm -rf docs
+      - run: cp -r dist/terrasse-front docs
+      - run: git add docs
+      - run: git commit -m "prod build"
+      - run: git push
 
-      env:
-        CI: true
+        env:
+          CI: true
