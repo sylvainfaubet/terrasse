@@ -14,13 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run build:prod
       - run: rm -rf docs
       - run: cp -r dist/terrasse-front docs
+      - run: git config user.name "github deploy"
+      - run: git config user.email ""
       - run: git add docs
       - run: git commit -m "prod build"
       - run: git push
