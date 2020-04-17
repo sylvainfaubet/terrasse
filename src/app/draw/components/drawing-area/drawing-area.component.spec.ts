@@ -1,11 +1,9 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
 import { Zone } from 'src/app/zone/models/zone';
-import { MaterialModule } from '../../../material/material.module';
 import { Project } from '../../../project/models/project';
 import { DrawingAreaComponent } from './drawing-area.component';
 
@@ -16,7 +14,7 @@ describe('DrawingAreaComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      imports: [MaterialModule, BrowserAnimationsModule],
+      imports: [],
       declarations: [DrawingAreaComponent],
       providers: [
         {
