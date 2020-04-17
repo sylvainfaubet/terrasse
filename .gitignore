@@ -28,6 +28,7 @@
 /.sass-cache
 /connect.lock
 coverage
+junit.xml
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log
@@ -40,3 +41,4 @@ Thumbs.db
 
 # environment
 .env
+
