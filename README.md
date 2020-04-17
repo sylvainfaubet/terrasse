@@ -1,4 +1,4 @@
-# terrasse
+# terrasse ![Node.js CI](https://github.com/sylvainfaubet/terrasse/workflows/Node.js%20CI/badge.svg?branch=develop&event=push)
 
 Ce projet héberge une application de création terrasses.
 Il est en cours de construction...
