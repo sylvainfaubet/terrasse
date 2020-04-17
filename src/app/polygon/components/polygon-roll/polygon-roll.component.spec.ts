@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PolygonRollComponent } from './polygon-roll.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('PolygonRollComponent', () => {
   let component: PolygonRollComponent;
@@ -8,9 +9,10 @@ describe('PolygonRollComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PolygonRollComponent ]
+      declarations: [PolygonRollComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

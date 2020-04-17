@@ -42,9 +42,11 @@ prod-build: ## build the project in prod env
 start: ## start local server
 	npm start
 
-build:
+build: ## build project
 	npm run build
 
-test:
-	export CHROME_BIN=/snap/bin/chromium
+test: ## run unit tests
 	npm test
+
+qa: ## run Quality Analysis
+	npm run lint

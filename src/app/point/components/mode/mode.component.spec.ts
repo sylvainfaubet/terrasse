@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModeComponent } from './mode.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 describe('ModeComponent', () => {
   let component: ModeComponent;
@@ -9,7 +10,7 @@ describe('ModeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ModeComponent],
-      imports: []
+      imports: [MatButtonToggleModule]
     })
       .compileComponents();
   }));

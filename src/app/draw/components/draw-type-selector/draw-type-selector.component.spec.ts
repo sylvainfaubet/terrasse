@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DrawTypeSelectorComponent } from './draw-type-selector.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DrawTypeSelectorComponent', () => {
@@ -10,7 +12,7 @@ describe('DrawTypeSelectorComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [DrawTypeSelectorComponent],
-      imports: [NoopAnimationsModule],
+      imports: [MatFormFieldModule, MatSelectModule, NoopAnimationsModule],
     }).compileComponents();
   }));
 

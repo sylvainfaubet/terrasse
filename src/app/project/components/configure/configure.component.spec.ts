@@ -36,11 +36,12 @@ describe('ConfigureComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ConfigureComponent);
     component = fixture.componentInstance;
+    component.project = new Project(0, [new Draw(DrawType.Terrasse)]);
     component.draw = component.project.draws[0];
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
