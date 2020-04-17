@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StructureActionsComponent } from './structure-actions.component';
+import { Draw } from 'src/app/draw/models/draw';
+import { DrawType } from 'src/app/draw/models/draw.type';
 
 describe('StructureActionsComponent', () => {
   let component: StructureActionsComponent;
@@ -8,14 +10,15 @@ describe('StructureActionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StructureActionsComponent ]
+      declarations: [StructureActionsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StructureActionsComponent);
     component = fixture.componentInstance;
+    component.draw = new Draw(DrawType.Terrasse);
     fixture.detectChanges();
   });
 

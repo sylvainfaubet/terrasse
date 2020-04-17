@@ -8,14 +8,15 @@ describe('DrawPanelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DrawPanelComponent ]
+      declarations: [DrawPanelComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DrawPanelComponent);
     component = fixture.componentInstance;
+    component.project = {};
     fixture.detectChanges();
   });
 
