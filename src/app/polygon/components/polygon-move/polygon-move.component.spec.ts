@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PolygonMoveComponent } from './polygon-move.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { EditPointModalService } from 'src/app/point/components/edit-point-modal/edit-point-modal.service';
-const editPointModalServiceMock = jest.fn(() => ({}))
+const editPointModalServiceMock = jest.fn(() => ({}));
 describe('PolygonMoveComponent', () => {
   let component: PolygonMoveComponent;
   let fixture: ComponentFixture<PolygonMoveComponent>;

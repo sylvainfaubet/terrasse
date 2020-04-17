@@ -6,7 +6,7 @@ import { DrawType } from 'src/app/draw/models/draw.type';
 import { DrawService } from 'src/app/draw/services/draw.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-const drawServiceMock = jest.fn(() => ({}))
+const drawServiceMock = jest.fn(() => ({}));
 
 describe('StructureActionsComponent', () => {
   let component: StructureActionsComponent;

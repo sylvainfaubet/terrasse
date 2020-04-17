@@ -42,10 +42,11 @@ prod-build: ## build the project in prod env
 start: ## start local server
 	npm start
 
-build:
+build: ## build project
 	npm run build
 
-test:
+test: ## run unit tests
 	npm test
-test-watch:
-	npm run test:watch
+
+qa: ## run Quality Analysis
+	npm run lint
