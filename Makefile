@@ -46,5 +46,6 @@ build:
 	npm run build
 
 test:
-	export CHROME_BIN=/snap/bin/chromium
 	npm test
+test-watch:
+	npm run test:watch

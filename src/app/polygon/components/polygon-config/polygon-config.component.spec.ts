@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PolygonConfigComponent } from './polygon-config.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('PolygonConfigComponent', () => {
   let component: PolygonConfigComponent;
@@ -9,7 +10,7 @@ describe('PolygonConfigComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PolygonConfigComponent],
-      imports: [],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 

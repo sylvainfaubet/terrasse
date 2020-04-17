@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Structure } from '../../models/structure';
 import { StructureConfigComponent } from './structure-config.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('StructureConfigComponent', () => {
   let component: StructureConfigComponent;
@@ -10,7 +11,8 @@ describe('StructureConfigComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [],
-      declarations: [StructureConfigComponent]
+      declarations: [StructureConfigComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 

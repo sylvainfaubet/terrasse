@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="34" failures="0" time="27.731">
+  <testsuite name="ConfigureComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:23" time="13.762" tests="1">
+    <testcase classname="ConfigureComponent should create" name="ConfigureComponent should create" time="0.15">
+    </testcase>
+  </testsuite>
+  <testsuite name="DrawingAreaComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:23" time="14.425" tests="1">
+    <testcase classname="DrawingAreaComponent should create" name="DrawingAreaComponent should create" time="0.197">
+    </testcase>
+  </testsuite>
+  <testsuite name="StructureEditComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:37" time="1.306" tests="1">
+    <testcase classname="StructureEditComponent should create" name="StructureEditComponent should create" time="0.179">
+    </testcase>
+  </testsuite>
+  <testsuite name="EditComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:23" time="16.085" tests="1">
+    <testcase classname="EditComponent should create" name="EditComponent should create" time="0.195">
+    </testcase>
+  </testsuite>
+  <testsuite name="StructureActionsComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:36" time="2.608" tests="1">
+    <testcase classname="StructureActionsComponent should create" name="StructureActionsComponent should create" time="0.068">
+    </testcase>
+  </testsuite>
+  <testsuite name="EditPointModalComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:39" time="0.915" tests="1">
+    <testcase classname="EditPointModalComponent should create" name="EditPointModalComponent should create" time="0.064">
+    </testcase>
+  </testsuite>
+  <testsuite name="DrawInfoComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:39" time="2.217" tests="1">
+    <testcase classname="DrawInfoComponent should create" name="DrawInfoComponent should create" time="0.082">
+    </testcase>
+  </testsuite>
+  <testsuite name="StructureMoveComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:40" time="1.124" tests="1">
+    <testcase classname="StructureMoveComponent should create" name="StructureMoveComponent should create" time="0.096">
+    </testcase>
+  </testsuite>
+  <testsuite name="SavingComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:39" time="2.335" tests="1">
+    <testcase classname="SavingComponent should create" name="SavingComponent should create" time="0.065">
+    </testcase>
+  </testsuite>
+  <testsuite name="AppComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:41" time="1.445" tests="2">
+    <testcase classname="AppComponent should create the app" name="AppComponent should create the app" time="0.081">
+    </testcase>
+    <testcase classname="AppComponent should have as title &apos;Terrasse 2.0&apos;" name="AppComponent should have as title &apos;Terrasse 2.0&apos;" time="0.061">
+    </testcase>
+  </testsuite>
+  <testsuite name="PolygonMoveComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:41" time="1.546" tests="1">
+    <testcase classname="PolygonMoveComponent should create" name="PolygonMoveComponent should create" time="0.073">
+    </testcase>
+  </testsuite>
+  <testsuite name="PolygonInfoComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:42" time="0.834" tests="1">
+    <testcase classname="PolygonInfoComponent should create" name="PolygonInfoComponent should create" time="0.043">
+    </testcase>
+  </testsuite>
+  <testsuite name="DrawTypeSelectorComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:42" time="1.685" tests="1">
+    <testcase classname="DrawTypeSelectorComponent should create" name="DrawTypeSelectorComponent should create" time="0.487">
+    </testcase>
+  </testsuite>
+  <testsuite name="FooterComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:43" time="0.804" tests="1">
+    <testcase classname="FooterComponent should create" name="FooterComponent should create" time="0.064">
+    </testcase>
+  </testsuite>
+  <testsuite name="DrawsComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:43" time="0.788" tests="1">
+    <testcase classname="DrawsComponent should create" name="DrawsComponent should create" time="0.052">
+    </testcase>
+  </testsuite>
+  <testsuite name="ZoneEditComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:43" time="0.913" tests="1">
+    <testcase classname="ZoneEditComponent should create" name="ZoneEditComponent should create" time="0.182">
+    </testcase>
+  </testsuite>
+  <testsuite name="DrawPanelComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:43" time="0.993" tests="1">
+    <testcase classname="DrawPanelComponent should create" name="DrawPanelComponent should create" time="0.229">
+    </testcase>
+  </testsuite>
+  <testsuite name="StructureConfigComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:44" time="0.793" tests="1">
+    <testcase classname="StructureConfigComponent should create" name="StructureConfigComponent should create" time="0.042">
+    </testcase>
+  </testsuite>
+  <testsuite name="InputComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:44" time="1.066" tests="1">
+    <testcase classname="InputComponent should create" name="InputComponent should create" time="0.34">
+    </testcase>
+  </testsuite>
+  <testsuite name="HeaderComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:44" time="1.304" tests="2">
+    <testcase classname="HeaderComponent should create" name="HeaderComponent should create" time="0.099">
+    </testcase>
+    <testcase classname="HeaderComponent should render title" name="HeaderComponent should render title" time="0.066">
+    </testcase>
+  </testsuite>
+  <testsuite name="ZoneConfigComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:45" time="0.835" tests="1">
+    <testcase classname="ZoneConfigComponent should create" name="ZoneConfigComponent should create" time="0.053">
+    </testcase>
+  </testsuite>
+  <testsuite name="ButtonComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:45" time="0.947" tests="1">
+    <testcase classname="ButtonComponent should create" name="ButtonComponent should create" time="0.129">
+    </testcase>
+  </testsuite>
+  <testsuite name="PolygonConfigComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:46" time="0.782" tests="1">
+    <testcase classname="PolygonConfigComponent should create" name="PolygonConfigComponent should create" time="0.092">
+    </testcase>
+  </testsuite>
+  <testsuite name="PolygonRotateComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:46" time="1.256" tests="1">
+    <testcase classname="PolygonRotateComponent should create" name="PolygonRotateComponent should create" time="0.063">
+    </testcase>
+  </testsuite>
+  <testsuite name="EditPointModalService" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:47" time="0.331" tests="1">
+    <testcase classname="EditPointModalService should be created" name="EditPointModalService should be created" time="0.035">
+    </testcase>
+  </testsuite>
+  <testsuite name="PolygonRollComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:46" time="1.187" tests="1">
+    <testcase classname="PolygonRollComponent should create" name="PolygonRollComponent should create" time="0.051">
+    </testcase>
+  </testsuite>
+  <testsuite name="PolygonService" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:47" time="0.328" tests="1">
+    <testcase classname="PolygonService should be created" name="PolygonService should be created" time="0.027">
+    </testcase>
+  </testsuite>
+  <testsuite name="ModeComponent" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:47" time="1.215" tests="1">
+    <testcase classname="ModeComponent should create" name="ModeComponent should create" time="0.165">
+    </testcase>
+  </testsuite>
+  <testsuite name="ProjectService" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:47" time="0.791" tests="1">
+    <testcase classname="ProjectService should be created" name="ProjectService should be created" time="0.027">
+    </testcase>
+  </testsuite>
+  <testsuite name="ProjectConfigService" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:48" time="0.756" tests="1">
+    <testcase classname="ProjectConfigService should be created" name="ProjectConfigService should be created" time="0.027">
+    </testcase>
+  </testsuite>
+  <testsuite name="DrawService" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:48" time="0.674" tests="1">
+    <testcase classname="DrawService should be created" name="DrawService should be created" time="0.02">
+    </testcase>
+  </testsuite>
+  <testsuite name="DownloadService" errors="0" failures="0" skipped="0" timestamp="2020-04-17T16:59:48" time="0.831" tests="1">
+    <testcase classname="DownloadService should be created" name="DownloadService should be created" time="0.016">
+    </testcase>
+  </testsuite>
+</testsuites>
