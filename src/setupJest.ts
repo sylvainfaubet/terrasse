@@ -1,2 +1,2 @@
 import 'jest-preset-angular';
-export default {}
+export default {};

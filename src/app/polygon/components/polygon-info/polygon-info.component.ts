@@ -3,19 +3,19 @@ import { Polygon } from '../../models/polygon';
 import { PolygonService } from '../../services/polygon.service';
 
 @Component({
-    selector: 'terrasse-polygon-info',
-    templateUrl: './polygon-info.component.html',
-    styleUrls: ['./polygon-info.component.scss'],
+  selector: 'terrasse-polygon-info',
+  templateUrl: './polygon-info.component.html',
+  styleUrls: ['./polygon-info.component.scss'],
 })
 export class PolygonInfoComponent implements OnInit {
-    @Input() polygon: Polygon;
+  @Input() polygon: Polygon;
 
-    constructor(private polygonService: PolygonService) { }
+  constructor(private polygonService: PolygonService) { }
 
-    ngOnInit() { }
+  ngOnInit() { }
 
-    getCentroid() {
+  getCentroid() {
 
-        return this.polygonService.getCentroid(this.polygon);
-    }
+    return this.polygonService.getCentroid(this.polygon);
+  }
 }
