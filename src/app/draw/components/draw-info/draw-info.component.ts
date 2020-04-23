@@ -35,7 +35,7 @@ export class DrawInfoComponent {
     return area;
   }
 
-  calcStructureLines() {
+  calcStructureLines(): boolean {
     if (this.draw.polygon.path.length > 2) {
       this.structureLines = this.drawService.drawStructureGetInfos(this.draw);
       return true;

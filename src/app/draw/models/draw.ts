@@ -10,7 +10,7 @@ export class Draw {
     public name?: string
   ) { }
 
-  setFromJSON(data) {
+  setFromJSON(data): void {
     switch (data.type) {
       case DrawType.Terrasse:
         this.type = DrawType.Terrasse;

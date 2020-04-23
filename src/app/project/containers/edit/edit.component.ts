@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Draw } from 'src/app/draw/models/draw';
 import { DrawType } from 'src/app/draw/models/draw.type';
@@ -6,15 +6,16 @@ import { EditPointModalService } from 'src/app/point/components/edit-point-modal
 import { Mode } from 'src/app/point/components/mode/mode.model';
 import { Point } from 'src/app/point/models/point';
 import { Project } from '../../models/project';
+import { ProjectConfig } from '../../models/project-config';
 
 @Component({
   selector: 'terrasse-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class EditComponent implements OnInit {
+export class EditComponent {
   project: Project;
-  config: any;
+  config: ProjectConfig;
 
   currentDraw: Draw;
   mode: Mode = Mode.ADD;
@@ -29,9 +30,7 @@ export class EditComponent implements OnInit {
     this.doJobOnClickedPoint = this.doJobOnClickedPoint.bind(this);
   }
 
-
-
-  doJobOnClickedPoint(clickedPoint: Point) {
+  doJobOnClickedPoint(clickedPoint: Point): void {
     const foundPoint = this.currentDraw.polygon.getPointNextTo(clickedPoint, 1);
     console.log('doJobOnClickedPoint', this.mode);
     switch (this.mode) {

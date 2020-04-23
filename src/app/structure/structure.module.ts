@@ -7,7 +7,6 @@ import { StructureActionsComponent } from './components/structure-actions/struct
 import { MatExpansionModule } from '@angular/material/expansion';
 import { SharedModule } from '@shared/shared.module';
 
-
 @NgModule({
   declarations: [
     StructureEditComponent,

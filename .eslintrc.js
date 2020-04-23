@@ -28,6 +28,13 @@ module.exports = {
   "plugins": [
     "@typescript-eslint",
   ],
+  "rules": {
+    "no-multiple-empty-lines": ["error", {
+      "max": 1,
+      "maxBOF": 0,
+      "maxEOF": 1
+    }]
+  },
   // "rules": {
   //   "@typescript-eslint/class-name-casing": "error",
   //   "@typescript-eslint/consistent-type-definitions": "error",

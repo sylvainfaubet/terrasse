@@ -9,7 +9,6 @@ import { Polygon } from '../models/polygon';
 })
 export class PolygonService {
 
-
   public polygonIntersections(p1: Polygon, p2: Polygon): Polygon[] {
     if (p1 && p1.path.length > 0 && p2 && p2.path.length > 0) {
       const intersections = polygonIntersect(p1.path, p2.path);
@@ -22,7 +21,7 @@ export class PolygonService {
     return [];
   }
 
-  public polygonAreaWithoutCuts(polygon: Polygon, polygonsToCut: Polygon[]) {
+  public polygonAreaWithoutCuts(polygon: Polygon, polygonsToCut: Polygon[]): number {
     let areaToRemove = 0;
     polygonsToCut.forEach((polygonToCut: Polygon) => {
       const intersections = this.polygonIntersections(polygon, polygonToCut);
@@ -34,7 +33,12 @@ export class PolygonService {
     return polygon.area() - areaToRemove;
   }
 
-  public getMinMaxRect(polygon: Polygon) {
+  public getMinMaxRect(polygon: Polygon): {
+    minX: number;
+    maxX: number;
+    minY: number;
+    maxY: number;
+  } {
     const result = {
       minX: polygon.path[0].x,
       maxX: polygon.path[0].x,

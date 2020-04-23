@@ -20,30 +20,30 @@ export class DrawsComponent implements OnInit {
 
   selectedDrawType = DrawType.Piscine;
 
-  get currentDraw() {
+  get currentDraw(): Draw {
     return this.draws[this._currentDrawIndex];
   }
 
   @Output()
   currentDrawChange = new EventEmitter<Draw>();
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.draws && this.draws.length === 0) {
       this.newDraw();
     }
   }
 
-  newDraw() {
+  newDraw(): void {
     const draw = new Draw(this.selectedDrawType);
     this.draws.push(draw);
     this.currentDrawIndex = this.draws.length - 1;
   }
 
-  roundCurrentDraw() {
+  roundCurrentDraw(): void {
     this.currentDrawIndex = (this._currentDrawIndex + 1) % this.draws.length;
   }
 
-  removeDraw() {
+  removeDraw(): void {
     if (this.draws.length > 1) {
       this.draws.splice(this._currentDrawIndex, 1);
       this.roundCurrentDraw();
@@ -52,7 +52,7 @@ export class DrawsComponent implements OnInit {
     }
   }
 
-  get isOnlyOneDraw() {
+  get isOnlyOneDraw(): boolean {
     return this.draws && this.draws.length === 1;
   }
 }

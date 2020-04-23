@@ -10,18 +10,18 @@ import { Point } from '../../point/models/point';
 export class DrawService {
   constructor(private readonly polygonService: PolygonService) { }
 
-  drawStructureSetBestAngle(draw: Draw) {
+  drawStructureSetBestAngle(draw: Draw): void {
     draw.structure.angle = this.polygonService.getBestPolygonAngle(draw.polygon);
   }
 
-  drawStructureSetAlignToLastEdge(draw: Draw) {
+  drawStructureSetAlignToLastEdge(draw: Draw): void {
     const length = draw.polygon.path.length;
     if (length > 2) {
       draw.structure.angle = draw.polygon.path[0].angleWith(draw.polygon.path[length - 1]);
     }
   }
 
-  drawStructureGetInfos(draw: Draw) {
+  drawStructureGetInfos(draw: Draw): ({ nbTopLines: number; nbBottomLines: number }) {
     const poly = new Polygon().setFromJSON(JSON.parse(JSON.stringify(draw.polygon)));
     poly.rotate(new Point(0, 0), draw.structure.angle);
     const rect = this.polygonService.getMinMaxRect(poly);

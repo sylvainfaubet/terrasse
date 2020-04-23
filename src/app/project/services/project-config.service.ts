@@ -7,8 +7,6 @@ import { Observable, of } from 'rxjs';
 })
 export class ProjectConfigService {
 
-
-
   getConfig(): Observable<ProjectConfig> {
     return of({
       terrasse: {

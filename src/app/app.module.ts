@@ -13,7 +13,6 @@ import { AppComponent } from './components/app/app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-
 export const ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'project' },
   {

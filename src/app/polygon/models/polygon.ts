@@ -3,7 +3,7 @@ import { Point } from '../../point/models/point';
 export class Polygon {
   constructor(public path: Point[] = [], public isNotClosed: boolean = false) { }
 
-  public area(isSigned = false) {
+  public area(isSigned = false): number {
     let aire = 0;
     for (let i = 0; i < this.path.length; i++) {
       const pi = this.path[i];
@@ -14,7 +14,7 @@ export class Polygon {
     return aire > 0 ? aire : isSigned ? aire : -aire;
   }
 
-  public perimeter() {
+  public perimeter(): number {
     let perimeter = 0;
 
     this.path.forEach((point: Point, index: number, array: Point[]) => {
@@ -27,30 +27,30 @@ export class Polygon {
     return perimeter;
   }
 
-  public getPointNextTo(point: Point, maxDistance: number) {
+  public getPointNextTo(point: Point, maxDistance: number): Point {
     return this.path
       .filter((pointItem: Point) => pointItem.distance(point) < maxDistance)
       .sort((p1, p2) => p1.distance(point) - p2.distance(point))
       .shift();
   }
 
-  public getSvgPath() {
+  public getSvgPath(): string {
     return this.path.map(point => (point.x || 0) + ',' + (point.y || 0)).join(' ');
   }
 
-  public addPoint(point: Point) {
+  public addPoint(point: Point): void {
     this.path.push(point);
   }
 
-  public removePoint(point: Point) {
+  public removePoint(point: Point): void {
     this.path.splice(this.path.indexOf(point), 1);
   }
 
-  public rollFirstToLast() {
+  public rollFirstToLast(): void {
     this.path.push(this.path.shift());
   }
 
-  public setFromJSON(data) {
+  public setFromJSON(data): Polygon {
     if (data.isNotClosed !== undefined) {
       this.isNotClosed = data.isNotClosed;
     }
@@ -60,13 +60,14 @@ export class Polygon {
     return this;
   }
 
-  public move(translate: Point) {
+  public move(translate: Point): void {
     this.path.forEach(point => {
       point.x += translate.x;
       point.y += translate.y;
     });
   }
-  public rotate(center: Point, angle: number) {
+
+  public rotate(center: Point, angle: number): void {
     this.path.forEach(point => {
       point.rotate(center, angle);
     });
