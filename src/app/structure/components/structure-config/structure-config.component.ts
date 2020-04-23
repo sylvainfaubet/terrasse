@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Structure } from '../../models/structure';
 
 @Component({
@@ -6,10 +6,6 @@ import { Structure } from '../../models/structure';
   templateUrl: './structure-config.component.html',
   styleUrls: ['./structure-config.component.scss'],
 })
-export class StructureConfigComponent implements OnInit {
+export class StructureConfigComponent {
   @Input() structure: Structure;
-
-  constructor() { }
-
-  ngOnInit() { }
 }

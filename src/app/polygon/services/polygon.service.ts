@@ -8,7 +8,7 @@ import { Polygon } from '../models/polygon';
   providedIn: 'root',
 })
 export class PolygonService {
-  constructor() { }
+
 
   public polygonIntersections(p1: Polygon, p2: Polygon): Polygon[] {
     if (p1 && p1.path.length > 0 && p2 && p2.path.length > 0) {

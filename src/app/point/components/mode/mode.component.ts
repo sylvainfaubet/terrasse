@@ -22,7 +22,7 @@ export class ModeComponent implements OnInit {
     this.modeChange.emit(this.modeValue);
   }
 
-  constructor() { }
 
-  ngOnInit() { }
+
+
 }

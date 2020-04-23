@@ -14,8 +14,7 @@ export class PolygonRotateComponent implements OnInit {
 
   constructor(private readonly polygonService: PolygonService) { }
 
-  ngOnInit() {
-  }
+
 
   rotatePolygon(isRotateLeft: boolean) {
     const center = this.polygonService.getCentroid(this.polygon);

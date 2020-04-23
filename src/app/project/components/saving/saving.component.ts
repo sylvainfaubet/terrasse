@@ -19,7 +19,7 @@ export class SavingComponent implements OnInit {
     private readonly router: Router,
   ) { }
 
-  ngOnInit() { }
+
   saveProject() {
     this.downloadService.saveAsJson(this.project);
   }

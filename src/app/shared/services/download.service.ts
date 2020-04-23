@@ -24,11 +24,11 @@ export class DownloadService {
         target: HTMLInputElement & EventTarget;
       }
 
-      input.onchange = (e: HTMLInputEvent) => {
+      input.onchange = (e: HTMLInputEvent): void => {
         const file = e.target.files[0];
         const fileReader = new FileReader();
         fileReader.readAsText(file);
-        fileReader.onloadend = () => {
+        fileReader.onloadend = (): void => {
           const data = JSON.parse(fileReader.result.toString());
           if (!data.name) {
             data.name = file.name.split('.')[0];

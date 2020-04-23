@@ -13,8 +13,7 @@ export class PolygonMoveComponent implements OnInit {
 
   constructor(private readonly editPointModalService: EditPointModalService) { }
 
-  ngOnInit() {
-  }
+
 
   movePolygon() {
     const translate = new Point(0, 0);

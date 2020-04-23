@@ -8,7 +8,7 @@ export class Structure {
     public offset: Point = new Point(0.1, 0.1),
   ) { }
 
-  setFromJSON(data) {
+  setFromJSON(data): Structure {
     if (data.bottomSpace) {
       this.bottomSpace = data.bottomSpace;
     }

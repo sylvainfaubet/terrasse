@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DrawType } from '../../models/draw.type';
 
 @Component({
@@ -6,7 +6,7 @@ import { DrawType } from '../../models/draw.type';
   templateUrl: './draw-type-selector.component.html',
   styleUrls: ['./draw-type-selector.component.scss'],
 })
-export class DrawTypeSelectorComponent implements OnInit {
+export class DrawTypeSelectorComponent {
   drawTypes = [DrawType.Piscine, DrawType.Terrasse];
 
   @Output() typeChange = new EventEmitter<DrawType>();
@@ -14,7 +14,4 @@ export class DrawTypeSelectorComponent implements OnInit {
   @Input()
   type: DrawType;
 
-  constructor() { }
-
-  ngOnInit() { }
 }

@@ -1,7 +1,7 @@
 export class Zone {
   constructor(public width = 25, public height = 20) { }
 
-  setFromJSON(data) {
+  setFromJSON(data): void {
     if (data.width) {
       this.width = data.width;
     }

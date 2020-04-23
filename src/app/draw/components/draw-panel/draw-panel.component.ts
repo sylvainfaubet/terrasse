@@ -23,9 +23,8 @@ export class DrawPanelComponent implements OnInit {
 
 
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+
+
 
 }

@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
 })
 export class ProjectConfigService {
 
-  constructor() { }
+
 
   getConfig(): Observable<ProjectConfig> {
     return of({

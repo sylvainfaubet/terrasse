@@ -1,7 +1,7 @@
 import { Point } from '../../point/models/point';
 
 export class Polygon {
-  constructor(public path: Point[] = [], public isNotClosed: Boolean = false) { }
+  constructor(public path: Point[] = [], public isNotClosed: boolean = false) { }
 
   public area(isSigned = false) {
     let aire = 0;

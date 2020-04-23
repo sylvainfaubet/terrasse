@@ -10,8 +10,6 @@ import { Observable, of, throwError } from 'rxjs';
 export class ProjectService {
   projects: Array<Project> = [new Project(0, [new Draw(DrawType.Terrasse)])];
 
-  constructor() { }
-
   createProject(): Project {
     this.projects.push(new Project(this.projects.length));
 
@@ -27,7 +25,7 @@ export class ProjectService {
     return of(this.projects[id]);
   }
 
-  setProjectFromData(data) {
+  setProjectFromData(data): Project {
     const project = new Project(this.projects.length);
     project.setFromJSON(data);
     this.projects.push(project);

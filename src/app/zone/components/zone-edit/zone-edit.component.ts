@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Zone } from '../../models';
 
 @Component({
@@ -6,13 +6,9 @@ import { Zone } from '../../models';
   templateUrl: './zone-edit.component.html',
   styleUrls: ['./zone-edit.component.scss']
 })
-export class ZoneEditComponent implements OnInit {
+export class ZoneEditComponent {
 
   @Input() zone: Zone;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

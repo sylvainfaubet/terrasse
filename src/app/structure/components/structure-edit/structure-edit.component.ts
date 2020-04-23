@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Draw } from 'src/app/draw/models/draw';
 
 @Component({
@@ -6,13 +6,8 @@ import { Draw } from 'src/app/draw/models/draw';
   templateUrl: './structure-edit.component.html',
   styleUrls: ['./structure-edit.component.scss']
 })
-export class StructureEditComponent implements OnInit {
+export class StructureEditComponent {
 
   @Input() draw: Draw;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

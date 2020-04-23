@@ -7,7 +7,7 @@ export class Draw {
     public type: DrawType,
     public polygon: Polygon = new Polygon(),
     public structure: Structure = new Structure(),
-    public name?: String
+    public name?: string
   ) { }
 
   setFromJSON(data) {

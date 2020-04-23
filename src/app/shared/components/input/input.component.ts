@@ -26,9 +26,8 @@ export class InputComponent implements OnInit {
     return this._value;
   }
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+
+
 
 }

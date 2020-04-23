@@ -24,5 +24,5 @@ export class ConfigureComponent {
 
   @Input() project: Project;
 
-  constructor() { }
+
 }

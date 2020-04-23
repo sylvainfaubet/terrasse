@@ -12,7 +12,7 @@ export class PolygonInfoComponent implements OnInit {
 
   constructor(private polygonService: PolygonService) { }
 
-  ngOnInit() { }
+
 
   getCentroid() {
 

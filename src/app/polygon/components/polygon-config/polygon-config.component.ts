@@ -9,9 +9,9 @@ export class PolygonConfigComponent implements OnInit {
 
   @Input() polygon: Polygon;
 
-  constructor() { }
 
-  ngOnInit() { }
+
+
 
 
 

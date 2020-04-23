@@ -29,7 +29,7 @@ export class EditComponent implements OnInit {
     this.doJobOnClickedPoint = this.doJobOnClickedPoint.bind(this);
   }
 
-  ngOnInit() { }
+
 
   doJobOnClickedPoint(clickedPoint: Point) {
     const foundPoint = this.currentDraw.polygon.getPointNextTo(clickedPoint, 1);

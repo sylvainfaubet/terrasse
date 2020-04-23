@@ -7,10 +7,10 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() public title: String;
+  @Input() public title: string;
   isProd = environment.production;
 
-  constructor() { }
 
-  public ngOnInit() { }
+
+  public
 }

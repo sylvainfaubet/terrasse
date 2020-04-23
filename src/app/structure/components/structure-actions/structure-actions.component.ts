@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DrawService } from 'src/app/draw/services/draw.service';
 import { Draw } from 'src/app/draw/models/draw';
 
@@ -7,21 +7,16 @@ import { Draw } from 'src/app/draw/models/draw';
   templateUrl: './structure-actions.component.html',
   styleUrls: ['./structure-actions.component.scss']
 })
-export class StructureActionsComponent implements OnInit {
+export class StructureActionsComponent {
   @Input() draw: Draw;
 
   constructor(private readonly drawService: DrawService) { }
 
-  ngOnInit() {
-  }
-
-
-
-  structureSetBestAngle() {
+  structureSetBestAngle(): void {
     this.drawService.drawStructureSetBestAngle(this.draw);
   }
 
-  structureAlign() {
+  structureAlign(): void {
     this.drawService.drawStructureSetAlignToLastEdge(this.draw);
   }
 }
