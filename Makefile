@@ -50,3 +50,7 @@ test: ## run unit tests
 
 qa: ## run Quality Analysis
 	npm run lint
+
+storybook: ## run storybook
+	npm run storybook
+
