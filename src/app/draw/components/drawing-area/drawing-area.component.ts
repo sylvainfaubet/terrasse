@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Draw } from 'src/app/draw/models/draw';
 import { Point } from 'src/app/point/models/point';
+import { Project } from 'src/app/project/models/project';
+import { ProjectConfig } from 'src/app/project/models/project-config';
 
 @Component({
   selector: 'terrasse-drawing-area',
@@ -12,12 +14,12 @@ import { Point } from 'src/app/point/models/point';
 export class DrawingAreaComponent implements OnInit {
   @Output() clickEvent = new EventEmitter<Point>();
 
-  @Input() project: any;
-  @Input() config: any;
+  @Input() project: Project;
+  @Input() config: ProjectConfig;
 
   @Input() draw: Draw;
 
-  svg: any;
+  svg: SVGAElement;
 
   constructor(private readonly el: ElementRef, route: ActivatedRoute) {
     route.data.subscribe(data => {
@@ -26,23 +28,23 @@ export class DrawingAreaComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.svg = this.el.nativeElement.getElementsByTagName('svg')[0];
   }
 
-  getViewboxText() {
+  getViewboxText(): string {
     return '0 0 ' + this.project.zone.width + ' ' + this.project.zone.height;
   }
 
-  formatPoints(draw: Draw) {
+  formatPoints(draw: Draw): string {
     return draw.polygon.getSvgPath();
   }
 
-  onClick(event) {
+  onClick(event): void {
     this.clickEvent.emit(this.getClickedPoint(event));
   }
 
-  private getClickedPoint(event: any) {
+  private getClickedPoint(event): Point {
 
     const svg = event.currentTarget;
     const p = svg.createSVGPoint();

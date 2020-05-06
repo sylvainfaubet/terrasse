@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DownloadService } from '@shared/services/download.service';
 import { ProjectService } from '../../services/project.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Project } from '../../models/project';
   templateUrl: './saving.component.html',
   styleUrls: ['./saving.component.scss'],
 })
-export class SavingComponent implements OnInit {
+export class SavingComponent {
   @Input()
   project: Project;
 
@@ -19,12 +19,11 @@ export class SavingComponent implements OnInit {
     private readonly router: Router,
   ) { }
 
-  ngOnInit() { }
-  saveProject() {
+  saveProject(): void {
     this.downloadService.saveAsJson(this.project);
   }
 
-  loadProject() {
+  loadProject(): void {
     this.downloadService.getFromJson().then(data => {
       const project = this.projectService.setProjectFromData(data);
       console.log('loadProject', data, project);

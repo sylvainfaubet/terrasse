@@ -5,7 +5,7 @@ import { DrawType } from 'src/app/draw/models/draw.type';
 export class Project {
   constructor(public id: number, public draws: Array<Draw> = [], public zone: Zone = new Zone(), public name?: string) { }
 
-  setFromJSON(data) {
+  setFromJSON(data): void {
     this.name = data.name;
     if (data.zone) {
       this.zone.setFromJSON(data.zone);

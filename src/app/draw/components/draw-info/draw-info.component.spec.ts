@@ -9,25 +9,25 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 class MockService { }
 
 describe('DrawInfoComponent', () => {
-    let component: DrawInfoComponent;
-    let fixture: ComponentFixture<DrawInfoComponent>;
+  let component: DrawInfoComponent;
+  let fixture: ComponentFixture<DrawInfoComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [DrawInfoComponent],
-            providers: [{ provide: PolygonService, useClass: MockService }],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
-        }).compileComponents();
-    }));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [DrawInfoComponent],
+      providers: [{ provide: PolygonService, useClass: MockService }],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(DrawInfoComponent);
-        component = fixture.componentInstance;
-        component.draw = new Draw(DrawType.Piscine);
-        fixture.detectChanges();
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DrawInfoComponent);
+    component = fixture.componentInstance;
+    component.draw = new Draw(DrawType.Piscine);
+    fixture.detectChanges();
+  });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

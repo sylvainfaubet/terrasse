@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -6,11 +6,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  @Input() public title: String;
+export class HeaderComponent {
+  @Input() public title: string;
   isProd = environment.production;
-
-  constructor() { }
-
-  public ngOnInit() { }
 }

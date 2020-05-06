@@ -1,21 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Polygon } from '../../models/polygon';
 import { PolygonService } from '../../services/polygon.service';
+import { Point } from 'src/app/point/models/point';
 
 @Component({
-    selector: 'terrasse-polygon-info',
-    templateUrl: './polygon-info.component.html',
-    styleUrls: ['./polygon-info.component.scss'],
+  selector: 'terrasse-polygon-info',
+  templateUrl: './polygon-info.component.html',
+  styleUrls: ['./polygon-info.component.scss'],
 })
-export class PolygonInfoComponent implements OnInit {
-    @Input() polygon: Polygon;
+export class PolygonInfoComponent {
+  @Input() polygon: Polygon;
 
-    constructor(private polygonService: PolygonService) { }
+  constructor(private polygonService: PolygonService) { }
 
-    ngOnInit() { }
-
-    getCentroid() {
-
-        return this.polygonService.getCentroid(this.polygon);
-    }
+  getCentroid(): Point {
+    return this.polygonService.getCentroid(this.polygon);
+  }
 }

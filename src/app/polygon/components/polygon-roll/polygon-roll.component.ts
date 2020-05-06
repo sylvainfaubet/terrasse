@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Polygon } from '../../models';
 
 @Component({
@@ -6,16 +6,11 @@ import { Polygon } from '../../models';
   templateUrl: './polygon-roll.component.html',
   styleUrls: ['./polygon-roll.component.scss']
 })
-export class PolygonRollComponent implements OnInit {
+export class PolygonRollComponent {
 
   @Input() polygon: Polygon;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  isNotChangeable() {
+  isNotChangeable(): boolean {
     return this.polygon && this.polygon.path.length < 3;
   }
 }

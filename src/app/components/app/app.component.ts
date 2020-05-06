@@ -14,10 +14,10 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public title: String;
+  public title: string;
   public loaded = false;
 
-  constructor(@Inject(DOCUMENT) document: any, router: Router) {
+  constructor(@Inject(DOCUMENT) document: Document, router: Router) {
     this.title = document.title;
     router.events.subscribe(event => {
       if (event instanceof NavigationStart) {

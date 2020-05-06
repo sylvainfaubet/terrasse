@@ -1,16 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Draw } from '../../models/draw';
+import { Project } from 'src/app/project/models/project';
 
 @Component({
   selector: 'terrasse-draw-panel',
   templateUrl: './draw-panel.component.html',
   styleUrls: ['./draw-panel.component.scss']
 })
-export class DrawPanelComponent implements OnInit {
+export class DrawPanelComponent {
 
   private _draw: Draw;
 
-  @Input() project: any;
+  @Input() project: Project;
 
   @Output() drawChange = new EventEmitter<Draw>();
   @Input() set draw(draw: Draw) {
@@ -19,13 +20,6 @@ export class DrawPanelComponent implements OnInit {
   }
   get draw(): Draw {
     return this._draw;
-  }
-
-
-
-  constructor() { }
-
-  ngOnInit() {
   }
 
 }

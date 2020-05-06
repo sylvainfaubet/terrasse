@@ -13,7 +13,7 @@ export class EditPointModalComponent {
 
   constructor(
     public dialogRef: MatDialogRef<EditPointModalComponent>,
-    @Inject(MAT_DIALOG_DATA) data: { point: Point, title: string }
+    @Inject(MAT_DIALOG_DATA) data: { point: Point; title: string }
   ) {
     if (!!data.point) {
       this.point = data.point;
